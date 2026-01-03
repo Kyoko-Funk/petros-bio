@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Error | Pétros Biokinetics</title>
+    <meta name="description" content="We encountered an unexpected issue. Our team is working to restore your experience.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petros: {
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
+                            slate: '#2C3E50',
+                            charcoal: '#151515',
+                            cream: '#F5F4F0',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'blob': 'blob 7s infinite',
+                        'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
+                        'wiggle': 'wiggle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        pulseSlow: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.6' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(-5deg)' },
+                            '75%': { transform: 'rotate(5deg)' },
+                        },
+                    },
+                },
+            },
+        };
+    </script>
+
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(30px);
+        }
+
+        .error-number {
+            font-size: clamp(5rem, 18vw, 12rem);
+            line-height: 1;
+            background: linear-gradient(135deg, #7A8B69 0%, #2F3E30 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(122, 139, 105, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-petros-charcoal min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Animated Background Orbs -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="floating-orb w-96 h-96 bg-red-500 top-10 -left-20 animate-blob opacity-20"></div>
+        <div class="floating-orb w-72 h-72 bg-petros-deep bottom-20 right-10 animate-blob opacity-20" style="animation-delay: 2s;"></div>
+        <div class="floating-orb w-80 h-80 bg-petros-green top-1/2 right-1/3 animate-blob opacity-20" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-4 max-w-2xl">
+        <!-- Error Number -->
+        <div class="mb-8 animate-fade-in">
+            <div class="error-number">500</div>
+        </div>
+
+        <!-- Animated Icon - Broken link -->
+        <div class="flex justify-center mb-8 animate-wiggle">
+            <div class="relative">
+                <div class="absolute inset-0 bg-red-500 rounded-full opacity-20 blur-xl animate-pulse-slow"></div>
+                <svg class="w-20 h-20 text-red-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4v2m0 5v1m0-17v1m-9-4h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2zm10 8v-2a2 2 0 10-4 0v2m0-8h-2a2 2 0 00-2 2v2a2 2 0 002 2h2V5a2 2 0 00-2-2zm8 2h-2a2 2 0 00-2 2v2a2 2 0 002 2h2v-6z"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Main Message -->
+        <div class="animate-fade-in" style="animation-delay: 0.2s;">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-petros-cream mb-4">
+                Something Went Wrong
+            </h1>
+            
+            <p class="text-petros-cream text-opacity-70 text-lg mb-8">
+                Our team of biokinetic experts is working on restoring your experience. We apologize for the interruption in your wellness journey.
+            </p>
+
+            <!-- Glass Card with info -->
+            <div class="glass rounded-2xl px-8 py-8 mb-8 space-y-6">
+                <div class="space-y-4">
+                    <div class="flex items-center justify-center gap-3 text-petros-cream text-opacity-70">
+                        <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-sm font-semibold">Error Code: 500</span>
+                    </div>
+
+                    <p class="text-petros-cream text-opacity-60 text-sm">
+                        Our systems detected an issue. Please try again shortly or contact our support team for assistance.
+                    </p>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-3 pt-4 border-t border-petros-cream border-opacity-10">
+                    <button onclick="location.reload()" class="w-full glass rounded-lg px-6 py-3 text-petros-green font-semibold hover:text-petros-cream hover:bg-petros-green/10 transition-all duration-300 btn-hover flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                        </svg>
+                        Try Again
+                    </button>
+                    <a href="index.html" class="w-full glass rounded-lg px-6 py-3 text-petros-cream text-opacity-70 font-semibold hover:text-petros-cream hover:bg-petros-deep/30 transition-all duration-300 btn-hover flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2.83-2.83a3 3 0 004.24 0L12 9m0 0l2.93-2.93a3 3 0 014.24 0L21 12M3 12l6-6m0 0l6 6m-6-6v12"/>
+                        </svg>
+                        Go Home
+                    </a>
+                </div>
+            </div>
+
+            <!-- Support Message -->
+            <p class="text-petros-cream text-opacity-50 text-sm italic">
+                💬 Questions? <a href="contact.html" class="text-petros-green hover:underline font-semibold">Contact our support team</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Animate elements on load
+        gsap.from(".error-number", {
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            delay: 0.1
+        });
+    </script>
+</body>
+</html>
