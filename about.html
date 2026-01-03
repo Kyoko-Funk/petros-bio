@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Jean-Pierre Grobler | Pétros Biokinetics - Expert Practitioner</title>
+    <meta name="description" content="Meet Jean-Pierre Grobler, founder of Pétros Biokinetics. Discover his expertise in clinical restoration, biokinetics, and movement therapy in Swakopmund, Namibia.">
+    <meta name="keywords" content="Jean-Pierre Grobler, biokinetics expert, clinical practitioner, rehabilitation specialist, Swakopmund">
+    <meta name="canonical" content="https://petrosbiokinetics.com/about.html">
+    <meta property="og:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
+    <meta property="og:description" content="Expert practitioner dedicated to clinical restoration and biokinetic excellence.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
+    <meta name="twitter:description" content="Expert biokinetics practitioner and clinical restoration specialist.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'petros-green': '#7A8B69',
+                        'petros-deep': '#2F3E30',
+                        'petros-slate': '#2C3E50',
+                        'petros-charcoal': '#151515',
+                        'petros-cream': '#F5F4F0',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animations */
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float-slow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .fade-in {
+            animation: fade-in 0.8s ease-out;
+        }
+
+        .slide-up {
+            animation: slide-up 0.8s ease-out;
+        }
+
+        .float-slow {
+            animation: float-slow 6s ease-in-out infinite;
+        }
+
+        /* Glass morphism */
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero background */
+        .hero-bg-about {
+            background: linear-gradient(135deg, rgba(122, 139, 105, 0.1) 0%, rgba(47, 62, 48, 0.05) 100%),
+                        url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .animate-slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        /* Tour card hover effects */
+        .tour-card {
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tour-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            background-color: #7A8B69;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #2F3E30;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(122, 139, 105, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-petros-cream text-petros-charcoal font-sans selection:bg-petros-green/30">
+
+    <!-- Navigation Bar -->
+    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
+        <div class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                </div>
+                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
+                    Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
+                </span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
+                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
+                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
+                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
+                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="about.html" class="font-medium tracking-wide text-petros-green">About</a></li>
+                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+            </ul>
+
+            <!-- Book Now Button -->
+            <div class="flex items-center gap-3 hidden md:flex">
+                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div id="hero-bg-about" class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');"></div>
+            <div class="absolute inset-0 bg-gray-600/40"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl text-center">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 animate-fade-in">Expertise & Compassion</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 animate-slide-up">
+                Meet Jean-Pierre <span class="italic text-petros-green">Grobler</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light animate-slide-up" style="animation-delay: 0.2s;">
+                Clinical excellence meets compassionate care. Dedicated to restoring your movement and your quality of life.
+            </p>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image -->
+                <div class="relative">
+                    <div class="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl relative">
+                        <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767285303/Jean-Pierre_cbf5uq.png?auto=format&fit=crop&q=80&w=1974" alt="Jean-Pierre Grobler" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-petros-green/20 to-transparent"></div>
+                    </div>
+                    <!-- Stats Badge -->
+                    <div class="absolute -bottom-6 -left-6 glass-morphism p-8 rounded-3xl hidden md:block border-petros-green/20">
+                        <p class="text-4xl font-serif text-petros-green mb-1">10+</p>
+                        <p class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Years Clinical Experience</p>
+                    </div>
+                </div>
+
+                <!-- Bio Content -->
+                <div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight">Rehabilitation with <br><span class="italic text-petros-green">clinical precision.</span></h2>
+
+                    <p class="text-petros-slate font-light leading-relaxed mb-6 text-lg">
+                        Jean-Pierre Grobler is a qualified Biokineticist specializing in orthopedic rehabilitation, chronic pain management, and athletic performance enhancement. With a deep understanding of human movement, Jean-Pierre focuses on finding the root cause of dysfunction rather than simply treating symptoms.
+                    </p>
+
+                    <p class="text-petros-slate font-light leading-relaxed mb-10">
+                        His approach combines evidence-based exercise prescription with a calm, patient-centered atmosphere. Every patient receives a comprehensive assessment and personalized treatment plan that respects their individual needs, goals, and pace of recovery.
+                    </p>
+
+                    <!-- Credentials -->
+                    <div class="flex flex-wrap gap-4 mb-10">
+                        <span class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">HPCSA Registered</span>
+                        <span class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">BSc (Hons) Biokinetics</span>
+                        <span class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">Clinical Specialist</span>
+                    </div>
+
+                    <a href="contact.html" class="cta-button inline-block px-10 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Book Assessment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="py-24 px-6 bg-petros-deep/5 relative overflow-hidden">
+        <div class="absolute top-20 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">The Pétros <span class="italic text-petros-green">Philosophy</span></h2>
+                <p class="text-petros-slate font-light italic max-w-2xl mx-auto">Movement is medicine. Recovery is a journey, not a destination.</p>
+            </div>
+
+            <!-- Three Pillars -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="heart" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Patient-Centered</h3>
+                    <p class="text-petros-slate font-light leading-relaxed">Your goals and comfort guide every decision. We listen, adapt, and support your unique journey.</p>
+                </div>
+
+                <div class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="microscope" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Evidence-Based</h3>
+                    <p class="text-petros-slate font-light leading-relaxed">Every recommendation is grounded in current research and clinical best practices.</p>
+                </div>
+
+                <div class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
+                    <div class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="zap" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Results-Driven</h3>
+                    <p class="text-petros-slate font-light leading-relaxed">We measure progress and continuously refine your program for optimal outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Tour Section -->
+    <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">Welcome to <span class="italic text-petros-green">the Space</span></h2>
+                <p class="text-petros-slate font-light italic">A modern, clinical sanctuary designed for your recovery.</p>
+            </div>
+
+            <!-- Main Featured Image -->
+            <div class="rounded-[3rem] overflow-hidden shadow-2xl relative group tour-card h-[500px] mb-8">
+                <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767285806/Rehab_Center_dnpsrs.png?auto=format&fit=crop&q=80&w=2069" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <div class="absolute bottom-10 left-10">
+                    <div class="glass-morphism p-8 rounded-2xl max-w-md backdrop-blur-xl border-petros-green/20">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-full bg-petros-green/20 flex items-center justify-center">
+                                <i data-lucide="dumbbell" class="w-5 h-5 text-petros-green"></i>
+                            </div>
+                            <h4 class="font-serif text-2xl text-white">Rehabilitation Area</h4>
+                        </div>
+                        <p class="text-sm text-white/90 font-light leading-relaxed">Natural light floods our main rehabilitation space, equipped with professional-grade equipment for guided exercise and movement therapy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Three Supporting Images -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[300px]">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767286189/Consultation_Room_oicrx4.png?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-petros-green/30 flex items-center justify-center">
+                                <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <h5 class="font-serif text-lg text-white">Consultation Room</h5>
+                        </div>
+                        <p class="text-xs text-white/80 font-light">Private assessment space</p>
+                    </div>
+                </div>
+
+                <div class="rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[300px]">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767286406/Reception_Area_qotwbb.png?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-petros-green/30 flex items-center justify-center">
+                                <i data-lucide="door-open" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <h5 class="font-serif text-lg text-white">Reception & Entry</h5>
+                        </div>
+                        <p class="text-xs text-white/80 font-light">Welcoming arrival space</p>
+                    </div>
+                </div>
+
+                <div class="rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[300px]">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767286640/Front_Yard_of_Practce_un8vfd.png?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-petros-green/30 flex items-center justify-center">
+                                <i data-lucide="home" class="w-4 h-4 text-white"></i>
+                            </div>
+                            <h5 class="font-serif text-lg text-white">Practice Exterior</h5>
+                        </div>
+                        <p class="text-xs text-white/80 font-light">Peaceful surroundings</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Facility Highlights -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Fully Equipped</p>
+                </div>
+                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="sun" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Natural Light</p>
+                </div>
+                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="lock" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Private Sessions</p>
+                </div>
+                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="sparkles" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                    </div>
+                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Modern Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 px-6 bg-petros-deep relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">Ready to Start Your <span class="italic text-petros-green">Recovery Journey?</span></h2>
+            <p class="text-white/80 font-light text-lg mb-10 max-w-2xl mx-auto">
+                Let's work together to restore your movement, rebuild your confidence, and reclaim your quality of life.
+            </p>
+            <a href="contact.html" class="cta-button inline-block px-12 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Schedule Your Assessment</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-petros-charcoal text-white py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <img src="logo.png" alt="Pétros Biokinetics" class="h-8 w-auto">
+                        <span class="font-serif italic text-lg">Pétros</span>
+                    </div>
+                    <p class="text-white/60 font-light text-sm leading-relaxed mb-6">
+                        Clinical excellence meets compassionate care in Swakopmund, Namibia.
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-petros-green/20 flex items-center justify-center text-white hover:bg-petros-green transition-all">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-petros-green/20 flex items-center justify-center text-white hover:bg-petros-green transition-all">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-6">Navigation</h4>
+                    <ul class="space-y-3 text-sm text-white/60 font-light">
+                        <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
+                        <li><a href="about.html" class="text-petros-green">About</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hours -->
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-6">Hours</h4>
+                    <ul class="space-y-3 text-sm text-white/60 font-light">
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed 12:00 – 13:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-6">Contact</h4>
+                    <ul class="space-y-3 text-sm text-white/60 font-light">
+                        <li><a href="tel:+264816835055" class="hover:text-petros-green transition-colors">+264 81 683 5055</a></li>
+                        <li><a href="mailto:petrosbiokinetics@gmail.com" class="hover:text-petros-green transition-colors">petrosbiokinetics@gmail.com</a></li>
+                        <li class="text-xs">102 Dr. Libertine Amathila Avenue<br>Kramersdorf, Swakopmund, Namibia</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero parallax effect
+        gsap.to("#hero-bg-about", {
+            scrollTrigger: {
+                trigger: "section",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            },
+            y: 100,
+            scale: 1.1
+        });
+
+        // Mobile Menu Toggle
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            overlay.classList.toggle('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            });
+        });
+
+        // Close menu on resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (window.innerWidth >= 768) {
+                    menu.classList.add('hidden');
+                    overlay.classList.add('hidden');
+                }
+            }, 500);
+        });
+
+        // Stagger animation for philosophy cards
+        const cards = document.querySelectorAll('.glass-morphism');
+        cards.forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: index * 0.15
+            });
+        });
+    </script>
+</body>
+</html>

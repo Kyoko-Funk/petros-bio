@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Consultation | Pétros Biokinetics - Biokinetic Booking</title>
+    <meta name="description" content="Book your biokinetic consultation with Pétros Biokinetics in Swakopmund. Schedule your clinical restoration session online with our expert practitioners.">
+    <meta name="keywords" content="book consultation, schedule appointment, biokinetic booking, clinical restoration appointment, Swakopmund">
+    <meta name="canonical" content="https://petrosbiokinetics.com/book-now.html">
+    <meta property="og:title" content="Book Your Consultation | Pétros Biokinetics">
+    <meta property="og:description" content="Schedule your biokinetic consultation online today.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/book-now.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Your Consultation | Pétros Biokinetics">
+    <meta name="twitter:description" content="Book your biokinetic consultation now.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petros: {
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
+                            slate: '#2C3E50',
+                            charcoal: '#151515',
+                            cream: '#F5F4F0',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                        'bounce-in': 'bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(122, 139, 105, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(122, 139, 105, 0.6)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        bounceIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.3)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                            '70%': { transform: 'scale(0.9)' },
+                            '100%': { transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: #F5F4F0; overflow-x: hidden; }
+
+        .success-icon {
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .checkmark {
+            animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
+        <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                </div>
+                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
+                    Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
+                </span>
+            </div>
+
+            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
+                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
+                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
+                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
+                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
+                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center gap-3 hidden md:flex">
+                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </a>
+            </div>
+
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        toggle.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            overlay.classList.toggle('hidden');
+        });
+
+        overlay.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            });
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[50vh] md:h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-petros-deep/50 via-transparent to-petros-cream z-10"></div>
+            <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767436673/pexels-pixabay-60013_tk2jyl.jpg?auto=compress&cs=tinysrgb&w=1600" 
+                 alt="Book Your Session" 
+                 class="w-full h-full object-cover object-center">
+        </div>
+
+        <div class="relative z-20 w-full px-6 flex justify-center">
+            <div class="text-center max-w-4xl">
+                <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 animate-slide-up">
+                    Book Your <span class="italic text-petros-green">Session</span>
+                </h1>
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                    Tell us your preferred times and we'll get back to you with available slots via WhatsApp or email.
+                </p>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section class="py-24 md:py-40 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
+        <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-2xl mx-auto">
+                <!-- Booking Form -->
+                <div id="booking-form-container" class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+                    <h2 class="font-serif text-3xl text-petros-slate mb-2">Let's Get You Scheduled</h2>
+                    <p class="text-gray-600 font-light mb-8">We'll review your preferences and contact you shortly with available times.</p>
+
+                    <form id="bookingForm" action="https://formspree.io/f/maqnbgnn" method="POST" class="space-y-6">
+                        <!-- Name and Email -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full Name *</label>
+                                <input type="text" id="name" name="name" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email Address *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="hello@example.com">
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div>
+                            <label for="phone" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone / WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 81 ...">
+                        </div>
+
+                        <!-- Preferred Times -->
+                        <div>
+                            <label for="preferred-times" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Days & Times *</label>
+                            <textarea id="preferred-times" name="preferred_times" required rows="3" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none" placeholder="e.g., Mondays & Wednesdays, 10am-12pm or Saturdays mornings"></textarea>
+                            <p class="text-xs text-gray-500 mt-2">We have a flexible schedule and will work around your availability</p>
+                        </div>
+
+                        <!-- What to Wear -->
+                        <div class="bg-petros-green/5 rounded-lg p-5 border border-petros-green/20">
+                            <p class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-2">What Should You Wear?</p>
+                            <p class="text-gray-700 font-light">Comfortable workout clothes and sneakers. Avoid restrictive clothing that might limit movement during your assessment.</p>
+                        </div>
+
+                        <!-- What to Bring -->
+                        <div class="bg-petros-green/5 rounded-lg p-5 border border-petros-green/20">
+                            <p class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-2">What Should You Bring?</p>
+                            <p class="text-gray-700 font-light">A water bottle and towel. If you have any recent medical reports or imaging (X-rays, MRI results), please bring those along.</p>
+                        </div>
+
+                        <!-- Medical Aid -->
+                        <div>
+                            <label for="medical-aid" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Do You Have Medical Aid? *</label>
+                            <select id="medical-aid" name="medical_aid" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
+                                <option value="">Select an option...</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <!-- Message / Additional Information -->
+                        <div>
+                            <label for="message" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Message / Additional Information</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none" placeholder="Tell us about your condition, any pain areas, or health concerns. (Optional)"></textarea>
+                            <p class="text-xs text-gray-500 mt-2">This information helps us tailor your assessment to your specific needs.</p>
+                        </div>
+
+                        <button type="submit" class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                            <span>Complete Booking</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+
+                        <p class="text-center text-xs text-gray-500 uppercase tracking-wider">
+                            We'll contact you within 24 hours to confirm your session.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Success Message (Hidden initially) -->
+                <div id="success-message" class="hidden bg-white rounded-3xl p-12 shadow-2xl text-center">
+                    <div class="success-icon mb-6">
+                        <div class="w-24 h-24 bg-petros-green/10 rounded-full flex items-center justify-center mx-auto">
+                            <svg class="w-12 h-12 text-petros-green checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-serif text-4xl text-petros-slate mb-3">Thank You!</h3>
+                    <p class="text-xl text-petros-green font-light mb-8">We can't wait to start your restoration journey with us.</p>
+                    
+                    <div class="bg-petros-deep/5 rounded-2xl p-8 mb-8 border border-petros-green/20">
+                        <p class="text-gray-700 font-light mb-6">
+                            We'll review your preferences and contact you shortly via WhatsApp or email to confirm your session time.
+                        </p>
+                        
+                        <div class="space-y-4 text-left">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-petros-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-petros-green"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Location</p>
+                                    <p class="text-gray-700">102 Dr. Libertine Amathila Avenue<br>Kramersdorf, Swakopmund, Namibia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-petros-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-5 h-5 text-petros-green"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Direct Contact</p>
+                                    <p class="text-gray-700 font-serif text-lg">+264 81 683 5055</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-petros-green/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="clock" class="w-5 h-5 text-petros-green"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Hours</p>
+                                    <p class="text-gray-700">Mon–Fri: 7:00 – 18:00<br><span class="text-xs text-gray-500">(Closed 12:00 – 13:00)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="index.html" class="inline-block bg-petros-green text-white px-10 py-3 rounded-full font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                        </div>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
+                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
+                        <li><a href="about.html" class="hover:text-petros-green transition-colors">About</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Closed</span><span class="font-medium">12:00 – 13:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Sat & Sun</span><span class="font-medium">Closed</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Contact</h4>
+                    <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
+                    <p class="text-sm text-gray-700 mb-6">Swakopmund, Namibia</p>
+                    <p class="font-serif text-lg text-petros-slate italic">+264 81 683 5055</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        lucide.createIcons();
+
+        // Handle form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            // Let Formspree handle the submission, then show success message
+            setTimeout(() => {
+                document.getElementById('booking-form-container').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

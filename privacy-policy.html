@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Pétros Biokinetics - Your Data Protection</title>
+    <meta name="description" content="Privacy Policy for Pétros Biokinetics. We protect your personal data with comprehensive privacy practices and transparent data handling.">
+    <meta name="keywords" content="privacy policy, data protection, personal information, privacy practices">
+    <meta name="canonical" content="https://petrosbiokinetics.com/privacy-policy.html">
+    <meta property="og:title" content="Privacy Policy | Pétros Biokinetics">
+    <meta property="og:description" content="Our comprehensive privacy policy protecting your personal information.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/privacy-policy.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privacy Policy | Pétros Biokinetics">
+    <meta name="twitter:description" content="Privacy policy information.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petros: {
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
+                            slate: '#2C3E50',
+                            charcoal: '#151515',
+                            cream: '#F5F4F0',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
+        <div class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                </div>
+                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
+                    Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
+                </span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
+                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
+                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
+                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
+                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
+                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+            </ul>
+
+            <!-- Book Now Button -->
+            <div class="flex items-center gap-3 hidden md:flex">
+                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Section -->
+    <section class="pt-40 pb-24 px-4 md:px-6 bg-gradient-to-b from-petros-cream via-white to-petros-cream/50 min-h-screen">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12">
+                <h1 class="font-serif text-5xl md:text-6xl text-petros-slate mb-4">Privacy Policy</h1>
+                <p class="text-gray-600 text-lg">Last updated: January 3, 2026</p>
+            </div>
+
+            <div class="prose prose-lg max-w-none space-y-8 text-gray-700">
+                
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">1. Introduction</h2>
+                    <p>Pétros Biokinetics ("we," "us," "our," or "Company") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">2. Information We Collect</h2>
+                    <p class="mb-4">We may collect information about you in a variety of ways. The information we may collect on the site includes:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li><strong>Personal Data:</strong> Name, email address, phone number, and address when you complete booking forms or contact us</li>
+                        <li><strong>Health Information:</strong> Medical history, physical condition details, and treatment goals provided during your assessment</li>
+                        <li><strong>Usage Data:</strong> Information about how you interact with our website, including IP address, browser type, pages visited, and time spent</li>
+                        <li><strong>Device Data:</strong> Information about your device such as operating system and browser version</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">3. How We Use Your Information</h2>
+                    <p class="mb-4">We use the information we collect in the following ways:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>To process your bookings and provide our clinical services</li>
+                        <li>To communicate with you regarding your appointments and treatment</li>
+                        <li>To improve our website functionality and user experience</li>
+                        <li>To respond to your inquiries and provide customer support</li>
+                        <li>To comply with legal obligations</li>
+                        <li>To send you marketing communications (with your consent)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">4. Protection of Your Information</h2>
+                    <p>We implement appropriate technical and organizational measures designed to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">5. Confidentiality of Health Information</h2>
+                    <p>All health and medical information you provide is treated with the highest level of confidentiality and is protected under professional healthcare standards. This information is only accessible to authorized clinical staff and is never shared without your explicit consent.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">6. Disclosure of Your Information</h2>
+                    <p class="mb-4">We do not sell, trade, or rent your personal information to third parties. We may disclose your information only:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>To service providers who assist us in operating our website and conducting our business</li>
+                        <li>As required by law or legal process</li>
+                        <li>To protect our rights, privacy, safety, or property</li>
+                        <li>With your explicit consent</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">7. Cookies and Tracking Technologies</h2>
+                    <p>Our website may use cookies to enhance your experience. These help us understand how you use our site and improve functionality. You can control cookie settings through your browser preferences.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">8. Your Rights and Choices</h2>
+                    <p class="mb-4">You have the right to:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Access your personal information</li>
+                        <li>Request correction of inaccurate data</li>
+                        <li>Request deletion of your data</li>
+                        <li>Opt-out of marketing communications</li>
+                        <li>Request a copy of your information</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">9. Third-Party Links</h2>
+                    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. Please review their privacy policies before providing any personal information.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">10. Changes to This Privacy Policy</h2>
+                    <p>We may update this Privacy Policy periodically. We will notify you of significant changes by posting the new policy on our website with an updated "Last Updated" date.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">11. Contact Us</h2>
+                    <p class="mb-4">If you have questions or concerns about this Privacy Policy or our privacy practices, please contact us at:</p>
+                    <div class="bg-petros-green/5 rounded-lg p-6 border border-petros-green/20">
+                        <p class="font-semibold text-petros-slate mb-2">Pétros Biokinetics</p>
+                        <p class="text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue<br>Kramersdorf, Swakopmund, Namibia</p>
+                        <p class="text-gray-700 mb-2"><a href="mailto:petrosbiokinetics@gmail.com" class="text-petros-green hover:underline">petrosbiokinetics@gmail.com</a></p>
+                        <p class="text-gray-700"><a href="tel:+264816835055" class="text-petros-green hover:underline">+264 81 683 5055</a></p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-10 pb-6 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+
+                <!-- Column 1: Logo + Description + Social -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- Logo + Name -->
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                        </div>
+                        <span class="font-serif italic text-lg text-petros-slate">
+                            Pétros <span class="font-light not-italic">Biokinetics</span>
+                        </span>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 text-sm leading-snug mb-4 max-w-xs">
+                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/264816835055" target="_blank"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Navigation</h4>
+                    <ul class="space-y-1.5 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green">Home</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Clinic Hours -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Hours</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
+                            <span>Mon — Fri</span>
+                            <span>07:00 – 18:00</span>
+                            <span>Closed between 12:00 – 13:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
+                            <span>Saturday</span>
+                            <span>Closed</span>
+
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5 text-petros-green italic">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Location -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Location</h4>
+                    <p class="text-sm text-gray-600 mb-2">102 Dr. Libertine Amathila Avenue</p>
+                    <p class="text-sm text-gray-600 mb-6">Kramersdorf, Swakopmund Namibia, Namibia</p>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-[10px] font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <p class="font-serif text-lg text-petros-slate italic">+264 81 683 5055</p>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }
+
+        toggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</body>
+</html>

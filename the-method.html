@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Method | Pétros Biokinetics - Clinical Restoration Approach</title>
+    <meta name="description" content="Discover the Pétros Method - our evidence-based biokinetic approach to clinical restoration. Learn how we combine biomechanical science with therapeutic excellence.">
+    <meta name="keywords" content="biokinetics method, clinical restoration, biomechanics, movement therapy, rehabilitation approach">
+    <meta name="canonical" content="https://petrosbiokinetics.com/the-method.html">
+    <meta property="og:title" content="The Method | Pétros Biokinetics">
+    <meta property="og:description" content="Our evidence-based biokinetic approach to clinical restoration and movement therapy.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/the-method.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Method | Pétros Biokinetics">
+    <meta name="twitter:description" content="Evidence-based biokinetic clinical restoration approach.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petros: {
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
+                            slate: '#2C3E50',
+                            charcoal: '#151515',
+                            cream: '#F5F4F0',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(122, 139, 105, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(122, 139, 105, 0.6)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-nav {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .gradient-card {
+            background: linear-gradient(135deg, rgba(122, 139, 105, 0.1) 0%, rgba(122, 139, 105, 0.05) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(122, 139, 105, 0.2);
+        }
+
+        .method-step {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .method-step:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: #F5F4F0; overflow-x: hidden; }
+    </style>
+</head>
+<body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
+        <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                </div>
+                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
+                    Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
+                </span>
+            </div>
+
+            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
+                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
+                <li><a href="the-method.html" class="font-medium tracking-wide text-petros-green">The Method</a></li>
+                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
+                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
+                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+            </ul>
+
+            <div class="flex items-center gap-3 hidden md:flex">
+                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </a>
+            </div>
+
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let scrollTimeout;
+
+        function toggleMenu() {
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }
+
+        toggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(closeMenu, 500);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                closeMenu();
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-petros-deep/30 via-transparent to-petros-cream z-10"></div>
+            <img id="hero-bg" src="https://res.cloudinary.com/karlifunk/image/upload/v1767434791/pexels-karola-g-4506160_vmat1g.jpg?auto=compress&cs=tinysrgb&w=1600" 
+                 alt="Clinical Restoration" 
+                 class="w-full h-full object-cover object-center">
+            <!-- Seamless Blend to next section -->
+            <div class="absolute inset-0 z-20 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
+        </div>
+
+        <div class="relative z-20 w-full px-6 flex justify-center">
+            <div class="text-center max-w-4xl">
+                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block animate-fade-in">Biokinetic Restoration</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 animate-slide-up">
+                    The Clinical <span class="italic text-petros-green">Method</span>
+                </h1>
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                    Precision biomechanics engineered for complete restoration. Movement decoded as clinical medicine. Three pillars. One outcome.
+                </p>
+            </div>
+        </div>
+
+        <!-- Animated blob -->
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+    </header>
+
+    <!-- The Three Pillars Section with Better Visuals -->
+    <section id="method" class="py-24 md:py-40 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
+        
+        <!-- Background Blobs -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl mr-0 mb-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            
+            <!-- Intro -->
+            <div class="max-w-4xl mx-auto text-center mb-24">
+                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Scientific Foundation</span>
+                <h2 class="font-serif text-5xl md:text-7xl text-petros-slate leading-tight mb-8">
+                    Biokinetics as <span class="italic text-petros-green">Medicine</span>
+                </h2>
+                <p class="text-gray-700 text-lg md:text-xl leading-relaxed font-light max-w-3xl mx-auto">
+                    At Pétros, we operate on a singular principle: movement is clinical medicine. Our three-pillar methodology combines biomechanical precision, neural retraining, and performance optimization into one comprehensive restoration system.
+                </p>
+            </div>
+
+            <!-- Three Pillars Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+
+                <!-- Pillar 1: Assessment -->
+                <div class="method-step group">
+                    <div class="rounded-3xl overflow-hidden h-full bg-white shadow-lg card-hover relative flex flex-col">
+                        <!-- Image Top -->
+                        <div class="h-56 overflow-hidden bg-gray-300">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767434879/pexels-yankrukov-5793808_laxhih.jpg?auto=compress&cs=tinysrgb&w=600" 
+                                 alt="Assessment" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-10 flex-1 flex flex-col">
+                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/30 to-petros-green/10 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/50 group-hover:to-petros-green/20 transition-all duration-300">
+                                <i data-lucide="activity" class="w-7 h-7 text-petros-green group-hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            
+                            <h3 class="font-serif text-3xl text-petros-slate mb-3">Assessment</h3>
+                            <h4 class="text-lg text-petros-green italic font-light mb-4">Biomechanical Diagnosis</h4>
+                            
+                            <p class="text-gray-700 leading-relaxed mb-6 font-light text-sm flex-1">
+                                We begin with precision diagnostics. Advanced gait analysis, postural mapping, and neural drive evaluation reveal your unique dysfunction pattern.
+                            </p>
+
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">3D Gait Analysis</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Postural Mapping</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Neural Drive Assessment</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Prescription -->
+                <div class="method-step group">
+                    <div class="rounded-3xl overflow-hidden h-full bg-white shadow-lg card-hover relative flex flex-col">
+                        <!-- Image Top -->
+                        <div class="h-56 overflow-hidden bg-gray-300">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767434983/pexels-kampus-6111604_sa1tqr.jpg?auto=compress&cs=tinysrgb&w=600" 
+                                 alt="Prescription" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-10 flex-1 flex flex-col">
+                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/30 to-petros-green/10 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/50 group-hover:to-petros-green/20 transition-all duration-300">
+                                <i data-lucide="zap" class="w-7 h-7 text-petros-green group-hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            
+                            <h3 class="font-serif text-3xl text-petros-slate mb-3">Prescription</h3>
+                            <h4 class="text-lg text-petros-green italic font-light mb-4">Custom Movement Coding</h4>
+                            
+                            <p class="text-gray-700 leading-relaxed mb-6 font-light text-sm flex-1">
+                                Your dysfunction becomes algorithm. We code custom movement sequences engineered to retrain neural pathways and restore alignment.
+                            </p>
+
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Movement Algorithms</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Neural Retraining</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Progressive Load</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Execution -->
+                <div class="method-step group">
+                    <div class="rounded-3xl overflow-hidden h-full bg-white shadow-lg card-hover relative flex flex-col border-2 border-petros-green/40">
+                        <!-- Image Top -->
+                        <div class="h-56 overflow-hidden bg-gray-300">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767435107/pexels-allan-mas-5383520_adq8ef.jpg?auto=compress&cs=tinysrgb&w=600" 
+                                 alt="Execution" 
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-10 flex-1 flex flex-col">
+                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all duration-300">
+                                <i data-lucide="target" class="w-7 h-7 text-petros-green group-hover:scale-110 transition-transform duration-300"></i>
+                            </div>
+                            
+                            <h3 class="font-serif text-3xl text-petros-slate mb-3">Execution</h3>
+                            <h4 class="text-lg text-petros-green italic font-light mb-4">Supervised Results</h4>
+                            
+                            <p class="text-gray-700 leading-relaxed mb-6 font-light text-sm flex-1">
+                                Real-time execution with continuous iteration. We observe, measure, adapt, and optimize until pain dissolves and fluidity returns.
+                            </p>
+
+                            <ul class="space-y-2">
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Clinical Sessions</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Movement Feedback</span>
+                                </li>
+                                <li class="flex items-start gap-2 text-xs">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green mt-1.5 flex-shrink-0"></div>
+                                    <span class="text-gray-700">Pain Neutrality</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Integration Statement with Glassmorphism -->
+            <div class="glass-card rounded-3xl p-12 md:p-16 max-w-4xl mx-auto text-center">
+                <h3 class="font-serif text-4xl md:text-5xl text-petros-slate mb-6">
+                    Three Pillars. <br><span class="italic text-petros-green">One Outcome.</span>
+                </h3>
+                <p class="text-gray-700 text-lg leading-relaxed font-light">
+                    Assessment informs prescription. Prescription guides execution. Execution reveals results. This is the Pétros Method—a closed-loop clinical system where every phase depends on the last, and every outcome is measurable, verifiable, and transformative.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Why It Works Section with Dark Background -->
+    <section class="py-24 md:py-40 bg-gradient-to-b from-petros-deep/40 via-petros-deep/60 to-petros-charcoal relative overflow-hidden">
+        <!-- Animated blobs -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -mr-48 -mt-48 animate-blob"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mb-48 animate-blob animation-delay-2000"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            
+            <div class="max-w-4xl mx-auto">
+                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">The Science</span>
+                <h2 class="font-serif text-5xl md:text-6xl text-white leading-tight mb-20">
+                    Why This Method <br><span class="italic text-petros-green">Actually Works</span>
+                </h2>
+
+                <div class="space-y-12">
+                    <!-- Reason 1 -->
+                    <div class="flex gap-8 group">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-petros-green to-petros-green/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow">
+                                <span class="font-serif text-2xl text-white font-bold">1</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-2xl text-white mb-3 group-hover:text-petros-green transition-colors duration-300">Precision Diagnosis</h4>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                We don't treat symptoms. We identify the biomechanical root cause of your dysfunction. Without understanding your unique movement blueprint, any treatment is guesswork.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 2 -->
+                    <div class="flex gap-8 group">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-petros-green to-petros-green/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow animation-delay-1000">
+                                <span class="font-serif text-2xl text-white font-bold">2</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-2xl text-white mb-3 group-hover:text-petros-green transition-colors duration-300">Neural Retraining</h4>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                Your dysfunction is neurologically hardwired. We rewire your nervous system through proprioceptive, tactile, and visual feedback, creating new neural pathways for healthy movement.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 3 -->
+                    <div class="flex gap-8 group">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-petros-green to-petros-green/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow animation-delay-2000">
+                                <span class="font-serif text-2xl text-white font-bold">3</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-2xl text-white mb-3 group-hover:text-petros-green transition-colors duration-300">Supervised Execution</h4>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                Reduced pain and improved physical resilience. Our therapists guide every movement with precision, ensuring optimal results and building the strength and confidence you need to move freely.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 4 -->
+                    <div class="flex gap-8 group">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-petros-green to-petros-green/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow animation-delay-3000">
+                                <span class="font-serif text-2xl text-white font-bold">4</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-2xl text-white mb-3 group-hover:text-petros-green transition-colors duration-300">Continuous Adaptation</h4>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                Your body isn't static. We reassess regularly and adjust your protocol in real-time, ensuring optimal challenge without overloading or under-stimulating your system.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 5 -->
+                    <div class="flex gap-8 group">
+                        <div class="flex-shrink-0">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-petros-green to-petros-green/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 animate-pulse-glow animation-delay-4000">
+                                <span class="font-serif text-2xl text-white font-bold">5</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-2xl text-white mb-3 group-hover:text-petros-green transition-colors duration-300">Measurable Outcomes</h4>
+                            <p class="text-gray-300 leading-relaxed font-light">
+                                Every outcome is quantified. Pain reduction. Movement quality. Functional capacity. Performance metrics. You'll see objective proof of your transformation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section with Dynamic Background -->
+    <section id="cta" class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <p class="text-petros-green/90 uppercase tracking-[0.3em] text-xs font-bold mb-8 opacity-90">Ready to Begin</p>
+            
+            <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 tracking-tight leading-tight animate-slide-up">
+                Your Restoration <br><span class="italic text-petros-green">Awaits</span>
+            </h2>
+            
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-16 font-light">
+                The Pétros Method is a comprehensive, science-backed restoration system for those ready to reclaim total body fluidity and pain-free living.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="index.html#contact" class="group bg-petros-green text-white px-10 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 inline-flex items-center gap-2">
+                    Schedule Assessment
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="tel:+264 81 683 5055" class="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors px-6 py-5">
+                    <div class="w-12 h-12 rounded-full border border-petros-green/40 flex items-center justify-center group-hover:border-petros-green group-hover:bg-petros-green/10 transition-all duration-300">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">Direct Inquiries</p>
+                        <p class="text-sm font-bold">+264 81 683 5055</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                        </div>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
+                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
+                        <li><a href="the-method.html" class="text-petros-green">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
+                        <li><a href="about.html" class="hover:text-petros-green transition-colors">About</a></li>
+                        <li><a href="contact.html" class="hover:text-petros-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 12:00 – 13:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
+                    <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
+                    <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund Namibia, Namibia</p>
+                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <p class="font-serif text-lg text-petros-slate italic">+264 81 683 5055</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Parallax Hero Background
+        gsap.to("#hero-bg", {
+            scrollTrigger: {
+                trigger: "header",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            },
+            y: 100,
+            scale: 1.1
+        });
+
+        // Stagger animation for method cards
+        const methodCards = document.querySelectorAll('.method-step');
+        methodCards.forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 80%"
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8,
+                delay: index * 0.2
+            });
+        });
+    </script>
+</body>
+</html>

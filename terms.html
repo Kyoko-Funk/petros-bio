@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | Pétros Biokinetics - Legal Terms</title>
+    <meta name="description" content="Terms of Service for Pétros Biokinetics. Review our legal terms, conditions, and service agreements for biokinetic consultations and clinical restoration.">
+    <meta name="keywords" content="terms of service, legal terms, service agreement, conditions of use">
+    <meta name="canonical" content="https://petrosbiokinetics.com/terms.html">
+    <meta property="og:title" content="Terms of Service | Pétros Biokinetics">
+    <meta property="og:description" content="Our legal terms and conditions of service.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/terms.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Terms of Service | Pétros Biokinetics">
+    <meta name="twitter:description" content="Legal terms and conditions.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petros: {
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
+                            slate: '#2C3E50',
+                            charcoal: '#151515',
+                            cream: '#F5F4F0',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
+        <div class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                </div>
+                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
+                    Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
+                </span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
+                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
+                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
+                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
+                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
+                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+            </ul>
+
+            <!-- Book Now Button -->
+            <div class="flex items-center gap-3 hidden md:flex">
+                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+        </div>
+    </div>
+
+    <!-- Terms of Service Section -->
+    <section class="pt-40 pb-24 px-4 md:px-6 bg-gradient-to-b from-petros-cream via-white to-petros-cream/50 min-h-screen">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12">
+                <h1 class="font-serif text-5xl md:text-6xl text-petros-slate mb-4">Terms of Service</h1>
+                <p class="text-gray-600 text-lg">Last updated: January 3, 2026</p>
+            </div>
+
+            <div class="prose prose-lg max-w-none space-y-8 text-gray-700">
+                
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">1. Agreement to Terms</h2>
+                    <p>By accessing and using this website and services provided by Pétros Biokinetics ("Company," "we," "us," or "our"), you accept and agree to be bound by and comply with these Terms of Service. If you do not agree to abide by the above, please do not use this service.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">2. Use License</h2>
+                    <p class="mb-4">Permission is granted to temporarily download one copy of the materials (information or software) on Pétros Biokinetics' website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Modifying or copying the materials</li>
+                        <li>Using the materials for any commercial purpose or for any public display</li>
+                        <li>Attempting to decompile or reverse engineer any software contained on the website</li>
+                        <li>Removing any copyright or other proprietary notations from the materials</li>
+                        <li>Transferring the materials to another person or "mirroring" the materials on any other server</li>
+                        <li>Removing or altering the glass-morphism design elements or branding</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">3. Disclaimer of Warranties</h2>
+                    <p>The materials on Pétros Biokinetics' website are provided on an 'as is' basis. Pétros Biokinetics makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">4. Limitations of Liability</h2>
+                    <p>In no event shall Pétros Biokinetics or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Pétros Biokinetics' website, even if Pétros Biokinetics or an authorized representative has been notified orally or in writing of the possibility of such damage.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">5. Accuracy of Materials</h2>
+                    <p>The materials appearing on Pétros Biokinetics' website could include technical, typographical, or photographic errors. Pétros Biokinetics does not warrant that any of the materials on its website are accurate, complete, or current. Pétros Biokinetics may make changes to the materials contained on its website at any time without notice.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">6. Links and Third-Party Content</h2>
+                    <p>Pétros Biokinetics has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by Pétros Biokinetics of the site. Use of any such linked website is at the user's own risk.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">7. Modifications to Terms</h2>
+                    <p>Pétros Biokinetics may revise these Terms of Service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these Terms of Service.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">8. Booking and Cancellation Policy</h2>
+                    <p class="mb-4">When you book a session through our website:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Bookings are confirmed upon receipt of your information and our confirmation via email or WhatsApp</li>
+                        <li>Cancellations must be made at least 24 hours in advance</li>
+                        <li>Late cancellations or no-shows may be subject to a cancellation fee</li>
+                        <li>Prices are subject to change with notice</li>
+                        <li>Payment terms will be confirmed at the time of booking</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">9. Health and Safety Disclaimer</h2>
+                    <p class="mb-4">Our biokinetic services are designed to help restore movement and function. However:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>You acknowledge that physical activities carry inherent risks of injury</li>
+                        <li>You assume all risks related to participation in our services</li>
+                        <li>Consult your physician before beginning any new physical regimen</li>
+                        <li>Inform us of any medical conditions, injuries, or medications</li>
+                        <li>You are responsible for following all safety instructions provided</li>
+                        <li>Results vary by individual and are not guaranteed</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">10. Confidentiality and Medical Information</h2>
+                    <p>All information you provide, particularly health and medical information, is strictly confidential and handled in accordance with our Privacy Policy. We comply with applicable healthcare regulations and protect your information with the highest professional standards.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">11. Intellectual Property Rights</h2>
+                    <p>All content on this website, including text, graphics, logos, images, and software, is the property of Pétros Biokinetics or its content suppliers and is protected by international copyright laws. You may not reproduce, distribute, or transmit any content without our written permission.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">12. User Conduct</h2>
+                    <p class="mb-4">You agree not to use the website for any purpose that is unlawful or prohibited by these terms. Specifically, you agree not to:</p>
+                    <ul class="list-disc list-inside space-y-2 ml-4">
+                        <li>Harass or cause distress or inconvenience to any person</li>
+                        <li>Transmit obscene or offensive content</li>
+                        <li>Disrupt the normal flow of dialogue within our website</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                        <li>Engage in any form of spam or unsolicited advertising</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">13. Governing Law</h2>
+                    <p>These Terms of Service and Privacy Policy are governed by and construed in accordance with the laws of Namibia, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+                </section>
+
+                <section>
+                    <h2 class="font-serif text-3xl text-petros-slate mb-4 mt-10">14. Contact Information</h2>
+                    <p class="mb-4">If you have any questions about these Terms of Service, please contact us at:</p>
+                    <div class="bg-petros-green/5 rounded-lg p-6 border border-petros-green/20">
+                        <p class="font-semibold text-petros-slate mb-2">Pétros Biokinetics</p>
+                        <p class="text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue<br>Kramersdorf, Swakopmund, Namibia</p>
+                        <p class="text-gray-700 mb-2"><a href="mailto:petrosbiokinetics@gmail.com" class="text-petros-green hover:underline">petrosbiokinetics@gmail.com</a></p>
+                        <p class="text-gray-700"><a href="tel:+264816835055" class="text-petros-green hover:underline">+264 81 683 5055</a></p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-10 pb-6 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+
+                <!-- Column 1: Logo + Description + Social -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- Logo + Name -->
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                        </div>
+                        <span class="font-serif italic text-lg text-petros-slate">
+                            Pétros <span class="font-light not-italic">Biokinetics</span>
+                        </span>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 text-sm leading-snug mb-4 max-w-xs">
+                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/264816835055" target="_blank"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Navigation</h4>
+                    <ul class="space-y-1.5 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green">Home</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Clinic Hours -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Hours</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
+                            <span>Mon — Fri</span>
+                            <span>07:00 – 18:00</span>
+                            <span>Closed between 12:00 – 13:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
+                            <span>Saturday</span>
+                            <span>Closed</span>
+
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5 text-petros-green italic">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Location -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Location</h4>
+                    <p class="text-sm text-gray-600 mb-2">102 Dr. Libertine Amathila Avenue</p>
+                    <p class="text-sm text-gray-600 mb-6">Kramersdorf, Swakopmund Namibia, Namibia</p>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-[10px] font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <p class="font-serif text-lg text-petros-slate italic">+264 81 683 5055</p>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }
+
+        toggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</body>
+</html>

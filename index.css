@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+:root { … }
+.glass-nav-container { … }
+.mobile-menu { … }
+.luxury-glass {
+    /* 0.2 opacity is the 'sweet spot' for light backgrounds */
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    /* A bright white top border makes it look like caught light */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Pétros Biokinetics - Transparent Rates</title>
+    <meta name="description" content="Transparent pricing for biokinetic services including evaluations, treatment packages, and virtual consultations. Affordable clinical restoration in Swakopmund.">
+    <meta name="keywords" content="biokinetics pricing, physical therapy rates, rehabilitation cost, consultation fees, Swakopmund">
+    <meta name="canonical" content="https://petrosbiokinetics.com/pricing.html">
+    <meta property="og:title" content="Pricing | Pétros Biokinetics">
+    <meta property="og:description" content="Transparent pricing for clinical restoration and biokinetic services.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/pricing.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pricing | Pétros Biokinetics">
+    <meta name="twitter:description" content="Affordable biokinetic service pricing.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        petros: {
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
+                            slate: '#2C3E50',
+                            charcoal: '#151515',
+                            cream: '#F5F4F0',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(122, 139, 105, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(122, 139, 105, 0.6)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-nav {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: #7A8B69;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* Staggered animation */
+        @keyframes fadeInStaggered {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pricing-card {
+            animation: fadeInStaggered 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
+        .pricing-card:nth-child(2) { animation-delay: 0.2s; }
+        .pricing-card:nth-child(3) { animation-delay: 0.3s; }
+        .pricing-card:nth-child(4) { animation-delay: 0.4s; }
+        .pricing-card:nth-child(5) { animation-delay: 0.5s; }
+        .pricing-card:nth-child(6) { animation-delay: 0.6s; }
+        .pricing-card:nth-child(7) { animation-delay: 0.7s; }
+
+        /* Glow effect on hover */
+        .pricing-card:hover {
+            box-shadow: 0 0 24px rgba(122, 139, 105, 0.4), 0 12px 24px rgba(0, 0, 0, 0.1) !important;
+        }
+
+        .price-highlight {
+            background: linear-gradient(135deg, rgba(122, 139, 105, 0.1) 0%, rgba(122, 139, 105, 0.05) 100%);
+            border: 1px solid rgba(122, 139, 105, 0.2);
+        }
+
+        html { scroll-behavior: smooth; }
+        body { background-color: #F5F4F0; overflow-x: hidden; }
+    </style>
+</head>
+<body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation Bar -->
+    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
+        <div class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                </div>
+                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
+                    Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
+                </span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
+                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
+                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
+                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="pricing.html" class="font-medium tracking-wide text-petros-green">Pricing</a></li>
+                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
+                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+            </ul>
+
+            <!-- Book Now Button -->
+            <div class="flex items-center gap-3 hidden md:flex">
+                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    Book Now
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+        <div class="flex flex-col gap-8">
+            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+        </div>
+    </div>
+
+    <script>
+        const toggle = document.getElementById('mobile-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('mobile-menu-overlay');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let scrollTimeout;
+
+        function toggleMenu() {
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                overlay.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }
+
+        toggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(closeMenu, 500);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                closeMenu();
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
+            <img id="hero-bg" src="https://res.cloudinary.com/karlifunk/image/upload/v1767432676/pexels-daniel-jurin-358265-1835718_feqicx.jpg?auto=compress&cs=tinysrgb&w=1600" 
+                 alt="Pricing" 
+                 class="w-full h-full object-cover object-center">
+            <!-- Seamless Blend -->
+            <div class="absolute inset-0 z-20 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
+        </div>
+
+        <div class="relative z-20 w-full px-6 flex justify-center">
+            <div class="text-center max-w-4xl">
+                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block animate-fade-in">Transparent Pricing</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 animate-slide-up">
+                    Investment in <span class="italic text-petros-green">Your Health</span>
+                </h1>
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                    Clear, competitive pricing for comprehensive restoration and rehabilitation programs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Animated blob -->
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+    </header>
+
+    <!-- Pricing Section -->
+    <section class="py-24 md:py-40 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
+        <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl mr-0 mb-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 max-w-6xl">
+            
+            <!-- Evaluations Section -->
+            <div class="mb-20">
+                <div class="text-center mb-16">
+                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Session Types</span>
+                    <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight mb-4">
+                        Assessments & Evaluations
+                    </h2>
+                    <p class="text-gray-700 text-lg leading-relaxed font-light">
+                        Comprehensive initial and follow-up assessments to guide your restoration journey.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Full Evaluation -->
+                    <div class="pricing-card p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="clipboard-check" class="w-6 h-6 text-petros-green"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-petros-slate">Full Evaluation</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Ergological Assessment</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 800</p>
+                            </div>
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Functional Work Value (FWV)</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 700</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 text-sm mb-2">Body Stat Analysis</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 350</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Re-Evaluation -->
+                    <div class="pricing-card p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="refresh-cw" class="w-6 h-6 text-petros-green"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-petros-slate">Re-Evaluation</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Ergological Assessment</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 400</p>
+                            </div>
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Functional Work Value (FWV)</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 350</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 text-sm mb-2">Body Stat Analysis</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 200</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Session -->
+                    <div class="pricing-card p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="zap" class="w-6 h-6 text-petros-green"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-petros-slate">Single Session</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Group Session</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 250</p>
+                            </div>
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">One-on-One Session</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 400</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 text-sm mb-2">Facility User (per session)</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 200</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Virtual Consultation -->
+                    <div class="pricing-card p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="video" class="w-6 h-6 text-petros-green"></i>
+                            </div>
+                            <h3 class="font-serif text-xl text-petros-slate">Virtual Consultation</h3>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Initial Virtual Consultation</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 300</p>
+                            </div>
+                            <div class="pb-4 border-b border-gray-200">
+                                <p class="text-gray-600 text-sm mb-2">Follow-up Virtual Session</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 250</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-600 text-sm mb-2">Remote Program Design</p>
+                                <p class="font-serif text-2xl text-petros-green">N$ 350</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Packages -->
+            <div class="mb-20 border-t border-gray-300 pt-20">
+                <div class="text-center mb-16">
+                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Better Value</span>
+                    <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight mb-4">
+                        Monthly Packages
+                    </h2>
+                    <p class="text-gray-700 text-lg leading-relaxed font-light">
+                        Committed programs with consistent pricing for sustained restoration results.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Group Sessions Package -->
+                    <div class="pricing-card p-8 lg:p-10">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="users" class="w-6 h-6 text-petros-green"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl text-petros-slate">Group Sessions</h3>
+                        </div>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                <span class="text-gray-600 font-light">1 session/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 550</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                <span class="text-gray-600 font-light">2 sessions/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 1,000</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                <span class="text-gray-600 font-light">3 sessions/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 1,200</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                <span class="text-gray-600 font-light">4 sessions/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 1,400</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 font-light">5 sessions/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 1,600</span>
+                            </div>
+                        </div>
+
+                        <div class="price-highlight rounded-lg p-4 text-center">
+                            <p class="text-sm text-gray-700 mb-2">Student/Pensioner rates available</p>
+                            <p class="font-serif text-lg text-petros-green">Contact us for details</p>
+                        </div>
+                    </div>
+
+                    <!-- One-on-One Package -->
+                    <div class="pricing-card p-8 lg:p-10">
+                        <div class="flex items-center gap-3 mb-8">
+                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
+                                <i data-lucide="user" class="w-6 h-6 text-petros-green"></i>
+                            </div>
+                            <h3 class="font-serif text-2xl text-petros-slate">One-on-One Sessions</h3>
+                        </div>
+                        
+                        <div class="space-y-3 mb-8">
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                <span class="text-gray-600 font-light">1 session/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 1,000</span>
+                            </div>
+                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
+                                <span class="text-gray-600 font-light">2 sessions/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 1,600</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 font-light">3 sessions/week</span>
+                                <span class="font-serif text-xl text-petros-green">N$ 2,000</span>
+                            </div>
+                        </div>
+
+                        <div class="price-highlight rounded-lg p-4 text-center">
+                            <p class="text-sm text-gray-700 mb-2">Personalized clinical focus</p>
+                            <p class="font-serif text-lg text-petros-green">Customized per session</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-6 bg-petros-green/5 rounded-lg border border-petros-green/20 text-center">
+                    <p class="text-sm text-gray-700">
+                        <span class="font-semibold">💡 Pro Tip:</span> Monthly packages secure your preferred booking slots and offer better value than single sessions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Facility User -->
+            <div class="mb-20 border-t border-gray-300 pt-20">
+                <div class="pricing-card p-8 md:p-12">
+                    <div class="text-center mb-8">
+                        <h3 class="font-serif text-3xl text-petros-slate mb-4">Facility User Membership</h3>
+                        <p class="text-gray-700 font-light">Independent access to rehabilitation equipment for active patients under clinical supervision</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="price-highlight rounded-lg p-8 text-center">
+                            <p class="text-sm text-gray-600 mb-2 uppercase tracking-wider">Per Session</p>
+                            <p class="font-serif text-4xl text-petros-green">N$ 200</p>
+                        </div>
+                        <div class="price-highlight rounded-lg p-8 text-center">
+                            <p class="text-sm text-gray-600 mb-2 uppercase tracking-wider">Per Month</p>
+                            <p class="font-serif text-4xl text-petros-green">N$ 600</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Aid Info -->
+            <div class="mb-20 border-t border-gray-300 pt-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="pricing-card p-8">
+                        <h3 class="font-serif text-2xl text-petros-slate mb-6 flex items-center gap-3">
+                            <i data-lucide="shield-check" class="w-6 h-6 text-petros-green"></i>
+                            Medical Aid Coverage
+                        </h3>
+                        <p class="text-gray-700 font-light mb-6">
+                            Pétros Biokinetics is a medically recognized practice. Most Namibian medical aid schemes cover Biokinetics services.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-petros-green"></i>
+                                <span class="text-gray-700 text-sm">Accepted Schemes: NHP, NMC, NAMMED, RMA, Prosperity</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-petros-green"></i>
+                                <span class="text-gray-700 text-sm">Electronic claims submission available</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-petros-green"></i>
+                                <span class="text-gray-700 text-sm">PSEMAS: Invoice upfront, claim reimbursement directly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card p-8">
+                        <h3 class="font-serif text-2xl text-petros-slate mb-6 flex items-center gap-3">
+                            <i data-lucide="credit-card" class="w-6 h-6 text-petros-green"></i>
+                            Payment Methods
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3 pb-4 border-b border-gray-200">
+                                <i data-lucide="send" class="w-5 h-5 text-petros-green"></i>
+                                <span class="text-gray-700">EFT / Bank Transfer</span>
+                            </div>
+                            <div class="flex items-center gap-3 pb-4 border-b border-gray-200">
+                                <i data-lucide="smartphone" class="w-5 h-5 text-petros-green"></i>
+                                <span class="text-gray-700">Mobile Wallet / PayToday</span>
+                            </div>
+                            <div class="flex items-center gap-3 pb-4 border-b border-gray-200">
+                                <i data-lucide="file-text" class="w-5 h-5 text-petros-green"></i>
+                                <span class="text-gray-700">Detailed Clinical Invoicing</span>
+                            </div>
+                            <p class="text-xs text-gray-500 italic pt-4">
+                                24-hour cancellation policy applies. Please notify in advance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional CTA -->
+            <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-petros-green/10 to-petros-slate/5 border border-petros-green/20 text-center">
+                <h3 class="font-serif text-2xl text-petros-slate mb-4">Ready to start your restoration journey?</h3>
+                <p class="text-gray-700 font-light mb-6 max-w-2xl mx-auto">
+                    Schedule your comprehensive assessment and receive a personalized restoration plan with transparent pricing.
+                </p>
+                <a href="contact.html" class="inline-block bg-petros-green text-white px-8 py-3 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-petros-slate transition-all duration-300">
+                    Schedule Assessment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <p class="text-petros-green/90 uppercase tracking-[0.3em] text-xs font-bold mb-8 opacity-90">Get Started</p>
+            
+            <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 tracking-tight leading-tight">
+                Begin Your <br><span class="italic text-petros-green">Restoration Today</span>
+            </h2>
+            
+            <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-16 font-light">
+                Book your comprehensive assessment and discover the Pétros difference.
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="book-now.html" class="group bg-petros-green text-white px-10 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 inline-flex items-center gap-2">
+                    Book Now
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="tel:+264816835055" class="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors px-6 py-5">
+                    <div class="w-12 h-12 rounded-full border border-petros-green/40 flex items-center justify-center group-hover:border-petros-green group-hover:bg-petros-green/10 transition-all duration-300">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-400">Call Us</p>
+                        <p class="text-sm font-bold">+264 (0)81 683 5055</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+                <div class="flex flex-col items-center md:items-start">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                        </div>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                    </div>
+                    <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
+                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
+                        <li><a href="pricing.html" class="text-petros-green">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">08:00 – 12:00</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">By Exception</span></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Contact</h4>
+                    <p class="text-sm text-gray-700 mb-2">Swakopmund, Namibia</p>
+                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <p class="font-serif text-lg text-petros-slate italic">+264 (0)81 683 5055</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a>
+                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        lucide.createIcons();
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero parallax
+        gsap.to("#hero-bg", {
+            scrollTrigger: {
+                trigger: "header",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            },
+            y: 100,
+            scale: 1.1
+        });
+    </script>
+</body>
+</html>
