@@ -16,6 +16,8 @@
     <meta property="og:description" content="Experience precision biokinetics for clinical restoration. Resolve chronic pathology and unlock absolute fluidity with our expert-led restoration protocols.">
     <meta property="og:url" content="https://petrosbiokinetics.com/">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Pétros Biokinetics">
     
     <!-- Twitter Card Tags -->
@@ -66,14 +68,34 @@
       "areaServed": "Swakopmund, Namibia"
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://petrosbiokinetics.com/index.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://petrosbiokinetics.com/about.html"
+        }
+      ]
+    }
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script async src="https://cdn.tailwindcss.com"></script>
     
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script async src="https://unpkg.com/lucide@latest"></script>
 
     <script>
         tailwind.config = {
@@ -81,8 +103,8 @@
                 extend: {
                     colors: {
                         petros: {
-                            green: '#7A8B69', /* Sage */
-                            deep: '#2F3E30', /* Deep Forest */
+                            green: '#7A8B69',
+                            deep: '#2F3E30',
                             slate: '#2C3E50',
                             charcoal: '#151515',
                             cream: '#F5F4F0',
@@ -115,9 +137,6 @@
     </script>
 
     <style>
-        /* --- VISUAL AESTHETICS --- */
-        
-        /* 1. Grain Texture */
         .noise-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -125,7 +144,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
-        /* 2. Glass Morphism Navigation */
         .glass-morphism {
             background: rgba(31, 41, 55, 0.4);
             backdrop-filter: blur(20px);
@@ -133,7 +151,6 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* 2. Glass Navigation (Pill) */
         .glass-nav {
             background: rgba(31, 41, 55, 0.4);
             backdrop-filter: blur(20px);
@@ -143,16 +160,14 @@
             transition: all 0.3s ease;
         }
 
-        /* 3. The Hero Glass Block (Restored) */
         .glass-hero-block {
-            background: rgba(255, 255, 255, 0.1); /* Very subtle white tint */
-            backdrop-filter: blur(20px); /* Heavy blur for the "block" look */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
         }
 
-        /* 4. Mouse Spotlight Effect */
         .spotlight-card {
             background: rgba(255, 255, 255, 0.8);
             position: relative; overflow: hidden;
@@ -168,7 +183,6 @@
         }
         .spotlight-card:hover::before { opacity: 1; }
 
-        /* 5. Mobile Menu Animation */
         .mobile-menu {
             transform: translateY(-100%);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -483,10 +497,10 @@
             </p>
 
             <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <button class="bg-[#7A8B69] text-white px-12 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-[0_20px_40px_-15px_rgba(122,139,105,0.3)] hover:-translate-y-1">
+                <a href="book-now.html" class="bg-petros-green text-white px-12 py-5 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-[0_20px_40px_-15px_rgba(122,139,105,0.3)] hover:-translate-y-1">
                     Book Assessment
-                </button>
-                <a href="tel:+15552348890" class="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
+                </a>
+                <a href="tel:+264816835055" class="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors">
                     <div class="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center group-hover:border-white transition-colors">
                         <i data-lucide="phone" class="w-4 h-4"></i>
                     </div>
@@ -496,101 +510,98 @@
         </div>
     </section>
 
+    <footer class="bg-white pt-10 pb-6 border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
 
- <footer class="bg-white pt-10 pb-6 border-t border-gray-100">
-    <div class="container mx-auto px-4">
-        <!-- Footer Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
-
-            <!-- Column 1: Logo + Description + Social -->
-            <div class="flex flex-col items-center md:items-start">
-                <!-- Logo + Name -->
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
-                        <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                <!-- Column 1: Logo + Description + Social -->
+                <div class="flex flex-col items-center md:items-start">
+                    <!-- Logo + Name -->
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
+                        </div>
+                        <span class="font-serif italic text-lg text-petros-slate">
+                            Pétros <span class="font-light not-italic">Biokinetics</span>
+                        </span>
                     </div>
-                    <span class="font-serif italic text-lg text-petros-slate">
-                        Pétros <span class="font-light not-italic">Biokinetics</span>
-                    </span>
+
+                    <!-- Description -->
+                    <p class="text-gray-500 text-sm leading-snug mb-4 max-w-xs">
+                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Description -->
-                <p class="text-gray-500 text-sm leading-snug mb-4 max-w-xs">
-                    Pioneering biokinetic restoration where clinical science meets absolute serenity.
-                </p>
+                <!-- Column 2: Navigation -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Navigation</h4>
+                    <ul class="space-y-1.5 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green">Home</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green">FAQ</a></li>
+                    </ul>
+                </div>
 
-                <!-- Social Icons -->
-                <div class="flex gap-3 justify-center md:justify-start">
-                    <a href="https://www.instagram.com/petrosbiokinetics" target="_blank"
-                        class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                        <i data-lucide="instagram" class="w-4 h-4"></i>
-                    </a>
-                    <a href="https://www.facebook.com" target="_blank"
-                        class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                        <i data-lucide="facebook" class="w-4 h-4"></i>
-                    </a>
-                    <a href="https://wa.me/264816835055" target="_blank"
-                        class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    </a>
+                <!-- Column 3: Clinic Hours -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Hours</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
+                            <span>Mon – Fri</span>
+                            <span>07:00 – 18:00</span>
+                            <span>Closed between 12:00 – 13:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
+                            <span>Saturday</span>
+                            <span>Closed</span>
+                        </li>
+                        <li class="flex justify-between border-b border-gray-50 pb-0.5 text-petros-green italic">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Location -->
+                <div>
+                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Location</h4>
+                    <p class="text-sm text-gray-600 mb-2">102 Dr. Libertine Amathila Avenue</p>
+                    <p class="text-sm text-gray-600 mb-6">Kramersdorf, Swakopmund Namibia, Namibia</p>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-[10px] font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <p class="font-serif text-lg text-petros-slate italic">+264 81 683 5055</p>
                 </div>
             </div>
 
-            <!-- Column 2: Navigation -->
-            <div>
-                <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Navigation</h4>
-                <ul class="space-y-1.5 text-sm text-petros-slate font-medium">
-                    <li><a href="index.html" class="hover:text-petros-green">Home</a></li>
-                    <li><a href="the-method.html" class="hover:text-petros-green">The Method</a></li>
-                    <li><a href="services.html" class="hover:text-petros-green">Services</a></li>
-                    <li><a href="pricing.html" class="hover:text-petros-green">Pricing</a></li>
-                    <li><a href="faq.html" class="hover:text-petros-green">FAQ</a></li>
-                </ul>
-            </div>
-
-            <!-- Column 3: Clinic Hours -->
-            <div>
-                <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Hours</h4>
-                <ul class="space-y-1.5 text-sm text-gray-600">
-                    <li class="flex justify-between border-b border-gray-50 pb-0.5">
-                        <span>Mon — Fri</span>
-                        <span>07:00 – 18:00</span>
-                        <span>Closed between 12:00 – 13:00</span>
-                    </li>
-                    <li class="flex justify-between border-b border-gray-50 pb-0.5">
-                        <span>Saturday</span>
-                        <span>Closed</span>
-
-                    </li>
-                    <li class="flex justify-between border-b border-gray-50 pb-0.5 text-petros-green italic">
-                        <span>Sunday</span>
-                        <span>Closed</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Column 4: Location -->
-            <div>
-                <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Location</h4>
-                <p class="text-sm text-gray-600 mb-2">102 Dr. Libertine Amathila Avenue</p>
-                <p class="text-sm text-gray-600 mb-6">Kramersdorf, Swakopmund Namibia, Namibia</p>
-                <a href="mailto:petrosbiokinetics@gmail.com"
-                    class="text-[10px] font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                <p class="font-serif text-lg text-petros-slate italic">+264 81 683 5055</p>
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                </div>
             </div>
         </div>
-
-        <!-- Footer Bottom -->
-        <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
-            <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
-                <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
