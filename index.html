@@ -282,6 +282,48 @@
 
         html { scroll-behavior: smooth; }
         body { background-color: #F5F4F0; overflow-x: hidden; }
+
+        /* Spline 3D Embed Styles */
+        .spline-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .spline-container iframe,
+        .spline-container canvas {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 2rem;
+        }
+        
+        .spline-float {
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+        
+        .spline-float.interactive {
+            pointer-events: auto;
+        }
+        
+        .spline-glow-container {
+            position: relative;
+        }
+        
+        .spline-glow-container::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(ellipse at center, rgba(122, 139, 105, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(30px);
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -557,6 +599,39 @@
 
             </div>
         </div>
+    </section>
+
+    <!-- Interactive 3D Experience Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-petros-cream to-white relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Interactive Experience</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-petros-slate mb-4">
+                    Explore the <span class="italic text-petros-green">Human Form</span>
+                </h2>
+                <p class="text-gray-600 font-light max-w-xl mx-auto">Interact with our 3D model to understand the biomechanics of movement</p>
+            </div>
+            
+            <!-- Spline 3D Embed - Abstract Organic Form -->
+            <div class="max-w-4xl mx-auto">
+                <div class="spline-glow-container">
+                    <div class="spline-container h-[400px] md:h-[500px] bg-gradient-to-br from-petros-deep to-petros-charcoal rounded-[2rem] shadow-2xl border border-petros-green/20">
+                        <!-- Replace with your Spline embed URL -->
+                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+                        <spline-viewer 
+                            url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
+                            loading-anim-type="spinner-small-dark"
+                            style="width: 100%; height: 100%; border-radius: 2rem;">
+                        </spline-viewer>
+                    </div>
+                </div>
+                <p class="text-center text-sm text-gray-500 mt-4 italic">Drag to rotate • Scroll to zoom</p>
+            </div>
+        </div>
+        
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
     </section>
 
     <section class="py-24 bg-white border-t border-gray-100">

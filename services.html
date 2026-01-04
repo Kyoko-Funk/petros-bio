@@ -225,6 +225,38 @@
 
         html { scroll-behavior: smooth; }
         body { background-color: #F5F4F0; overflow-x: hidden; }
+
+        /* Spline 3D Embed Styles */
+        .spline-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        
+        .spline-container iframe,
+        .spline-container canvas {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 2rem;
+        }
+        
+        .spline-glow-container {
+            position: relative;
+        }
+        
+        .spline-glow-container::before {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(ellipse at center, rgba(122, 139, 105, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(30px);
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -664,8 +696,8 @@
                 </div>
             </div>
 
-            <!-- Package CTA -->
-            <div class="glass-card rounded-3xl p-12 md:p-16 max-w-4xl mx-auto text-center">
+            <!-- Don't See Your Condition Listed CTA -->
+            <div class="glass-card rounded-3xl p-12 md:p-16 max-w-4xl mx-auto text-center mb-24">
                 <h3 class="font-serif text-4xl text-petros-slate mb-6">
                     Don't See Your <br><span class="italic text-petros-green">Condition Listed?</span>
                 </h3>
@@ -675,6 +707,49 @@
                 <a href="contact.html" class="inline-block bg-petros-green text-white px-10 py-4 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-xl">
                     Schedule Your Consultation
                 </a>
+            </div>
+
+            <!-- Interactive 3D Joint Model Section -->
+            <div class="mb-24">
+                <div class="max-w-5xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Biomechanical Insight</span>
+                            <h3 class="font-serif text-3xl md:text-4xl text-petros-slate mb-6">
+                                Understanding <span class="italic text-petros-green">Joint Mechanics</span>
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed font-light mb-6">
+                                Our approach begins with understanding how your body moves. Every joint, muscle, and tendon works in harmony—when one fails, others compensate. We identify and correct these imbalances.
+                            </p>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green"></div>
+                                    <span>Precision movement analysis</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green"></div>
+                                    <span>Joint-specific rehabilitation</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-gray-700">
+                                    <div class="w-2 h-2 rounded-full bg-petros-green"></div>
+                                    <span>Functional restoration protocols</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="spline-glow-container">
+                            <div class="spline-container h-[350px] md:h-[400px] bg-gradient-to-br from-petros-deep to-petros-charcoal rounded-[2rem] shadow-2xl border border-petros-green/20">
+                                <!-- Spline 3D Embed - Abstract Joint/Organic -->
+                                <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+                                <spline-viewer 
+                                    url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
+                                    loading-anim-type="spinner-small-dark"
+                                    style="width: 100%; height: 100%; border-radius: 2rem;">
+                                </spline-viewer>
+                            </div>
+                            <p class="text-center text-xs text-gray-500 mt-3 italic">Interactive 3D • Drag to explore</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
