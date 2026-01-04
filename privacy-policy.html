@@ -262,25 +262,20 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white pt-10 pb-6 border-t border-gray-100">
-        <div class="container mx-auto px-4">
-            <!-- Footer Grid -->
+    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
 
-                <!-- Column 1: Logo + Description + Social -->
                 <div class="flex flex-col items-center md:items-start">
-                    <!-- Logo + Name -->
                     <div class="flex items-center gap-2 mb-4">
                         <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">
-                            Pétros <span class="font-light not-italic">Biokinetics</span>
-                        </span>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
                     </div>
-
-                    <!-- Description -->
-                    <p class="text-gray-500 text-sm leading-snug mb-4 max-w-xs">
+                    <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
 
@@ -301,46 +296,35 @@
                     </div>
                 </div>
 
-                <!-- Column 2: Navigation -->
                 <div>
-                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Navigation</h4>
-                    <ul class="space-y-1.5 text-sm text-petros-slate font-medium">
-                        <li><a href="index.html" class="hover:text-petros-green">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green">The Method</a></li>
-                        <li><a href="services.html" class="hover:text-petros-green">Services</a></li>
-                        <li><a href="pricing.html" class="hover:text-petros-green">Pricing</a></li>
-                        <li><a href="faq.html" class="hover:text-petros-green">FAQ</a></li>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm text-petros-slate font-medium">
+                        <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
+                        <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
+                        <li><a href="about.html" class="hover:text-petros-green transition-colors">About</a></li>
+                        <li><a href="contact.html" class="hover:text-petros-green transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 3: Clinic Hours -->
                 <div>
-                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Hours</h4>
-                    <ul class="space-y-1.5 text-sm text-gray-600">
-                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
-                            <span>Mon — Fri</span>
-                            <span>07:00 – 18:00</span>
-                            <span>Closed between 12:00 – 13:00</span>
-                        </li>
-                        <li class="flex justify-between border-b border-gray-50 pb-0.5">
-                            <span>Saturday</span>
-                            <span>Closed</span>
-
-                        </li>
-                        <li class="flex justify-between border-b border-gray-50 pb-0.5 text-petros-green italic">
-                            <span>Sunday</span>
-                            <span>Closed</span>
-                        </li>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 12:00 – 13:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
                     </ul>
                 </div>
 
-                <!-- Column 4: Location -->
                 <div>
-                    <h4 class="text-[10px] font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Location</h4>
-                    <p class="text-sm text-gray-600 mb-2">102 Dr. Libertine Amathila Avenue</p>
-                    <p class="text-sm text-gray-600 mb-6">Kramersdorf, Swakopmund, Namibia</p>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
+                    <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
+                    <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
                     <a href="mailto:petrosbiokinetics@gmail.com"
-                        class="text-[10px] font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
                     <a href="tel:+264816835055" class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264 81 683 5055</a>
                 </div>
             </div>
