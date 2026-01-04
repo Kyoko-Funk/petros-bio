@@ -93,6 +93,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -227,38 +230,6 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 20px -10px rgba(122, 139, 105, 0.5);
         }
-
-        /* Spline 3D Embed Styles */
-        .spline-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 300px;
-            border-radius: 2rem;
-            overflow: hidden;
-        }
-        
-        .spline-container iframe,
-        .spline-container canvas {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 2rem;
-        }
-        
-        .spline-glow-container {
-            position: relative;
-        }
-        
-        .spline-glow-container::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(ellipse at center, rgba(122, 139, 105, 0.15) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            filter: blur(30px);
-        }
     </style>
 </head>
 <body class="bg-petros-cream text-petros-charcoal font-sans selection:bg-petros-green/30">
@@ -357,11 +328,11 @@
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
         </div>
         <div class="relative z-10 max-w-4xl text-center">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 animate-fade-in">Expertise & Compassion</span>
-            <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 animate-slide-up">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 reveal-fade">Expertise & Compassion</span>
+            <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 reveal-words">
                 Meet Jean-Pierre <span class="italic text-petros-green">Grobler</span>
             </h1>
-            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light animate-slide-up" style="animation-delay: 0.2s;">
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light reveal-fade" style="animation-delay: 0.2s;">
                 Clinical excellence meets compassionate care. Dedicated to restoring your movement and your quality of life.
             </p>
         </div>
@@ -386,9 +357,9 @@
 
                 <!-- Bio Content -->
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight">Rehabilitation with <br><span class="italic text-petros-green">clinical precision.</span></h2>
+                    <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight reveal-words">Rehabilitation with <br><span class="italic text-petros-green">clinical precision.</span></h2>
 
-                    <p class="text-petros-slate font-light leading-relaxed mb-6 text-lg">
+                    <p class="text-petros-slate font-light leading-relaxed mb-6 text-lg reveal-fade">
                         Jean-Pierre Grobler is a qualified Biokineticist specializing in orthopedic rehabilitation, chronic pain management, and athletic performance enhancement. With a deep understanding of human movement, Jean-Pierre focuses on finding the root cause of dysfunction rather than simply treating symptoms.
                     </p>
 
@@ -547,52 +518,6 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Interactive 3D Movement Section -->
-    <section class="py-20 px-6 bg-gradient-to-b from-petros-cream to-white relative overflow-hidden">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <!-- 3D Spline Embed -->
-                <div class="order-2 lg:order-1">
-                    <div class="spline-glow-container">
-                        <div class="spline-container h-[350px] md:h-[400px] bg-gradient-to-br from-petros-deep to-petros-charcoal rounded-[2rem] shadow-2xl border border-petros-green/20">
-                            <!-- Spline 3D Embed - Abstract Organic Form -->
-                            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
-                            <spline-viewer 
-                                url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
-                                loading-anim-type="spinner-small-dark"
-                                style="width: 100%; height: 100%; border-radius: 2rem;">
-                            </spline-viewer>
-                        </div>
-                        <p class="text-center text-xs text-gray-500 mt-3 italic">Interactive 3D • Drag to explore</p>
-                    </div>
-                </div>
-                
-                <!-- Content -->
-                <div class="order-1 lg:order-2">
-                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Our Approach</span>
-                    <h2 class="font-serif text-3xl md:text-4xl text-petros-charcoal mb-6">
-                        Movement as <span class="italic text-petros-green">Medicine</span>
-                    </h2>
-                    <p class="text-petros-slate font-light leading-relaxed mb-6">
-                        At Pétros Biokinetics, we believe that every movement tells a story about your body's history, challenges, and potential. Our clinical approach goes beyond treating symptoms—we decode your body's unique patterns.
-                    </p>
-                    <p class="text-petros-slate font-light leading-relaxed mb-8">
-                        Through precise biomechanical analysis and evidence-based protocols, we restore not just function, but fluidity—helping you move the way nature intended.
-                    </p>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-petros-green/10 rounded-full text-xs font-semibold text-petros-green">Biomechanical Analysis</span>
-                        <span class="px-4 py-2 bg-petros-green/10 rounded-full text-xs font-semibold text-petros-green">Neural Retraining</span>
-                        <span class="px-4 py-2 bg-petros-green/10 rounded-full text-xs font-semibold text-petros-green">Functional Restoration</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Decorative elements -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -mr-48"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl -ml-48"></div>
     </section>
 
     <!-- CTA Section -->
@@ -811,5 +736,8 @@
             initParticles('about');
         }
     </script>
+
+    <!-- Lenis Smooth Scroll & Text Reveals -->
+    <script src="smooth-scroll.js"></script>
 </body>
 </html>

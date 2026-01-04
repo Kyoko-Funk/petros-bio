@@ -75,6 +75,9 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
@@ -460,11 +463,11 @@
 
         <div class="relative z-20 w-full px-6 flex justify-center">
             <div class="text-center max-w-4xl">
-                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block animate-fade-in">Biokinetic Restoration</span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 animate-slide-up">
+                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block reveal-fade">Biokinetic Restoration</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 reveal-words">
                     The Clinical <span class="italic text-petros-green">Method</span>
                 </h1>
-                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto reveal-fade" style="animation-delay: 0.2s;">
                     Precision biomechanics engineered for complete restoration. Movement decoded as clinical medicine. Three pillars. One outcome.
                 </p>
             </div>
@@ -486,11 +489,11 @@
             
             <!-- Intro -->
             <div class="max-w-4xl mx-auto text-center mb-16">
-                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Scientific Foundation</span>
-                <h2 class="font-serif text-5xl md:text-7xl text-petros-slate leading-tight mb-8">
+                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block reveal-fade">Scientific Foundation</span>
+                <h2 class="font-serif text-5xl md:text-7xl text-petros-slate leading-tight mb-8 reveal-words">
                     Biokinetics as <span class="italic text-petros-green">Medicine</span>
                 </h2>
-                <p class="text-gray-700 text-lg md:text-xl leading-relaxed font-light max-w-3xl mx-auto">
+                <p class="text-gray-700 text-lg md:text-xl leading-relaxed font-light max-w-3xl mx-auto reveal-fade">
                     At Pétros, we operate on a singular principle: movement is clinical medicine. Our three-pillar methodology combines biomechanical precision, neural retraining, and performance optimization into one comprehensive restoration system.
                 </p>
             </div>
@@ -562,7 +565,7 @@
             </div>
 
             <!-- Three Pillars Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 reveal-stagger">
 
                 <!-- Pillar 1: Assessment -->
                 <div class="method-step group">
@@ -991,5 +994,8 @@
 
     <!-- 3D Spine Model -->
     <script src="spine.js"></script>
+
+    <!-- Lenis Smooth Scroll & Text Reveals -->
+    <script src="smooth-scroll.js"></script>
 </body>
 </html>

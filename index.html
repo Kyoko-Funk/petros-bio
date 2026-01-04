@@ -168,6 +168,9 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
@@ -282,48 +285,6 @@
 
         html { scroll-behavior: smooth; }
         body { background-color: #F5F4F0; overflow-x: hidden; }
-
-        /* Spline 3D Embed Styles */
-        .spline-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-            border-radius: 2rem;
-            overflow: hidden;
-        }
-        
-        .spline-container iframe,
-        .spline-container canvas {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 2rem;
-        }
-        
-        .spline-float {
-            position: absolute;
-            pointer-events: none;
-            z-index: 5;
-        }
-        
-        .spline-float.interactive {
-            pointer-events: auto;
-        }
-        
-        .spline-glow-container {
-            position: relative;
-        }
-        
-        .spline-glow-container::before {
-            content: '';
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(ellipse at center, rgba(122, 139, 105, 0.2) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: -1;
-            filter: blur(30px);
-        }
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -484,12 +445,12 @@
                     Clinical Excellence
                 </h6>
                 
-                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
+                <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-6 reveal-words">
                     Movement is <br>
                     <span class="italic text-petros-green">clinical medicine.</span>
                 </h1>
                 
-                <p class="text-white/80 text-base md:text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed">
+                <p class="text-white/80 text-base md:text-lg font-light max-w-lg mx-auto mb-10 leading-relaxed reveal-fade">
                     Precision biokinetics to resolve chronic pathology and unlock absolute fluidity.
                 </p>
                 
@@ -506,7 +467,7 @@
 
     <section class="py-24 bg-petros-cream relative z-30">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center" id="stats-container">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-center reveal-stagger" id="stats-container">
                 <div class="stat-item">
                     <div class="font-serif text-5xl text-petros-green mb-2"><span class="counter" data-target="98">0</span>%</div>
                     <p class="text-[10px] font-bold tracking-[0.2em] text-petros-slate uppercase opacity-60">Recovery Rate</p>
@@ -532,8 +493,8 @@
             
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div class="max-w-2xl">
-                    <span class="text-petros-green text-xs font-bold tracking-[0.2em] uppercase mb-4 block">Scientific Protocol</span>
-                    <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight">
+                    <span class="text-petros-green text-xs font-bold tracking-[0.2em] uppercase mb-4 block reveal-fade">Scientific Protocol</span>
+                    <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight reveal-words">
                         The Three Pillars of <br>
                         <span class="italic text-petros-green">Clinical Restoration</span>
                     </h2>
@@ -541,7 +502,7 @@
                 <div class="w-24 h-[1px] bg-petros-slate/20 mb-4 hidden md:block"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-stagger">
                 
                 <div class="spotlight-card rounded-[2rem] p-10 group bg-white">
                     <div class="w-12 h-12 bg-petros-cream rounded-xl flex items-center justify-center mb-8 group-hover:bg-petros-green transition-colors duration-300">
@@ -601,39 +562,6 @@
         </div>
     </section>
 
-    <!-- Interactive 3D Experience Section -->
-    <section class="py-16 md:py-24 bg-gradient-to-b from-petros-cream to-white relative overflow-hidden">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Interactive Experience</span>
-                <h2 class="font-serif text-4xl md:text-5xl text-petros-slate mb-4">
-                    Explore the <span class="italic text-petros-green">Human Form</span>
-                </h2>
-                <p class="text-gray-600 font-light max-w-xl mx-auto">Interact with our 3D model to understand the biomechanics of movement</p>
-            </div>
-            
-            <!-- Spline 3D Embed - Abstract Organic Form -->
-            <div class="max-w-4xl mx-auto">
-                <div class="spline-glow-container">
-                    <div class="spline-container h-[400px] md:h-[500px] bg-gradient-to-br from-petros-deep to-petros-charcoal rounded-[2rem] shadow-2xl border border-petros-green/20">
-                        <!-- Replace with your Spline embed URL -->
-                        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
-                        <spline-viewer 
-                            url="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
-                            loading-anim-type="spinner-small-dark"
-                            style="width: 100%; height: 100%; border-radius: 2rem;">
-                        </spline-viewer>
-                    </div>
-                </div>
-                <p class="text-center text-sm text-gray-500 mt-4 italic">Drag to rotate • Scroll to zoom</p>
-            </div>
-        </div>
-        
-        <!-- Decorative blobs -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
-    </section>
-
     <section class="py-24 bg-white border-t border-gray-100">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row gap-16">
@@ -647,11 +575,11 @@
                 </div>
 
                 <div class="w-full lg:w-1/2 py-10">
-                    <h2 class="font-serif text-4xl lg:text-5xl text-petros-slate mb-8 leading-tight">
+                    <h2 class="font-serif text-4xl lg:text-5xl text-petros-slate mb-8 leading-tight reveal-words">
                         Human Movement as <br><span class="italic text-petros-green">Medicine</span>
                     </h2>
                     
-                    <p class="text-gray-600 text-lg leading-relaxed mb-8 font-light">
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8 font-light reveal-fade">
                         At Pétros Biokinetics, we blend clinical precision with an atmosphere of serene luxury. Our approach is rooted in the science of human movement — biokinetics — to restore function, prevent injury, and optimize performance.
                     </p>
 
@@ -659,7 +587,7 @@
                         Every treatment is personalized, delivered in a space designed to calm the mind as much as it heals the body.
                     </p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-stagger">
                         <div class="border-l border-gray-200 pl-6">
                             <span class="block text-2xl font-serif text-petros-slate mb-2">01. Diagnosis</span>
                             <p class="text-xs text-gray-400 uppercase tracking-widest">Precision Mapping</p>
@@ -686,14 +614,14 @@
         </div>
 
         <div class="container mx-auto px-4 text-center relative z-10">
-            <p class="text-[#A3B18A] uppercase tracking-[0.2em] text-[10px] font-bold mb-6 opacity-80">Exclusive Clinical Access</p>
+            <p class="text-[#A3B18A] uppercase tracking-[0.2em] text-[10px] font-bold mb-6 opacity-80 reveal-fade">Exclusive Clinical Access</p>
             
-            <h2 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mb-8 tracking-tight">
+            <h2 class="font-serif text-6xl md:text-7xl lg:text-8xl text-white mb-8 tracking-tight reveal-words">
                 Begin your <br>
                 <span class="italic text-white/50">Restoration.</span>
             </h2>
             
-            <p class="text-gray-400 text-lg max-w-xl mx-auto mb-12 font-light">
+            <p class="text-gray-400 text-lg max-w-xl mx-auto mb-12 font-light reveal-fade">
                 Limited monthly intakes to ensure the highest standard of personalized clinical care. Reserve your comprehensive assessment.
             </p>
 
@@ -894,5 +822,8 @@
 
     <!-- 3D Card Tilt Effect -->
     <script src="tilt.js"></script>
+
+    <!-- Lenis Smooth Scroll & Text Reveals -->
+    <script src="smooth-scroll.js"></script>
 </body>
 </html>
