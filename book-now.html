@@ -27,6 +27,10 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Flatpickr for date/time picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
         tailwind.config = {
@@ -271,11 +275,29 @@
                             <input type="tel" id="phone" name="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 81 ...">
                         </div>
 
-                        <!-- Preferred Times -->
-                        <div>
-                            <label for="preferred-times" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Days & Times *</label>
-                            <textarea id="preferred-times" name="preferred_times" required rows="3" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none" placeholder="e.g., Mondays & Wednesdays, 10am-12pm or Saturdays mornings"></textarea>
-                            <p class="text-xs text-gray-500 mt-2">We have a flexible schedule and will work around your availability</p>
+                        <!-- Preferred Appointment Date & Time -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="appointment-date" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Date *</label>
+                                <input type="text" id="appointment-date" name="appointment_date" required placeholder="Select a date" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer">
+                            </div>
+                            <div>
+                                <label for="appointment-time" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Time *</label>
+                                <select id="appointment-time" name="appointment_time" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
+                                    <option value="">Select a time...</option>
+                                    <option value="07:00">7:00 AM</option>
+                                    <option value="08:00">8:00 AM</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="13:00">1:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                </select>
+                                <p class="text-xs text-gray-500 mt-2">Lunch break: 12:00 – 13:00</p>
+                            </div>
                         </div>
 
                         <!-- What to Wear -->
@@ -437,7 +459,7 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                            <button onclick="document.getElementById('patient-form-container').classList.remove('hidden'); window.scrollTo({ top: document.getElementById('patient-form-container').offsetTop - 100, behavior: 'smooth' }); return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <button onclick="document.getElementById('patient-form-modal').classList.remove('hidden'); return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                                     <span>Fill Out Patient Form Now</span>
@@ -448,12 +470,30 @@
                             </button>
                         </div>
 
-                        <!-- Patient Form Container (Hidden initially) -->
-                        <div id="patient-form-container" class="hidden bg-white rounded-2xl p-8 mb-8 border border-petros-green/20">
-                            <h4 class="font-serif text-2xl text-petros-slate mb-2">Patient Assessment Form</h4>
-                            <p class="text-gray-600 text-sm mb-6">Fill out your medical information below and we'll review it before your appointment.</p>
+                        <!-- Patient Form Modal Overlay -->
+                        <div id="patient-form-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+                            <!-- Dark semi-transparent backdrop -->
+                            <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;"></div>
                             
-                            <form id="patientForm" action="https://formspree.io/f/xqeagoyz" method="POST" class="space-y-4">
+                            <!-- Modal content -->
+                            <div class="relative min-h-screen flex items-center justify-center p-4 py-12">
+                                <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                                    <!-- Modal header -->
+                                    <div class="sticky top-0 bg-white border-b border-gray-200 p-6 md:p-8 flex justify-between items-start">
+                                        <div>
+                                            <h3 class="font-serif text-2xl md:text-3xl text-petros-slate mb-2">Patient Assessment Form</h3>
+                                            <p class="text-gray-600 text-sm">Medical details help us create your perfect restoration plan.</p>
+                                        </div>
+                                        <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" class="text-gray-400 hover:text-gray-600 transition-colors">
+                                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="p-6 md:p-8">
+                                        <form id="patientForm" class="space-y-4">
                                 <!-- Name -->
                                 <div>
                                     <label class="block text-xs font-bold text-petros-green uppercase mb-2">Full Name *</label>
@@ -463,42 +503,57 @@
                                 <!-- Medical History -->
                                 <div>
                                     <label class="block text-xs font-bold text-petros-green uppercase mb-2">Medical History & Conditions *</label>
-                                    <textarea name="medical_history" required rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
+                                    <textarea name="medical_history" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
                                 </div>
 
                                 <!-- Injuries & Pain -->
                                 <div>
                                     <label class="block text-xs font-bold text-petros-green uppercase mb-2">Past Injuries & Pain Areas *</label>
-                                    <textarea name="injuries_pain" required rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="Where do you experience pain? Any previous injuries?"></textarea>
+                                    <textarea name="injuries_pain" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="Where do you experience pain? Any previous injuries?"></textarea>
+                                </div>
+
+                                <!-- Allergies -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Allergies & Adverse Reactions *</label>
+                                    <textarea name="allergies" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any allergies (medications, latex, etc.) or adverse reactions"></textarea>
                                 </div>
 
                                 <!-- Medications -->
                                 <div>
                                     <label class="block text-xs font-bold text-petros-green uppercase mb-2">Current Medications & Supplements</label>
-                                    <textarea name="medications" rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any medications, supplements, or treatments you're currently taking"></textarea>
+                                    <textarea name="medications" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any medications, supplements, or treatments you're currently taking"></textarea>
+                                </div>
+
+                                <!-- Recent Surgeries -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Recent Surgeries or Procedures</label>
+                                    <textarea name="surgeries" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="Any surgeries or procedures in the last year or two?"></textarea>
                                 </div>
 
                                 <!-- Health Goals -->
                                 <div>
                                     <label class="block text-xs font-bold text-petros-green uppercase mb-2">Health & Lifestyle Goals *</label>
-                                    <textarea name="health_goals" required rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="What are your goals? What would you like to achieve?"></textarea>
+                                    <textarea name="health_goals" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="What are your goals? What would you like to achieve?"></textarea>
                                 </div>
 
-                                <div class="flex gap-3 pt-4">
+                                <div class="flex flex-col sm:flex-row gap-3 pt-4">
                                     <button type="submit" class="flex-1 bg-petros-green hover:bg-petros-slate text-white py-3 rounded-lg font-bold transition-all shadow-lg">
                                         <span class="flex items-center justify-center gap-2">
                                             <i data-lucide="send" class="w-4 h-4"></i>
                                             Submit Form
                                         </span>
                                     </button>
-                                    <button type="button" onclick="document.getElementById('patient-form-container').classList.add('hidden'); return false;" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-all">
+                                    <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all">
                                         Close
                                     </button>
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
 
-                        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
+        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
                             💡 You can also fill this out later and email it to us
                         </p>
                     </div>
@@ -636,9 +691,9 @@
                 });
                 
                 if (response.ok) {
-                    // Success - show confirmation
+                    // Success - show confirmation and close modal
                     alert('Thank you! Your patient assessment form has been submitted successfully.');
-                    document.getElementById('patient-form-container').classList.add('hidden');
+                    document.getElementById('patient-form-modal').classList.add('hidden');
                     document.getElementById('patient-form-cta').classList.add('hidden');
                     form.reset();
                     lucide.createIcons();
@@ -653,6 +708,21 @@
                 alert('There was an error submitting your form. Please try again.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
+            }
+        });
+
+        // Initialize Flatpickr for appointment date picker
+        flatpickr("#appointment-date", {
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            disable: [
+                function(date) {
+                    // Disable weekends (Saturday = 6, Sunday = 0)
+                    return date.getDay() === 0 || date.getDay() === 6;
+                }
+            ],
+            locale: {
+                firstDayOfWeek: 1
             }
         });
     </script>
