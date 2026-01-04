@@ -373,6 +373,50 @@
                         Back to Home
                     </a>
                 </div>
+
+                <!-- Patient Information Form CTA (shown after booking) -->
+                <div id="patient-form-cta" class="hidden bg-gradient-to-br from-petros-green/5 to-petros-green/10 rounded-3xl p-8 md:p-12 border-2 border-petros-green/30 mt-8 shadow-lg">
+                    <div class="flex items-start gap-4 mb-6">
+                        <div class="w-12 h-12 bg-petros-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="clipboard-list" class="w-6 h-6 text-petros-green"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-2xl text-petros-slate mb-2">Complete Your Patient Assessment</h3>
+                            <p class="text-gray-700 font-light">For the best assessment, we recommend completing our comprehensive patient form. It takes just 5 minutes and helps us understand your needs better.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-xl p-6 mb-6 border border-petros-green/20">
+                        <p class="text-sm text-gray-700 mb-4 font-light">
+                            <span class="font-semibold text-petros-slate">What we'll learn:</span> Your medical history, current conditions, previous injuries, lifestyle factors, and specific health goals—so we can tailor your restoration experience.
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center gap-2">
+                                <span class="text-petros-green">✓</span> Medical history & current conditions
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-petros-green">✓</span> Past injuries or chronic pain areas
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-petros-green">✓</span> Medications & supplements
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-petros-green">✓</span> Lifestyle & fitness goals
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="https://formspree.io/f/xqeagoyz" target="_blank" class="w-full block text-center bg-petros-green text-white px-8 py-4 rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl group">
+                        <span class="flex items-center justify-center gap-2">
+                            <span>Fill Out Patient Form</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                    </a>
+
+                    <p class="text-center text-xs text-gray-500 mt-4 uppercase tracking-wider">
+                        Optional but recommended • Takes ~5 minutes • Helps us serve you better
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -438,7 +482,9 @@
             setTimeout(() => {
                 document.getElementById('booking-form-container').classList.add('hidden');
                 document.getElementById('success-message').classList.remove('hidden');
+                document.getElementById('patient-form-cta').classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+                lucide.createIcons(); // Re-create icons for the new elements
             }, 1000);
         });
     </script>
