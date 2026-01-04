@@ -227,6 +227,7 @@
             border-color: #7A8B69 !important;
             color: #7A8B69 !important;
             font-weight: 600 !important;
+            background: none !important;
         }
 
         .flatpickr-day.disabled,
@@ -234,7 +235,8 @@
         .flatpickr-day.nextMonthDay {
             color: #cbd5e1 !important;
             cursor: not-allowed !important;
-            opacity: 0.5 !important;
+            opacity: 0.4 !important;
+            pointer-events: none !important;
         }
 
         /* Smooth input styling */
@@ -245,13 +247,11 @@
         /* Luxurious Select Styling */
         select#appointment-time {
             appearance: none !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 5l5 4 5-4' stroke='%237A8B69' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
-            background-repeat: no-repeat !important;
-            background-position: right 16px center !important;
-            padding: 14px 48px 14px 16px !important;
-            background-color: linear-gradient(135deg, #ffffff 0%, #fafaf9 100%) !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 5l5 4 5-4' stroke='%237A8B69' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(135deg, #ffffff 0%, #fafaf9 100%) !important;
+            background-repeat: no-repeat, repeat !important;
+            background-position: right 16px center, left !important;
+            background-color: #fafaf9 !important;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            border: 1.5px solid rgba(122, 139, 105, 0.2) !important;
             font-size: 15px !important;
             font-weight: 500 !important;
             letter-spacing: 0.2px !important;
@@ -266,7 +266,7 @@
             border-color: #7A8B69 !important;
             box-shadow: 0 8px 20px rgba(122, 139, 105, 0.15) !important;
             transform: translateY(-2px) !important;
-            background: linear-gradient(135deg, #fafaf9 0%, #ffffff 100%) !important;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 5l5 4 5-4' stroke='%237A8B69' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(135deg, #fafaf9 0%, #ffffff 100%) !important;
         }
 
         select#appointment-time:focus {
@@ -474,7 +474,7 @@
                             </div>
                             <div class="group">
                                 <label for="appointment-time" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Time *</label>
-                                <select id="appointment-time" name="appointment_time" required style="padding: 14px 48px 14px 16px; background-color: #ffffff; border: 1.5px solid rgba(122, 139, 105, 0.2); font-size: 15px; font-weight: 500;" class="w-full rounded-xl focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
+                                <select id="appointment-time" name="appointment_time" required style="padding: 14px 48px 14px 16px; border: 1.5px solid rgba(122, 139, 105, 0.2); font-size: 15px; font-weight: 500;" class="w-full rounded-xl focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
                                     <option value="">Select a time...</option>
                                     <option value="07:00">7:00 AM</option>
                                     <option value="08:00">8:00 AM</option>
