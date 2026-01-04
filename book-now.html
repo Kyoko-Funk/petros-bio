@@ -436,19 +436,26 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://formspree.io/f/xqeagoyz" target="_blank" class="flex-1 block text-center bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <button onclick="document.getElementById('patient-form-container').classList.remove('hidden'); document.getElementById('patient-form-buttons').classList.add('hidden'); window.scrollTo({ top: document.getElementById('patient-form-container').offsetTop - 100, behavior: 'smooth' }); return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                                     <span>Fill Out Patient Form Now</span>
                                 </span>
-                            </a>
+                            </button>
                             <button onclick="document.getElementById('patient-form-cta').classList.add('hidden'); return false;" class="px-8 py-4 rounded-xl font-bold border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-all">
                                 Skip for Now
                             </button>
                         </div>
 
-                        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
+                        <!-- Patient Form Container (Hidden initially) -->
+                        <div id="patient-form-container" class="hidden bg-white rounded-2xl p-8 mb-8 border border-petros-green/20">
+                            <h4 class="font-serif text-2xl text-petros-slate mb-6">Patient Assessment Form</h4>
+                            <iframe id="patient-form" src="https://formspree.io/f/xqeagoyz" style="width: 100%; height: 800px; border: none; border-radius: 12px;"></iframe>
+                            <button onclick="document.getElementById('patient-form-cta').classList.add('hidden'); return false;" class="mt-4 w-full py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-all">
+                                Close Form
+                            </button>
+                        </div>                        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
                             💡 You can also fill this out later and email it to us
                         </p>
                     </div>
