@@ -27,10 +27,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Flatpickr for date/time picker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
         tailwind.config = {
@@ -119,196 +115,72 @@
             animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
         }
 
-        /* Elegant Flatpickr Styling */
-        .flatpickr-calendar {
-            background: linear-gradient(135deg, #ffffff 0%, #fafaf9 100%) !important;
-            border: 1px solid rgba(122, 139, 105, 0.15) !important;
-            border-radius: 16px !important;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 0 1px rgba(122, 139, 105, 0.1) !important;
-            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        }
-
+        /* Custom Calendar Styles */
         @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .flatpickr-calendar.animate {
-            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        .calendar-day {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .flatpickr-months {
-            padding: 16px !important;
+        .calendar-day:not(.disabled):not(.weekend):hover {
+            background: rgba(122, 139, 105, 0.15);
+            transform: scale(1.05);
         }
 
-        .flatpickr-month {
-            margin: 0 !important;
+        .calendar-day.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(122, 139, 105, 0.3);
         }
 
-        .flatpickr-prev-month,
-        .flatpickr-next-month {
-            fill: #7A8B69 !important;
-            transition: all 0.3s ease !important;
-            cursor: pointer !important;
+        .calendar-day.today:not(.selected) {
+            border: 2px solid #7A8B69;
+            color: #7A8B69;
         }
 
-        .flatpickr-prev-month:hover,
-        .flatpickr-next-month:hover {
-            fill: #2F3E30 !important;
-            transform: scale(1.1) !important;
+        .calendar-day.disabled,
+        .calendar-day.weekend {
+            color: #d1d5db;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
-        .flatpickr-current-month {
-            font-weight: 500 !important;
-            color: #2C3E50 !important;
-            letter-spacing: 0.5px !important;
+        .calendar-day.other-month {
+            color: #e5e7eb;
         }
 
-        .flatpickr-weekdaycontainer {
-            padding: 12px 8px !important;
+        .time-option.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
         }
 
-        .flatpickr-weekday {
-            color: #7A8B69 !important;
-            font-weight: 600 !important;
-            font-size: 12px !important;
-            letter-spacing: 0.5px !important;
+        #time-dropdown::-webkit-scrollbar {
+            width: 6px;
         }
 
-        .flatpickr-days {
-            padding: 4px 8px !important;
+        #time-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
         }
 
-        .flatpickr-day {
-            color: #2C3E50 !important;
-            border-radius: 12px !important;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            margin: 3px !important;
-            min-height: 40px !important;
-            min-width: 40px !important;
-            padding: 0 6px !important;
-            line-height: 40px !important;
-            font-weight: 500 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
+        #time-dropdown::-webkit-scrollbar-thumb {
+            background: #7A8B69;
+            border-radius: 3px;
         }
 
-        .flatpickr-day:hover:not(.disabled) {
-            background: linear-gradient(135deg, rgba(122, 139, 105, 0.15) 0%, rgba(122, 139, 105, 0.08) 100%) !important;
-            box-shadow: 0 8px 18px rgba(122, 139, 105, 0.25) !important;
-        }
-
-        .flatpickr-day.selected {
-            background: linear-gradient(135deg, #7A8B69 0%, #6a7b59 100%) !important;
-            border-color: #7A8B69 !important;
-            color: white !important;
-            font-weight: 700 !important;
-            box-shadow: 0 8px 20px rgba(122, 139, 105, 0.35) !important;
-        }
-
-        .flatpickr-day.selected:hover {
-            background: linear-gradient(135deg, #6a7b59 0%, #5a6b49 100%) !important;
-            box-shadow: 0 12px 28px rgba(122, 139, 105, 0.4) !important;
-        }
-
-        .flatpickr-day.inRange {
-            background: rgba(122, 139, 105, 0.1) !important;
-            box-shadow: none !important;
-        }
-
-        .flatpickr-day.today {
-            border-color: #7A8B69 !important;
-            color: #7A8B69 !important;
-            font-weight: 600 !important;
-            background: none !important;
-        }
-
-        .flatpickr-day.disabled,
-        .flatpickr-day.prevMonthDay,
-        .flatpickr-day.nextMonthDay {
-            color: #cbd5e1 !important;
-            cursor: not-allowed !important;
-            opacity: 0.4 !important;
-            pointer-events: none !important;
-        }
-
-        /* Smooth input styling */
-        .flatpickr-input {
-            transition: all 0.3s ease !important;
-        }
-
-        /* Luxurious Select Styling */
-        select#appointment-time {
-            appearance: none !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 5l5 4 5-4' stroke='%237A8B69' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(135deg, #ffffff 0%, #fafaf9 100%) !important;
-            background-repeat: no-repeat, repeat !important;
-            background-position: right 16px center, left !important;
-            background-color: #fafaf9 !important;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-            font-size: 15px !important;
-            font-weight: 500 !important;
-            letter-spacing: 0.2px !important;
-            cursor: pointer !important;
-            color: #2C3E50 !important;
-            width: 100% !important;
-            box-sizing: border-box !important;
-            height: auto !important;
-        }
-
-        select#appointment-time:hover {
-            border-color: #7A8B69 !important;
-            box-shadow: 0 8px 20px rgba(122, 139, 105, 0.15) !important;
-            transform: translateY(-2px) !important;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 5l5 4 5-4' stroke='%237A8B69' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"), linear-gradient(135deg, #fafaf9 0%, #ffffff 100%) !important;
-        }
-
-        select#appointment-time:focus {
-            border-color: #7A8B69 !important;
-            box-shadow: 0 12px 30px rgba(122, 139, 105, 0.2), 0 0 0 4px rgba(122, 139, 105, 0.08) !important;
-            outline: none !important;
-        }
-
-        select#appointment-time option {
-            padding: 12px !important;
-            border-radius: 8px !important;
-            font-weight: 500 !important;
-            background: white !important;
-            color: #2C3E50 !important;
-        }
-
-        select#appointment-time option:checked {
-            background: linear-gradient(135deg, #7A8B69 0%, #6a7b59 100%) !important;
-            background-color: #7A8B69 !important;
-            color: white !important;
-            font-weight: 600 !important;
-        }
-
-        /* Input field enhancements */
-        #appointment-date {
-            transition: all 0.3s ease !important;
-        }
-
-        #appointment-date:hover {
-            border-color: #7A8B69 !important;
-            box-shadow: 0 4px 12px rgba(122, 139, 105, 0.1) !important;
-        }
-
-        #appointment-date:focus {
-            border-color: #7A8B69 !important;
-            box-shadow: 0 0 0 3px rgba(122, 139, 105, 0.1) !important;
-        }
-
-        #appointment-date::placeholder {
-            color: #a1a1a1 !important;
-            font-style: italic !important;
-        }
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -468,26 +340,64 @@
 
                         <!-- Preferred Appointment Date & Time -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div class="group">
-                                <label for="appointment-date" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Date *</label>
-                                <input type="text" id="appointment-date" name="appointment_date" required placeholder="Select a date" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer">
+                            <div class="group relative">
+                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Date *</label>
+                                <input type="hidden" id="appointment-date" name="appointment_date" required>
+                                <div id="date-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleCalendar()">
+                                    <span id="date-text" class="text-gray-400">Select a date...</span>
+                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <!-- Custom Calendar Dropdown -->
+                                <div id="calendar-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-5 z-50 w-[320px]" style="animation: slideDown 0.25s ease-out;">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <button type="button" onclick="changeMonth(-1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all">
+                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                        </button>
+                                        <span id="calendar-month" class="font-semibold text-petros-slate"></span>
+                                        <button type="button" onclick="changeMonth(1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all">
+                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        </button>
+                                    </div>
+                                    <div class="grid grid-cols-7 gap-1 mb-2">
+                                        <span class="text-xs font-bold text-petros-green text-center py-2">Mo</span>
+                                        <span class="text-xs font-bold text-petros-green text-center py-2">Tu</span>
+                                        <span class="text-xs font-bold text-petros-green text-center py-2">We</span>
+                                        <span class="text-xs font-bold text-petros-green text-center py-2">Th</span>
+                                        <span class="text-xs font-bold text-petros-green text-center py-2">Fr</span>
+                                        <span class="text-xs font-bold text-gray-300 text-center py-2">Sa</span>
+                                        <span class="text-xs font-bold text-gray-300 text-center py-2">Su</span>
+                                    </div>
+                                    <div id="calendar-days" class="grid grid-cols-7 gap-1"></div>
+                                </div>
+                                <p id="date-error" class="text-xs text-red-500 mt-2 hidden">Please select a weekday (Monday - Friday)</p>
                             </div>
-                            <div class="group">
-                                <label for="appointment-time" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Time *</label>
-                                <select id="appointment-time" name="appointment_time" required style="padding: 14px 48px 14px 16px; border: 1.5px solid rgba(122, 139, 105, 0.2); font-size: 15px; font-weight: 500;" class="w-full rounded-xl focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
-                                    <option value="">Select a time...</option>
-                                    <option value="07:00">7:00 AM</option>
-                                    <option value="08:00">8:00 AM</option>
-                                    <option value="09:00">9:00 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="13:00">1:00 PM</option>
-                                    <option value="14:00">2:00 PM</option>
-                                    <option value="15:00">3:00 PM</option>
-                                    <option value="16:00">4:00 PM</option>
-                                    <option value="17:00">5:00 PM</option>
-                                </select>
-                                <p class="text-xs text-gray-500 mt-2 font-light">Lunch break: 12:00 – 13:00</p>
+                            <div class="group relative">
+                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Time *</label>
+                                <input type="hidden" id="appointment-time" name="appointment_time" required>
+                                <div id="time-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleTimeDropdown()">
+                                    <span id="time-text" class="text-gray-400">Select a time...</span>
+                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <!-- Custom Time Dropdown -->
+                                <div id="time-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" style="animation: slideDown 0.25s ease-out;">
+                                    <div class="space-y-1">
+                                        <button type="button" onclick="selectTime('07:00', '7:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">7:00 AM</button>
+                                        <button type="button" onclick="selectTime('08:00', '8:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">8:00 AM</button>
+                                        <button type="button" onclick="selectTime('09:00', '9:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">9:00 AM</button>
+                                        <button type="button" onclick="selectTime('10:00', '10:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">10:00 AM</button>
+                                        <button type="button" onclick="selectTime('11:00', '11:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">11:00 AM</button>
+                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1">Lunch break: 12:00 – 1:00 PM</div>
+                                        <button type="button" onclick="selectTime('13:00', '1:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">1:00 PM</button>
+                                        <button type="button" onclick="selectTime('14:00', '2:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">2:00 PM</button>
+                                        <button type="button" onclick="selectTime('15:00', '3:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">3:00 PM</button>
+                                        <button type="button" onclick="selectTime('16:00', '4:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">4:00 PM</button>
+                                        <button type="button" onclick="selectTime('17:00', '5:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">5:00 PM</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -902,20 +812,165 @@
             }
         });
 
-        // Initialize Flatpickr for appointment date picker
-        flatpickr("#appointment-date", {
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            disable: [
-                function(date) {
-                    // Disable weekends (Saturday = 6, Sunday = 0)
-                    return date.getDay() === 0 || date.getDay() === 6;
-                }
-            ],
-            locale: {
-                firstDayOfWeek: 1
+        // Weekend validation for date picker
+        const dateInput = document.getElementById("appointment-date");
+        const dateError = document.getElementById("date-error");
+        
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+        
+        dateInput.addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const day = selectedDate.getDay();
+            
+            // 0 = Sunday, 6 = Saturday
+            if (day === 0 || day === 6) {
+                dateError.classList.remove('hidden');
+                this.value = '';
+                this.setCustomValidity('Please select a weekday (Monday - Friday)');
+            } else {
+                dateError.classList.add('hidden');
+                this.setCustomValidity('');
             }
         });
+
+        // ===== CUSTOM DATE PICKER =====
+        let currentDate = new Date();
+        let selectedDate = null;
+
+        function toggleCalendar() {
+            const dropdown = document.getElementById('calendar-dropdown');
+            const timeDropdown = document.getElementById('time-dropdown');
+            timeDropdown.classList.add('hidden');
+            dropdown.classList.toggle('hidden');
+            if (!dropdown.classList.contains('hidden')) {
+                renderCalendar();
+            }
+        }
+
+        function changeMonth(delta) {
+            currentDate.setMonth(currentDate.getMonth() + delta);
+            renderCalendar();
+        }
+
+        function renderCalendar() {
+            const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            document.getElementById('calendar-month').textContent = monthNames[currentDate.getMonth()] + ' ' + currentDate.getFullYear();
+
+            const daysContainer = document.getElementById('calendar-days');
+            daysContainer.innerHTML = '';
+
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            // Monday = 0, Sunday = 6 (adjusted from JS default)
+            let startDay = firstDay.getDay() - 1;
+            if (startDay < 0) startDay = 6;
+
+            // Previous month days
+            const prevMonth = new Date(year, month, 0);
+            for (let i = startDay - 1; i >= 0; i--) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day other-month disabled';
+                dayEl.textContent = prevMonth.getDate() - i;
+                daysContainer.appendChild(dayEl);
+            }
+
+            // Current month days
+            for (let day = 1; day <= lastDay.getDate(); day++) {
+                const dayEl = document.createElement('div');
+                const thisDate = new Date(year, month, day);
+                const dayOfWeek = thisDate.getDay();
+                const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+                const isPast = thisDate < today;
+                const isToday = thisDate.getTime() === today.getTime();
+                const isSelected = selectedDate && thisDate.getTime() === selectedDate.getTime();
+
+                let classes = 'calendar-day';
+                if (isWeekend) classes += ' weekend';
+                if (isPast) classes += ' disabled';
+                if (isToday) classes += ' today';
+                if (isSelected) classes += ' selected';
+
+                dayEl.className = classes;
+                dayEl.textContent = day;
+
+                if (!isWeekend && !isPast) {
+                    dayEl.onclick = () => selectDate(thisDate);
+                }
+
+                daysContainer.appendChild(dayEl);
+            }
+
+            // Next month days
+            const totalCells = daysContainer.children.length;
+            const remainingCells = 42 - totalCells;
+            for (let i = 1; i <= remainingCells; i++) {
+                const dayEl = document.createElement('div');
+                dayEl.className = 'calendar-day other-month disabled';
+                dayEl.textContent = i;
+                daysContainer.appendChild(dayEl);
+            }
+        }
+
+        function selectDate(date) {
+            selectedDate = date;
+            const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+            document.getElementById('date-text').textContent = date.toLocaleDateString('en-US', options);
+            document.getElementById('date-text').classList.remove('text-gray-400');
+            document.getElementById('date-text').classList.add('text-petros-slate');
+            
+            // Format for form submission: YYYY-MM-DD
+            const formattedDate = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+            document.getElementById('appointment-date').value = formattedDate;
+            
+            document.getElementById('calendar-dropdown').classList.add('hidden');
+            renderCalendar();
+        }
+
+        // ===== CUSTOM TIME PICKER =====
+        function toggleTimeDropdown() {
+            const dropdown = document.getElementById('time-dropdown');
+            const calendarDropdown = document.getElementById('calendar-dropdown');
+            calendarDropdown.classList.add('hidden');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function selectTime(value, display) {
+            document.getElementById('appointment-time').value = value;
+            document.getElementById('time-text').textContent = display;
+            document.getElementById('time-text').classList.remove('text-gray-400');
+            document.getElementById('time-text').classList.add('text-petros-slate');
+            
+            // Update selected state
+            document.querySelectorAll('.time-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            document.getElementById('time-dropdown').classList.add('hidden');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            const calendarDropdown = document.getElementById('calendar-dropdown');
+            const timeDropdown = document.getElementById('time-dropdown');
+            const dateDisplay = document.getElementById('date-display');
+            const timeDisplay = document.getElementById('time-display');
+
+            if (!dateDisplay.contains(e.target) && !calendarDropdown.contains(e.target)) {
+                calendarDropdown.classList.add('hidden');
+            }
+            if (!timeDisplay.contains(e.target) && !timeDropdown.contains(e.target)) {
+                timeDropdown.classList.add('hidden');
+            }
+        });
+
+        // Initialize calendar on page load
+        renderCalendar();
     </script>
 </body>
 </html>
