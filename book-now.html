@@ -190,6 +190,53 @@
             color: white;
         }
 
+        /* Body Diagram Styles */
+        .body-part {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .body-part:hover {
+            fill: rgba(122, 139, 105, 0.3);
+            stroke: #7A8B69;
+        }
+
+        .body-part.selected {
+            fill: rgba(122, 139, 105, 0.6);
+            stroke: #7A8B69;
+            stroke-width: 2;
+        }
+
+        .pain-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .pain-tag button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .pain-tag button:hover {
+            background: rgba(255,255,255,0.5);
+        }
+
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -631,10 +678,93 @@
                                     <textarea name="medical_history" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
                                 </div>
 
-                                <!-- Injuries & Pain -->
+                                <!-- Injuries & Pain - Interactive Body Diagram -->
                                 <div>
-                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Past Injuries & Pain Areas *</label>
-                                    <textarea name="injuries_pain" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="Where do you experience pain? Any previous injuries?"></textarea>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Pain Areas (Click to Select) *</label>
+                                    <input type="hidden" name="injuries_pain" id="pain-areas-input" required>
+                                    
+                                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                                        <!-- Body Diagram -->
+                                        <div class="flex-shrink-0 bg-gradient-to-b from-petros-cream/50 to-white rounded-xl p-4 border border-gray-200">
+                                            <svg viewBox="0 0 200 380" class="w-32 h-auto mx-auto" id="body-diagram">
+                                                <!-- Head -->
+                                                <ellipse cx="100" cy="30" rx="25" ry="28" class="body-part" data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Neck -->
+                                                <rect x="90" y="55" width="20" height="15" rx="3" class="body-part" data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Shoulders -->
+                                                <ellipse cx="55" cy="85" rx="20" ry="12" class="body-part" data-part="Left Shoulder" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <ellipse cx="145" cy="85" rx="20" ry="12" class="body-part" data-part="Right Shoulder" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Torso/Back -->
+                                                <path d="M70 70 Q100 65 130 70 L140 90 L140 150 Q100 160 60 150 L60 90 Z" class="body-part" data-part="Upper Back/Chest" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <path d="M60 150 Q100 160 140 150 L135 210 Q100 220 65 210 Z" class="body-part" data-part="Lower Back/Core" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Arms -->
+                                                <path d="M35 85 Q25 120 30 160 Q35 165 45 160 Q50 120 55 95" class="body-part" data-part="Left Arm" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <path d="M165 85 Q175 120 170 160 Q165 165 155 160 Q150 120 145 95" class="body-part" data-part="Right Arm" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Hands -->
+                                                <ellipse cx="37" cy="175" rx="12" ry="15" class="body-part" data-part="Left Hand/Wrist" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <ellipse cx="163" cy="175" rx="12" ry="15" class="body-part" data-part="Right Hand/Wrist" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Hips -->
+                                                <path d="M65 210 Q100 220 135 210 L140 240 Q100 250 60 240 Z" class="body-part" data-part="Hips/Pelvis" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Upper Legs -->
+                                                <path d="M60 240 Q70 250 75 240 L85 300 Q75 305 65 300 Z" class="body-part" data-part="Left Thigh" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <path d="M140 240 Q130 250 125 240 L115 300 Q125 305 135 300 Z" class="body-part" data-part="Right Thigh" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Knees -->
+                                                <ellipse cx="75" cy="310" rx="12" ry="15" class="body-part" data-part="Left Knee" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <ellipse cx="125" cy="310" rx="12" ry="15" class="body-part" data-part="Right Knee" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Lower Legs -->
+                                                <path d="M65 325 L70 360 Q75 365 80 360 L85 325" class="body-part" data-part="Left Calf/Shin" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <path d="M115 325 L120 360 Q125 365 130 360 L135 325" class="body-part" data-part="Right Calf/Shin" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                
+                                                <!-- Feet -->
+                                                <ellipse cx="75" cy="370" rx="15" ry="8" class="body-part" data-part="Left Foot/Ankle" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                                <ellipse cx="125" cy="370" rx="15" ry="8" class="body-part" data-part="Right Foot/Ankle" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                            </svg>
+                                            <p class="text-[10px] text-gray-400 text-center mt-2">Click body parts</p>
+                                        </div>
+                                        
+                                        <!-- Selected Areas & Condition Type -->
+                                        <div class="flex-1 space-y-3 w-full">
+                                            <!-- Condition Type Dropdown -->
+                                            <div>
+                                                <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Type of Concern</label>
+                                                <select id="condition-type" class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm">
+                                                    <option value="">Select type...</option>
+                                                    <option value="Chronic Pain">Chronic Pain</option>
+                                                    <option value="Sports Injury">Sports Injury</option>
+                                                    <option value="Post-Surgery Rehab">Post-Surgery Rehab</option>
+                                                    <option value="Posture Issues">Posture Issues</option>
+                                                    <option value="Muscle Strain">Muscle Strain</option>
+                                                    <option value="Joint Stiffness">Joint Stiffness</option>
+                                                    <option value="Mobility Issues">Mobility Issues</option>
+                                                    <option value="Work-Related">Work-Related Injury</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <!-- Selected Areas Display -->
+                                            <div>
+                                                <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Selected Areas</label>
+                                                <div id="selected-areas" class="min-h-[60px] p-2 rounded-lg border border-gray-200 bg-gray-50 flex flex-wrap gap-1">
+                                                    <span class="text-xs text-gray-400 italic" id="no-areas-text">Click on the body diagram...</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Additional Notes -->
+                                            <div>
+                                                <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Additional Details</label>
+                                                <textarea id="pain-notes" rows="2" class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm resize-none" placeholder="Any other details about your pain..."></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Allergies -->
@@ -701,17 +831,14 @@
                 </div>
             </div>
 
-        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
-                            💡 You can also fill this out later and email it to us
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
+                💡 You can also fill this out later and email it to us
+            </p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
+    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden z-10">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
         
         <div class="container mx-auto px-4 relative z-10">
@@ -1045,6 +1172,68 @@
 
         // Initialize calendar on page load
         renderCalendar();
+
+        // ===== BODY DIAGRAM PAIN SELECTOR =====
+        const selectedPainAreas = new Set();
+
+        document.querySelectorAll('.body-part').forEach(part => {
+            part.addEventListener('click', function() {
+                const area = this.getAttribute('data-part');
+                
+                if (selectedPainAreas.has(area)) {
+                    selectedPainAreas.delete(area);
+                    this.classList.remove('selected');
+                } else {
+                    selectedPainAreas.add(area);
+                    this.classList.add('selected');
+                }
+                
+                updatePainAreasDisplay();
+            });
+        });
+
+        function updatePainAreasDisplay() {
+            const container = document.getElementById('selected-areas');
+            const noAreasText = document.getElementById('no-areas-text');
+            const input = document.getElementById('pain-areas-input');
+            const conditionType = document.getElementById('condition-type').value;
+            const notes = document.getElementById('pain-notes').value;
+            
+            // Clear existing tags (keep noAreasText)
+            container.querySelectorAll('.pain-tag').forEach(tag => tag.remove());
+            
+            if (selectedPainAreas.size === 0) {
+                noAreasText.classList.remove('hidden');
+                input.value = '';
+            } else {
+                noAreasText.classList.add('hidden');
+                
+                selectedPainAreas.forEach(area => {
+                    const tag = document.createElement('span');
+                    tag.className = 'pain-tag';
+                    tag.innerHTML = `${area} <button type="button" onclick="removePainArea('${area}')">&times;</button>`;
+                    container.appendChild(tag);
+                });
+                
+                // Update hidden input with all pain info
+                let painInfo = Array.from(selectedPainAreas).join(', ');
+                if (conditionType) painInfo = `[${conditionType}] ` + painInfo;
+                if (notes) painInfo += ` - Notes: ${notes}`;
+                input.value = painInfo;
+            }
+        }
+
+        function removePainArea(area) {
+            selectedPainAreas.delete(area);
+            document.querySelectorAll(`.body-part[data-part="${area}"]`).forEach(el => {
+                el.classList.remove('selected');
+            });
+            updatePainAreasDisplay();
+        }
+
+        // Update hidden input when condition type or notes change
+        document.getElementById('condition-type').addEventListener('change', updatePainAreasDisplay);
+        document.getElementById('pain-notes').addEventListener('input', updatePainAreasDisplay);
     </script>
 </body>
 </html>
