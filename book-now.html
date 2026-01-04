@@ -673,6 +673,29 @@
                                     </button>
                                 </div>
                             </form>
+
+                            <!-- Patient Form Success Message (Hidden initially) -->
+                            <div id="patient-form-success" class="hidden text-center py-8">
+                                <div class="mb-6">
+                                    <div class="relative w-20 h-20 mx-auto">
+                                        <div class="absolute inset-0 bg-petros-green/20 rounded-full animate-ping"></div>
+                                        <div class="relative w-full h-full bg-petros-green/10 rounded-full flex items-center justify-center">
+                                            <svg class="w-10 h-10 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="font-serif text-3xl text-petros-slate mb-3">Thank You!</h4>
+                                <p class="text-gray-600 mb-2">Your patient assessment form has been submitted successfully.</p>
+                                <p class="text-petros-green font-semibold text-sm mb-6">We now have everything we need to prepare for your visit 🌿</p>
+                                <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.getElementById('patient-form-cta').classList.add('hidden');" class="bg-petros-green hover:bg-petros-slate text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg">
+                                    <span class="flex items-center justify-center gap-2">
+                                        <i data-lucide="home" class="w-4 h-4"></i>
+                                        Done
+                                    </span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -816,10 +839,9 @@
                 });
                 
                 if (response.ok) {
-                    // Success - show confirmation and close modal
-                    alert('Thank you! Your patient assessment form has been submitted successfully.');
-                    document.getElementById('patient-form-modal').classList.add('hidden');
-                    document.getElementById('patient-form-cta').classList.add('hidden');
+                    // Success - show nice confirmation message
+                    document.getElementById('patientForm').classList.add('hidden');
+                    document.getElementById('patient-form-success').classList.remove('hidden');
                     form.reset();
                     lucide.createIcons();
                 } else {
