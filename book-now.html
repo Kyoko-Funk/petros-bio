@@ -437,7 +437,7 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                            <button onclick="document.getElementById('patient-form-container').classList.remove('hidden'); document.getElementById('patient-form-buttons').classList.add('hidden'); window.scrollTo({ top: document.getElementById('patient-form-container').offsetTop - 100, behavior: 'smooth' }); return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <button onclick="document.getElementById('patient-form-container').classList.remove('hidden'); window.scrollTo({ top: document.getElementById('patient-form-container').offsetTop - 100, behavior: 'smooth' }); return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                                     <span>Fill Out Patient Form Now</span>
@@ -450,12 +450,55 @@
 
                         <!-- Patient Form Container (Hidden initially) -->
                         <div id="patient-form-container" class="hidden bg-white rounded-2xl p-8 mb-8 border border-petros-green/20">
-                            <h4 class="font-serif text-2xl text-petros-slate mb-6">Patient Assessment Form</h4>
-                            <iframe id="patient-form" src="https://formspree.io/f/xqeagoyz" style="width: 100%; height: 800px; border: none; border-radius: 12px;"></iframe>
-                            <button onclick="document.getElementById('patient-form-cta').classList.add('hidden'); return false;" class="mt-4 w-full py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-all">
-                                Close Form
-                            </button>
-                        </div>                        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
+                            <h4 class="font-serif text-2xl text-petros-slate mb-2">Patient Assessment Form</h4>
+                            <p class="text-gray-600 text-sm mb-6">Fill out your medical information below and we'll review it before your appointment.</p>
+                            
+                            <form id="patientForm" action="https://formspree.io/f/xqeagoyz" method="POST" class="space-y-4">
+                                <!-- Name -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Full Name *</label>
+                                    <input type="text" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20">
+                                </div>
+
+                                <!-- Medical History -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Medical History & Conditions *</label>
+                                    <textarea name="medical_history" required rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
+                                </div>
+
+                                <!-- Injuries & Pain -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Past Injuries & Pain Areas *</label>
+                                    <textarea name="injuries_pain" required rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="Where do you experience pain? Any previous injuries?"></textarea>
+                                </div>
+
+                                <!-- Medications -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Current Medications & Supplements</label>
+                                    <textarea name="medications" rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any medications, supplements, or treatments you're currently taking"></textarea>
+                                </div>
+
+                                <!-- Health Goals -->
+                                <div>
+                                    <label class="block text-xs font-bold text-petros-green uppercase mb-2">Health & Lifestyle Goals *</label>
+                                    <textarea name="health_goals" required rows="3" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="What are your goals? What would you like to achieve?"></textarea>
+                                </div>
+
+                                <div class="flex gap-3 pt-4">
+                                    <button type="submit" class="flex-1 bg-petros-green hover:bg-petros-slate text-white py-3 rounded-lg font-bold transition-all shadow-lg">
+                                        <span class="flex items-center justify-center gap-2">
+                                            <i data-lucide="send" class="w-4 h-4"></i>
+                                            Submit Form
+                                        </span>
+                                    </button>
+                                    <button type="button" onclick="document.getElementById('patient-form-container').classList.add('hidden'); return false;" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition-all">
+                                        Close
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
                             💡 You can also fill this out later and email it to us
                         </p>
                     </div>
@@ -561,6 +604,53 @@
             } catch (error) {
                 console.error('Error:', error);
                 alert('There was an error submitting your booking. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        });
+
+        // Handle patient form submission
+        document.getElementById('patientForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Submitting...</span>';
+            lucide.createIcons();
+            
+            try {
+                // Collect form data
+                const formData = new FormData(form);
+                
+                // Send to Formspree via fetch
+                const response = await fetch('https://formspree.io/f/xqeagoyz', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success - show confirmation
+                    alert('Thank you! Your patient assessment form has been submitted successfully.');
+                    document.getElementById('patient-form-container').classList.add('hidden');
+                    document.getElementById('patient-form-cta').classList.add('hidden');
+                    form.reset();
+                    lucide.createIcons();
+                } else {
+                    // Error
+                    alert('Something went wrong. Please try again.');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your form. Please try again.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
             }
