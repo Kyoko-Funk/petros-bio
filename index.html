@@ -168,6 +168,9 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Three.js for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -248,6 +251,11 @@
         }
 
         /* 4. Mouse Spotlight Effect */
+
+        /* 5. Particle Canvas Transition */
+        #particle-canvas {
+            transition: opacity 0.5s ease-out;
+        }
         .spotlight-card {
             background: rgba(255, 255, 255, 0.8);
             position: relative; overflow: hidden;
@@ -414,6 +422,9 @@
 
 
     <header class="relative w-full h-screen min-h-[750px] flex items-center justify-center overflow-hidden">
+        
+        <!-- 3D Particle Mesh Canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"></canvas>
         
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
@@ -796,6 +807,14 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    </script>
+
+    <!-- 3D Particle Mesh -->
+    <script src="particles.js"></script>
+    <script>
+        if (typeof initParticles !== 'undefined') {
+            initParticles('home');
+        }
     </script>
 </body>
 </html>

@@ -70,6 +70,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -303,6 +307,10 @@
 
     <!-- Hero Section -->
     <header class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+        
+        <!-- 3D Particle Mesh Canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
+        
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
             <img id="hero-bg" src="https://res.cloudinary.com/karlifunk/image/upload/v1767436746/pexels-pixabay-158163_jwrtsu.jpg?auto=compress&cs=tinysrgb&w=1600" 
@@ -636,6 +644,14 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    </script>
+
+    <!-- 3D Particle Mesh -->
+    <script src="particles.js"></script>
+    <script>
+        if (typeof initParticles !== 'undefined') {
+            initParticles('contact');
+        }
     </script>
 </body>
 </html>

@@ -93,6 +93,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Three.js for 3D Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -312,6 +315,10 @@
 
     <!-- Hero Section -->
     <section class="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
+        
+        <!-- 3D Particle Mesh Canvas -->
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
+        
         <div class="absolute inset-0 z-0">
             <div id="hero-bg-about" class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');"></div>
             <div class="absolute inset-0 bg-gray-600/40"></div>
@@ -717,6 +724,14 @@
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+    </script>
+
+    <!-- 3D Particle Mesh -->
+    <script src="particles.js"></script>
+    <script>
+        if (typeof initParticles !== 'undefined') {
+            initParticles('about');
+        }
     </script>
 </body>
 </html>
