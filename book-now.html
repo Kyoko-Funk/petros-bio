@@ -190,6 +190,11 @@
             color: white;
         }
 
+        .condition-option.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+        }
+
         /* Body Diagram Styles */
         .body-part {
             cursor: pointer;
@@ -490,6 +495,34 @@
                                         <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         No
                                     </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reason for Visit / Condition Type -->
+                        <div class="relative">
+                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Reason for Visit *</label>
+                            <input type="hidden" id="condition-type-booking" name="condition_type" required>
+                            <div id="condition-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleConditionDropdown()">
+                                <span id="condition-text" class="text-gray-400">What brings you in?</span>
+                                <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                            <!-- Custom Dropdown -->
+                            <div id="condition-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" style="animation: slideDown 0.25s ease-out;">
+                                <div class="space-y-1">
+                                    <button type="button" onclick="selectCondition('Chronic Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Chronic Pain</button>
+                                    <button type="button" onclick="selectCondition('Sports Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Sports Injury</button>
+                                    <button type="button" onclick="selectCondition('Post-Surgery Rehabilitation')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Post-Surgery Rehabilitation</button>
+                                    <button type="button" onclick="selectCondition('Posture Correction')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Posture Correction</button>
+                                    <button type="button" onclick="selectCondition('Muscle Strain / Tension')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Muscle Strain / Tension</button>
+                                    <button type="button" onclick="selectCondition('Joint Pain / Stiffness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Joint Pain / Stiffness</button>
+                                    <button type="button" onclick="selectCondition('Back / Neck Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Back / Neck Pain</button>
+                                    <button type="button" onclick="selectCondition('Mobility / Flexibility')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Mobility / Flexibility</button>
+                                    <button type="button" onclick="selectCondition('Work-Related Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Work-Related Injury</button>
+                                    <button type="button" onclick="selectCondition('General Fitness / Wellness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">General Fitness / Wellness</button>
+                                    <button type="button" onclick="selectCondition('Other')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Other</button>
                                 </div>
                             </div>
                         </div>
@@ -1150,14 +1183,41 @@
             document.getElementById('medical-aid-dropdown').classList.add('hidden');
         }
 
+        // ===== CUSTOM CONDITION PICKER =====
+        function toggleConditionDropdown() {
+            const dropdown = document.getElementById('condition-dropdown');
+            const calendarDropdown = document.getElementById('calendar-dropdown');
+            const timeDropdown = document.getElementById('time-dropdown');
+            const medicalAidDropdown = document.getElementById('medical-aid-dropdown');
+            calendarDropdown.classList.add('hidden');
+            timeDropdown.classList.add('hidden');
+            medicalAidDropdown.classList.add('hidden');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function selectCondition(value) {
+            document.getElementById('condition-type-booking').value = value;
+            document.getElementById('condition-text').textContent = value;
+            document.getElementById('condition-text').classList.remove('text-gray-400');
+            document.getElementById('condition-text').classList.add('text-petros-slate');
+            
+            // Update selected state
+            document.querySelectorAll('.condition-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            document.getElementById('condition-dropdown').classList.add('hidden');
+        }
+
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
             const medicalAidDropdown = document.getElementById('medical-aid-dropdown');
+            const conditionDropdown = document.getElementById('condition-dropdown');
             const dateDisplay = document.getElementById('date-display');
             const timeDisplay = document.getElementById('time-display');
             const medicalAidDisplay = document.getElementById('medical-aid-display');
+            const conditionDisplay = document.getElementById('condition-display');
 
             if (!dateDisplay.contains(e.target) && !calendarDropdown.contains(e.target)) {
                 calendarDropdown.classList.add('hidden');
@@ -1167,6 +1227,9 @@
             }
             if (!medicalAidDisplay.contains(e.target) && !medicalAidDropdown.contains(e.target)) {
                 medicalAidDropdown.classList.add('hidden');
+            }
+            if (!conditionDisplay.contains(e.target) && !conditionDropdown.contains(e.target)) {
+                conditionDropdown.classList.add('hidden');
             }
         });
 
