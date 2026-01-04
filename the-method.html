@@ -188,6 +188,115 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
+        /* 3D Spine Model Styles */
+        #spine-model {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            #spine-model {
+                height: 600px;
+            }
+        }
+
+        .spine-tooltip {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: rgba(90, 110, 85, 0.96);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(154, 171, 138, 0.5);
+            border-radius: 1.25rem;
+            padding: 1.5rem 2rem;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 20;
+            min-width: 300px;
+            max-width: 380px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .spine-tooltip.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .tooltip-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: #ffffff;
+        }
+
+        .tooltip-vertebrae {
+            font-size: 0.7rem;
+            color: #C5D4B8;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(197, 212, 184, 0.3);
+        }
+
+        .tooltip-desc {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .tooltip-conditions {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.4;
+        }
+
+        .tooltip-conditions strong {
+            color: #C5D4B8;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .spine-instruction {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(154, 171, 138, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1a2418;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 20px rgba(154, 171, 138, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .spine-glow {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(122, 139, 105, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
         html { scroll-behavior: smooth; }
         body { background-color: #F5F4F0; overflow-x: hidden; }
     </style>
@@ -360,13 +469,78 @@
         <div class="container mx-auto px-4 relative z-10">
             
             <!-- Intro -->
-            <div class="max-w-4xl mx-auto text-center mb-24">
+            <div class="max-w-4xl mx-auto text-center mb-16">
                 <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Scientific Foundation</span>
                 <h2 class="font-serif text-5xl md:text-7xl text-petros-slate leading-tight mb-8">
                     Biokinetics as <span class="italic text-petros-green">Medicine</span>
                 </h2>
                 <p class="text-gray-700 text-lg md:text-xl leading-relaxed font-light max-w-3xl mx-auto">
                     At Pétros, we operate on a singular principle: movement is clinical medicine. Our three-pillar methodology combines biomechanical precision, neural retraining, and performance optimization into one comprehensive restoration system.
+                </p>
+            </div>
+
+            <!-- Interactive 3D Spine Model -->
+            <div class="max-w-4xl mx-auto mb-24">
+                <div class="relative rounded-[2rem] shadow-2xl overflow-hidden border border-petros-green/20" style="background: linear-gradient(145deg, #2F3E30 0%, #1a2418 50%, #243024 100%);">
+                    <!-- Subtle grid pattern overlay -->
+                    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, rgba(122,139,105,0.5) 1px, transparent 0); background-size: 24px 24px;"></div>
+                    
+                    <!-- Glow effect -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-petros-green/10 via-transparent to-transparent pointer-events-none"></div>
+                    
+                    <!-- Instruction hint -->
+                    <div class="spine-instruction">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+                        Drag to rotate • Hover regions to explore
+                    </div>
+                    
+                    <!-- 3D Canvas Container -->
+                    <div id="spine-model"></div>
+                    
+                    <!-- Region labels on sides - styled for dark bg -->
+                    <div class="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col gap-12 text-right">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-white/70 uppercase tracking-[0.15em] font-semibold">C1-C7</span>
+                            <div class="w-8 h-px bg-petros-green/40"></div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-white/70 uppercase tracking-[0.15em] font-semibold">T1-T12</span>
+                            <div class="w-8 h-px bg-petros-green/40"></div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-white/70 uppercase tracking-[0.15em] font-semibold">L1-L5</span>
+                            <div class="w-8 h-px bg-petros-green/40"></div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs text-white/70 uppercase tracking-[0.15em] font-semibold">S1-S5</span>
+                            <div class="w-8 h-px bg-petros-green/40"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right side anatomical info -->
+                    <div class="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col gap-10 text-left max-w-[200px]">
+                        <div class="opacity-70 hover:opacity-100 transition-opacity">
+                            <div class="text-sm text-petros-green uppercase tracking-wider mb-1 font-semibold">Cervical</div>
+                            <div class="text-xs text-white/70 leading-relaxed">Supports head, enables neck mobility</div>
+                        </div>
+                        <div class="opacity-70 hover:opacity-100 transition-opacity">
+                            <div class="text-sm text-petros-green uppercase tracking-wider mb-1 font-semibold">Thoracic</div>
+                            <div class="text-xs text-white/70 leading-relaxed">Anchors ribcage, protects organs</div>
+                        </div>
+                        <div class="opacity-70 hover:opacity-100 transition-opacity">
+                            <div class="text-sm text-petros-green uppercase tracking-wider mb-1 font-semibold">Lumbar</div>
+                            <div class="text-xs text-white/70 leading-relaxed">Bears body weight, flexion center</div>
+                        </div>
+                        <div class="opacity-70 hover:opacity-100 transition-opacity">
+                            <div class="text-sm text-petros-green uppercase tracking-wider mb-1 font-semibold">Sacral</div>
+                            <div class="text-xs text-white/70 leading-relaxed">Pelvis connection, stability base</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Caption -->
+                <p class="text-center text-sm text-gray-500 mt-4 italic">
+                    Interactive anatomical model — Understanding spinal biomechanics is fundamental to our restoration approach
                 </p>
             </div>
 
@@ -797,5 +971,8 @@
 
     <!-- 3D Card Tilt Effect -->
     <script src="tilt.js"></script>
+
+    <!-- 3D Spine Model -->
+    <script src="spine.js"></script>
 </body>
 </html>
