@@ -676,12 +676,12 @@
                         </div>
 
                         <!-- Patient Form Modal Overlay -->
-                        <div id="patient-form-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+                        <div id="patient-form-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto">
                             <!-- Dark semi-transparent backdrop -->
-                            <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;"></div>
+                            <div class="fixed inset-0 bg-black/50 backdrop-blur-sm transition-opacity z-[100]" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;"></div>
                             
                             <!-- Modal content -->
-                            <div class="relative min-h-screen flex items-center justify-center p-4 py-12">
+                            <div class="relative min-h-screen flex items-center justify-center p-4 py-12 z-[101]">
                                 <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
                                     <!-- Modal header -->
                                     <div class="sticky top-0 bg-white border-b border-gray-200 p-6 md:p-8 flex justify-between items-start">
