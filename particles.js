@@ -122,6 +122,13 @@ class ParticleMesh {
                     y = (Math.random() - 0.5) * spreadY;
                     z = (Math.random() - 0.5) * spreadZ * 0.4;
                     break;
+                
+                case 'rise':
+                    // Rising particles - spread wide, gentle upward motion
+                    x = (Math.random() - 0.5) * spreadX;
+                    y = (Math.random() - 0.5) * spreadY;
+                    z = (Math.random() - 0.5) * spreadZ * 0.3;
+                    break;
                     
                 default: // wave
                     x = (Math.random() - 0.5) * spreadX;
@@ -292,6 +299,18 @@ class ParticleMesh {
                     
                     // Fade effect at bottom (handled by position)
                     break;
+                
+                case 'rise':
+                    // Gentle rising effect - particles float upward
+                    const riseSpeed = 0.015;
+                    const riseOffset = (this.time * riseSpeed + i * 0.008) % 1;
+                    const yRangeRise = this.config.spreadY || 12;
+                    
+                    // Smooth rising motion with gentle horizontal sway
+                    pos[i * 3] = origX + Math.sin(this.time * 0.3 + i * 0.05) * waveAmplitude * 0.4;
+                    pos[i * 3 + 1] = (-yRangeRise / 2) + (riseOffset * yRangeRise) + Math.sin(i * 0.5) * 1.5;
+                    pos[i * 3 + 2] = this.originalPositions[i * 3 + 2] + Math.cos(this.time * 0.2 + i * 0.03) * 0.2;
+                    break;
                     
                 default: // wave
                     pos[i * 3 + 1] = origY + Math.sin(this.time + origX * 0.5) * waveAmplitude;
@@ -350,16 +369,18 @@ const particleConfigs = {
         rotationSpeed: 0.0015
     },
     
-    // Pricing page - Structured grid (transparency)
+    // Pricing page - Gentle rising particles (value/growth)
     pricing: {
-        particleCount: 800,
-        pattern: 'grid',
-        waveAmplitude: 0.5,
+        particleCount: 900,
+        pattern: 'rise',
+        waveAmplitude: 0.3,
         primaryColor: '#7A8B69',
-        secondaryColor: '#2C3E50',
-        colorMixRatio: 0.3,
-        spreadX: 15,
-        spreadY: 15
+        secondaryColor: '#ffffff',
+        colorMixRatio: 0.5,
+        spreadX: 25,
+        spreadY: 12,
+        lineOpacity: 0.1,
+        waveSpeed: 0.002
     },
     
     // FAQ page - Gentle flow (answers flowing)
