@@ -106,6 +106,22 @@ class ParticleMesh {
                     y = Math.sin(ang) * dist * 0.5;
                     z = (Math.random() - 0.5) * 5;
                     break;
+                
+                case 'layers':
+                    // Clean horizontal layers - structured and clinical
+                    const layerCount = 5;
+                    const layer = Math.floor(Math.random() * layerCount);
+                    x = (Math.random() - 0.5) * spreadX;
+                    y = (layer / layerCount - 0.5) * spreadY + (Math.random() - 0.5) * 0.5;
+                    z = (Math.random() - 0.5) * spreadZ * 0.3;
+                    break;
+                
+                case 'drops':
+                    // Raindrop-like distribution - spread wide, falling effect
+                    x = (Math.random() - 0.5) * spreadX;
+                    y = (Math.random() - 0.5) * spreadY;
+                    z = (Math.random() - 0.5) * spreadZ * 0.4;
+                    break;
                     
                 default: // wave
                     x = (Math.random() - 0.5) * spreadX;
@@ -257,6 +273,25 @@ class ParticleMesh {
                     pos[i * 3] = origX * (1 - pulse * 0.1);
                     pos[i * 3 + 1] = origY * (1 - pulse * 0.1);
                     break;
+                
+                case 'layers':
+                    // Gentle horizontal drift with subtle vertical wave
+                    pos[i * 3] = origX + Math.sin(this.time * 0.5 + origY * 0.3) * waveAmplitude * 0.5;
+                    pos[i * 3 + 1] = origY + Math.sin(this.time + origX * 0.2) * waveAmplitude * 0.3;
+                    break;
+                
+                case 'drops':
+                    // Falling raindrop effect - particles drift down and reset
+                    const fallSpeed = 0.02;
+                    const dropOffset = (this.time * fallSpeed + i * 0.01) % 1;
+                    const yRange = this.config.spreadY || 15;
+                    
+                    // Smooth falling motion with slight horizontal sway
+                    pos[i * 3] = origX + Math.sin(this.time * 0.5 + i * 0.1) * waveAmplitude * 0.3;
+                    pos[i * 3 + 1] = (yRange / 2) - (dropOffset * yRange) + Math.sin(i) * 2;
+                    
+                    // Fade effect at bottom (handled by position)
+                    break;
                     
                 default: // wave
                     pos[i * 3 + 1] = origY + Math.sin(this.time + origX * 0.5) * waveAmplitude;
@@ -291,15 +326,18 @@ const particleConfigs = {
         colorMixRatio: 0.5
     },
     
-    // Method page - DNA/Spiral (methodology/process)
+    // Method page - Clean horizontal layers (structured methodology)
     method: {
-        particleCount: 1200,
-        pattern: 'spiral',
-        waveAmplitude: 0.4,
+        particleCount: 1000,
+        pattern: 'layers',
+        waveAmplitude: 0.2,
         primaryColor: '#7A8B69',
         secondaryColor: '#2F3E30',
         colorMixRatio: 0.3,
-        rotationSpeed: 0.002
+        rotationSpeed: 0.0008,
+        spreadX: 25,
+        spreadY: 12,
+        lineOpacity: 0.1
     },
     
     // Services page - Expanding sphere (multiple services)
@@ -335,15 +373,18 @@ const particleConfigs = {
         waveSpeed: 0.0015
     },
     
-    // Contact page - Converging (connection)
+    // Contact page - Falling drops (reaching out)
     contact: {
-        particleCount: 1200,
-        pattern: 'converge',
-        waveAmplitude: 0.3,
+        particleCount: 800,
+        pattern: 'drops',
+        waveAmplitude: 0.4,
         primaryColor: '#7A8B69',
         secondaryColor: '#ffffff',
-        colorMixRatio: 0.4,
-        waveSpeed: 0.003
+        colorMixRatio: 0.6,
+        waveSpeed: 0.003,
+        spreadX: 30,
+        spreadY: 15,
+        lineOpacity: 0.08
     },
     
     // About page - Organic wave (personal)
