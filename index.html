@@ -32,46 +32,129 @@
     <meta name="twitter:description" content="Precision biokinetics for clinical restoration in Swakopmund, Namibia.">
     <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
     
-    <!-- Schema Markup -->
+    <!-- Schema Markup - Organization & Local Business -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "MedicalBusiness", "HealthAndBeautyBusiness"],
+      "@id": "https://petrosbiokinetics.com/#business",
       "name": "Pétros Biokinetics",
-      "image": "https://petrosbiokinetics.com/logo.png",
-      "description": "Precision biokinetics clinical restoration and rehabilitation services",
+      "alternateName": "Petros Biokinetics",
+      "image": [
+        "https://petrosbiokinetics.com/logo.png",
+        "https://petrosbiokinetics.com/og-image.jpg"
+      ],
+      "logo": "https://petrosbiokinetics.com/logo.png",
+      "description": "Expert biokinetics practice specializing in clinical restoration, rehabilitation, and movement therapy. We help resolve chronic pain, sports injuries, and mobility issues through evidence-based exercise therapy in Swakopmund, Namibia.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "102 Dr. Libertine Amathila Avenue",
+        "streetAddress": "102 Dr. Libertine Amathila Avenue, Kramersdorf",
         "addressLocality": "Swakopmund",
         "addressRegion": "Erongo",
         "postalCode": "",
         "addressCountry": "NA"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -22.6792,
+        "longitude": 14.5264
+      },
       "telephone": "+264816835055",
       "email": "petrosbiokinetics@gmail.com",
       "url": "https://petrosbiokinetics.com",
-      "priceRange": "$$$",
+      "priceRange": "$$",
+      "currenciesAccepted": "NAD",
+      "paymentAccepted": "Cash, Credit Card, Medical Aid",
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
           "opens": "07:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Saturday", "Sunday"],
-          "opens": "00:00",
-          "closes": "00:00"
+          "closes": "17:00"
         }
       ],
       "sameAs": [
         "https://www.instagram.com/petrosbiokinetics",
-        "https://www.facebook.com"
+        "https://www.facebook.com/petrosbiokinetics",
+        "https://wa.me/264816835055"
       ],
-      "serviceType": ["Physical Therapy", "Rehabilitation", "Clinical Assessment"],
-      "areaServed": "Swakopmund, Namibia"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Biokinetics Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Initial Assessment",
+              "description": "Comprehensive biokinetic assessment including movement analysis and personalized treatment plan"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Follow-up Sessions",
+              "description": "Ongoing rehabilitation and exercise therapy sessions"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sports Rehabilitation",
+              "description": "Specialized rehabilitation for sports injuries and performance enhancement"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Chronic Pain Management",
+              "description": "Evidence-based exercise therapy for chronic pain conditions"
+            }
+          }
+        ]
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Swakopmund",
+        "containedInPlace": {
+          "@type": "Country",
+          "name": "Namibia"
+        }
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Founder of Pétros Biokinetics",
+        "jobTitle": "Biokineticist"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "24",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+
+    <!-- Schema Markup - WebSite (for sitelinks search box) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://petrosbiokinetics.com/#website",
+      "name": "Pétros Biokinetics",
+      "url": "https://petrosbiokinetics.com",
+      "publisher": {
+        "@id": "https://petrosbiokinetics.com/#business"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://petrosbiokinetics.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
     

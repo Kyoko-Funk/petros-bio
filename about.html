@@ -33,16 +33,55 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Jean-Pierre Grobler",
-      "jobTitle": "Biokinetics Practitioner & Founder",
+      "@type": "ProfilePage",
+      "@id": "https://petrosbiokinetics.com/about.html",
+      "name": "About Jean-Pierre Grobler",
       "url": "https://petrosbiokinetics.com/about.html",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Pétros Biokinetics",
-        "url": "https://petrosbiokinetics.com"
+      "isPartOf": {
+        "@id": "https://petrosbiokinetics.com/#website"
       },
-      "areaServed": "Swakopmund, Namibia"
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://petrosbiokinetics.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "About",
+            "item": "https://petrosbiokinetics.com/about.html"
+          }
+        ]
+      },
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "https://petrosbiokinetics.com/#founder",
+        "name": "Jean-Pierre Grobler",
+        "jobTitle": "Biokinetics Practitioner & Founder",
+        "url": "https://petrosbiokinetics.com/about.html",
+        "worksFor": {
+          "@id": "https://petrosbiokinetics.com/#business"
+        },
+        "knowsAbout": [
+          "Biokinetics",
+          "Clinical Restoration",
+          "Movement Therapy",
+          "Physical Rehabilitation",
+          "Sports Performance"
+        ],
+        "areaServed": {
+          "@type": "City",
+          "name": "Swakopmund",
+          "containedInPlace": {
+            "@type": "Country",
+            "name": "Namibia"
+          }
+        }
+      }
     }
     </script>
 
