@@ -181,6 +181,15 @@
             border-radius: 3px;
         }
 
+        .medical-aid-option.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+        }
+
+        .medical-aid-option.selected svg {
+            color: white;
+        }
+
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -414,13 +423,28 @@
                         </div>
 
                         <!-- Medical Aid -->
-                        <div>
-                            <label for="medical-aid" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Do You Have Medical Aid? *</label>
-                            <select id="medical-aid" name="medical_aid" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
-                                <option value="">Select an option...</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
+                        <div class="relative">
+                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Do You Have Medical Aid? *</label>
+                            <input type="hidden" id="medical-aid" name="medical_aid" required>
+                            <div id="medical-aid-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleMedicalAidDropdown()">
+                                <span id="medical-aid-text" class="text-gray-400">Select an option...</span>
+                                <svg class="w-5 h-5 text-petros-green transition-transform" id="medical-aid-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                            <!-- Custom Dropdown -->
+                            <div id="medical-aid-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full" style="animation: slideDown 0.25s ease-out;">
+                                <div class="space-y-1">
+                                    <button type="button" onclick="selectMedicalAid('Yes', 'Yes')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        Yes
+                                    </button>
+                                    <button type="button" onclick="selectMedicalAid('No', 'No')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        No
+                                    </button>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Message / Additional Information -->
@@ -954,18 +978,46 @@
             document.getElementById('time-dropdown').classList.add('hidden');
         }
 
+        // ===== CUSTOM MEDICAL AID PICKER =====
+        function toggleMedicalAidDropdown() {
+            const dropdown = document.getElementById('medical-aid-dropdown');
+            const calendarDropdown = document.getElementById('calendar-dropdown');
+            const timeDropdown = document.getElementById('time-dropdown');
+            calendarDropdown.classList.add('hidden');
+            timeDropdown.classList.add('hidden');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function selectMedicalAid(value, display) {
+            document.getElementById('medical-aid').value = value;
+            document.getElementById('medical-aid-text').textContent = display;
+            document.getElementById('medical-aid-text').classList.remove('text-gray-400');
+            document.getElementById('medical-aid-text').classList.add('text-petros-slate');
+            
+            // Update selected state
+            document.querySelectorAll('.medical-aid-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.closest('button').classList.add('selected');
+            
+            document.getElementById('medical-aid-dropdown').classList.add('hidden');
+        }
+
         // Close dropdowns when clicking outside
         document.addEventListener('click', function(e) {
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
+            const medicalAidDropdown = document.getElementById('medical-aid-dropdown');
             const dateDisplay = document.getElementById('date-display');
             const timeDisplay = document.getElementById('time-display');
+            const medicalAidDisplay = document.getElementById('medical-aid-display');
 
             if (!dateDisplay.contains(e.target) && !calendarDropdown.contains(e.target)) {
                 calendarDropdown.classList.add('hidden');
             }
             if (!timeDisplay.contains(e.target) && !timeDropdown.contains(e.target)) {
                 timeDropdown.classList.add('hidden');
+            }
+            if (!medicalAidDisplay.contains(e.target) && !medicalAidDropdown.contains(e.target)) {
+                medicalAidDropdown.classList.add('hidden');
             }
         });
 
