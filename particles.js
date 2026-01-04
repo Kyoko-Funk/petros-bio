@@ -8,12 +8,19 @@ class ParticleMesh {
         this.canvas = document.getElementById(canvasId);
         if (!this.canvas || typeof THREE === 'undefined') return;
 
+        // Mobile detection
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                        || window.innerWidth < 768;
+        
+        // Reduce particle count on mobile for performance
+        const mobileMultiplier = this.isMobile ? 0.4 : 1;
+
         // Default configuration
         this.config = {
-            particleCount: config.particleCount || 1200,
-            particleSize: config.particleSize || 0.03,
+            particleCount: Math.floor((config.particleCount || 1200) * mobileMultiplier),
+            particleSize: config.particleSize || (this.isMobile ? 0.04 : 0.03),
             particleOpacity: config.particleOpacity || 0.6,
-            lineOpacity: config.lineOpacity || 0.15,
+            lineOpacity: config.lineOpacity || (this.isMobile ? 0.08 : 0.15),
             connectionDistance: config.connectionDistance || 1.5,
             primaryColor: config.primaryColor || '#7A8B69',
             secondaryColor: config.secondaryColor || '#ffffff',
@@ -29,6 +36,11 @@ class ParticleMesh {
             ...config
         };
 
+        // Override particle count if explicitly set in config but still apply mobile reduction
+        if (config.particleCount) {
+            this.config.particleCount = Math.floor(config.particleCount * mobileMultiplier);
+        }
+
         this.init();
     }
 
@@ -36,10 +48,15 @@ class ParticleMesh {
         // Scene setup
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas, alpha: true, antialias: true });
+        this.renderer = new THREE.WebGLRenderer({ 
+            canvas: this.canvas, 
+            alpha: true, 
+            antialias: !this.isMobile, // Disable antialiasing on mobile for performance
+            powerPreference: this.isMobile ? 'low-power' : 'default'
+        });
         
         this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, this.isMobile ? 1.5 : 2));
 
         this.createParticles();
         this.createLines();
@@ -211,17 +228,34 @@ class ParticleMesh {
     }
 
     setupMouseTracking() {
+        // Mouse tracking for desktop
         document.addEventListener('mousemove', (e) => {
             this.mouseX = (e.clientX / window.innerWidth) * 2 - 1;
             this.mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
         });
+
+        // Touch tracking for mobile (with passive listener for performance)
+        document.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                this.mouseX = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+                this.mouseY = -(e.touches[0].clientY / window.innerHeight) * 2 + 1;
+            }
+        }, { passive: true });
     }
 
     setupResizeHandler() {
+        // Debounced resize handler for better performance
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            this.camera.aspect = window.innerWidth / window.innerHeight;
-            this.camera.updateProjectionMatrix();
-            this.renderer.setSize(window.innerWidth, window.innerHeight);
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.camera.aspect = window.innerWidth / window.innerHeight;
+                this.camera.updateProjectionMatrix();
+                this.renderer.setSize(window.innerWidth, window.innerHeight);
+                
+                // Update mobile detection on resize
+                this.isMobile = window.innerWidth < 768;
+            }, 100);
         });
     }
 
