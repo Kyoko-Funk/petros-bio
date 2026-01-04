@@ -18,6 +18,8 @@ class TextReveal {
         this.setupFadeUp();
         this.setupStaggerFade();
         this.setupImageReveal();
+        this.setupLineReveal();
+        this.setupSlideIn();
     }
 
     // Simple fade up animation
@@ -74,6 +76,80 @@ class TextReveal {
                 scrollTrigger: {
                     trigger: img,
                     start: 'top 85%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+    }
+
+    // Line-by-line reveal for paragraphs (splits into lines)
+    setupLineReveal() {
+        const elements = document.querySelectorAll('.reveal-lines');
+        
+        elements.forEach(element => {
+            // Get computed styles for proper line splitting
+            const text = element.textContent;
+            const words = text.split(' ');
+            
+            // Clear and rebuild with word spans
+            element.innerHTML = '';
+            element.style.opacity = '1';
+            
+            words.forEach((word, i) => {
+                const span = document.createElement('span');
+                span.className = 'inline-block';
+                span.textContent = word;
+                element.appendChild(span);
+                if (i < words.length - 1) {
+                    element.appendChild(document.createTextNode(' '));
+                }
+            });
+
+            const wordSpans = element.querySelectorAll('span');
+            
+            gsap.from(wordSpans, {
+                y: 20,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.02,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+    }
+
+    // Slide in from left or right
+    setupSlideIn() {
+        const leftElements = document.querySelectorAll('.reveal-left');
+        const rightElements = document.querySelectorAll('.reveal-right');
+        
+        leftElements.forEach(element => {
+            gsap.from(element, {
+                x: -60,
+                opacity: 0,
+                duration: 0.9,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        });
+
+        rightElements.forEach(element => {
+            gsap.from(element, {
+                x: 60,
+                opacity: 0,
+                duration: 0.9,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 88%',
                     toggleActions: 'play none none none'
                 }
             });
