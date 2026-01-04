@@ -202,7 +202,7 @@
 
         .flatpickr-day:hover:not(.disabled) {
             background: linear-gradient(135deg, rgba(122, 139, 105, 0.15) 0%, rgba(122, 139, 105, 0.08) 100%) !important;
-            transform: translateY(-2px) !important;
+            transform: translateY(2px) !important;
             box-shadow: 0 6px 16px rgba(122, 139, 105, 0.2) !important;
         }
 
@@ -217,7 +217,7 @@
 
         .flatpickr-day.selected:hover {
             background: linear-gradient(135deg, #6a7b59 0%, #5a6b49 100%) !important;
-            transform: scale(1.12) translateY(-3px) !important;
+            transform: scale(1.12) translateY(3px) !important;
             box-shadow: 0 12px 28px rgba(122, 139, 105, 0.4) !important;
         }
 
@@ -250,8 +250,8 @@
             appearance: none !important;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2 5l5 4 5-4' stroke='%237A8B69' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
             background-repeat: no-repeat !important;
-            background-position: right 14px center !important;
-            padding: 12px 40px 12px 16px !important;
+            background-position: right 16px center !important;
+            padding: 14px 48px 14px 16px !important;
             background-color: linear-gradient(135deg, #ffffff 0%, #fafaf9 100%) !important;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
             border: 1.5px solid rgba(122, 139, 105, 0.2) !important;
@@ -260,6 +260,9 @@
             letter-spacing: 0.2px !important;
             cursor: pointer !important;
             color: #2C3E50 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            height: auto !important;
         }
 
         select#appointment-time:hover {
