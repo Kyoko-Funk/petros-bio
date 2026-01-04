@@ -69,12 +69,6 @@
     }
     </script>
     
-    <!-- Preload pillar images -->
-    <link rel="preconnect" href="https://res.cloudinary.com">
-    <link rel="preload" as="image" href="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_600/v1767434879/pexels-yankrukov-5793808_laxhih.jpg">
-    <link rel="preload" as="image" href="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_600/v1767434983/pexels-kampus-6111604_sa1tqr.jpg">
-    <link rel="preload" as="image" href="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_600/v1767435107/pexels-allan-mas-5383520_adq8ef.jpg">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -573,13 +567,11 @@
                 <!-- Pillar 1: Assessment -->
                 <div class="method-step group">
                     <div class="rounded-3xl overflow-hidden h-full bg-white shadow-lg card-hover relative flex flex-col">
-                        <!-- Image Top -->
-                        <div class="h-56 overflow-hidden bg-gray-300">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_600/v1767434879/pexels-yankrukov-5793808_laxhih.jpg" 
-                                 alt="Assessment" 
-                                 loading="eager"
-                                 decoding="async"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <!-- Gradient Header -->
+                        <div class="h-40 bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-petros-green/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="scan" class="w-10 h-10 text-petros-green"></i>
+                            </div>
                         </div>
                         
                         <!-- Content -->
@@ -616,13 +608,11 @@
                 <!-- Pillar 2: Prescription -->
                 <div class="method-step group">
                     <div class="rounded-3xl overflow-hidden h-full bg-white shadow-lg card-hover relative flex flex-col">
-                        <!-- Image Top -->
-                        <div class="h-56 overflow-hidden bg-gray-300">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_600/v1767434983/pexels-kampus-6111604_sa1tqr.jpg" 
-                                 alt="Prescription" 
-                                 loading="eager"
-                                 decoding="async"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <!-- Gradient Header -->
+                        <div class="h-40 bg-gradient-to-br from-petros-green/80 via-petros-green to-petros-deep flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="file-text" class="w-10 h-10 text-white"></i>
+                            </div>
                         </div>
                         
                         <!-- Content -->
@@ -659,13 +649,11 @@
                 <!-- Pillar 3: Execution -->
                 <div class="method-step group">
                     <div class="rounded-3xl overflow-hidden h-full bg-white shadow-lg card-hover relative flex flex-col border-2 border-petros-green/40">
-                        <!-- Image Top -->
-                        <div class="h-56 overflow-hidden bg-gray-300">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_600/v1767435107/pexels-allan-mas-5383520_adq8ef.jpg" 
-                                 alt="Execution" 
-                                 loading="eager"
-                                 decoding="async"
-                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <!-- Gradient Header -->
+                        <div class="h-40 bg-gradient-to-br from-petros-charcoal via-petros-slate to-petros-green/60 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full bg-petros-green/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="play-circle" class="w-10 h-10 text-white"></i>
+                            </div>
                         </div>
                         
                         <!-- Content -->
