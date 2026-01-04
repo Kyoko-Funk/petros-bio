@@ -118,6 +118,169 @@
         .checkmark {
             animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
         }
+
+        /* Elegant Flatpickr Styling */
+        .flatpickr-calendar {
+            background: linear-gradient(135deg, #ffffff 0%, #fafaf9 100%);
+            border: 1px solid rgba(122, 139, 105, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12), 0 0 1px rgba(122, 139, 105, 0.1);
+            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .flatpickr-calendar.animate {
+            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .flatpickr-months {
+            padding: 16px;
+        }
+
+        .flatpickr-month {
+            margin: 0;
+        }
+
+        .flatpickr-prev-month,
+        .flatpickr-next-month {
+            fill: #7A8B69;
+            transition: all 0.3s ease;
+        }
+
+        .flatpickr-prev-month:hover,
+        .flatpickr-next-month:hover {
+            fill: #2F3E30;
+            transform: scale(1.1);
+        }
+
+        .flatpickr-current-month {
+            font-weight: 500;
+            color: #2C3E50;
+            letter-spacing: 0.5px;
+        }
+
+        .flatpickr-weekdaycontainer {
+            padding: 12px 8px;
+        }
+
+        .flatpickr-weekday {
+            color: #7A8B69;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .flatpickr-days {
+            padding: 4px 8px;
+        }
+
+        .flatpickr-day {
+            color: #2C3E50;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            margin: 2px;
+        }
+
+        .flatpickr-day:hover {
+            background: rgba(122, 139, 105, 0.08);
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(122, 139, 105, 0.15);
+        }
+
+        .flatpickr-day.selected {
+            background: linear-gradient(135deg, #7A8B69 0%, #6a7b59 100%);
+            border-color: #7A8B69;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(122, 139, 105, 0.3);
+        }
+
+        .flatpickr-day.selected:hover {
+            background: linear-gradient(135deg, #6a7b59 0%, #5a6b49 100%);
+            transform: scale(1.08);
+        }
+
+        .flatpickr-day.inRange {
+            background: rgba(122, 139, 105, 0.1);
+            box-shadow: none;
+        }
+
+        .flatpickr-day.today {
+            border-color: #7A8B69;
+            color: #7A8B69;
+            font-weight: 600;
+        }
+
+        .flatpickr-day.disabled,
+        .flatpickr-day.prevMonthDay,
+        .flatpickr-day.nextMonthDay {
+            color: #cbd5e1;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        /* Elegant Select Styling */
+        select#appointment-time {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237A8B69' d='M1 4l5 4 5-4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 32px;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        select#appointment-time:hover {
+            border-color: #7A8B69;
+            box-shadow: 0 4px 12px rgba(122, 139, 105, 0.1);
+        }
+
+        select#appointment-time:focus {
+            border-color: #7A8B69;
+            box-shadow: 0 0 0 3px rgba(122, 139, 105, 0.1);
+        }
+
+        select#appointment-time option {
+            padding: 8px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        select#appointment-time option:checked {
+            background: linear-gradient(#7A8B69, #7A8B69);
+            background-color: #7A8B69 !important;
+            color: white;
+        }
+
+        /* Input field enhancements */
+        #appointment-date {
+            transition: all 0.3s ease;
+        }
+
+        #appointment-date:hover {
+            border-color: #7A8B69;
+            box-shadow: 0 4px 12px rgba(122, 139, 105, 0.1);
+        }
+
+        #appointment-date:focus {
+            border-color: #7A8B69;
+            box-shadow: 0 0 0 3px rgba(122, 139, 105, 0.1);
+        }
+
+        #appointment-date::placeholder {
+            color: #a1a1a1;
+            font-style: italic;
+        }
     </style>
 </head>
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
@@ -277,13 +440,13 @@
 
                         <!-- Preferred Appointment Date & Time -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
+                            <div class="group">
                                 <label for="appointment-date" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Date *</label>
-                                <input type="text" id="appointment-date" name="appointment_date" required placeholder="Select a date" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer">
+                                <input type="text" id="appointment-date" name="appointment_date" required placeholder="Select a date" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer">
                             </div>
-                            <div>
+                            <div class="group">
                                 <label for="appointment-time" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Time *</label>
-                                <select id="appointment-time" name="appointment_time" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
+                                <select id="appointment-time" name="appointment_time" required class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
                                     <option value="">Select a time...</option>
                                     <option value="07:00">7:00 AM</option>
                                     <option value="08:00">8:00 AM</option>
@@ -296,7 +459,7 @@
                                     <option value="16:00">4:00 PM</option>
                                     <option value="17:00">5:00 PM</option>
                                 </select>
-                                <p class="text-xs text-gray-500 mt-2">Lunch break: 12:00 – 13:00</p>
+                                <p class="text-xs text-gray-500 mt-2 font-light">Lunch break: 12:00 – 13:00</p>
                             </div>
                         </div>
 
