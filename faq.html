@@ -7,15 +7,24 @@
     <meta name="description" content="Find answers to frequently asked questions about biokinetics, clinical restoration, rehabilitation services, and treatment at Pétros Biokinetics.">
     <meta name="keywords" content="biokinetics faq, rehabilitation questions, physical therapy faq, clinical restoration questions">
     <meta name="canonical" content="https://petrosbiokinetics.com/faq.html">
-    <meta property="og:title" content="FAQ | Pétros Biokinetics">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Pétros Biokinetics">
+    <meta property="og:title" content="FAQ | Pétros Biokinetics - Questions & Answers">
     <meta property="og:description" content="Common questions about our biokinetic services and clinical restoration approach.">
     <meta property="og:url" content="https://petrosbiokinetics.com/faq.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FAQ | Pétros Biokinetics">
-    <meta name="twitter:description" content="Frequently asked questions about biokinetics.">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Pétros Biokinetics - Frequently Asked Questions">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FAQ | Pétros Biokinetics">
+    <meta name="twitter:description" content="Frequently asked questions about biokinetics and clinical restoration.">
+    <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -243,7 +252,10 @@
 
     <script>
         // Show loader only on true page load (not on back/forward navigation)
-        if (performance.navigation.type === 1 || !sessionStorage.getItem('petros-loaded')) {
+        // Use modern Navigation Timing API with fallback for older browsers
+        const navEntries = performance.getEntriesByType('navigation');
+        const isReload = navEntries.length > 0 ? navEntries[0].type === 'reload' : (performance.navigation && performance.navigation.type === 1);
+        if (isReload || !sessionStorage.getItem('petros-loaded')) {
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
@@ -291,15 +303,15 @@
                 </a>
             </div>
 
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </nav>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
             <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
             <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
@@ -324,15 +336,21 @@
             if (isHidden) {
                 menu.classList.remove('hidden');
                 overlay.classList.remove('hidden');
+                overlay.setAttribute('aria-hidden', 'false');
+                toggle.setAttribute('aria-expanded', 'true');
             } else {
                 menu.classList.add('hidden');
                 overlay.classList.add('hidden');
+                overlay.setAttribute('aria-hidden', 'true');
+                toggle.setAttribute('aria-expanded', 'false');
             }
         }
 
         function closeMenu() {
             menu.classList.add('hidden');
             overlay.classList.add('hidden');
+            overlay.setAttribute('aria-hidden', 'true');
+            toggle.setAttribute('aria-expanded', 'false');
         }
 
         toggle.addEventListener('click', toggleMenu);
@@ -401,11 +419,11 @@
 
                 <!-- FAQ 1 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
                         <span class="font-serif text-xl text-petros-slate">What is Pétros Biokinetics?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-1" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Pétros Biokinetics is a clinical restoration methodology combining biomechanical assessment, movement prescriptions, and supervised execution protocols. We specialize in addressing chronic pain, movement dysfunction, athletic optimization, and post-injury rehabilitation through evidence-based restoration.
                         </p>
@@ -414,11 +432,11 @@
 
                 <!-- FAQ 2 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
                         <span class="font-serif text-xl text-petros-slate">How long does the restoration process typically take?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-2" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Timeline depends on your condition, goals, and commitment level. Most clients see significant improvements in 6-12 weeks with consistent protocols. Chronic conditions may require 12-16 weeks for complete restoration. During your initial assessment, we'll provide a personalized timeline based on your biomechanical profile.
                         </p>
@@ -427,11 +445,11 @@
 
                 <!-- FAQ 3 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
                         <span class="font-serif text-xl text-petros-slate">Do I need medical clearance before starting?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-3" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             For clients with acute injuries, recent surgery, or serious health conditions, we recommend medical clearance. However, for chronic pain, postural issues, and preventive optimization, medical clearance is not required. During your consultation, we'll assess whether any medical sign-off is needed for your specific situation.
                         </p>
@@ -440,11 +458,11 @@
 
                 <!-- FAQ 4 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
                         <span class="font-serif text-xl text-petros-slate">What's the difference between your method and physical therapy?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-4" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             While physical therapy addresses injury recovery, our method focuses on complete biomechanical restoration and optimization. We assess your entire movement system, prescribe targeted protocols, and supervise execution. This is more comprehensive and goal-oriented, addressing not just pain relief but complete functional restoration and performance enhancement.
                         </p>
@@ -453,11 +471,11 @@
 
                 <!-- FAQ 5 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-5">
                         <span class="font-serif text-xl text-petros-slate">Can I do the protocols at home, or do I need to visit your facility?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-5" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             While some maintenance protocols can be done at home, we strongly recommend in-facility execution initially. Our supervised sessions ensure proper form, progression, and adjustments based on your real-time biomechanical feedback. Once you've mastered the movement patterns (typically 6-8 weeks), you can transition to home maintenance with periodic check-ins.
                         </p>
@@ -466,11 +484,11 @@
 
                 <!-- FAQ 6 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-6">
                         <span class="font-serif text-xl text-petros-slate">Which medical aid schemes do you accept?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-6" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light mb-3">
                             We accept most major medical aid schemes including:
                         </p>
@@ -492,11 +510,11 @@
 
                 <!-- FAQ 7 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-7">
                         <span class="font-serif text-xl text-petros-slate">What should I expect during my first assessment?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-7" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Your initial assessment (60 minutes) includes a comprehensive movement analysis, biomechanical evaluation, discussion of your health history and goals, functional tests, and a detailed explanation of findings. You'll receive a customized restoration protocol with clear timelines and progress markers. No treatment occurs during this visit—it's purely diagnostic and planning.
                         </p>
@@ -505,11 +523,11 @@
 
                 <!-- FAQ 8 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-8">
                         <span class="font-serif text-xl text-petros-slate">How frequently should I schedule sessions?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-8" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Most clients begin with 2-3 sessions weekly (8 weeks), then transition to 1 session weekly for 4-8 weeks, and finally maintenance sessions monthly. Frequency depends on your condition severity, recovery pace, and goals. We adjust your schedule based on progress during your initial consultation and adjust as needed.
                         </p>
@@ -518,11 +536,11 @@
 
                 <!-- FAQ 9 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-9">
                         <span class="font-serif text-xl text-petros-slate">Is Pétros suitable for athletes and fitness enthusiasts?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-9" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Absolutely. Our Athletic Optimization service is specifically designed for athletes and fitness professionals seeking competitive advantage, injury prevention, and performance enhancement. We analyze your sport-specific movement patterns and create protocols that amplify power, efficiency, and resilience while preventing injury.
                         </p>
@@ -531,11 +549,11 @@
 
                 <!-- FAQ 10 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-10">
                         <span class="font-serif text-xl text-petros-slate">What if I don't see results after my restoration protocol?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-10" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             We guarantee visible improvement within the first month with consistent protocol adherence. If you're not seeing results, we conduct a reassessment to identify barriers—whether biomechanical, lifestyle-related, or underlying conditions requiring medical investigation. We adjust protocols accordingly or refer you to specialists if needed. Your success is our priority.
                         </p>
@@ -544,11 +562,11 @@
 
                 <!-- FAQ 11 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-11">
                         <span class="font-serif text-xl text-petros-slate">What should I wear to my appointment?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-11" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Wear comfortable, loose-fitting clothing that allows easy movement, such as tracksuit pants, a t-shirt, and trainers. Avoid jeans or restrictive clothing that might limit your range of motion during assessment and treatment sessions.
                         </p>
@@ -557,11 +575,11 @@
 
                 <!-- FAQ 12 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-12">
                         <span class="font-serif text-xl text-petros-slate">What should I bring to my first visit?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-12" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             Please bring:
                         </p>
@@ -576,11 +594,11 @@
 
                 <!-- FAQ 13 -->
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-13">
                         <span class="font-serif text-xl text-petros-slate">What is your cancellation policy?</span>
-                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green"></i>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-petros-green" aria-hidden="true"></i>
                     </div>
-                    <div class="faq-answer">
+                    <div id="faq-answer-13" class="faq-answer" aria-hidden="true">
                         <p class="text-gray-700 leading-relaxed font-light">
                             We require 24 hours notice for cancellations to allow us to offer the slot to another patient. Late cancellations may be subject to a cancellation fee. Your time is valuable, as is ours, and we appreciate your consideration.
                         </p>
@@ -596,7 +614,7 @@
                     We're here to answer any additional questions you have about our methodology, services, or what to expect.
                 </p>
                 <a href="contact.html" class="inline-block bg-petros-green text-white px-8 py-3 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-petros-slate transition-all duration-300">
-                    Schedule Your Consultation
+                    Get In Touch
                 </a>
             </div>
 
@@ -664,17 +682,17 @@
 
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                            <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                            <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                            <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -761,13 +779,17 @@
             const answer = item.querySelector('.faq-answer');
             const icon = item.querySelector('.faq-icon');
             
-            question.addEventListener('click', () => {
+            function toggleFaq() {
                 const isOpen = answer.classList.contains('open');
                 
                 // Close all other items
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
-                        otherItem.querySelector('.faq-answer').classList.remove('open');
+                        const otherQuestion = otherItem.querySelector('.faq-question');
+                        const otherAnswer = otherItem.querySelector('.faq-answer');
+                        otherAnswer.classList.remove('open');
+                        otherAnswer.setAttribute('aria-hidden', 'true');
+                        otherQuestion.setAttribute('aria-expanded', 'false');
                         otherItem.querySelector('.faq-icon').classList.remove('open');
                         otherItem.classList.remove('active-faq');
                     }
@@ -776,14 +798,62 @@
                 // Toggle current item
                 if (isOpen) {
                     answer.classList.remove('open');
+                    answer.setAttribute('aria-hidden', 'true');
+                    question.setAttribute('aria-expanded', 'false');
                     icon.classList.remove('open');
                     item.classList.remove('active-faq');
                 } else {
                     answer.classList.add('open');
+                    answer.setAttribute('aria-hidden', 'false');
+                    question.setAttribute('aria-expanded', 'true');
                     icon.classList.add('open');
                     item.classList.add('active-faq');
                 }
+            }
+            
+            question.addEventListener('click', toggleFaq);
+            
+            // Keyboard support - Enter and Space
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleFaq();
+                }
             });
+        });
+    </script>
+
+    <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
+    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
+       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+        <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Scroll back to top of page" 
+        class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-70');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-70');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>

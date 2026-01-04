@@ -1,22 +1,29 @@
 # Pétros Biokinetics - robots.txt
-# This file tells search engines how to crawl and index your website
+# STAGING SITE - Block all search engines until real domain is active
+# TODO: Update this file when petrosbiokinetics.com is live
 
-# Default rules for all bots
+# Block all bots from indexing staging site
 User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.pdf$
+Disallow: /
 
-# Specific rules for Google
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-# Specific rules for Bing
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
+# ============================================
+# PRODUCTION RULES (uncomment when domain is live)
+# ============================================
+# User-agent: *
+# Allow: /
+# Disallow: /admin/
+# Disallow: /private/
+# Disallow: /*.pdf$
+#
+# User-agent: Googlebot
+# Allow: /
+# Crawl-delay: 0
+#
+# User-agent: Bingbot
+# Allow: /
+# Crawl-delay: 1
+#
+# Sitemap: https://petrosbiokinetics.com/sitemap.xml
 
 # Block bad bots
 User-agent: AhrefsBot

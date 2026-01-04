@@ -7,15 +7,24 @@
     <meta name="description" content="Book your biokinetic consultation with Pétros Biokinetics in Swakopmund. Schedule your clinical restoration session online with our expert practitioners.">
     <meta name="keywords" content="book consultation, schedule appointment, biokinetic booking, clinical restoration appointment, Swakopmund">
     <meta name="canonical" content="https://petrosbiokinetics.com/book-now.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Pétros Biokinetics">
     <meta property="og:title" content="Book Your Consultation | Pétros Biokinetics">
-    <meta property="og:description" content="Schedule your biokinetic consultation online today.">
+    <meta property="og:description" content="Schedule your biokinetic consultation online. Expert clinical restoration in Swakopmund, Namibia.">
     <meta property="og:url" content="https://petrosbiokinetics.com/book-now.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Book Your Consultation | Pétros Biokinetics">
-    <meta name="twitter:description" content="Book your biokinetic consultation now.">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Pétros Biokinetics - Book Your Consultation">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Your Consultation | Pétros Biokinetics">
+    <meta name="twitter:description" content="Schedule your biokinetic consultation online today.">
+    <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -252,7 +261,10 @@
 
     <script>
         // Show loader only on true page load (not on back/forward navigation)
-        if (performance.navigation.type === 1 || !sessionStorage.getItem('petros-loaded')) {
+        // Use modern Navigation Timing API with fallback for older browsers
+        const navEntries = performance.getEntriesByType('navigation');
+        const isReload = navEntries.length > 0 ? navEntries[0].type === 'reload' : (performance.navigation && performance.navigation.type === 1);
+        if (isReload || !sessionStorage.getItem('petros-loaded')) {
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
@@ -300,15 +312,15 @@
                 </a>
             </div>
 
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </nav>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"></div>
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center">
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
+    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
             <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
             <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
@@ -328,19 +340,31 @@
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         toggle.addEventListener('click', () => {
+            const isHidden = menu.classList.contains('hidden');
             menu.classList.toggle('hidden');
             overlay.classList.toggle('hidden');
+            if (isHidden) {
+                overlay.setAttribute('aria-hidden', 'false');
+                toggle.setAttribute('aria-expanded', 'true');
+            } else {
+                overlay.setAttribute('aria-hidden', 'true');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
         });
 
         overlay.addEventListener('click', () => {
             menu.classList.add('hidden');
             overlay.classList.add('hidden');
+            overlay.setAttribute('aria-hidden', 'true');
+            toggle.setAttribute('aria-expanded', 'false');
         });
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
                 overlay.classList.add('hidden');
+                overlay.setAttribute('aria-hidden', 'true');
+                toggle.setAttribute('aria-expanded', 'false');
             });
         });
     </script>
@@ -402,23 +426,23 @@
                         <!-- Preferred Appointment Date & Time -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="group relative">
-                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Date *</label>
+                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="date-label">Preferred Date *</label>
                                 <input type="hidden" id="appointment-date" name="appointment_date" required>
-                                <div id="date-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleCalendar()">
+                                <div id="date-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleCalendar()" role="combobox" aria-labelledby="date-label" aria-haspopup="dialog" aria-expanded="false" aria-controls="calendar-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleCalendar();event.preventDefault();}">
                                     <span id="date-text" class="text-gray-400">Select a date...</span>
-                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                                     </svg>
                                 </div>
                                 <!-- Custom Calendar Dropdown -->
-                                <div id="calendar-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-5 z-50 w-[320px]" style="animation: slideDown 0.25s ease-out;">
+                                <div id="calendar-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-5 z-50 w-[320px]" role="dialog" aria-label="Select a date" style="animation: slideDown 0.25s ease-out;">
                                     <div class="flex items-center justify-between mb-4">
-                                        <button type="button" onclick="changeMonth(-1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all">
-                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                        <button type="button" onclick="changeMonth(-1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all" aria-label="Previous month">
+                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                                         </button>
-                                        <span id="calendar-month" class="font-semibold text-petros-slate"></span>
-                                        <button type="button" onclick="changeMonth(1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all">
-                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        <span id="calendar-month" class="font-semibold text-petros-slate" aria-live="polite"></span>
+                                        <button type="button" onclick="changeMonth(1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all" aria-label="Next month">
+                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                         </button>
                                     </div>
                                     <div class="grid grid-cols-7 gap-1 mb-2">
@@ -435,28 +459,28 @@
                                 <p id="date-error" class="text-xs text-red-500 mt-2 hidden">Please select a weekday (Monday - Friday)</p>
                             </div>
                             <div class="group relative">
-                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Preferred Time *</label>
+                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="time-label">Preferred Time *</label>
                                 <input type="hidden" id="appointment-time" name="appointment_time" required>
-                                <div id="time-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleTimeDropdown()">
+                                <div id="time-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleTimeDropdown()" role="combobox" aria-labelledby="time-label" aria-haspopup="listbox" aria-expanded="false" aria-controls="time-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleTimeDropdown();event.preventDefault();}">
                                     <span id="time-text" class="text-gray-400">Select a time...</span>
-                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
                                 <!-- Custom Time Dropdown -->
-                                <div id="time-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" style="animation: slideDown 0.25s ease-out;">
-                                    <div class="space-y-1">
-                                        <button type="button" onclick="selectTime('07:00', '7:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">7:00 AM</button>
-                                        <button type="button" onclick="selectTime('08:00', '8:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">8:00 AM</button>
-                                        <button type="button" onclick="selectTime('09:00', '9:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">9:00 AM</button>
-                                        <button type="button" onclick="selectTime('10:00', '10:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">10:00 AM</button>
-                                        <button type="button" onclick="selectTime('11:00', '11:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">11:00 AM</button>
-                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1">Lunch break: 12:00 – 1:00 PM</div>
-                                        <button type="button" onclick="selectTime('13:00', '1:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">1:00 PM</button>
-                                        <button type="button" onclick="selectTime('14:00', '2:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">2:00 PM</button>
-                                        <button type="button" onclick="selectTime('15:00', '3:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">3:00 PM</button>
-                                        <button type="button" onclick="selectTime('16:00', '4:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">4:00 PM</button>
-                                        <button type="button" onclick="selectTime('17:00', '5:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">5:00 PM</button>
+                                <div id="time-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" role="listbox" aria-label="Available times" style="animation: slideDown 0.25s ease-out;">
+                                    <div class="space-y-1" role="group">
+                                        <button type="button" onclick="selectTime('07:00', '7:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">7:00 AM</button>
+                                        <button type="button" onclick="selectTime('08:00', '8:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">8:00 AM</button>
+                                        <button type="button" onclick="selectTime('09:00', '9:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">9:00 AM</button>
+                                        <button type="button" onclick="selectTime('10:00', '10:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">10:00 AM</button>
+                                        <button type="button" onclick="selectTime('11:00', '11:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">11:00 AM</button>
+                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1" aria-hidden="true">Lunch break: 12:00 – 1:00 PM</div>
+                                        <button type="button" onclick="selectTime('13:00', '1:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">1:00 PM</button>
+                                        <button type="button" onclick="selectTime('14:00', '2:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">2:00 PM</button>
+                                        <button type="button" onclick="selectTime('15:00', '3:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">3:00 PM</button>
+                                        <button type="button" onclick="selectTime('16:00', '4:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">4:00 PM</button>
+                                        <button type="button" onclick="selectTime('17:00', '5:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">5:00 PM</button>
                                     </div>
                                 </div>
                             </div>
@@ -476,23 +500,23 @@
 
                         <!-- Medical Aid -->
                         <div class="relative">
-                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Do You Have Medical Aid? *</label>
+                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="medical-aid-label">Do You Have Medical Aid? *</label>
                             <input type="hidden" id="medical-aid" name="medical_aid" required>
-                            <div id="medical-aid-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleMedicalAidDropdown()">
+                            <div id="medical-aid-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleMedicalAidDropdown()" role="combobox" aria-labelledby="medical-aid-label" aria-haspopup="listbox" aria-expanded="false" aria-controls="medical-aid-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleMedicalAidDropdown();event.preventDefault();}">
                                 <span id="medical-aid-text" class="text-gray-400">Select an option...</span>
-                                <svg class="w-5 h-5 text-petros-green transition-transform" id="medical-aid-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-petros-green transition-transform" id="medical-aid-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                             <!-- Custom Dropdown -->
-                            <div id="medical-aid-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full" style="animation: slideDown 0.25s ease-out;">
+                            <div id="medical-aid-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full" role="listbox" aria-label="Medical aid options" style="animation: slideDown 0.25s ease-out;">
                                 <div class="space-y-1">
-                                    <button type="button" onclick="selectMedicalAid('Yes', 'Yes')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <button type="button" onclick="selectMedicalAid('Yes', 'Yes')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3" role="option">
+                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         Yes
                                     </button>
-                                    <button type="button" onclick="selectMedicalAid('No', 'No')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3">
-                                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <button type="button" onclick="selectMedicalAid('No', 'No')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3" role="option">
+                                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                         No
                                     </button>
                                 </div>
@@ -501,28 +525,28 @@
 
                         <!-- Reason for Visit / Condition Type -->
                         <div class="relative">
-                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Reason for Visit *</label>
+                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="condition-label">Reason for Visit *</label>
                             <input type="hidden" id="condition-type-booking" name="condition_type" required>
-                            <div id="condition-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleConditionDropdown()">
+                            <div id="condition-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleConditionDropdown()" role="combobox" aria-labelledby="condition-label" aria-haspopup="listbox" aria-expanded="false" aria-controls="condition-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleConditionDropdown();event.preventDefault();}">
                                 <span id="condition-text" class="text-gray-400">What brings you in?</span>
-                                <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                             <!-- Custom Dropdown -->
-                            <div id="condition-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" style="animation: slideDown 0.25s ease-out;">
+                            <div id="condition-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" role="listbox" aria-label="Condition type options" style="animation: slideDown 0.25s ease-out;">
                                 <div class="space-y-1">
-                                    <button type="button" onclick="selectCondition('Chronic Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Chronic Pain</button>
-                                    <button type="button" onclick="selectCondition('Sports Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Sports Injury</button>
-                                    <button type="button" onclick="selectCondition('Post-Surgery Rehabilitation')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Post-Surgery Rehabilitation</button>
-                                    <button type="button" onclick="selectCondition('Posture Correction')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Posture Correction</button>
-                                    <button type="button" onclick="selectCondition('Muscle Strain / Tension')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Muscle Strain / Tension</button>
-                                    <button type="button" onclick="selectCondition('Joint Pain / Stiffness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Joint Pain / Stiffness</button>
-                                    <button type="button" onclick="selectCondition('Back / Neck Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Back / Neck Pain</button>
-                                    <button type="button" onclick="selectCondition('Mobility / Flexibility')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Mobility / Flexibility</button>
-                                    <button type="button" onclick="selectCondition('Work-Related Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Work-Related Injury</button>
-                                    <button type="button" onclick="selectCondition('General Fitness / Wellness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">General Fitness / Wellness</button>
-                                    <button type="button" onclick="selectCondition('Other')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium">Other</button>
+                                    <button type="button" onclick="selectCondition('Chronic Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Chronic Pain</button>
+                                    <button type="button" onclick="selectCondition('Sports Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Sports Injury</button>
+                                    <button type="button" onclick="selectCondition('Post-Surgery Rehabilitation')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Post-Surgery Rehabilitation</button>
+                                    <button type="button" onclick="selectCondition('Posture Correction')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Posture Correction</button>
+                                    <button type="button" onclick="selectCondition('Muscle Strain / Tension')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Muscle Strain / Tension</button>
+                                    <button type="button" onclick="selectCondition('Joint Pain / Stiffness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Joint Pain / Stiffness</button>
+                                    <button type="button" onclick="selectCondition('Back / Neck Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Back / Neck Pain</button>
+                                    <button type="button" onclick="selectCondition('Mobility / Flexibility')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Mobility / Flexibility</button>
+                                    <button type="button" onclick="selectCondition('Work-Related Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Work-Related Injury</button>
+                                    <button type="button" onclick="selectCondition('General Fitness / Wellness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">General Fitness / Wellness</button>
+                                    <button type="button" onclick="selectCondition('Other')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Other</button>
                                 </div>
                             </div>
                         </div>
@@ -685,21 +709,21 @@
     </section>
 
     <!-- Patient Form Modal Overlay - Moved outside all containers for proper z-index -->
-    <div id="patient-form-modal" class="hidden fixed inset-0 z-[9998] overflow-y-auto">
+    <div id="patient-form-modal" class="hidden fixed inset-0 z-[9998] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="patient-form-title">
         <!-- Dark semi-transparent backdrop -->
-        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;"></div>
+        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" aria-hidden="true"></div>
         
         <!-- Modal content -->
         <div class="fixed inset-0 flex items-center justify-center p-4 py-12 pointer-events-none">
-            <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto">
+            <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto" role="document">
                 <!-- Modal header -->
                 <div class="sticky top-0 bg-white border-b border-gray-200 p-6 md:p-8 flex justify-between items-start z-10">
                     <div>
-                        <h3 class="font-serif text-2xl md:text-3xl text-petros-slate mb-2">Patient Assessment Form</h3>
+                        <h3 id="patient-form-title" class="font-serif text-2xl md:text-3xl text-petros-slate mb-2">Patient Assessment Form</h3>
                         <p class="text-gray-600 text-sm">Medical details help us create your perfect restoration plan.</p>
                     </div>
-                    <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" class="text-gray-400 hover:text-gray-600 transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="Close patient form">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
@@ -728,7 +752,8 @@
                             <div class="flex flex-col md:flex-row gap-4 items-start">
                                 <!-- Body Diagram -->
                                 <div class="flex-shrink-0 bg-gradient-to-b from-petros-cream/50 to-white rounded-xl p-4 border border-gray-200">
-                                    <svg viewBox="0 0 200 380" class="w-32 h-auto mx-auto" id="body-diagram">
+                                    <svg viewBox="0 0 200 380" class="w-32 h-auto mx-auto" id="body-diagram" role="img" aria-label="Interactive body diagram for selecting pain areas">
+                                        <title>Click on body parts to select pain areas</title>
                                         <!-- Head -->
                                         <ellipse cx="100" cy="30" rx="25" ry="28" class="body-part" data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
                                         <!-- Neck -->
@@ -879,6 +904,21 @@
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
+                    <!-- Social Icons -->
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
+                            <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div>
@@ -1040,10 +1080,18 @@
 
         function toggleCalendar() {
             const dropdown = document.getElementById('calendar-dropdown');
+            const display = document.getElementById('date-display');
             const timeDropdown = document.getElementById('time-dropdown');
+            const timeDisplay = document.getElementById('time-display');
+            
             timeDropdown.classList.add('hidden');
+            timeDisplay.setAttribute('aria-expanded', 'false');
+            
             dropdown.classList.toggle('hidden');
-            if (!dropdown.classList.contains('hidden')) {
+            const isExpanded = !dropdown.classList.contains('hidden');
+            display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+            
+            if (isExpanded) {
                 renderCalendar();
             }
         }
@@ -1129,15 +1177,23 @@
             document.getElementById('appointment-date').value = formattedDate;
             
             document.getElementById('calendar-dropdown').classList.add('hidden');
+            document.getElementById('date-display').setAttribute('aria-expanded', 'false');
             renderCalendar();
         }
 
         // ===== CUSTOM TIME PICKER =====
         function toggleTimeDropdown() {
             const dropdown = document.getElementById('time-dropdown');
+            const display = document.getElementById('time-display');
             const calendarDropdown = document.getElementById('calendar-dropdown');
+            const dateDisplay = document.getElementById('date-display');
+            
             calendarDropdown.classList.add('hidden');
+            dateDisplay.setAttribute('aria-expanded', 'false');
+            
             dropdown.classList.toggle('hidden');
+            const isExpanded = !dropdown.classList.contains('hidden');
+            display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         }
 
         function selectTime(value, display) {
@@ -1151,16 +1207,24 @@
             event.target.classList.add('selected');
             
             document.getElementById('time-dropdown').classList.add('hidden');
+            document.getElementById('time-display').setAttribute('aria-expanded', 'false');
         }
 
         // ===== CUSTOM MEDICAL AID PICKER =====
         function toggleMedicalAidDropdown() {
             const dropdown = document.getElementById('medical-aid-dropdown');
+            const display = document.getElementById('medical-aid-display');
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
+            
             calendarDropdown.classList.add('hidden');
+            document.getElementById('date-display').setAttribute('aria-expanded', 'false');
             timeDropdown.classList.add('hidden');
+            document.getElementById('time-display').setAttribute('aria-expanded', 'false');
+            
             dropdown.classList.toggle('hidden');
+            const isExpanded = !dropdown.classList.contains('hidden');
+            display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         }
 
         function selectMedicalAid(value, display) {
@@ -1174,18 +1238,27 @@
             event.target.closest('button').classList.add('selected');
             
             document.getElementById('medical-aid-dropdown').classList.add('hidden');
+            document.getElementById('medical-aid-display').setAttribute('aria-expanded', 'false');
         }
 
         // ===== CUSTOM CONDITION PICKER =====
         function toggleConditionDropdown() {
             const dropdown = document.getElementById('condition-dropdown');
+            const display = document.getElementById('condition-display');
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
             const medicalAidDropdown = document.getElementById('medical-aid-dropdown');
+            
             calendarDropdown.classList.add('hidden');
+            document.getElementById('date-display').setAttribute('aria-expanded', 'false');
             timeDropdown.classList.add('hidden');
+            document.getElementById('time-display').setAttribute('aria-expanded', 'false');
             medicalAidDropdown.classList.add('hidden');
+            document.getElementById('medical-aid-display').setAttribute('aria-expanded', 'false');
+            
             dropdown.classList.toggle('hidden');
+            const isExpanded = !dropdown.classList.contains('hidden');
+            display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
         }
 
         function selectCondition(value) {
@@ -1199,6 +1272,7 @@
             event.target.classList.add('selected');
             
             document.getElementById('condition-dropdown').classList.add('hidden');
+            document.getElementById('condition-display').setAttribute('aria-expanded', 'false');
         }
 
         // Close dropdowns when clicking outside
@@ -1214,15 +1288,19 @@
 
             if (!dateDisplay.contains(e.target) && !calendarDropdown.contains(e.target)) {
                 calendarDropdown.classList.add('hidden');
+                dateDisplay.setAttribute('aria-expanded', 'false');
             }
             if (!timeDisplay.contains(e.target) && !timeDropdown.contains(e.target)) {
                 timeDropdown.classList.add('hidden');
+                timeDisplay.setAttribute('aria-expanded', 'false');
             }
             if (!medicalAidDisplay.contains(e.target) && !medicalAidDropdown.contains(e.target)) {
                 medicalAidDropdown.classList.add('hidden');
+                medicalAidDisplay.setAttribute('aria-expanded', 'false');
             }
             if (!conditionDisplay.contains(e.target) && !conditionDropdown.contains(e.target)) {
                 conditionDropdown.classList.add('hidden');
+                conditionDisplay.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -1290,6 +1368,40 @@
         // Update hidden input when condition type or notes change
         document.getElementById('condition-type').addEventListener('change', updatePainAreasDisplay);
         document.getElementById('pain-notes').addEventListener('input', updatePainAreasDisplay);
+    </script>
+
+    <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
+    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
+       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+        <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Scroll back to top of page" 
+        class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script>
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-70');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-70');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
