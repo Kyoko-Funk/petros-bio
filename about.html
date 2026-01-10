@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Jean-Pierre Grobler | Pétros Biokinetics - Expert Practitioner</title>
-    <meta name="description" content="Meet Jean-Pierre Grobler, founder of Pétros Biokinetics. Discover his expertise in clinical restoration, biokinetics, and movement therapy in Swakopmund, Namibia.">
-    <meta name="keywords" content="Jean-Pierre Grobler, biokinetics expert, clinical practitioner, rehabilitation specialist, Swakopmund">
+    <meta name="description"
+        content="Meet Jean-Pierre Grobler, founder of Pétros Biokinetics. Discover his expertise in clinical restoration, biokinetics, and movement therapy in Swakopmund, Namibia.">
+    <meta name="keywords"
+        content="Jean-Pierre Grobler, biokinetics expert, clinical practitioner, rehabilitation specialist, Swakopmund">
     <meta name="canonical" content="https://petrosbiokinetics.com/about.html">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Pétros Biokinetics">
     <meta property="og:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
-    <meta property="og:description" content="Meet Jean-Pierre Grobler, founder and expert biokinetics practitioner dedicated to clinical restoration excellence.">
+    <meta property="og:description"
+        content="Meet Jean-Pierre Grobler, founder and expert biokinetics practitioner dedicated to clinical restoration excellence.">
     <meta property="og:url" content="https://petrosbiokinetics.com/about.html">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Jean-Pierre Grobler - Pétros Biokinetics Founder">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
     <meta name="twitter:description" content="Expert biokinetics practitioner and clinical restoration specialist.">
     <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -88,7 +92,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -130,6 +136,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -141,6 +148,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -148,9 +156,12 @@
         }
 
         @keyframes float-slow {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
                 transform: translateY(-10px);
             }
@@ -179,14 +190,19 @@
         /* Hero background */
         .hero-bg-about {
             background: linear-gradient(135deg, rgba(122, 139, 105, 0.1) 0%, rgba(47, 62, 48, 0.05) 100%),
-                        url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');
+                url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
@@ -194,6 +210,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -229,6 +246,7 @@
         }
     </style>
 </head>
+
 <body class="bg-petros-cream text-petros-charcoal font-sans selection:bg-petros-green/30">
     <!-- Page Loader -->
     <div id="page-loader" class="fixed inset-0 z-[9999]" style="display: none;">
@@ -244,9 +262,9 @@
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
-        
+
         // Hide loader when page is ready
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loader = document.getElementById('page-loader');
             if (loader.style.display === 'block') {
                 loader.style.opacity = '0';
@@ -273,64 +291,96 @@
 
             <!-- Desktop Navigation -->
             <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
-                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
-                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
-                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
-                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
-                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
+                <li><a href="index.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a>
+                </li>
+                <li><a href="the-method.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a>
+                </li>
+                <li><a href="services.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a>
+                </li>
+                <li><a href="pricing.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a>
+                </li>
+                <li><a href="faq.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a>
+                </li>
                 <li><a href="about.html" class="font-medium tracking-wide text-petros-green">About</a></li>
-                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+                <li><a href="contact.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a>
+                </li>
             </ul>
 
             <!-- Book Now Button -->
             <div class="flex items-center gap-3 hidden md:flex">
-                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                <a href="book-now.html"
+                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
                     Book Now
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </div>
 
     <!-- Mobile Menu Backdrop -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
+        aria-hidden="true"></div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div id="mobile-menu"
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
+        role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
-            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+            <a href="index.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
+                Now</a>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section class="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
-        
+
         <!-- 3D Particle Mesh Canvas -->
-        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
-        
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
+            style="transition: opacity 0.5s ease-out;"></canvas>
+
         <div class="absolute inset-0 z-0">
-            <div id="hero-bg-about" class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');"></div>
+            <div id="hero-bg-about" class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');">
+            </div>
             <div class="absolute inset-0 bg-gray-600/40"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
         </div>
         <div class="relative z-10 max-w-4xl text-center">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 reveal-fade">Expertise & Compassion</span>
+            <span
+                class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 reveal-fade">Expertise
+                & Compassion</span>
             <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 reveal-fade">
                 Meet Jean-Pierre <span class="italic text-petros-green">Grobler</span>
             </h1>
             <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light reveal-fade">
-                Clinical excellence meets compassionate care. Dedicated to restoring your movement and your quality of life.
+                Clinical excellence meets compassionate care. Dedicated to restoring your movement and your quality of
+                life.
             </p>
         </div>
     </section>
@@ -342,36 +392,55 @@
                 <!-- Image -->
                 <div class="relative">
                     <div class="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl relative">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767285303/Jean-Pierre_cbf5uq.png?auto=format&fit=crop&q=80&w=1974" alt="Jean-Pierre Grobler" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-petros-green/20 to-transparent"></div>
+                        <img src="https://res.cloudinary.com/karlifunk/image/upload/v1768038812/Untitled_design_3_hxx0nq.png?auto=format&fit=crop&q=80&w=1974"
+                            alt="Jean-Pierre Grobler" class="w-full h-full object-cover">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-petros-green/20 to-transparent pointer-events-none">
+                        </div>
                     </div>
                     <!-- Stats Badge -->
-                    <div class="absolute -bottom-6 -left-6 glass-morphism p-8 rounded-3xl hidden md:block border-petros-green/20">
-                        <p class="text-4xl font-serif text-petros-green mb-1">10+</p>
-                        <p class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Years Clinical Experience</p>
+                    <div
+                        class="absolute -bottom-6 -left-6 glass-morphism p-8 rounded-3xl hidden md:block border-petros-green/20">
+                        <p class="text-4xl font-serif text-petros-green mb-1">8+</p>
+                        <p class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Years Clinical
+                            Experience</p>
                     </div>
                 </div>
 
                 <!-- Bio Content -->
                 <div>
-                    <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight reveal-fade">Rehabilitation with <br><span class="italic text-petros-green">clinical precision.</span></h2>
+                    <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight reveal-fade">
+                        Rehabilitation with <br><span class="italic text-petros-green">clinical precision.</span></h2>
 
                     <p class="text-petros-slate font-light leading-relaxed mb-6 text-lg reveal-fade">
-                        Jean-Pierre Grobler is a qualified Biokineticist specializing in orthopedic rehabilitation, chronic pain management, and athletic performance enhancement. With a deep understanding of human movement, Jean-Pierre focuses on finding the root cause of dysfunction rather than simply treating symptoms.
+                        Jean-Pierre Grobler is a qualified Biokineticist specializing in orthopedic rehabilitation,
+                        chronic disease management, and athletic performance enhancement. With a deep understanding of
+                        human movement, Jean-Pierre focuses on finding the root cause of dysfunction rather than simply
+                        treating symptoms.
                     </p>
 
                     <p class="text-petros-slate font-light leading-relaxed mb-10">
-                        His approach combines evidence-based exercise prescription with a calm, patient-centered atmosphere. Every patient receives a comprehensive assessment and personalized treatment plan that respects their individual needs, goals, and pace of recovery.
+                        His approach combines evidence-based exercise prescription with a calm, patient-centered
+                        atmosphere. Every patient receives a comprehensive assessment and personalized treatment plan
+                        that respects their individual needs, goals, and pace of recovery.
                     </p>
 
                     <!-- Credentials -->
                     <div class="flex flex-wrap gap-4 mb-10 reveal-fade">
-                        <span class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">HPCSA Registered</span>
-                        <span class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">BSc (Hons) Biokinetics</span>
-                        <span class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">Clinical Specialist</span>
+                        <span
+                            class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">HPCNA
+                            Registered</span>
+                        <span
+                            class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">BA
+                            (Hons) Biokinetics</span>
+                        <span
+                            class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20">Clinical
+                            Specialist</span>
                     </div>
 
-                    <a href="contact.html" class="cta-button inline-block px-10 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Contact Us</a>
+                    <a href="contact.html"
+                        class="cta-button inline-block px-10 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Contact
+                        Us</a>
                 </div>
             </div>
         </div>
@@ -384,34 +453,45 @@
 
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">The Pétros <span class="italic text-petros-green">Philosophy</span></h2>
-                <p class="text-petros-slate font-light italic max-w-2xl mx-auto">Movement is medicine. Recovery is a journey, not a destination.</p>
+                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">The Pétros <span
+                        class="italic text-petros-green">Philosophy</span></h2>
+                <p class="text-petros-slate font-light italic max-w-2xl mx-auto">Movement is medicine. Recovery is a
+                    journey, not a destination.</p>
             </div>
 
             <!-- Three Pillars -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
+                <div
+                    class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
+                    <div
+                        class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
                         <i data-lucide="heart" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
                     </div>
                     <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Patient-Centered</h3>
-                    <p class="text-petros-slate font-light leading-relaxed">Your goals and comfort guide every decision. We listen, adapt, and support your unique journey.</p>
+                    <p class="text-petros-slate font-light leading-relaxed">Your goals and comfort guide every decision.
+                        We listen, adapt, and support your unique journey.</p>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
+                <div
+                    class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
+                    <div
+                        class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
                         <i data-lucide="microscope" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
                     </div>
                     <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Evidence-Based</h3>
-                    <p class="text-petros-slate font-light leading-relaxed">Every recommendation is grounded in current research and clinical best practices.</p>
+                    <p class="text-petros-slate font-light leading-relaxed">Every recommendation is grounded in current
+                        research and clinical best practices.</p>
                 </div>
 
-                <div class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
-                    <div class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
+                <div
+                    class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
+                    <div
+                        class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
                         <i data-lucide="zap" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
                     </div>
                     <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Results-Driven</h3>
-                    <p class="text-petros-slate font-light leading-relaxed">We measure progress and continuously refine your program for optimal outcomes.</p>
+                    <p class="text-petros-slate font-light leading-relaxed">We measure progress and continuously refine
+                        your program for optimal outcomes.</p>
                 </div>
             </div>
         </div>
@@ -421,97 +501,146 @@
     <section class="py-24 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">Welcome to <span class="italic text-petros-green">the Space</span></h2>
-                <p class="text-petros-slate font-light italic">A modern, clinical sanctuary designed for your recovery.</p>
+                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">Welcome to <span
+                        class="italic text-petros-green">the Space</span></h2>
+                <p class="text-petros-slate font-light italic">A modern, clinical sanctuary designed for your recovery.
+                </p>
             </div>
 
             <!-- Main Featured Image -->
-            <div class="rounded-[3rem] overflow-hidden shadow-2xl relative group tour-card h-[500px] mb-8">
-                <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1200/v1767285806/Rehab_Center_dnpsrs.png" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                <div class="absolute bottom-10 left-10">
-                    <div class="glass-morphism p-8 rounded-2xl max-w-md backdrop-blur-xl border-petros-green/20">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 rounded-full bg-petros-green/20 flex items-center justify-center">
-                                <i data-lucide="dumbbell" class="w-5 h-5 text-petros-green"></i>
+            <div
+                class="rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative group tour-card h-auto min-h-[400px] md:h-[500px] mb-8">
+                <img src="https://res.cloudinary.com/karlifunk/image/upload/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png"
+                    loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
+                    data-full="https://res.cloudinary.com/karlifunk/image/upload/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-auto pointer-events-none">
+                    <div
+                        class="glass-morphism p-5 md:p-8 rounded-2xl max-w-full md:max-w-md backdrop-blur-xl border-petros-green/20 pointer-events-auto">
+                        <div class="flex items-center gap-3 mb-2 md:mb-3">
+                            <div
+                                class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-petros-green/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="dumbbell" class="w-4 h-4 md:w-5 md:h-5 text-petros-green"></i>
                             </div>
-                            <h4 class="font-serif text-2xl text-white">Rehabilitation Area</h4>
+                            <h4 class="font-serif text-xl md:text-2xl text-white">Rehabilitation Area</h4>
                         </div>
-                        <p class="text-sm text-white/90 font-light leading-relaxed">Natural light floods our main rehabilitation space, equipped with professional-grade equipment for guided exercise and movement therapy.</p>
+                        <p class="text-xs md:text-sm text-white/90 font-light leading-relaxed">Natural light floods our
+                            main rehabilitation space, equipped with professional-grade equipment for guided exercise
+                            and movement therapy.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Three Supporting Images -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[300px]">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286189/Consultation_Room_oicrx4.png" loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 right-8">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-petros-green/30 flex items-center justify-center">
-                                <i data-lucide="clipboard" class="w-4 h-4 text-white"></i>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[250px] md:h-[300px]">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286189/Consultation_Room_oicrx4.png"
+                        loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
+                        data-full="https://res.cloudinary.com/karlifunk/image/upload/v1767286189/Consultation_Room_oicrx4.png">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 pointer-events-none">
+                        <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                            <div
+                                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-petros-green/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="clipboard" class="w-3 h-3 md:w-4 md:h-4 text-white"></i>
                             </div>
-                            <h5 class="font-serif text-lg text-white">Consultation Room</h5>
+                            <h5 class="font-serif text-base md:text-lg text-white">Consultation Room</h5>
                         </div>
-                        <p class="text-xs text-white/80 font-light">Private assessment space</p>
+                        <p class="text-[10px] md:text-xs text-white/80 font-light pl-9 md:pl-11">Private assessment
+                            space</p>
                     </div>
                 </div>
 
-                <div class="rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[300px]">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286406/Reception_Area_qotwbb.png" loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 right-8">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-petros-green/30 flex items-center justify-center">
-                                <i data-lucide="door-open" class="w-4 h-4 text-white"></i>
+                <!-- Card 2 -->
+                <div
+                    class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[250px] md:h-[300px]">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286406/Reception_Area_qotwbb.png"
+                        loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
+                        data-full="https://res.cloudinary.com/karlifunk/image/upload/v1767286406/Reception_Area_qotwbb.png">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 pointer-events-none">
+                        <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                            <div
+                                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-petros-green/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="door-open" class="w-3 h-3 md:w-4 md:h-4 text-white"></i>
                             </div>
-                            <h5 class="font-serif text-lg text-white">Reception & Entry</h5>
+                            <h5 class="font-serif text-base md:text-lg text-white">Reception & Entry</h5>
                         </div>
-                        <p class="text-xs text-white/80 font-light">Welcoming arrival space</p>
+                        <p class="text-[10px] md:text-xs text-white/80 font-light pl-9 md:pl-11">Welcoming arrival space
+                        </p>
                     </div>
                 </div>
 
-                <div class="rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[300px]">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286640/Front_Yard_of_Practce_un8vfd.png" loading="lazy" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div class="absolute bottom-8 left-8 right-8">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-8 h-8 rounded-full bg-petros-green/30 flex items-center justify-center">
-                                <i data-lucide="home" class="w-4 h-4 text-white"></i>
+                <!-- Card 3 -->
+                <div
+                    class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[250px] md:h-[300px]">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286640/Front_Yard_of_Practce_un8vfd.png"
+                        loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
+                        data-full="https://res.cloudinary.com/karlifunk/image/upload/v1767286640/Front_Yard_of_Practce_un8vfd.png">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
+                    </div>
+                    <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 pointer-events-none">
+                        <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                            <div
+                                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-petros-green/30 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="home" class="w-3 h-3 md:w-4 md:h-4 text-white"></i>
                             </div>
-                            <h5 class="font-serif text-lg text-white">Practice Exterior</h5>
+                            <h5 class="font-serif text-base md:text-lg text-white">Practice Exterior</h5>
                         </div>
-                        <p class="text-xs text-white/80 font-light">Peaceful surroundings</p>
+                        <p class="text-[10px] md:text-xs text-white/80 font-light pl-9 md:pl-11">Peaceful surroundings
+                        </p>
                     </div>
                 </div>
             </div>
 
             <!-- Facility Highlights -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
-                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="shield-check" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16">
+                <!-- Highlights same as before but refined spacing -->
+                <div
+                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="shield-check"
+                            class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
                     </div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Fully Equipped</p>
+                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Fully
+                        Equipped</p>
                 </div>
-                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="sun" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                <!-- ... other highlights same pattern ... -->
+                <div
+                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="sun" class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
                     </div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Natural Light</p>
+                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Natural Light
+                    </p>
                 </div>
-                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="lock" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                <div
+                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="lock"
+                            class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
                     </div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Private Sessions</p>
+                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Private
+                        Sessions</p>
                 </div>
-                <div class="glass-morphism p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div class="w-12 h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="sparkles" class="w-6 h-6 text-petros-green group-hover:text-white"></i>
+                <div
+                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
+                        <i data-lucide="sparkles"
+                            class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
                     </div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-petros-slate">Modern Design</p>
+                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Modern Design
+                    </p>
                 </div>
             </div>
         </div>
@@ -523,42 +652,50 @@
         <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl"></div>
 
         <div class="max-w-4xl mx-auto relative z-10 text-center">
-            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">Ready to Start Your <span class="italic text-petros-green">Recovery Journey?</span></h2>
+            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">Ready to Start Your <span
+                    class="italic text-petros-green">Recovery Journey?</span></h2>
             <p class="text-white/80 font-light text-lg mb-10 max-w-2xl mx-auto">
                 Let's work together to restore your movement, rebuild your confidence, and reclaim your quality of life.
             </p>
-            <a href="contact.html" class="cta-button inline-block px-12 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Get In Touch</a>
+            <a href="contact.html"
+                class="cta-button inline-block px-12 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Get
+                In Touch</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
                 <!-- Column 1: Logo + Description + Social -->
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                        <div
+                            class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
+                                class="font-light not-italic">Biokinetics</span></span>
                     </div>
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Facebook"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                            aria-label="Chat with us on WhatsApp"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
@@ -570,7 +707,8 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm text-petros-slate font-medium">
                         <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
+                        </li>
                         <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
                         <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
@@ -583,10 +721,14 @@
                 <div>
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 13:00 – 14:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
+                                18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed
+                                between 13:00 – 14:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span
+                                class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
+                                class="font-medium">Closed</span></li>
                     </ul>
                 </div>
 
@@ -595,13 +737,17 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
                     <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
                     <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
-                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                    <a href="tel:+264816835055" class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264 81 683 5055</a>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <a href="tel:+264816835055"
+                        class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264
+                        81 683 5055</a>
                 </div>
             </div>
 
             <!-- Footer Bottom -->
-            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <div
+                class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
                 <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
@@ -678,17 +824,20 @@
         });
     </script>
 
-    <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
-    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
-       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+        <span
+            class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat
+            with us</span>
     </a>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Scroll back to top of page" 
+    <button id="back-to-top" aria-label="Scroll back to top of page"
         class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
@@ -722,5 +871,110 @@
 
     <!-- Lenis Smooth Scroll & Text Reveals -->
     <script src="smooth-scroll.js"></script>
+
+    <!-- Premium Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-[99999] opacity-0 pointer-events-none transition-all duration-300"
+        aria-hidden="true">
+        <!-- Backdrop with blur -->
+        <div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
+
+        <!-- Close Button -->
+        <button id="lightbox-close"
+            class="absolute top-4 right-4 z-50 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+            aria-label="Close lightbox">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <!-- Image Container -->
+        <div class="absolute inset-0 flex items-center justify-center p-4">
+            <img id="lightbox-img" src="" alt="Expanded view"
+                class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300">
+        </div>
+    </div>
+
+    <script>
+        // Premium Lightbox Logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const closeBtn = document.getElementById('lightbox-close');
+            let isOpen = false;
+
+            function openLightbox(thumb, full) {
+                if (!thumb && !full) return;
+
+                // Show thumbnail immediately (cached, instant)
+                img.src = thumb || full;
+
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                // Small delay to allow display to update before animating scale
+                requestAnimationFrame(() => {
+                    img.classList.remove('scale-95');
+                    img.classList.add('scale-100');
+                });
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                isOpen = true;
+
+                // Load full res if different
+                if (full && full !== thumb) {
+                    const fullImage = new Image();
+                    fullImage.src = full;
+                    fullImage.onload = () => {
+                        // Only swap if still open so we don't flash content if closed quickly
+                        if (isOpen && img.src === thumb) {
+                            img.src = full;
+                        }
+                    };
+                }
+            }
+
+            function closeLightbox() {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                img.classList.remove('scale-100');
+                img.classList.add('scale-95');
+                document.body.style.overflow = '';
+                isOpen = false;
+                // Clear src after animation to prevent flicker next time
+                setTimeout(() => {
+                    if (!isOpen) img.src = '';
+                }, 300);
+            }
+
+            // Attach listeners to triggers
+            document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+                trigger.classList.add('cursor-zoom-in');
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // Pass both thumbnail and full resolution URL
+                    const thumb = trigger.src;
+                    const full = trigger.getAttribute('data-full') || trigger.src;
+                    openLightbox(thumb, full);
+                });
+            });
+
+            // Close handlers
+            closeBtn.addEventListener('click', closeLightbox);
+
+            // Close on click outside image
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal || e.target.closest('.absolute.inset-0.bg-black\\/90')) {
+                    closeLightbox();
+                }
+            });
+
+            // Close on clicking the image itself (User Request)
+            img.addEventListener('click', closeLightbox);
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isOpen) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
