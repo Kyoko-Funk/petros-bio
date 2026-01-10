@@ -468,20 +468,33 @@
                     <form id="bookingForm" class="space-y-6">
                         <!-- Name and Email -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
+                            <div class="relative">
                                 <label for="name" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full Name *</label>
                                 <input type="text" id="name" name="name" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="John Doe">
+                                <p id="name-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                    <span id="name-error-text"></span>
+                                </p>
                             </div>
-                            <div>
+                            <div class="relative">
                                 <label for="email" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email Address *</label>
                                 <input type="email" id="email" name="email" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="hello@example.com">
+                                <p id="email-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                    <span id="email-error-text"></span>
+                                </p>
                             </div>
                         </div>
 
                         <!-- Phone -->
-                        <div>
+                        <div class="relative">
                             <label for="phone" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone / WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 81 ...">
+                            <input type="tel" id="phone" name="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 81 123 4567">
+                            <p class="text-xs text-gray-500 mt-2">All international formats accepted (e.g. +264, +49, +1, +44)</p>
+                            <p id="phone-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <span id="phone-error-text"></span>
+                            </p>
                         </div>
 
                         <!-- Preferred Appointment Date & Time -->
@@ -496,7 +509,7 @@
                                     </svg>
                                 </div>
                                 <!-- Custom Calendar Dropdown -->
-                                <div id="calendar-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-5 z-50 w-[320px]" role="dialog" aria-label="Select a date" style="animation: slideDown 0.25s ease-out;">
+                                <div id="calendar-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-4 md:p-5 z-50 w-[calc(100vw-3rem)] max-w-[320px]" role="dialog" aria-label="Select a date" style="animation: slideDown 0.25s ease-out;">
                                     <div class="flex items-center justify-between mb-4">
                                         <button type="button" onclick="changeMonth(-1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all" aria-label="Previous month">
                                             <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -536,8 +549,8 @@
                                         <button type="button" onclick="selectTime('09:00', '9:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">9:00 AM</button>
                                         <button type="button" onclick="selectTime('10:00', '10:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">10:00 AM</button>
                                         <button type="button" onclick="selectTime('11:00', '11:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">11:00 AM</button>
-                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1" aria-hidden="true">Lunch break: 12:00 – 1:00 PM</div>
-                                        <button type="button" onclick="selectTime('13:00', '1:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">1:00 PM</button>
+                                        <button type="button" onclick="selectTime('12:00', '12:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">12:00 PM</button>
+                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1" aria-hidden="true">Lunch break: 1:00 – 2:00 PM</div>
                                         <button type="button" onclick="selectTime('14:00', '2:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">2:00 PM</button>
                                         <button type="button" onclick="selectTime('15:00', '3:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">3:00 PM</button>
                                         <button type="button" onclick="selectTime('16:00', '4:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">4:00 PM</button>
@@ -685,7 +698,7 @@
                                 </div>
                                 <div>
                                     <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Opening Hours</p>
-                                    <p class="text-gray-700 font-light"><span class="font-semibold">Mon–Fri:</span> 7:00 – 18:00<br><span class="text-xs text-gray-600">Closed 12:00 – 13:00</span></p>
+                                    <p class="text-gray-700 font-light"><span class="font-semibold">Mon–Fri:</span> 7:00 – 18:00<br><span class="text-xs text-gray-600">Closed 13:00 – 14:00</span></p>
                                 </div>
                             </div>
 
@@ -749,7 +762,7 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                            <button onclick="document.getElementById('patient-form-modal').classList.remove('hidden'); return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <button onclick="document.getElementById('patient-form-modal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                                     <span>Fill Out Patient Form Now</span>
@@ -772,48 +785,61 @@
     <!-- Patient Form Modal Overlay - Moved outside all containers for proper z-index -->
     <div id="patient-form-modal" class="hidden fixed inset-0 z-[9998] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="patient-form-title">
         <!-- Dark semi-transparent backdrop -->
-        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" aria-hidden="true"></div>
+        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;" aria-hidden="true"></div>
         
-        <!-- Modal content -->
-        <div class="fixed inset-0 flex items-center justify-center p-4 py-12 pointer-events-none">
-            <div class="relative bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto" role="document">
+        <!-- Modal content wrapper - allows scroll on mobile -->
+        <div class="min-h-full flex items-start md:items-center justify-center p-2 sm:p-4 py-4 sm:py-8">
+            <div class="relative bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden" role="document">
                 <!-- Modal header -->
-                <div class="sticky top-0 bg-white border-b border-gray-200 p-6 md:p-8 flex justify-between items-start z-10">
-                    <div>
-                        <h3 id="patient-form-title" class="font-serif text-2xl md:text-3xl text-petros-slate mb-2">Patient Assessment Form</h3>
-                        <p class="text-gray-600 text-sm">Medical details help us create your perfect restoration plan.</p>
+                <div class="sticky top-0 bg-white border-b border-gray-200 p-4 sm:p-6 md:p-8 flex justify-between items-start z-10 rounded-t-2xl sm:rounded-t-3xl">
+                    <div class="pr-4">
+                        <h3 id="patient-form-title" class="font-serif text-xl sm:text-2xl md:text-3xl text-petros-slate mb-1 sm:mb-2">Patient Assessment Form</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Medical details help us create your perfect restoration plan.</p>
                     </div>
-                    <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" class="text-gray-400 hover:text-gray-600 transition-colors" aria-label="Close patient form">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;" class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors" aria-label="Close patient form">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
 
-                <!-- Modal body -->
-                <div class="p-6 md:p-8">
+                <!-- Modal body - scrollable -->
+                <div class="p-4 sm:p-6 md:p-8 max-h-[70vh] sm:max-h-[75vh] overflow-y-auto">
                     <form id="patientForm" class="space-y-4">
                         <!-- Name -->
-                        <div>
+                        <div class="relative">
                             <label class="block text-xs font-bold text-petros-green uppercase mb-2">Full Name *</label>
-                            <input type="text" name="name" required class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20">
+                            <input type="text" name="name" id="patient-name" required class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20">
+                            <p id="patient-name-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <span id="patient-name-error-text"></span>
+                            </p>
                         </div>
 
                         <!-- Medical History -->
-                        <div>
+                        <div class="relative">
                             <label class="block text-xs font-bold text-petros-green uppercase mb-2">Medical History & Conditions *</label>
-                            <textarea name="medical_history" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
+                            <textarea name="medical_history" id="patient-medical-history" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
+                            <p id="patient-medical-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <span id="patient-medical-error-text"></span>
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">Write "None" if you have no known conditions</p>
                         </div>
 
                         <!-- Injuries & Pain - Interactive Body Diagram -->
-                        <div>
+                        <div class="relative">
                             <label class="block text-xs font-bold text-petros-green uppercase mb-2">Pain Areas (Click to Select) *</label>
                             <input type="hidden" name="injuries_pain" id="pain-areas-input" required>
+                            <p id="patient-pain-error" class="text-xs text-red-500 mb-2 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <span id="patient-pain-error-text"></span>
+                            </p>
                             
-                            <div class="flex flex-col md:flex-row gap-4 items-start">
+                            <div class="flex flex-col gap-4 items-center">
                                 <!-- Body Diagram -->
-                                <div class="flex-shrink-0 bg-gradient-to-b from-petros-cream/50 to-white rounded-xl p-4 border border-gray-200">
-                                    <svg viewBox="0 0 200 380" class="w-32 h-auto mx-auto" id="body-diagram" role="img" aria-label="Interactive body diagram for selecting pain areas">
+                                <div class="flex-shrink-0 bg-gradient-to-b from-petros-cream/50 to-white rounded-xl p-3 sm:p-4 border border-gray-200 w-full sm:w-auto">
+                                    <svg viewBox="0 0 200 380" class="w-24 sm:w-32 h-auto mx-auto" id="body-diagram" role="img" aria-label="Interactive body diagram for selecting pain areas">
                                         <title>Click on body parts to select pain areas</title>
                                         <!-- Head -->
                                         <ellipse cx="100" cy="30" rx="25" ry="28" class="body-part" data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
@@ -886,9 +912,14 @@
                         </div>
 
                         <!-- Allergies -->
-                        <div>
+                        <div class="relative">
                             <label class="block text-xs font-bold text-petros-green uppercase mb-2">Allergies & Adverse Reactions *</label>
-                            <textarea name="allergies" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any allergies (medications, latex, etc.) or adverse reactions"></textarea>
+                            <textarea name="allergies" id="patient-allergies" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any allergies (medications, latex, etc.) or adverse reactions"></textarea>
+                            <p id="patient-allergies-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <span id="patient-allergies-error-text"></span>
+                            </p>
+                            <p class="text-xs text-gray-500 mt-1">Write "None" if you have no known allergies</p>
                         </div>
 
                         <!-- Medications -->
@@ -904,42 +935,46 @@
                         </div>
 
                         <!-- Health Goals -->
-                        <div>
+                        <div class="relative">
                             <label class="block text-xs font-bold text-petros-green uppercase mb-2">Health & Lifestyle Goals *</label>
-                            <textarea name="health_goals" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="What are your goals? What would you like to achieve?"></textarea>
+                            <textarea name="health_goals" id="patient-goals" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="What are your goals? What would you like to achieve?"></textarea>
+                            <p id="patient-goals-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <span id="patient-goals-error-text"></span>
+                            </p>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row gap-3 pt-4">
-                            <button type="submit" class="flex-1 bg-petros-green hover:bg-petros-slate text-white py-3 rounded-lg font-bold transition-all shadow-lg">
+                        <div class="flex flex-col-reverse sm:flex-row gap-3 pt-4">
+                            <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;" class="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all text-sm sm:text-base">
+                                Close
+                            </button>
+                            <button type="submit" class="flex-1 bg-petros-green hover:bg-petros-slate text-white py-3 rounded-lg font-bold transition-all shadow-lg text-sm sm:text-base">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="send" class="w-4 h-4"></i>
                                     Submit Form
                                 </span>
                             </button>
-                            <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); return false;" class="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all">
-                                Close
-                            </button>
                         </div>
                     </form>
 
                     <!-- Patient Form Success Message (Hidden initially) -->
-                    <div id="patient-form-success" class="hidden text-center py-8">
-                        <div class="mb-6">
-                            <div class="relative w-20 h-20 mx-auto">
+                    <div id="patient-form-success" class="hidden text-center py-6 sm:py-8">
+                        <div class="mb-4 sm:mb-6">
+                            <div class="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto">
                                 <div class="absolute inset-0 bg-petros-green/20 rounded-full animate-ping"></div>
                                 <div class="relative w-full h-full bg-petros-green/10 rounded-full flex items-center justify-center">
-                                    <svg class="w-10 h-10 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
                             </div>
                         </div>
-                        <h4 class="font-serif text-3xl text-petros-slate mb-3">Thank You!</h4>
-                        <p class="text-gray-600 mb-2">Your patient assessment form has been submitted successfully.</p>
-                        <p class="text-petros-green font-semibold text-sm mb-6">We now have everything we need to prepare for your visit 🌿</p>
-                        <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.getElementById('patient-form-cta').classList.add('hidden');" class="bg-petros-green hover:bg-petros-slate text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg">
+                        <h4 class="font-serif text-2xl sm:text-3xl text-petros-slate mb-2 sm:mb-3">Thank You!</h4>
+                        <p class="text-gray-600 mb-2 text-sm sm:text-base">Your patient assessment form has been submitted successfully.</p>
+                        <p class="text-petros-green font-semibold text-xs sm:text-sm mb-4 sm:mb-6">We now have everything we need to prepare for your visit 🌿</p>
+                        <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.getElementById('patient-form-cta').classList.add('hidden'); document.body.style.overflow = '';" class="bg-petros-green hover:bg-petros-slate text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-bold transition-all shadow-lg text-sm sm:text-base">
                             <span class="flex items-center justify-center gap-2">
-                                <i data-lucide="home" class="w-4 h-4"></i>
+                                <i data-lucide="check" class="w-4 h-4"></i>
                                 Done
                             </span>
                         </button>
@@ -999,7 +1034,7 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
                         <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 12:00 – 13:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 13:00 – 14:00</span></li>
                         <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
                         <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
                     </ul>
@@ -1028,9 +1063,212 @@
     <script>
         lucide.createIcons();
 
+        // ===== ELEGANT FORM VALIDATION =====
+        const validationConfig = {
+            name: {
+                element: document.getElementById('name'),
+                errorElement: document.getElementById('name-error'),
+                errorTextElement: document.getElementById('name-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your full name' };
+                    if (value.trim().length < 2) return { valid: false, message: 'Name must be at least 2 characters' };
+                    if (!/^[a-zA-ZÀ-ÿ\s\-'\.]+$/.test(value.trim())) return { valid: false, message: 'Name contains invalid characters' };
+                    return { valid: true };
+                }
+            },
+            email: {
+                element: document.getElementById('email'),
+                errorElement: document.getElementById('email-error'),
+                errorTextElement: document.getElementById('email-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your email address' };
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value.trim())) return { valid: false, message: 'Please enter a valid email address (e.g. name@example.com)' };
+                    return { valid: true };
+                }
+            },
+            phone: {
+                element: document.getElementById('phone'),
+                errorElement: document.getElementById('phone-error'),
+                errorTextElement: document.getElementById('phone-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your phone number' };
+                    
+                    // Clean the input - remove spaces, dashes, parentheses, dots
+                    const cleaned = value.replace(/[\s\-\(\)\.]/g, '');
+                    
+                    // Namibian formats: +264 81 xxx xxxx, 081 xxx xxxx
+                    const namibiaInternational = /^\+264(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
+                    const namibiaLocal = /^0(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
+                    
+                    // International format: + followed by 7-15 digits (covers all countries)
+                    // Minimum 7 digits for small countries, max 15 per ITU-T E.164
+                    const internationalFormat = /^\+\d{7,15}$/;
+                    
+                    // Local format starting with 0 (various countries)
+                    const localFormat = /^0\d{7,14}$/;
+                    
+                    if (namibiaInternational.test(cleaned) || namibiaLocal.test(cleaned)) {
+                        return { valid: true };
+                    }
+                    
+                    if (internationalFormat.test(cleaned)) {
+                        return { valid: true };
+                    }
+                    
+                    if (localFormat.test(cleaned)) {
+                        return { valid: true };
+                    }
+                    
+                    // Provide specific guidance
+                    if (cleaned.startsWith('+') && cleaned.length < 8) {
+                        return { valid: false, message: 'Number seems too short. International numbers need at least 7 digits after the country code' };
+                    }
+                    if (cleaned.startsWith('+') && cleaned.length > 16) {
+                        return { valid: false, message: 'Number seems too long. Please check for extra digits' };
+                    }
+                    if (cleaned.startsWith('0') && cleaned.length < 8) {
+                        return { valid: false, message: 'Number seems incomplete. Please include all digits' };
+                    }
+                    if (!cleaned.startsWith('+') && !cleaned.startsWith('0')) {
+                        return { valid: false, message: 'Please start with + for international or 0 for local numbers' };
+                    }
+                    
+                    return { valid: false, message: 'Please enter a valid phone number (e.g. +264 81 123 4567 or +1 555 123 4567)' };
+                }
+            }
+        };
+
+        // Show/hide error with animation
+        function showError(field, message) {
+            const config = validationConfig[field];
+            if (!config) return;
+            
+            config.errorTextElement.textContent = message;
+            config.errorElement.classList.remove('hidden');
+            config.element.classList.add('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+            config.element.classList.remove('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+            
+            // Subtle shake animation
+            config.element.style.animation = 'shake 0.4s ease-in-out';
+            setTimeout(() => config.element.style.animation = '', 400);
+        }
+
+        function hideError(field) {
+            const config = validationConfig[field];
+            if (!config) return;
+            
+            config.errorElement.classList.add('hidden');
+            config.element.classList.remove('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+            config.element.classList.add('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+        }
+
+        // Validate single field
+        function validateField(field) {
+            const config = validationConfig[field];
+            if (!config) return true;
+            
+            const result = config.validate(config.element.value);
+            if (!result.valid) {
+                showError(field, result.message);
+                return false;
+            } else {
+                hideError(field);
+                return true;
+            }
+        }
+
+        // Real-time validation on blur
+        Object.keys(validationConfig).forEach(field => {
+            const config = validationConfig[field];
+            config.element.addEventListener('blur', () => validateField(field));
+            config.element.addEventListener('input', () => {
+                // Only hide error on input if it was previously shown
+                if (!config.errorElement.classList.contains('hidden')) {
+                    const result = config.validate(config.element.value);
+                    if (result.valid) hideError(field);
+                }
+            });
+        });
+
+        // Validate all fields
+        function validateForm() {
+            let isValid = true;
+            let firstError = null;
+            
+            Object.keys(validationConfig).forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                    if (!firstError) firstError = validationConfig[field].element;
+                }
+            });
+            
+            // Check custom selects (date, time, medical aid, condition)
+            const dateValue = document.getElementById('appointment-date').value;
+            const timeValue = document.getElementById('appointment-time').value;
+            const medicalAidValue = document.getElementById('medical-aid').value;
+            const conditionValue = document.getElementById('condition-type-booking').value;
+            
+            if (!dateValue) {
+                document.getElementById('date-display').classList.add('border-red-400');
+                isValid = false;
+                if (!firstError) firstError = document.getElementById('date-display');
+            } else {
+                document.getElementById('date-display').classList.remove('border-red-400');
+            }
+            
+            if (!timeValue) {
+                document.getElementById('time-display').classList.add('border-red-400');
+                isValid = false;
+                if (!firstError) firstError = document.getElementById('time-display');
+            } else {
+                document.getElementById('time-display').classList.remove('border-red-400');
+            }
+            
+            if (!medicalAidValue) {
+                document.getElementById('medical-aid-display').classList.add('border-red-400');
+                isValid = false;
+                if (!firstError) firstError = document.getElementById('medical-aid-display');
+            } else {
+                document.getElementById('medical-aid-display').classList.remove('border-red-400');
+            }
+            
+            if (!conditionValue) {
+                document.getElementById('condition-display').classList.add('border-red-400');
+                isValid = false;
+                if (!firstError) firstError = document.getElementById('condition-display');
+            } else {
+                document.getElementById('condition-display').classList.remove('border-red-400');
+            }
+            
+            // Scroll to first error
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (firstError.focus) firstError.focus();
+            }
+            
+            return isValid;
+        }
+
+        // Add shake animation keyframes
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20%, 60% { transform: translateX(-6px); }
+                40%, 80% { transform: translateX(6px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
+
         // Handle form submission with AJAX
         document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Run validation first
+            if (!validateForm()) {
+                return;
+            }
             
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -1062,22 +1300,265 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     lucide.createIcons();
                 } else {
-                    // Error
-                    alert('Something went wrong. Please try again.');
+                    // Server error - show specific message
+                    const errorData = await response.json().catch(() => ({}));
+                    let errorMessage = 'We couldn\'t submit your booking. ';
+                    
+                    if (response.status === 422) {
+                        errorMessage += 'Please check your email address is correct.';
+                    } else if (response.status === 429) {
+                        errorMessage += 'Too many requests. Please wait a moment and try again.';
+                    } else {
+                        errorMessage += 'Please try again or contact us directly at +264 81 683 5055.';
+                    }
+                    
+                    showFormError(errorMessage);
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
+                    lucide.createIcons();
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error submitting your booking. Please try again.');
+                showFormError('Connection error. Please check your internet connection and try again, or contact us at +264 81 683 5055.');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
+                lucide.createIcons();
             }
         });
+
+        // Elegant error toast notification
+        function showFormError(message) {
+            // Remove any existing error toast
+            const existingToast = document.getElementById('form-error-toast');
+            if (existingToast) existingToast.remove();
+            
+            const toast = document.createElement('div');
+            toast.id = 'form-error-toast';
+            toast.className = 'fixed top-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[9999] md:max-w-md md:w-full bg-white rounded-2xl shadow-2xl border border-red-100 p-4 md:p-5 animate-slide-down';
+            toast.innerHTML = `
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 mb-1">Unable to Submit</h4>
+                        <p class="text-sm text-gray-600">${message}</p>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Auto-remove after 8 seconds
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.style.animation = 'slideUp 0.3s ease-out forwards';
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 8000);
+        }
+
+        // Add slide animations
+        const slideAnimations = document.createElement('style');
+        slideAnimations.textContent = `
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes slideUp {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+            .animate-slide-down {
+                animation: slideDown 0.3s ease-out;
+            }
+            @media (min-width: 768px) {
+                @keyframes slideDown {
+                    from { opacity: 0; transform: translate(-50%, -20px); }
+                    to { opacity: 1; transform: translate(-50%, 0); }
+                }
+                @keyframes slideUp {
+                    from { opacity: 1; transform: translate(-50%, 0); }
+                    to { opacity: 0; transform: translate(-50%, -20px); }
+                }
+            }
+        `;
+        document.head.appendChild(slideAnimations);
+
+        // ===== PATIENT FORM VALIDATION =====
+        const patientValidationConfig = {
+            'patient-name': {
+                element: null,
+                errorElement: null,
+                errorTextElement: null,
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your full name' };
+                    if (value.trim().length < 2) return { valid: false, message: 'Name must be at least 2 characters' };
+                    return { valid: true };
+                }
+            },
+            'patient-medical-history': {
+                element: null,
+                errorElement: null,
+                errorTextElement: null,
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please describe your medical history or write "None"' };
+                    if (value.trim().length < 3) return { valid: false, message: 'Please provide more detail or write "None" if no conditions' };
+                    return { valid: true };
+                }
+            },
+            'pain-areas-input': {
+                element: null,
+                errorElement: null,
+                errorTextElement: null,
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please click on the body diagram to select your pain areas' };
+                    return { valid: true };
+                }
+            },
+            'patient-allergies': {
+                element: null,
+                errorElement: null,
+                errorTextElement: null,
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please list any allergies or write "None"' };
+                    if (value.trim().length < 3) return { valid: false, message: 'Please provide more detail or write "None" if no allergies' };
+                    return { valid: true };
+                }
+            },
+            'patient-goals': {
+                element: null,
+                errorElement: null,
+                errorTextElement: null,
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please describe your health goals' };
+                    if (value.trim().length < 10) return { valid: false, message: 'Please tell us a bit more about what you\'d like to achieve' };
+                    return { valid: true };
+                }
+            }
+        };
+
+        // Initialize patient form validation elements
+        function initPatientValidation() {
+            patientValidationConfig['patient-name'].element = document.getElementById('patient-name');
+            patientValidationConfig['patient-name'].errorElement = document.getElementById('patient-name-error');
+            patientValidationConfig['patient-name'].errorTextElement = document.getElementById('patient-name-error-text');
+            
+            patientValidationConfig['patient-medical-history'].element = document.getElementById('patient-medical-history');
+            patientValidationConfig['patient-medical-history'].errorElement = document.getElementById('patient-medical-error');
+            patientValidationConfig['patient-medical-history'].errorTextElement = document.getElementById('patient-medical-error-text');
+            
+            patientValidationConfig['pain-areas-input'].element = document.getElementById('pain-areas-input');
+            patientValidationConfig['pain-areas-input'].errorElement = document.getElementById('patient-pain-error');
+            patientValidationConfig['pain-areas-input'].errorTextElement = document.getElementById('patient-pain-error-text');
+            
+            patientValidationConfig['patient-allergies'].element = document.getElementById('patient-allergies');
+            patientValidationConfig['patient-allergies'].errorElement = document.getElementById('patient-allergies-error');
+            patientValidationConfig['patient-allergies'].errorTextElement = document.getElementById('patient-allergies-error-text');
+            
+            patientValidationConfig['patient-goals'].element = document.getElementById('patient-goals');
+            patientValidationConfig['patient-goals'].errorElement = document.getElementById('patient-goals-error');
+            patientValidationConfig['patient-goals'].errorTextElement = document.getElementById('patient-goals-error-text');
+
+            // Add blur validation for text fields
+            ['patient-name', 'patient-medical-history', 'patient-allergies', 'patient-goals'].forEach(field => {
+                const config = patientValidationConfig[field];
+                if (config.element) {
+                    config.element.addEventListener('blur', () => validatePatientField(field));
+                    config.element.addEventListener('input', () => {
+                        if (!config.errorElement.classList.contains('hidden')) {
+                            const result = config.validate(config.element.value);
+                            if (result.valid) hidePatientError(field);
+                        }
+                    });
+                }
+            });
+        }
+
+        // Show/hide patient form error
+        function showPatientError(field, message) {
+            const config = patientValidationConfig[field];
+            if (!config || !config.errorElement) return;
+            
+            config.errorTextElement.textContent = message;
+            config.errorElement.classList.remove('hidden');
+            if (config.element && config.element.tagName !== 'INPUT' || config.element?.type !== 'hidden') {
+                config.element.classList.add('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+                config.element.classList.remove('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+                config.element.style.animation = 'shake 0.4s ease-in-out';
+                setTimeout(() => config.element.style.animation = '', 400);
+            }
+        }
+
+        function hidePatientError(field) {
+            const config = patientValidationConfig[field];
+            if (!config || !config.errorElement) return;
+            
+            config.errorElement.classList.add('hidden');
+            if (config.element && config.element.tagName !== 'INPUT' || config.element?.type !== 'hidden') {
+                config.element.classList.remove('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+                config.element.classList.add('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+            }
+        }
+
+        function validatePatientField(field) {
+            const config = patientValidationConfig[field];
+            if (!config || !config.element) return true;
+            
+            const result = config.validate(config.element.value);
+            if (!result.valid) {
+                showPatientError(field, result.message);
+                return false;
+            } else {
+                hidePatientError(field);
+                return true;
+            }
+        }
+
+        function validatePatientForm() {
+            let isValid = true;
+            let firstError = null;
+            
+            Object.keys(patientValidationConfig).forEach(field => {
+                if (!validatePatientField(field)) {
+                    isValid = false;
+                    if (!firstError && patientValidationConfig[field].element) {
+                        firstError = patientValidationConfig[field].element;
+                    }
+                }
+            });
+            
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (firstError.focus && firstError.type !== 'hidden') firstError.focus();
+            }
+            
+            return isValid;
+        }
+
+        // Initialize when modal opens
+        document.querySelector('[onclick*="patient-form-modal"]')?.addEventListener('click', () => {
+            setTimeout(initPatientValidation, 100);
+        });
+        
+        // Also initialize on DOMContentLoaded in case modal elements exist
+        initPatientValidation();
 
         // Handle patient form submission
         document.getElementById('patientForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
+            // Run validation first
+            if (!validatePatientForm()) {
+                return;
+            }
             
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -1106,18 +1587,24 @@
                     document.getElementById('patientForm').classList.add('hidden');
                     document.getElementById('patient-form-success').classList.remove('hidden');
                     form.reset();
+                    // Reset body diagram selections
+                    selectedPainAreas.clear();
+                    document.querySelectorAll('.body-part.selected').forEach(el => el.classList.remove('selected'));
+                    updatePainAreasDisplay();
                     lucide.createIcons();
                 } else {
-                    // Error
-                    alert('Something went wrong. Please try again.');
+                    // Error - show elegant toast
+                    showFormError('We couldn\'t submit your patient form. Please try again or email your details to petrosbiokinetics@gmail.com');
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
+                    lucide.createIcons();
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error submitting your form. Please try again.');
+                showFormError('Connection error. Please check your internet and try again, or email petrosbiokinetics@gmail.com');
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = originalText;
+                lucide.createIcons();
             }
         });
 
