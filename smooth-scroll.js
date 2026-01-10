@@ -7,6 +7,9 @@
 // Text Reveal Animations
 class TextReveal {
     constructor() {
+        // Mobile detection for performance optimization
+        this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                        || window.innerWidth < 768;
         this.init();
     }
 
@@ -14,23 +17,34 @@ class TextReveal {
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
+        // Use simpler animations on mobile for smoother scrolling
+        if (this.isMobile) {
+            // Simpler, faster animations for mobile
+            ScrollTrigger.config({ limitCallbacks: true });
+        }
+
         // Initialize all reveal animations
         this.setupFadeUp();
         this.setupStaggerFade();
         this.setupImageReveal();
-        this.setupLineReveal();
+        // Skip word-by-word line reveal on mobile (too heavy)
+        if (!this.isMobile) {
+            this.setupLineReveal();
+        }
         this.setupSlideIn();
     }
 
     // Simple fade up animation
     setupFadeUp() {
         const elements = document.querySelectorAll('.reveal-fade');
+        const duration = this.isMobile ? 0.5 : 0.9;
+        const yOffset = this.isMobile ? 30 : 50;
         
         elements.forEach(element => {
             gsap.from(element, {
-                y: 50,
+                y: yOffset,
                 opacity: 0,
-                duration: 0.9,
+                duration: duration,
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: element,
@@ -44,15 +58,17 @@ class TextReveal {
     // Stagger fade for groups (cards, lists, etc.)
     setupStaggerFade() {
         const groups = document.querySelectorAll('.reveal-stagger');
+        const duration = this.isMobile ? 0.4 : 0.7;
+        const staggerDelay = this.isMobile ? 0.08 : 0.12;
         
         groups.forEach(group => {
             const children = group.children;
             
             gsap.from(children, {
-                y: 30,
+                y: this.isMobile ? 20 : 30,
                 opacity: 0,
-                duration: 0.7,
-                stagger: 0.12,
+                duration: duration,
+                stagger: staggerDelay,
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: group,
@@ -66,12 +82,13 @@ class TextReveal {
     // Image reveal with scale effect
     setupImageReveal() {
         const images = document.querySelectorAll('.reveal-image');
+        const duration = this.isMobile ? 0.6 : 1;
         
         images.forEach(img => {
             gsap.from(img, {
-                scale: 1.1,
+                scale: this.isMobile ? 1.05 : 1.1,
                 opacity: 0,
-                duration: 1,
+                duration: duration,
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: img,
@@ -126,12 +143,14 @@ class TextReveal {
     setupSlideIn() {
         const leftElements = document.querySelectorAll('.reveal-left');
         const rightElements = document.querySelectorAll('.reveal-right');
+        const duration = this.isMobile ? 0.5 : 0.9;
+        const xOffset = this.isMobile ? 30 : 60;
         
         leftElements.forEach(element => {
             gsap.from(element, {
-                x: -60,
+                x: -xOffset,
                 opacity: 0,
-                duration: 0.9,
+                duration: duration,
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: element,
@@ -143,9 +162,9 @@ class TextReveal {
 
         rightElements.forEach(element => {
             gsap.from(element, {
-                x: 60,
+                x: xOffset,
                 opacity: 0,
-                duration: 0.9,
+                duration: duration,
                 ease: 'power2.out',
                 scrollTrigger: {
                     trigger: element,
