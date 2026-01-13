@@ -280,14 +280,14 @@
     <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
         <div class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
             <!-- Logo -->
-            <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
                 <div class="w-10 h-10 flex items-center justify-center">
                     <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
                 </div>
                 <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
                     Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
                 </span>
-            </div>
+            </a>
 
             <!-- Desktop Navigation -->
             <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
@@ -315,7 +315,7 @@
             <!-- Book Now Button -->
             <div class="flex items-center gap-3 hidden md:flex">
                 <a href="book-now.html"
-                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 magnetic-btn">
                     Book Now
                 </a>
             </div>
@@ -338,7 +338,7 @@
         role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
             <a href="index.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Home</a>
             <a href="the-method.html"
                 class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
             <a href="services.html"
@@ -358,7 +358,8 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-[60vh] flex items-center justify-center pt-32 pb-20 px-6 overflow-hidden">
+    <header
+        class="relative w-full h-screen min-h-[750px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
 
         <!-- 3D Particle Mesh Canvas -->
         <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
@@ -371,19 +372,19 @@
             <div class="absolute inset-0 bg-gray-600/40"></div>
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
         </div>
-        <div class="relative z-10 max-w-4xl text-center">
+        <div class="relative z-10 max-w-4xl text-center px-6">
             <span
                 class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 reveal-fade">Expertise
                 & Compassion</span>
-            <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 reveal-fade">
-                Meet Jean-Pierre <span class="italic text-petros-green">Grobler</span>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-6 reveal-fade">
+                Meet Jean-Pierre <span class="italic text-petros-green draw-underline">Grobler</span>
             </h1>
             <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light reveal-fade">
                 Clinical excellence meets compassionate care. Dedicated to restoring your movement and your quality of
                 life.
             </p>
         </div>
-    </section>
+    </header>
 
     <!-- Bio Section -->
     <section class="py-24 px-6">
@@ -410,7 +411,8 @@
                 <!-- Bio Content -->
                 <div>
                     <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight reveal-fade">
-                        Rehabilitation with <br><span class="italic text-petros-green">clinical precision.</span></h2>
+                        Rehabilitation with <br><span class="italic text-petros-green draw-circle">clinical
+                            precision.</span></h2>
 
                     <p class="text-petros-slate font-light leading-relaxed mb-6 text-lg reveal-fade">
                         Jean-Pierre Grobler is a qualified Biokineticist specializing in orthopedic rehabilitation,
@@ -757,75 +759,77 @@
         </div>
     </footer>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
+ <script>
+  (function () {
+    // 1) Safe icon init (never crash)
+    function initIcons() {
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    }
+
+    // 2) Safe GSAP init (never crash)
+    function initGsap() {
+      if (window.gsap && window.ScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero parallax effect
         gsap.to("#hero-bg-about", {
-            scrollTrigger: {
-                trigger: "section",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
-            },
-            y: 100,
-            scale: 1.1
+          scrollTrigger: {
+            trigger: "section",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+          },
+          y: 100,
+          scale: 1.1
         });
+      }
+    }
 
-        // Mobile Menu Toggle
-        const toggle = document.getElementById('mobile-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+    // 3) Safe mobile menu
+    function initMobileMenu() {
+      const toggle = document.getElementById('mobile-toggle');
+      const menu = document.getElementById('mobile-menu');
+      const overlay = document.getElementById('mobile-menu-overlay');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        toggle.addEventListener('click', () => {
-            const isHidden = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            overlay.classList.toggle('hidden');
-            if (isHidden) {
-                overlay.setAttribute('aria-hidden', 'false');
-                toggle.setAttribute('aria-expanded', 'true');
-            } else {
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
+      if (!toggle || !menu || !overlay) return;
 
-        overlay.addEventListener('click', () => {
-            menu.classList.add('hidden');
-            overlay.classList.add('hidden');
-            overlay.setAttribute('aria-hidden', 'true');
-            toggle.setAttribute('aria-expanded', 'false');
-        });
+      function openMenu() {
+        menu.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+        overlay.setAttribute('aria-hidden', 'false');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                overlay.classList.add('hidden');
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
+      function closeMenu() {
+        menu.classList.add('hidden');
+        overlay.classList.add('hidden');
+        overlay.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
 
-        // Close menu on resize
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                if (window.innerWidth >= 768) {
-                    menu.classList.add('hidden');
-                    overlay.classList.add('hidden');
-                    overlay.setAttribute('aria-hidden', 'true');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-            }, 500);
-        });
-    </script>
+      toggle.addEventListener('click', () => {
+        const isHidden = menu.classList.contains('hidden');
+        if (isHidden) openMenu();
+        else closeMenu();
+      });
+
+      overlay.addEventListener('click', closeMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      initIcons();
+      initGsap();
+      initMobileMenu();
+    });
+  })();
+</script>
+
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+    <a href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
         class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -871,6 +875,7 @@
 
     <!-- Lenis Smooth Scroll & Text Reveals -->
     <script src="smooth-scroll.js"></script>
+    <script src="magnetic-button.js"></script>
 
     <!-- Premium Lightbox Modal -->
     <div id="lightbox-modal" class="fixed inset-0 z-[99999] opacity-0 pointer-events-none transition-all duration-300"
@@ -957,15 +962,8 @@
             // Close handlers
             closeBtn.addEventListener('click', closeLightbox);
 
-            // Close on click outside image
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal || e.target.closest('.absolute.inset-0.bg-black\\/90')) {
-                    closeLightbox();
-                }
-            });
-
-            // Close on clicking the image itself (User Request)
-            img.addEventListener('click', closeLightbox);
+            // Close on click anywhere (background, container, or image)
+            modal.addEventListener('click', closeLightbox);
 
             // Close on Escape key
             document.addEventListener('keydown', (e) => {
@@ -975,6 +973,9 @@
             });
         });
     </script>
+    <script src="effects.js"></script>
+    <script src="draw-animations.js"></script>
+    <script src="cookie-consent.js"></script>
 </body>
 
 </html>

@@ -369,14 +369,23 @@ class ParticleMesh {
 
 // Page-specific configurations
 const particleConfigs = {
-    // Homepage - Flowing wave (clinical excellence)
+    // Homepage - Enhanced flowing wave (luxurious clinical excellence)
     home: {
-        particleCount: 1500,
+        particleCount: 2000,
         pattern: 'wave',
-        waveAmplitude: 0.3,
+        waveAmplitude: 0.5,
+        waveSpeed: 0.0025,
         primaryColor: '#7A8B69',
         secondaryColor: '#ffffff',
-        colorMixRatio: 0.5
+        colorMixRatio: 0.6,
+        mouseInfluence: 0.3,
+        particleOpacity: 0.7,
+        lineOpacity: 0.2,
+        connectionDistance: 2.0,
+        spreadX: 25,
+        spreadY: 12,
+        spreadZ: 12,
+        rotationSpeed: 0.0012
     },
     
     // Method page - Clean horizontal layers (structured methodology)

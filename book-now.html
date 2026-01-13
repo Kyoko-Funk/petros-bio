@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Consultation | Pétros Biokinetics - Biokinetic Booking</title>
-    <meta name="description" content="Book your biokinetic consultation with Pétros Biokinetics in Swakopmund. Schedule your clinical restoration session online with our expert practitioners.">
-    <meta name="keywords" content="book consultation, schedule appointment, biokinetic booking, clinical restoration appointment, Swakopmund">
+    <meta name="description"
+        content="Book your biokinetic consultation with Pétros Biokinetics in Swakopmund. Schedule your clinical restoration session online with our expert practitioners.">
+    <meta name="keywords"
+        content="book consultation, schedule appointment, biokinetic booking, clinical restoration appointment, Swakopmund">
     <meta name="canonical" content="https://petrosbiokinetics.com/book-now.html">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Pétros Biokinetics">
     <meta property="og:title" content="Book Your Consultation | Pétros Biokinetics">
-    <meta property="og:description" content="Schedule your biokinetic consultation online. Expert clinical restoration in Swakopmund, Namibia.">
+    <meta property="og:description"
+        content="Schedule your biokinetic consultation online. Expert clinical restoration in Swakopmund, Namibia.">
     <meta property="og:url" content="https://petrosbiokinetics.com/book-now.html">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Pétros Biokinetics - Book Your Consultation">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Book Your Consultation | Pétros Biokinetics">
     <meta name="twitter:description" content="Schedule your biokinetic consultation online today.">
     <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -39,59 +43,26 @@
       "name": "Book Your Consultation",
       "description": "Book your biokinetic consultation with Pétros Biokinetics in Swakopmund. Schedule your clinical restoration session online.",
       "url": "https://petrosbiokinetics.com/book-now.html",
-      "isPartOf": {
-        "@id": "https://petrosbiokinetics.com/#website"
-      },
-      "about": {
-        "@id": "https://petrosbiokinetics.com/#business"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://petrosbiokinetics.com"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Book Now",
-            "item": "https://petrosbiokinetics.com/book-now.html"
-          }
-        ]
-      },
+      "isPartOf": { "@id": "https://petrosbiokinetics.com/#website" },
       "mainEntity": {
-        "@type": "ReserveAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://petrosbiokinetics.com/book-now.html",
-          "actionPlatform": [
-            "http://schema.org/DesktopWebPlatform",
-            "http://schema.org/MobileWebPlatform"
-          ]
-        },
-        "object": {
-          "@type": "Service",
-          "name": "Biokinetic Consultation",
-          "provider": {
-            "@id": "https://petrosbiokinetics.com/#business"
-          }
-        }
+        "@type": "Service",
+        "name": "Biokinetic Consultation",
+        "provider": { "@id": "https://petrosbiokinetics.com/#business" }
       }
     }
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -112,31 +83,7 @@
                         serif: ['"Playfair Display"', 'serif'],
                         sans: ['"Inter"', 'sans-serif'],
                     },
-                    animation: {
-                        'float-slow': 'float 8s ease-in-out infinite',
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-                        'blob': 'blob 7s infinite',
-                        'bounce-in': 'bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-                    },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(122, 139, 105, 0.3)' },
-                            '50%': { boxShadow: '0 0 40px rgba(122, 139, 105, 0.6)' },
-                        },
                         blob: {
                             '0%': { transform: 'translate(0px, 0px) scale(1)' },
                             '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
@@ -158,8 +105,13 @@
     <style>
         .noise-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999; opacity: 0.03;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
@@ -170,8 +122,14 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        html { scroll-behavior: smooth; }
-        body { background-color: #F5F4F0; overflow-x: hidden; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F4F0;
+            overflow-x: clip;
+        }
 
         .success-icon {
             animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -183,8 +141,15 @@
 
         /* Custom Calendar Styles */
         @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .calendar-day {
@@ -294,7 +259,7 @@
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -305,11 +270,11 @@
         }
 
         .pain-tag button:hover {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
         }
-
     </style>
 </head>
+
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
     <!-- Page Loader -->
     <div id="page-loader" class="fixed inset-0 z-[9999]" style="display: none;">
@@ -325,9 +290,9 @@
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
-        
+
         // Hide loader when page is ready
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loader = document.getElementById('page-loader');
             if (loader.style.display === 'block') {
                 loader.style.opacity = '0';
@@ -345,142 +310,162 @@
     <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
         <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center">
-                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
-                </div>
-                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
-                    Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
-                </span>
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
+                        <span class="hidden sm:inline">Pétros</span> <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
+                    </span>
+                </a>
             </div>
 
             <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
-                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
-                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
-                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
-                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
-                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
-                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
-                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+                <li><a href="index.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a>
+                </li>
+                <li><a href="the-method.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a>
+                </li>
+                <li><a href="services.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a>
+                </li>
+                <li><a href="pricing.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a>
+                </li>
+                <li><a href="faq.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a>
+                </li>
+                <li><a href="about.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a>
+                </li>
+                <li><a href="contact.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a>
+                </li>
             </ul>
 
             <div class="flex items-center gap-3 hidden md:flex">
-                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                <a href="book-now.html"
+                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
                     Book Now
                 </a>
             </div>
 
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </nav>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
+        aria-hidden="true"></div>
+    <div id="mobile-menu"
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
+        role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
-            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+            <a href="index.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
+                Now</a>
         </div>
     </div>
 
-    <script>
-        const toggle = document.getElementById('mobile-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        toggle.addEventListener('click', () => {
-            const isHidden = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            overlay.classList.toggle('hidden');
-            if (isHidden) {
-                overlay.setAttribute('aria-hidden', 'false');
-                toggle.setAttribute('aria-expanded', 'true');
-            } else {
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        overlay.addEventListener('click', () => {
-            menu.classList.add('hidden');
-            overlay.classList.add('hidden');
-            overlay.setAttribute('aria-hidden', 'true');
-            toggle.setAttribute('aria-expanded', 'false');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                overlay.classList.add('hidden');
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
-    </script>
+        <!-- mobile menu initializer removed (consolidated at end of file) -->
 
     <!-- Hero Section -->
-    <header class="relative w-full h-[50vh] md:h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
-        
+    <header
+        class="relative w-full h-[60vh] md:h-screen min-h-[750px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+
         <!-- 3D Particle Mesh Canvas -->
-        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
-        
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
+            style="transition: opacity 0.5s ease-out;"></canvas>
+
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-petros-deep/50 via-transparent to-petros-cream z-10"></div>
-            <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767436673/pexels-pixabay-60013_tk2jyl.jpg?auto=compress&cs=tinysrgb&w=1600" 
-                 alt="Book Your Session" 
-                 class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-petros-deep/50 via-transparent to-petros-cream z-10">
+            </div>
+            <img src="https://res.cloudinary.com/karlifunk/image/upload/v1767436673/pexels-pixabay-60013_tk2jyl.jpg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Book Your Session" class="w-full h-full object-cover object-center">
         </div>
 
         <div class="relative z-20 w-full px-6 flex justify-center">
             <div class="text-center max-w-4xl">
-                <h1 class="font-serif text-5xl md:text-7xl text-white leading-tight mb-6 animate-slide-up">
-                    Book Your <span class="italic text-petros-green">Session</span>
+                <span
+                    class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block reveal-fade">Schedule
+                    Consultation</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 reveal-fade">
+                    Book Your <span class="italic text-petros-green draw-underline">Session</span>
                 </h1>
-                <p class="text-white/85 text-lg md:text-xl font-light max-w-2xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-2xl mx-auto reveal-lines">
                     Tell us your preferred times and we'll get back to you with available slots via WhatsApp or email.
                 </p>
             </div>
         </div>
 
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0">
+        </div>
     </header>
 
     <!-- Booking Form Section -->
     <section class="py-24 md:py-40 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
         <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-2xl mx-auto">
                 <!-- Booking Form -->
                 <div id="booking-form-container" class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
                     <h2 class="font-serif text-3xl text-petros-slate mb-2">Let's Get You Scheduled</h2>
-                    <p class="text-gray-600 font-light mb-8">We'll review your preferences and contact you shortly with available times.</p>
+                    <p class="text-gray-600 font-light mb-8">We'll review your preferences and contact you shortly with
+                        available times.</p>
 
                     <form id="bookingForm" class="space-y-6">
                         <!-- Name and Email -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="relative">
-                                <label for="name" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full Name *</label>
-                                <input type="text" id="name" name="name" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="John Doe">
+                                <label for="name"
+                                    class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full
+                                    Name *</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
+                                    placeholder="John Doe">
                                 <p id="name-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
                                     <span id="name-error-text"></span>
                                 </p>
                             </div>
                             <div class="relative">
-                                <label for="email" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email Address *</label>
-                                <input type="email" id="email" name="email" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="hello@example.com">
+                                <label for="email"
+                                    class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email
+                                    Address *</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
+                                    placeholder="hello@example.com">
                                 <p id="email-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
                                     <span id="email-error-text"></span>
                                 </p>
                             </div>
@@ -488,11 +473,20 @@
 
                         <!-- Phone -->
                         <div class="relative">
-                            <label for="phone" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone / WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 81 123 4567">
-                            <p class="text-xs text-gray-500 mt-2">All international formats accepted (e.g. +264, +49, +1, +44)</p>
+                            <label for="phone"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone
+                                / WhatsApp *</label>
+                            <input type="tel" id="phone" name="phone" required
+                                class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
+                                placeholder="+264 81 123 4567">
+                            <p class="text-xs text-gray-500 mt-2">All international formats accepted (e.g. +264, +49,
+                                +1, +44)</p>
                             <p id="phone-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <span id="phone-error-text"></span>
                             </p>
                         </div>
@@ -500,23 +494,48 @@
                         <!-- Preferred Appointment Date & Time -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="group relative">
-                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="date-label">Preferred Date *</label>
+                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3"
+                                    id="date-label">Preferred Date *</label>
                                 <input type="hidden" id="appointment-date" name="appointment_date" required>
-                                <div id="date-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleCalendar()" role="combobox" aria-labelledby="date-label" aria-haspopup="dialog" aria-expanded="false" aria-controls="calendar-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleCalendar();event.preventDefault();}">
+                                <div id="date-display"
+                                    class="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between min-h-[44px] text-base"
+                                    onclick="toggleCalendar()" role="combobox" aria-labelledby="date-label"
+                                    aria-haspopup="dialog" aria-expanded="false" aria-controls="calendar-dropdown"
+                                    tabindex="0"
+                                    onkeydown="if(event.key==='Enter'||event.key===' '){toggleCalendar();event.preventDefault();}">
                                     <span id="date-text" class="text-gray-400">Select a date...</span>
-                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
                                     </svg>
                                 </div>
                                 <!-- Custom Calendar Dropdown -->
-                                <div id="calendar-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-4 md:p-5 z-50 w-[calc(100vw-3rem)] max-w-[320px]" role="dialog" aria-label="Select a date" style="animation: slideDown 0.25s ease-out;">
+                                <div id="calendar-dropdown"
+                                    class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-4 md:p-5 z-50 w-[calc(100vw-3rem)] max-w-[320px]"
+                                    role="dialog" aria-label="Select a date"
+                                    style="animation: slideDown 0.25s ease-out;">
                                     <div class="flex items-center justify-between mb-4">
-                                        <button type="button" onclick="changeMonth(-1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all" aria-label="Previous month">
-                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                        <button type="button" onclick="changeMonth(-1)"
+                                            class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all"
+                                            aria-label="Previous month">
+                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 19l-7-7 7-7"></path>
+                                            </svg>
                                         </button>
-                                        <span id="calendar-month" class="font-semibold text-petros-slate" aria-live="polite"></span>
-                                        <button type="button" onclick="changeMonth(1)" class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all" aria-label="Next month">
-                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                        <span id="calendar-month" class="font-semibold text-petros-slate"
+                                            aria-live="polite"></span>
+                                        <button type="button" onclick="changeMonth(1)"
+                                            class="w-9 h-9 rounded-full hover:bg-petros-green/10 flex items-center justify-center transition-all"
+                                            aria-label="Next month">
+                                            <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor"
+                                                viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M9 5l7 7-7 7"></path>
+                                            </svg>
                                         </button>
                                     </div>
                                     <div class="grid grid-cols-7 gap-1 mb-2">
@@ -530,31 +549,64 @@
                                     </div>
                                     <div id="calendar-days" class="grid grid-cols-7 gap-1"></div>
                                 </div>
-                                <p id="date-error" class="text-xs text-red-500 mt-2 hidden">Please select a weekday (Monday - Friday)</p>
+                                <p id="date-error" class="text-xs text-red-500 mt-2 hidden">Please select a weekday
+                                    (Monday - Friday)</p>
                             </div>
                             <div class="group relative">
-                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="time-label">Preferred Time *</label>
+                                <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3"
+                                    id="time-label">Preferred Time *</label>
                                 <input type="hidden" id="appointment-time" name="appointment_time" required>
-                                <div id="time-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleTimeDropdown()" role="combobox" aria-labelledby="time-label" aria-haspopup="listbox" aria-expanded="false" aria-controls="time-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleTimeDropdown();event.preventDefault();}">
+                                <div id="time-display"
+                                    class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between min-h-[44px] text-base"
+                                    onclick="toggleTimeDropdown()" role="combobox" aria-labelledby="time-label"
+                                    aria-haspopup="listbox" aria-expanded="false" aria-controls="time-dropdown"
+                                    tabindex="0"
+                                    onkeydown="if(event.key==='Enter'||event.key===' '){toggleTimeDropdown();event.preventDefault();}">
                                     <span id="time-text" class="text-gray-400">Select a time...</span>
-                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
                                 </div>
                                 <!-- Custom Time Dropdown -->
-                                <div id="time-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" role="listbox" aria-label="Available times" style="animation: slideDown 0.25s ease-out;">
+                                <div id="time-dropdown"
+                                    class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto"
+                                    role="listbox" aria-label="Available times"
+                                    style="animation: slideDown 0.25s ease-out;">
                                     <div class="space-y-1" role="group">
-                                        <button type="button" onclick="selectTime('07:00', '7:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">7:00 AM</button>
-                                        <button type="button" onclick="selectTime('08:00', '8:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">8:00 AM</button>
-                                        <button type="button" onclick="selectTime('09:00', '9:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">9:00 AM</button>
-                                        <button type="button" onclick="selectTime('10:00', '10:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">10:00 AM</button>
-                                        <button type="button" onclick="selectTime('11:00', '11:00 AM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">11:00 AM</button>
-                                        <button type="button" onclick="selectTime('12:00', '12:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">12:00 PM</button>
-                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1" aria-hidden="true">Lunch break: 1:00 – 2:00 PM</div>
-                                        <button type="button" onclick="selectTime('14:00', '2:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">2:00 PM</button>
-                                        <button type="button" onclick="selectTime('15:00', '3:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">3:00 PM</button>
-                                        <button type="button" onclick="selectTime('16:00', '4:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">4:00 PM</button>
-                                        <button type="button" onclick="selectTime('17:00', '5:00 PM')" class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">5:00 PM</button>
+                                        <button type="button" onclick="selectTime('07:00', '7:00 AM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">7:00 AM</button>
+                                        <button type="button" onclick="selectTime('08:00', '8:00 AM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">8:00 AM</button>
+                                        <button type="button" onclick="selectTime('09:00', '9:00 AM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">9:00 AM</button>
+                                        <button type="button" onclick="selectTime('10:00', '10:00 AM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">10:00 AM</button>
+                                        <button type="button" onclick="selectTime('11:00', '11:00 AM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">11:00 AM</button>
+                                        <button type="button" onclick="selectTime('12:00', '12:00 PM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">12:00 PM</button>
+                                        <div class="px-4 py-2 text-xs text-gray-400 font-medium border-t border-b border-gray-100 my-1"
+                                            aria-hidden="true">Lunch break: 1:00 – 2:00 PM</div>
+                                        <button type="button" onclick="selectTime('14:00', '2:00 PM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">2:00 PM</button>
+                                        <button type="button" onclick="selectTime('15:00', '3:00 PM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">3:00 PM</button>
+                                        <button type="button" onclick="selectTime('16:00', '4:00 PM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">4:00 PM</button>
+                                        <button type="button" onclick="selectTime('17:00', '5:00 PM')"
+                                            class="time-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                            role="option">5:00 PM</button>
                                     </div>
                                 </div>
                             </div>
@@ -562,35 +614,63 @@
 
                         <!-- What to Wear -->
                         <div class="bg-petros-green/5 rounded-lg p-5 border border-petros-green/20">
-                            <p class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-2">What Should You Wear?</p>
-                            <p class="text-gray-700 font-light">Comfortable workout clothes and sneakers. Avoid restrictive clothing that might limit movement during your assessment.</p>
+                            <p class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-2">What Should
+                                You Wear?</p>
+                            <p class="text-gray-700 font-light">Comfortable workout clothes and sneakers. Avoid
+                                restrictive clothing that might limit movement during your assessment.</p>
                         </div>
 
                         <!-- What to Bring -->
                         <div class="bg-petros-green/5 rounded-lg p-5 border border-petros-green/20">
-                            <p class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-2">What Should You Bring?</p>
-                            <p class="text-gray-700 font-light">A water bottle and towel. If you have any recent medical reports or imaging (X-rays, MRI results), please bring those along.</p>
+                            <p class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-2">What Should
+                                You Bring?</p>
+                            <p class="text-gray-700 font-light">A water bottle and towel. If you have any recent medical
+                                reports or imaging (X-rays, MRI results), please bring those along.</p>
                         </div>
 
                         <!-- Medical Aid -->
                         <div class="relative">
-                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="medical-aid-label">Do You Have Medical Aid? *</label>
+                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3"
+                                id="medical-aid-label">Do You Have Medical Aid? *</label>
                             <input type="hidden" id="medical-aid" name="medical_aid" required>
-                            <div id="medical-aid-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleMedicalAidDropdown()" role="combobox" aria-labelledby="medical-aid-label" aria-haspopup="listbox" aria-expanded="false" aria-controls="medical-aid-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleMedicalAidDropdown();event.preventDefault();}">
+                            <div id="medical-aid-display"
+                                class="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between min-h-[44px] text-base"
+                                onclick="toggleMedicalAidDropdown()" role="combobox" aria-labelledby="medical-aid-label"
+                                aria-haspopup="listbox" aria-expanded="false" aria-controls="medical-aid-dropdown"
+                                tabindex="0"
+                                onkeydown="if(event.key==='Enter'||event.key===' '){toggleMedicalAidDropdown();event.preventDefault();}">
                                 <span id="medical-aid-text" class="text-gray-400">Select an option...</span>
-                                <svg class="w-5 h-5 text-petros-green transition-transform" id="medical-aid-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <svg class="w-5 h-5 text-petros-green transition-transform" id="medical-aid-arrow"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                             <!-- Custom Dropdown -->
-                            <div id="medical-aid-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full" role="listbox" aria-label="Medical aid options" style="animation: slideDown 0.25s ease-out;">
+                            <div id="medical-aid-dropdown"
+                                class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full"
+                                role="listbox" aria-label="Medical aid options"
+                                style="animation: slideDown 0.25s ease-out;">
                                 <div class="space-y-1">
-                                    <button type="button" onclick="selectMedicalAid('Yes', 'Yes')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3" role="option">
-                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <button type="button" onclick="selectMedicalAid('Yes', 'Yes')"
+                                        class="medical-aid-option w-full text-left px-4 py-4 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3 min-h-[44px]"
+                                        role="option">
+                                        <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
                                         Yes
                                     </button>
-                                    <button type="button" onclick="selectMedicalAid('No', 'No')" class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3" role="option">
-                                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <button type="button" onclick="selectMedicalAid('No', 'No')"
+                                        class="medical-aid-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium flex items-center gap-3"
+                                        role="option">
+                                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z">
+                                            </path>
+                                        </svg>
                                         No
                                     </button>
                                 </div>
@@ -599,42 +679,82 @@
 
                         <!-- Reason for Visit / Condition Type -->
                         <div class="relative">
-                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3" id="condition-label">Reason for Visit *</label>
+                            <label class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3"
+                                id="condition-label">Reason for Visit *</label>
                             <input type="hidden" id="condition-type-booking" name="condition_type" required>
-                            <div id="condition-display" class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between" onclick="toggleConditionDropdown()" role="combobox" aria-labelledby="condition-label" aria-haspopup="listbox" aria-expanded="false" aria-controls="condition-dropdown" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){toggleConditionDropdown();event.preventDefault();}">
+                            <div id="condition-display"
+                                class="w-full px-5 py-3 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all cursor-pointer flex items-center justify-between"
+                                onclick="toggleConditionDropdown()" role="combobox" aria-labelledby="condition-label"
+                                aria-haspopup="listbox" aria-expanded="false" aria-controls="condition-dropdown"
+                                tabindex="0"
+                                onkeydown="if(event.key==='Enter'||event.key===' '){toggleConditionDropdown();event.preventDefault();}">
                                 <span id="condition-text" class="text-gray-400">What brings you in?</span>
-                                <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <svg class="w-5 h-5 text-petros-green" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                             <!-- Custom Dropdown -->
-                            <div id="condition-dropdown" class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto" role="listbox" aria-label="Condition type options" style="animation: slideDown 0.25s ease-out;">
+                            <div id="condition-dropdown"
+                                class="hidden absolute top-full left-0 mt-2 bg-white rounded-2xl shadow-2xl border border-petros-green/10 p-3 z-50 w-full max-h-64 overflow-y-auto"
+                                role="listbox" aria-label="Condition type options"
+                                style="animation: slideDown 0.25s ease-out;">
                                 <div class="space-y-1">
-                                    <button type="button" onclick="selectCondition('Chronic Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Chronic Pain</button>
-                                    <button type="button" onclick="selectCondition('Sports Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Sports Injury</button>
-                                    <button type="button" onclick="selectCondition('Post-Surgery Rehabilitation')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Post-Surgery Rehabilitation</button>
-                                    <button type="button" onclick="selectCondition('Posture Correction')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Posture Correction</button>
-                                    <button type="button" onclick="selectCondition('Muscle Strain / Tension')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Muscle Strain / Tension</button>
-                                    <button type="button" onclick="selectCondition('Joint Pain / Stiffness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Joint Pain / Stiffness</button>
-                                    <button type="button" onclick="selectCondition('Back / Neck Pain')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Back / Neck Pain</button>
-                                    <button type="button" onclick="selectCondition('Mobility / Flexibility')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Mobility / Flexibility</button>
-                                    <button type="button" onclick="selectCondition('Work-Related Injury')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Work-Related Injury</button>
-                                    <button type="button" onclick="selectCondition('General Fitness / Wellness')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">General Fitness / Wellness</button>
-                                    <button type="button" onclick="selectCondition('Other')" class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium" role="option">Other</button>
+                                    <button type="button" onclick="selectCondition('Chronic Pain')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Chronic Pain</button>
+                                    <button type="button" onclick="selectCondition('Sports Injury')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Sports Injury</button>
+                                    <button type="button" onclick="selectCondition('Post-Surgery Rehabilitation')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Post-Surgery Rehabilitation</button>
+                                    <button type="button" onclick="selectCondition('Posture Correction')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Posture Correction</button>
+                                    <button type="button" onclick="selectCondition('Muscle Strain / Tension')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Muscle Strain / Tension</button>
+                                    <button type="button" onclick="selectCondition('Joint Pain / Stiffness')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Joint Pain / Stiffness</button>
+                                    <button type="button" onclick="selectCondition('Back / Neck Pain')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Back / Neck Pain</button>
+                                    <button type="button" onclick="selectCondition('Mobility / Flexibility')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Mobility / Flexibility</button>
+                                    <button type="button" onclick="selectCondition('Work-Related Injury')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Work-Related Injury</button>
+                                    <button type="button" onclick="selectCondition('General Fitness / Wellness')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">General Fitness / Wellness</button>
+                                    <button type="button" onclick="selectCondition('Other')"
+                                        class="condition-option w-full text-left px-4 py-3 rounded-xl hover:bg-petros-green/10 transition-all text-petros-slate font-medium"
+                                        role="option">Other</button>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Message / Additional Information -->
                         <div>
-                            <label for="message" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Message / Additional Information</label>
-                            <textarea id="message" name="message" rows="4" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none" placeholder="Tell us about your condition, any pain areas, or health concerns. (Optional)"></textarea>
-                            <p class="text-xs text-gray-500 mt-2">This information helps us tailor your assessment to your specific needs.</p>
+                            <label for="message"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Message
+                                / Additional Information</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none"
+                                placeholder="Tell us about your condition, any pain areas, or health concerns. (Optional)"></textarea>
+                            <p class="text-xs text-gray-500 mt-2">This information helps us tailor your assessment to
+                                your specific needs.</p>
                         </div>
 
-                        <button type="submit" class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group min-h-[44px] magnetic-btn">
                             <span>Complete Booking</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </button>
 
                         <p class="text-center text-xs text-gray-500 uppercase tracking-wider">
@@ -644,100 +764,130 @@
                 </div>
 
                 <!-- Success Message (Hidden initially) -->
-                <div id="success-message" class="hidden bg-gradient-to-br from-white via-petros-cream/5 to-white rounded-3xl p-12 shadow-2xl text-center border border-petros-green/10">
+                <div id="success-message"
+                    class="hidden bg-gradient-to-br from-white via-petros-cream/5 to-white rounded-3xl p-12 shadow-2xl text-center border border-petros-green/10">
                     <div class="success-icon mb-8 animate-bounce-in">
                         <div class="relative w-24 h-24 mx-auto">
                             <div class="absolute inset-0 bg-petros-green/10 rounded-full animate-pulse"></div>
-                            <div class="absolute inset-0 bg-petros-green/5 rounded-full" style="animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.5s;"></div>
+                            <div class="absolute inset-0 bg-petros-green/5 rounded-full"
+                                style="animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; animation-delay: 0.5s;">
+                            </div>
                             <div class="relative w-full h-full flex items-center justify-center">
-                                <svg class="w-12 h-12 text-petros-green checkmark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                <svg class="w-12 h-12 text-petros-green checkmark" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
                         </div>
                     </div>
-                    
+
                     <h3 class="font-serif text-5xl text-petros-slate mb-4">Your Booking is Confirmed!</h3>
-                    <p class="text-xl text-gray-700 font-light mb-2">We can't wait to start your restoration journey with us.</p>
-                    <p class="text-sm text-petros-green font-semibold uppercase tracking-widest mb-8">Your path to absolute fluidity begins here 🌿</p>
-                    
-                    <div class="bg-gradient-to-br from-petros-green/5 to-petros-deep/5 rounded-2xl p-8 mb-8 border border-petros-green/20">
+                    <p class="text-xl text-gray-700 font-light mb-2">We can't wait to start your restoration journey
+                        with us.</p>
+                    <p class="text-sm text-petros-green font-semibold uppercase tracking-widest mb-8">Your path to
+                        absolute fluidity begins here 🌿</p>
+
+                    <div
+                        class="bg-gradient-to-br from-petros-green/5 to-petros-deep/5 rounded-2xl p-8 mb-8 border border-petros-green/20">
                         <div class="mb-6 pb-6 border-b border-petros-green/20">
                             <div class="inline-block bg-petros-green/10 rounded-full px-4 py-2 mb-4">
                                 <p class="text-xs text-petros-green font-bold uppercase tracking-wider">What's Next?</p>
                             </div>
                             <p class="text-gray-700 font-light text-base leading-relaxed">
-                                We'll review your preferences and contact you within <span class="font-semibold text-petros-slate">24 hours</span> via WhatsApp or email to confirm your session time and answer any questions.
+                                We'll review your preferences and contact you within <span
+                                    class="font-semibold text-petros-slate">24 hours</span> via WhatsApp or email to
+                                confirm your session time and answer any questions.
                             </p>
                         </div>
-                        
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <div
+                                    class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                     <i data-lucide="map-pin" class="w-5 h-5 text-petros-green"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Our Location</p>
-                                    <p class="text-gray-700 font-light">102 Dr. Libertine Amathila Avenue<br><span class="text-sm text-gray-600">Kramersdorf, Swakopmund</span></p>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Our
+                                        Location</p>
+                                    <p class="text-gray-700 font-light">102 Dr. Libertine Amathila Avenue<br><span
+                                            class="text-sm text-gray-600">Kramersdorf, Swakopmund</span></p>
                                 </div>
                             </div>
-                            
+
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <div
+                                    class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                     <i data-lucide="phone" class="w-5 h-5 text-petros-green"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Call Us</p>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Call Us
+                                    </p>
                                     <p class="text-gray-700 font-serif text-lg font-semibold">+264 81 683 5055</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <div
+                                    class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                     <i data-lucide="clock" class="w-5 h-5 text-petros-green"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Opening Hours</p>
-                                    <p class="text-gray-700 font-light"><span class="font-semibold">Mon–Fri:</span> 7:00 – 18:00<br><span class="text-xs text-gray-600">Closed 13:00 – 14:00</span></p>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Opening
+                                        Hours</p>
+                                    <p class="text-gray-700 font-light"><span class="font-semibold">Mon–Fri:</span> 7:00
+                                        – 18:00<br><span class="text-xs text-gray-600">Closed 13:00 – 14:00</span></p>
                                 </div>
                             </div>
 
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <div
+                                    class="w-12 h-12 bg-petros-green/15 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                                     <i data-lucide="calendar" class="w-5 h-5 text-petros-green"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Weekends</p>
-                                    <p class="text-gray-700 font-light"><span class="font-semibold">Saturday & Sunday</span><br><span class="text-xs text-gray-600">Closed</span></p>
+                                    <p class="text-xs text-petros-green font-bold uppercase tracking-wide mb-1">Weekends
+                                    </p>
+                                    <p class="text-gray-700 font-light"><span class="font-semibold">Saturday &
+                                            Sunday</span><br><span class="text-xs text-gray-600">Closed</span></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="flex justify-center mt-8">
-                        <a href="index.html" class="inline-block bg-petros-green text-white px-10 py-3 rounded-full font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl">
+                        <a href="index.html"
+                            class="inline-block bg-petros-green text-white px-10 py-3 rounded-full font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl">
                             Back to Home
                         </a>
                     </div>
                 </div>
 
                 <!-- Patient Information Form CTA (shown after booking) -->
-                <div id="patient-form-cta" class="hidden bg-white rounded-3xl p-8 md:p-12 shadow-2xl border-2 border-petros-green mt-8 relative overflow-hidden">
+                <div id="patient-form-cta"
+                    class="hidden bg-white rounded-3xl p-8 md:p-12 shadow-2xl border-2 border-petros-green mt-8 relative overflow-hidden">
                     <!-- Decorative background -->
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-petros-green/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
-                    
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-petros-green/10 rounded-full blur-3xl -mr-32 -mt-32">
+                    </div>
+
                     <div class="relative z-10">
                         <div class="flex items-start gap-6 mb-8">
-                            <div class="w-16 h-16 bg-petros-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                            <div
+                                class="w-16 h-16 bg-petros-green/20 rounded-full flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="clipboard-check" class="w-8 h-8 text-petros-green"></i>
                             </div>
                             <div class="flex-1">
-                                <h3 class="font-serif text-3xl text-petros-slate mb-3">One More Step for the Best Results</h3>
-                                <p class="text-gray-700 font-light text-lg">Complete our comprehensive patient assessment form. It takes just 5 minutes and helps us create your perfect restoration plan.</p>
+                                <h3 class="font-serif text-3xl text-petros-slate mb-3">One More Step for the Best
+                                    Results</h3>
+                                <p class="text-gray-700 font-light text-lg">Complete our comprehensive patient
+                                    assessment form. It takes just 5 minutes and helps us create your perfect
+                                    restoration plan.</p>
                             </div>
                         </div>
 
-                        <div class="bg-gradient-to-br from-petros-green/5 to-petros-deep/5 rounded-2xl p-6 mb-8 border border-petros-green/30">
+                        <div
+                            class="bg-gradient-to-br from-petros-green/5 to-petros-deep/5 rounded-2xl p-6 mb-8 border border-petros-green/30">
                             <p class="text-sm text-gray-700 mb-4 font-light">
                                 <span class="font-bold text-petros-slate">What we need to know:</span>
                             </p>
@@ -762,20 +912,24 @@
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                            <button onclick="document.getElementById('patient-form-modal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; return false;" class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                            <button
+                                onclick="document.getElementById('patient-form-modal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; return false;"
+                                class="flex-1 bg-petros-green hover:bg-petros-slate text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                                     <span>Fill Out Patient Form Now</span>
                                 </span>
                             </button>
-                            <button onclick="document.getElementById('patient-form-cta').classList.add('hidden'); return false;" class="px-8 py-4 rounded-xl font-bold border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-all">
+                            <button
+                                onclick="document.getElementById('patient-form-cta').classList.add('hidden'); return false;"
+                                class="px-8 py-4 rounded-xl font-bold border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-all">
                                 Skip for Now
                             </button>
                         </div>
 
                         <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
-                💡 You can also fill this out later and email it to us
-            </p>
+                            💡 You can also fill this out later and email it to us
+                        </p>
                     </div>
                 </div>
             </div>
@@ -783,22 +937,34 @@
     </section>
 
     <!-- Patient Form Modal Overlay - Moved outside all containers for proper z-index -->
-    <div id="patient-form-modal" class="hidden fixed inset-0 z-[9998] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="patient-form-title">
+    <div id="patient-form-modal" class="hidden fixed inset-0 z-[9998] overflow-y-auto" role="dialog" aria-modal="true"
+        aria-labelledby="patient-form-title">
         <!-- Dark semi-transparent backdrop -->
-        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;" aria-hidden="true"></div>
-        
+        <div class="fixed inset-0 bg-black/50 backdrop-blur-sm"
+            onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;"
+            aria-hidden="true"></div>
+
         <!-- Modal content wrapper - allows scroll on mobile -->
         <div class="min-h-full flex items-start md:items-center justify-center p-2 sm:p-4 py-4 sm:py-8">
-            <div class="relative bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden" role="document">
+            <div class="relative bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden"
+                role="document">
                 <!-- Modal header -->
-                <div class="sticky top-0 bg-white border-b border-gray-200 p-4 sm:p-6 md:p-8 flex justify-between items-start z-10 rounded-t-2xl sm:rounded-t-3xl">
+                <div
+                    class="sticky top-0 bg-white border-b border-gray-200 p-4 sm:p-6 md:p-8 flex justify-between items-start z-10 rounded-t-2xl sm:rounded-t-3xl">
                     <div class="pr-4">
-                        <h3 id="patient-form-title" class="font-serif text-xl sm:text-2xl md:text-3xl text-petros-slate mb-1 sm:mb-2">Patient Assessment Form</h3>
-                        <p class="text-gray-600 text-xs sm:text-sm">Medical details help us create your perfect restoration plan.</p>
+                        <h3 id="patient-form-title"
+                            class="font-serif text-xl sm:text-2xl md:text-3xl text-petros-slate mb-1 sm:mb-2">Patient
+                            Assessment Form</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm">Medical details help us create your perfect
+                            restoration plan.</p>
                     </div>
-                    <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;" class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors" aria-label="Close patient form">
+                    <button type="button"
+                        onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;"
+                        class="flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
+                        aria-label="Close patient form">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
@@ -809,19 +975,32 @@
                         <!-- Name -->
                         <div class="relative">
                             <label class="block text-xs font-bold text-petros-green uppercase mb-2">Full Name *</label>
-                            <input type="text" name="name" id="patient-name" required class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20">
+                            <input type="text" name="name" id="patient-name" required
+                                class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20">
                             <p id="patient-name-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <span id="patient-name-error-text"></span>
                             </p>
                         </div>
 
                         <!-- Medical History -->
                         <div class="relative">
-                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Medical History & Conditions *</label>
-                            <textarea name="medical_history" id="patient-medical-history" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
-                            <p id="patient-medical-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Medical History &
+                                Conditions *</label>
+                            <textarea name="medical_history" id="patient-medical-history" required rows="2"
+                                class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none"
+                                placeholder="e.g., diabetes, hypertension, arthritis, etc."></textarea>
+                            <p id="patient-medical-error"
+                                class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <span id="patient-medical-error-text"></span>
                             </p>
                             <p class="text-xs text-gray-500 mt-1">Write "None" if you have no known conditions</p>
@@ -829,58 +1008,99 @@
 
                         <!-- Injuries & Pain - Interactive Body Diagram -->
                         <div class="relative">
-                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Pain Areas (Click to Select) *</label>
+                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Pain Areas (Click to
+                                Select) *</label>
                             <input type="hidden" name="injuries_pain" id="pain-areas-input" required>
                             <p id="patient-pain-error" class="text-xs text-red-500 mb-2 hidden flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <span id="patient-pain-error-text"></span>
                             </p>
-                            
+
                             <div class="flex flex-col gap-4 items-center">
                                 <!-- Body Diagram -->
-                                <div class="flex-shrink-0 bg-gradient-to-b from-petros-cream/50 to-white rounded-xl p-3 sm:p-4 border border-gray-200 w-full sm:w-auto">
-                                    <svg viewBox="0 0 200 380" class="w-24 sm:w-32 h-auto mx-auto" id="body-diagram" role="img" aria-label="Interactive body diagram for selecting pain areas">
+                                <div
+                                    class="flex-shrink-0 bg-gradient-to-b from-petros-cream/50 to-white rounded-xl p-3 sm:p-4 border border-gray-200 w-full sm:w-auto">
+                                    <svg viewBox="0 0 200 380" class="w-24 sm:w-32 h-auto mx-auto" id="body-diagram"
+                                        role="img" aria-label="Interactive body diagram for selecting pain areas">
                                         <title>Click on body parts to select pain areas</title>
                                         <!-- Head -->
-                                        <ellipse cx="100" cy="30" rx="25" ry="28" class="body-part" data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <ellipse cx="100" cy="30" rx="25" ry="28" class="body-part"
+                                            data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5" />
                                         <!-- Neck -->
-                                        <rect x="90" y="55" width="20" height="15" rx="3" class="body-part" data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <rect x="90" y="55" width="20" height="15" rx="3" class="body-part"
+                                            data-part="Head/Neck" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5" />
                                         <!-- Shoulders -->
-                                        <ellipse cx="55" cy="85" rx="20" ry="12" class="body-part" data-part="Left Shoulder" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <ellipse cx="145" cy="85" rx="20" ry="12" class="body-part" data-part="Right Shoulder" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <ellipse cx="55" cy="85" rx="20" ry="12" class="body-part"
+                                            data-part="Left Shoulder" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
+                                        <ellipse cx="145" cy="85" rx="20" ry="12" class="body-part"
+                                            data-part="Right Shoulder" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Torso/Back -->
-                                        <path d="M70 70 Q100 65 130 70 L140 90 L140 150 Q100 160 60 150 L60 90 Z" class="body-part" data-part="Upper Back/Chest" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <path d="M60 150 Q100 160 140 150 L135 210 Q100 220 65 210 Z" class="body-part" data-part="Lower Back/Core" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <path d="M70 70 Q100 65 130 70 L140 90 L140 150 Q100 160 60 150 L60 90 Z"
+                                            class="body-part" data-part="Upper Back/Chest" fill="#e5e7eb"
+                                            stroke="#d1d5db" stroke-width="1.5" />
+                                        <path d="M60 150 Q100 160 140 150 L135 210 Q100 220 65 210 Z" class="body-part"
+                                            data-part="Lower Back/Core" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Arms -->
-                                        <path d="M35 85 Q25 120 30 160 Q35 165 45 160 Q50 120 55 95" class="body-part" data-part="Left Arm" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <path d="M165 85 Q175 120 170 160 Q165 165 155 160 Q150 120 145 95" class="body-part" data-part="Right Arm" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <path d="M35 85 Q25 120 30 160 Q35 165 45 160 Q50 120 55 95" class="body-part"
+                                            data-part="Left Arm" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5" />
+                                        <path d="M165 85 Q175 120 170 160 Q165 165 155 160 Q150 120 145 95"
+                                            class="body-part" data-part="Right Arm" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Hands -->
-                                        <ellipse cx="37" cy="175" rx="12" ry="15" class="body-part" data-part="Left Hand/Wrist" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <ellipse cx="163" cy="175" rx="12" ry="15" class="body-part" data-part="Right Hand/Wrist" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <ellipse cx="37" cy="175" rx="12" ry="15" class="body-part"
+                                            data-part="Left Hand/Wrist" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
+                                        <ellipse cx="163" cy="175" rx="12" ry="15" class="body-part"
+                                            data-part="Right Hand/Wrist" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Hips -->
-                                        <path d="M65 210 Q100 220 135 210 L140 240 Q100 250 60 240 Z" class="body-part" data-part="Hips/Pelvis" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <path d="M65 210 Q100 220 135 210 L140 240 Q100 250 60 240 Z" class="body-part"
+                                            data-part="Hips/Pelvis" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Upper Legs -->
-                                        <path d="M60 240 Q70 250 75 240 L85 300 Q75 305 65 300 Z" class="body-part" data-part="Left Thigh" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <path d="M140 240 Q130 250 125 240 L115 300 Q125 305 135 300 Z" class="body-part" data-part="Right Thigh" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <path d="M60 240 Q70 250 75 240 L85 300 Q75 305 65 300 Z" class="body-part"
+                                            data-part="Left Thigh" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5" />
+                                        <path d="M140 240 Q130 250 125 240 L115 300 Q125 305 135 300 Z"
+                                            class="body-part" data-part="Right Thigh" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Knees -->
-                                        <ellipse cx="75" cy="310" rx="12" ry="15" class="body-part" data-part="Left Knee" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <ellipse cx="125" cy="310" rx="12" ry="15" class="body-part" data-part="Right Knee" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <ellipse cx="75" cy="310" rx="12" ry="15" class="body-part"
+                                            data-part="Left Knee" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5" />
+                                        <ellipse cx="125" cy="310" rx="12" ry="15" class="body-part"
+                                            data-part="Right Knee" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5" />
                                         <!-- Lower Legs -->
-                                        <path d="M65 325 L70 360 Q75 365 80 360 L85 325" class="body-part" data-part="Left Calf/Shin" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <path d="M115 325 L120 360 Q125 365 130 360 L135 325" class="body-part" data-part="Right Calf/Shin" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <path d="M65 325 L70 360 Q75 365 80 360 L85 325" class="body-part"
+                                            data-part="Left Calf/Shin" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
+                                        <path d="M115 325 L120 360 Q125 365 130 360 L135 325" class="body-part"
+                                            data-part="Right Calf/Shin" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                         <!-- Feet -->
-                                        <ellipse cx="75" cy="370" rx="15" ry="8" class="body-part" data-part="Left Foot/Ankle" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
-                                        <ellipse cx="125" cy="370" rx="15" ry="8" class="body-part" data-part="Right Foot/Ankle" fill="#e5e7eb" stroke="#d1d5db" stroke-width="1.5"/>
+                                        <ellipse cx="75" cy="370" rx="15" ry="8" class="body-part"
+                                            data-part="Left Foot/Ankle" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
+                                        <ellipse cx="125" cy="370" rx="15" ry="8" class="body-part"
+                                            data-part="Right Foot/Ankle" fill="#e5e7eb" stroke="#d1d5db"
+                                            stroke-width="1.5" />
                                     </svg>
                                     <p class="text-[10px] text-gray-400 text-center mt-2">Click body parts</p>
                                 </div>
-                                
+
                                 <!-- Selected Areas & Condition Type -->
                                 <div class="flex-1 space-y-3 w-full">
                                     <!-- Condition Type Dropdown -->
                                     <div>
-                                        <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Type of Concern</label>
-                                        <select id="condition-type" class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm">
+                                        <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Type
+                                            of Concern</label>
+                                        <select id="condition-type"
+                                            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm">
                                             <option value="">Select type...</option>
                                             <option value="Chronic Pain">Chronic Pain</option>
                                             <option value="Sports Injury">Sports Injury</option>
@@ -893,19 +1113,27 @@
                                             <option value="Other">Other</option>
                                         </select>
                                     </div>
-                                    
+
                                     <!-- Selected Areas Display -->
                                     <div>
-                                        <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Selected Areas</label>
-                                        <div id="selected-areas" class="min-h-[60px] p-2 rounded-lg border border-gray-200 bg-gray-50 flex flex-wrap gap-1">
-                                            <span class="text-xs text-gray-400 italic" id="no-areas-text">Click on the body diagram...</span>
+                                        <label
+                                            class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Selected
+                                            Areas</label>
+                                        <div id="selected-areas"
+                                            class="min-h-[60px] p-2 rounded-lg border border-gray-200 bg-gray-50 flex flex-wrap gap-1">
+                                            <span class="text-xs text-gray-400 italic" id="no-areas-text">Click on the
+                                                body diagram...</span>
                                         </div>
                                     </div>
-                                    
+
                                     <!-- Additional Notes -->
                                     <div>
-                                        <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Additional Details</label>
-                                        <textarea id="pain-notes" rows="2" class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm resize-none" placeholder="Any other details about your pain..."></textarea>
+                                        <label
+                                            class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Additional
+                                            Details</label>
+                                        <textarea id="pain-notes" rows="2"
+                                            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm resize-none"
+                                            placeholder="Any other details about your pain..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -913,10 +1141,18 @@
 
                         <!-- Allergies -->
                         <div class="relative">
-                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Allergies & Adverse Reactions *</label>
-                            <textarea name="allergies" id="patient-allergies" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any allergies (medications, latex, etc.) or adverse reactions"></textarea>
-                            <p id="patient-allergies-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Allergies & Adverse
+                                Reactions *</label>
+                            <textarea name="allergies" id="patient-allergies" required rows="2"
+                                class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none"
+                                placeholder="List any allergies (medications, latex, etc.) or adverse reactions"></textarea>
+                            <p id="patient-allergies-error"
+                                class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <span id="patient-allergies-error-text"></span>
                             </p>
                             <p class="text-xs text-gray-500 mt-1">Write "None" if you have no known allergies</p>
@@ -924,31 +1160,48 @@
 
                         <!-- Medications -->
                         <div>
-                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Current Medications & Supplements</label>
-                            <textarea name="medications" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="List any medications, supplements, or treatments you're currently taking"></textarea>
+                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Current Medications
+                                & Supplements</label>
+                            <textarea name="medications" rows="2"
+                                class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none"
+                                placeholder="List any medications, supplements, or treatments you're currently taking"></textarea>
                         </div>
 
                         <!-- Recent Surgeries -->
                         <div>
-                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Recent Surgeries or Procedures</label>
-                            <textarea name="surgeries" rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="Any surgeries or procedures in the last year or two?"></textarea>
+                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Recent Surgeries or
+                                Procedures</label>
+                            <textarea name="surgeries" rows="2"
+                                class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none"
+                                placeholder="Any surgeries or procedures in the last year or two?"></textarea>
                         </div>
 
                         <!-- Health Goals -->
                         <div class="relative">
-                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Health & Lifestyle Goals *</label>
-                            <textarea name="health_goals" id="patient-goals" required rows="2" class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none" placeholder="What are your goals? What would you like to achieve?"></textarea>
-                            <p id="patient-goals-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                            <label class="block text-xs font-bold text-petros-green uppercase mb-2">Health & Lifestyle
+                                Goals *</label>
+                            <textarea name="health_goals" id="patient-goals" required rows="2"
+                                class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 resize-none"
+                                placeholder="What are your goals? What would you like to achieve?"></textarea>
+                            <p id="patient-goals-error"
+                                class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <span id="patient-goals-error-text"></span>
                             </p>
                         </div>
 
                         <div class="flex flex-col-reverse sm:flex-row gap-3 pt-4">
-                            <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;" class="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all text-sm sm:text-base">
+                            <button type="button"
+                                onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.body.style.overflow = ''; return false;"
+                                class="w-full sm:w-auto px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all text-sm sm:text-base">
                                 Close
                             </button>
-                            <button type="submit" class="flex-1 bg-petros-green hover:bg-petros-slate text-white py-3 rounded-lg font-bold transition-all shadow-lg text-sm sm:text-base">
+                            <button type="submit"
+                                class="flex-1 bg-petros-green hover:bg-petros-slate text-white py-4 rounded-lg font-bold transition-all shadow-lg text-sm sm:text-base min-h-[44px]">
                                 <span class="flex items-center justify-center gap-2">
                                     <i data-lucide="send" class="w-4 h-4"></i>
                                     Submit Form
@@ -962,17 +1215,24 @@
                         <div class="mb-4 sm:mb-6">
                             <div class="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto">
                                 <div class="absolute inset-0 bg-petros-green/20 rounded-full animate-ping"></div>
-                                <div class="relative w-full h-full bg-petros-green/10 rounded-full flex items-center justify-center">
-                                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-petros-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                <div
+                                    class="relative w-full h-full bg-petros-green/10 rounded-full flex items-center justify-center">
+                                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-petros-green" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                            d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
                             </div>
                         </div>
                         <h4 class="font-serif text-2xl sm:text-3xl text-petros-slate mb-2 sm:mb-3">Thank You!</h4>
-                        <p class="text-gray-600 mb-2 text-sm sm:text-base">Your patient assessment form has been submitted successfully.</p>
-                        <p class="text-petros-green font-semibold text-xs sm:text-sm mb-4 sm:mb-6">We now have everything we need to prepare for your visit 🌿</p>
-                        <button type="button" onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.getElementById('patient-form-cta').classList.add('hidden'); document.body.style.overflow = '';" class="bg-petros-green hover:bg-petros-slate text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-bold transition-all shadow-lg text-sm sm:text-base">
+                        <p class="text-gray-600 mb-2 text-sm sm:text-base">Your patient assessment form has been
+                            submitted successfully.</p>
+                        <p class="text-petros-green font-semibold text-xs sm:text-sm mb-4 sm:mb-6">We now have
+                            everything we need to prepare for your visit 🌿</p>
+                        <button type="button"
+                            onclick="document.getElementById('patient-form-modal').classList.add('hidden'); document.getElementById('patient-form-cta').classList.add('hidden'); document.body.style.overflow = '';"
+                            class="bg-petros-green hover:bg-petros-slate text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-bold transition-all shadow-lg text-sm sm:text-base">
                             <span class="flex items-center justify-center gap-2">
                                 <i data-lucide="check" class="w-4 h-4"></i>
                                 Done
@@ -987,30 +1247,35 @@
     <!-- Footer -->
     <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden z-10">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                        <div
+                            class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
+                                class="font-light not-italic">Biokinetics</span></span>
                     </div>
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Facebook"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                            aria-label="Chat with us on WhatsApp"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
@@ -1021,7 +1286,8 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm text-petros-slate font-medium">
                         <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
+                        </li>
                         <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
                         <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
@@ -1033,10 +1299,14 @@
                 <div>
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 13:00 – 14:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
+                                18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed
+                                between 13:00 – 14:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span
+                                class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
+                                class="font-medium">Closed</span></li>
                     </ul>
                 </div>
 
@@ -1044,12 +1314,16 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
                     <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
                     <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
-                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                    <a href="tel:+264816835055" class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264 81 683 5055</a>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <a href="tel:+264816835055"
+                        class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264
+                        81 683 5055</a>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <div
+                class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
                 <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
@@ -1060,6 +1334,7 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
         lucide.createIcons();
 
@@ -1093,33 +1368,33 @@
                 errorTextElement: document.getElementById('phone-error-text'),
                 validate: (value) => {
                     if (!value.trim()) return { valid: false, message: 'Please enter your phone number' };
-                    
+
                     // Clean the input - remove spaces, dashes, parentheses, dots
                     const cleaned = value.replace(/[\s\-\(\)\.]/g, '');
-                    
+
                     // Namibian formats: +264 81 xxx xxxx, 081 xxx xxxx
                     const namibiaInternational = /^\+264(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
                     const namibiaLocal = /^0(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
-                    
+
                     // International format: + followed by 7-15 digits (covers all countries)
                     // Minimum 7 digits for small countries, max 15 per ITU-T E.164
                     const internationalFormat = /^\+\d{7,15}$/;
-                    
+
                     // Local format starting with 0 (various countries)
                     const localFormat = /^0\d{7,14}$/;
-                    
+
                     if (namibiaInternational.test(cleaned) || namibiaLocal.test(cleaned)) {
                         return { valid: true };
                     }
-                    
+
                     if (internationalFormat.test(cleaned)) {
                         return { valid: true };
                     }
-                    
+
                     if (localFormat.test(cleaned)) {
                         return { valid: true };
                     }
-                    
+
                     // Provide specific guidance
                     if (cleaned.startsWith('+') && cleaned.length < 8) {
                         return { valid: false, message: 'Number seems too short. International numbers need at least 7 digits after the country code' };
@@ -1133,7 +1408,7 @@
                     if (!cleaned.startsWith('+') && !cleaned.startsWith('0')) {
                         return { valid: false, message: 'Please start with + for international or 0 for local numbers' };
                     }
-                    
+
                     return { valid: false, message: 'Please enter a valid phone number (e.g. +264 81 123 4567 or +1 555 123 4567)' };
                 }
             }
@@ -1143,12 +1418,12 @@
         function showError(field, message) {
             const config = validationConfig[field];
             if (!config) return;
-            
+
             config.errorTextElement.textContent = message;
             config.errorElement.classList.remove('hidden');
             config.element.classList.add('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
             config.element.classList.remove('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
-            
+
             // Subtle shake animation
             config.element.style.animation = 'shake 0.4s ease-in-out';
             setTimeout(() => config.element.style.animation = '', 400);
@@ -1157,7 +1432,7 @@
         function hideError(field) {
             const config = validationConfig[field];
             if (!config) return;
-            
+
             config.errorElement.classList.add('hidden');
             config.element.classList.remove('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
             config.element.classList.add('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
@@ -1167,7 +1442,7 @@
         function validateField(field) {
             const config = validationConfig[field];
             if (!config) return true;
-            
+
             const result = config.validate(config.element.value);
             if (!result.valid) {
                 showError(field, result.message);
@@ -1195,20 +1470,20 @@
         function validateForm() {
             let isValid = true;
             let firstError = null;
-            
+
             Object.keys(validationConfig).forEach(field => {
                 if (!validateField(field)) {
                     isValid = false;
                     if (!firstError) firstError = validationConfig[field].element;
                 }
             });
-            
+
             // Check custom selects (date, time, medical aid, condition)
             const dateValue = document.getElementById('appointment-date').value;
             const timeValue = document.getElementById('appointment-time').value;
             const medicalAidValue = document.getElementById('medical-aid').value;
             const conditionValue = document.getElementById('condition-type-booking').value;
-            
+
             if (!dateValue) {
                 document.getElementById('date-display').classList.add('border-red-400');
                 isValid = false;
@@ -1216,7 +1491,7 @@
             } else {
                 document.getElementById('date-display').classList.remove('border-red-400');
             }
-            
+
             if (!timeValue) {
                 document.getElementById('time-display').classList.add('border-red-400');
                 isValid = false;
@@ -1224,7 +1499,7 @@
             } else {
                 document.getElementById('time-display').classList.remove('border-red-400');
             }
-            
+
             if (!medicalAidValue) {
                 document.getElementById('medical-aid-display').classList.add('border-red-400');
                 isValid = false;
@@ -1232,7 +1507,7 @@
             } else {
                 document.getElementById('medical-aid-display').classList.remove('border-red-400');
             }
-            
+
             if (!conditionValue) {
                 document.getElementById('condition-display').classList.add('border-red-400');
                 isValid = false;
@@ -1240,13 +1515,13 @@
             } else {
                 document.getElementById('condition-display').classList.remove('border-red-400');
             }
-            
+
             // Scroll to first error
             if (firstError) {
                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 if (firstError.focus) firstError.focus();
             }
-            
+
             return isValid;
         }
 
@@ -1262,27 +1537,27 @@
         document.head.appendChild(shakeStyle);
 
         // Handle form submission with AJAX
-        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+        document.getElementById('bookingForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             // Run validation first
             if (!validateForm()) {
                 return;
             }
-            
+
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
+
             // Show loading state
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Sending...</span>';
             lucide.createIcons();
-            
+
             try {
                 // Collect form data
                 const formData = new FormData(form);
-                
+
                 // Send to Formspree via fetch
                 const response = await fetch('https://formspree.io/f/maqnbgnn', {
                     method: 'POST',
@@ -1291,7 +1566,7 @@
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     // Success - show our custom message
                     document.getElementById('booking-form-container').classList.add('hidden');
@@ -1303,7 +1578,7 @@
                     // Server error - show specific message
                     const errorData = await response.json().catch(() => ({}));
                     let errorMessage = 'We couldn\'t submit your booking. ';
-                    
+
                     if (response.status === 422) {
                         errorMessage += 'Please check your email address is correct.';
                     } else if (response.status === 429) {
@@ -1311,7 +1586,7 @@
                     } else {
                         errorMessage += 'Please try again or contact us directly at +264 81 683 5055.';
                     }
-                    
+
                     showFormError(errorMessage);
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = originalText;
@@ -1331,7 +1606,7 @@
             // Remove any existing error toast
             const existingToast = document.getElementById('form-error-toast');
             if (existingToast) existingToast.remove();
-            
+
             const toast = document.createElement('div');
             toast.id = 'form-error-toast';
             toast.className = 'fixed top-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[9999] md:max-w-md md:w-full bg-white rounded-2xl shadow-2xl border border-red-100 p-4 md:p-5 animate-slide-down';
@@ -1353,9 +1628,9 @@
                     </button>
                 </div>
             `;
-            
+
             document.body.appendChild(toast);
-            
+
             // Auto-remove after 8 seconds
             setTimeout(() => {
                 if (toast.parentElement) {
@@ -1450,19 +1725,19 @@
             patientValidationConfig['patient-name'].element = document.getElementById('patient-name');
             patientValidationConfig['patient-name'].errorElement = document.getElementById('patient-name-error');
             patientValidationConfig['patient-name'].errorTextElement = document.getElementById('patient-name-error-text');
-            
+
             patientValidationConfig['patient-medical-history'].element = document.getElementById('patient-medical-history');
             patientValidationConfig['patient-medical-history'].errorElement = document.getElementById('patient-medical-error');
             patientValidationConfig['patient-medical-history'].errorTextElement = document.getElementById('patient-medical-error-text');
-            
+
             patientValidationConfig['pain-areas-input'].element = document.getElementById('pain-areas-input');
             patientValidationConfig['pain-areas-input'].errorElement = document.getElementById('patient-pain-error');
             patientValidationConfig['pain-areas-input'].errorTextElement = document.getElementById('patient-pain-error-text');
-            
+
             patientValidationConfig['patient-allergies'].element = document.getElementById('patient-allergies');
             patientValidationConfig['patient-allergies'].errorElement = document.getElementById('patient-allergies-error');
             patientValidationConfig['patient-allergies'].errorTextElement = document.getElementById('patient-allergies-error-text');
-            
+
             patientValidationConfig['patient-goals'].element = document.getElementById('patient-goals');
             patientValidationConfig['patient-goals'].errorElement = document.getElementById('patient-goals-error');
             patientValidationConfig['patient-goals'].errorTextElement = document.getElementById('patient-goals-error-text');
@@ -1486,7 +1761,7 @@
         function showPatientError(field, message) {
             const config = patientValidationConfig[field];
             if (!config || !config.errorElement) return;
-            
+
             config.errorTextElement.textContent = message;
             config.errorElement.classList.remove('hidden');
             if (config.element && config.element.tagName !== 'INPUT' || config.element?.type !== 'hidden') {
@@ -1500,7 +1775,7 @@
         function hidePatientError(field) {
             const config = patientValidationConfig[field];
             if (!config || !config.errorElement) return;
-            
+
             config.errorElement.classList.add('hidden');
             if (config.element && config.element.tagName !== 'INPUT' || config.element?.type !== 'hidden') {
                 config.element.classList.remove('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
@@ -1511,7 +1786,7 @@
         function validatePatientField(field) {
             const config = patientValidationConfig[field];
             if (!config || !config.element) return true;
-            
+
             const result = config.validate(config.element.value);
             if (!result.valid) {
                 showPatientError(field, result.message);
@@ -1525,7 +1800,7 @@
         function validatePatientForm() {
             let isValid = true;
             let firstError = null;
-            
+
             Object.keys(patientValidationConfig).forEach(field => {
                 if (!validatePatientField(field)) {
                     isValid = false;
@@ -1534,12 +1809,12 @@
                     }
                 }
             });
-            
+
             if (firstError) {
                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 if (firstError.focus && firstError.type !== 'hidden') firstError.focus();
             }
-            
+
             return isValid;
         }
 
@@ -1547,32 +1822,32 @@
         document.querySelector('[onclick*="patient-form-modal"]')?.addEventListener('click', () => {
             setTimeout(initPatientValidation, 100);
         });
-        
+
         // Also initialize on DOMContentLoaded in case modal elements exist
         initPatientValidation();
 
         // Handle patient form submission
-        document.getElementById('patientForm').addEventListener('submit', async function(e) {
+        document.getElementById('patientForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             // Run validation first
             if (!validatePatientForm()) {
                 return;
             }
-            
+
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
-            
+
             // Show loading state
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Submitting...</span>';
             lucide.createIcons();
-            
+
             try {
                 // Collect form data
                 const formData = new FormData(form);
-                
+
                 // Send to Formspree via fetch
                 const response = await fetch('https://formspree.io/f/xqeagoyz', {
                     method: 'POST',
@@ -1581,7 +1856,7 @@
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     // Success - show nice confirmation message
                     document.getElementById('patientForm').classList.add('hidden');
@@ -1611,15 +1886,15 @@
         // Weekend validation for date picker
         const dateInput = document.getElementById("appointment-date");
         const dateError = document.getElementById("date-error");
-        
+
         // Set minimum date to today
         const today = new Date().toISOString().split('T')[0];
         dateInput.setAttribute('min', today);
-        
-        dateInput.addEventListener('change', function() {
+
+        dateInput.addEventListener('change', function () {
             const selectedDate = new Date(this.value);
             const day = selectedDate.getDay();
-            
+
             // 0 = Sunday, 6 = Saturday
             if (day === 0 || day === 6) {
                 dateError.classList.remove('hidden');
@@ -1635,21 +1910,44 @@
         let currentDate = new Date();
         let selectedDate = null;
 
+        // Keep dropdown panels within the viewport (prevents the 'jump to the left' on mobile)
+        function clampDropdownToViewport(panel, padding = 12) {
+            if (!panel) return;
+            // Reset any previous clamp
+            panel.style.transform = '';
+            // Wait for layout after showing
+            requestAnimationFrame(() => {
+                try {
+                    const rect = panel.getBoundingClientRect();
+                    const vw = window.innerWidth;
+                    let dx = 0;
+                    if (rect.left < padding) dx = padding - rect.left;
+                    if (rect.right > vw - padding) dx = dx - (rect.right - (vw - padding));
+                    if (dx !== 0) panel.style.transform = `translateX(${dx}px)`;
+                } catch (e) { /* ignore */ }
+            });
+        }
+
+
         function toggleCalendar() {
             const dropdown = document.getElementById('calendar-dropdown');
             const display = document.getElementById('date-display');
             const timeDropdown = document.getElementById('time-dropdown');
             const timeDisplay = document.getElementById('time-display');
-            
+
+            // Close other dropdowns
             timeDropdown.classList.add('hidden');
             timeDisplay.setAttribute('aria-expanded', 'false');
-            
+
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-            
+
             if (isExpanded) {
                 renderCalendar();
+                clampDropdownToViewport(dropdown);
+            } else {
+                dropdown.style.transform = '';
             }
         }
 
@@ -1728,11 +2026,11 @@
             document.getElementById('date-text').textContent = date.toLocaleDateString('en-US', options);
             document.getElementById('date-text').classList.remove('text-gray-400');
             document.getElementById('date-text').classList.add('text-petros-slate');
-            
+
             // Format for form submission: YYYY-MM-DD
             const formattedDate = date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
             document.getElementById('appointment-date').value = formattedDate;
-            
+
             document.getElementById('calendar-dropdown').classList.add('hidden');
             document.getElementById('date-display').setAttribute('aria-expanded', 'false');
             renderCalendar();
@@ -1744,13 +2042,17 @@
             const display = document.getElementById('time-display');
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const dateDisplay = document.getElementById('date-display');
-            
+
+            // Close other dropdowns
             calendarDropdown.classList.add('hidden');
             dateDisplay.setAttribute('aria-expanded', 'false');
-            
+
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+            if (isExpanded) clampDropdownToViewport(dropdown);
+            else dropdown.style.transform = '';
         }
 
         function selectTime(value, display) {
@@ -1758,11 +2060,11 @@
             document.getElementById('time-text').textContent = display;
             document.getElementById('time-text').classList.remove('text-gray-400');
             document.getElementById('time-text').classList.add('text-petros-slate');
-            
+
             // Update selected state
             document.querySelectorAll('.time-option').forEach(opt => opt.classList.remove('selected'));
             event.target.classList.add('selected');
-            
+
             document.getElementById('time-dropdown').classList.add('hidden');
             document.getElementById('time-display').setAttribute('aria-expanded', 'false');
         }
@@ -1773,15 +2075,19 @@
             const display = document.getElementById('medical-aid-display');
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
-            
+
+            // Close other dropdowns
             calendarDropdown.classList.add('hidden');
             document.getElementById('date-display').setAttribute('aria-expanded', 'false');
             timeDropdown.classList.add('hidden');
             document.getElementById('time-display').setAttribute('aria-expanded', 'false');
-            
+
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+            if (isExpanded) clampDropdownToViewport(dropdown);
+            else dropdown.style.transform = '';
         }
 
         function selectMedicalAid(value, display) {
@@ -1789,11 +2095,11 @@
             document.getElementById('medical-aid-text').textContent = display;
             document.getElementById('medical-aid-text').classList.remove('text-gray-400');
             document.getElementById('medical-aid-text').classList.add('text-petros-slate');
-            
+
             // Update selected state
             document.querySelectorAll('.medical-aid-option').forEach(opt => opt.classList.remove('selected'));
             event.target.closest('button').classList.add('selected');
-            
+
             document.getElementById('medical-aid-dropdown').classList.add('hidden');
             document.getElementById('medical-aid-display').setAttribute('aria-expanded', 'false');
         }
@@ -1805,35 +2111,48 @@
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
             const medicalAidDropdown = document.getElementById('medical-aid-dropdown');
-            
+
+            // Close other dropdowns
             calendarDropdown.classList.add('hidden');
             document.getElementById('date-display').setAttribute('aria-expanded', 'false');
             timeDropdown.classList.add('hidden');
             document.getElementById('time-display').setAttribute('aria-expanded', 'false');
             medicalAidDropdown.classList.add('hidden');
             document.getElementById('medical-aid-display').setAttribute('aria-expanded', 'false');
-            
+
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+
+            if (isExpanded) clampDropdownToViewport(dropdown);
+            else dropdown.style.transform = '';
         }
 
+
+
+        // Re-clamp open dropdowns on resize / orientation change
+        window.addEventListener('resize', () => {
+            ['calendar-dropdown', 'time-dropdown', 'medical-aid-dropdown', 'condition-dropdown'].forEach((id) => {
+                const el = document.getElementById(id);
+                if (el && !el.classList.contains('hidden')) clampDropdownToViewport(el);
+            });
+        });
         function selectCondition(value) {
             document.getElementById('condition-type-booking').value = value;
             document.getElementById('condition-text').textContent = value;
             document.getElementById('condition-text').classList.remove('text-gray-400');
             document.getElementById('condition-text').classList.add('text-petros-slate');
-            
+
             // Update selected state
             document.querySelectorAll('.condition-option').forEach(opt => opt.classList.remove('selected'));
             event.target.classList.add('selected');
-            
+
             document.getElementById('condition-dropdown').classList.add('hidden');
             document.getElementById('condition-display').setAttribute('aria-expanded', 'false');
         }
 
         // Close dropdowns when clicking outside
-        document.addEventListener('click', function(e) {
+        document.addEventListener('click', function (e) {
             const calendarDropdown = document.getElementById('calendar-dropdown');
             const timeDropdown = document.getElementById('time-dropdown');
             const medicalAidDropdown = document.getElementById('medical-aid-dropdown');
@@ -1868,9 +2187,9 @@
         const selectedPainAreas = new Set();
 
         document.querySelectorAll('.body-part').forEach(part => {
-            part.addEventListener('click', function() {
+            part.addEventListener('click', function () {
                 const area = this.getAttribute('data-part');
-                
+
                 if (selectedPainAreas.has(area)) {
                     selectedPainAreas.delete(area);
                     this.classList.remove('selected');
@@ -1878,7 +2197,7 @@
                     selectedPainAreas.add(area);
                     this.classList.add('selected');
                 }
-                
+
                 updatePainAreasDisplay();
             });
         });
@@ -1889,23 +2208,23 @@
             const input = document.getElementById('pain-areas-input');
             const conditionType = document.getElementById('condition-type').value;
             const notes = document.getElementById('pain-notes').value;
-            
+
             // Clear existing tags (keep noAreasText)
             container.querySelectorAll('.pain-tag').forEach(tag => tag.remove());
-            
+
             if (selectedPainAreas.size === 0) {
                 noAreasText.classList.remove('hidden');
                 input.value = '';
             } else {
                 noAreasText.classList.add('hidden');
-                
+
                 selectedPainAreas.forEach(area => {
                     const tag = document.createElement('span');
                     tag.className = 'pain-tag';
                     tag.innerHTML = `${area} <button type="button" onclick="removePainArea('${area}')">&times;</button>`;
                     container.appendChild(tag);
                 });
-                
+
                 // Update hidden input with all pain info
                 let painInfo = Array.from(selectedPainAreas).join(', ');
                 if (conditionType) painInfo = `[${conditionType}] ` + painInfo;
@@ -1928,16 +2247,19 @@
     </script>
 
     <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
-    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
-       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+    <a href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+        <span
+            class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat
+            with us</span>
     </a>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Scroll back to top of page" 
+    <button id="back-to-top" aria-label="Scroll back to top of page"
         class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
@@ -1961,12 +2283,46 @@
         });
     </script>
 
+    <!-- Lenis Smooth Scroll & Text Reveals -->
+    <script src="smooth-scroll.js"></script>
+    <!-- Code-Based Effects -->
+    <script src="effects.js"></script>
+    <script src="draw-animations.js"></script>
     <!-- 3D Particle Mesh -->
     <script src="particles.js"></script>
+    <!-- Magnetic Button Effect -->
+    <script src="magnetic-button.js"></script>
     <script>
         if (typeof initParticles !== 'undefined') {
             initParticles('booking');
         }
     </script>
+        <script>
+            (function () {
+                function initIcons() { if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons(); }
+                function initGsap() {
+                    if (window.gsap && window.ScrollTrigger && document.getElementById('hero-bg-book')) {
+                        gsap.registerPlugin(ScrollTrigger);
+                        gsap.to('#hero-bg-book', { scrollTrigger: { trigger: 'section', start: 'top top', end: 'bottom top', scrub: true }, y: 100, scale: 1.04 });
+                    }
+                }
+                function initMobileMenu() {
+                    const toggle = document.getElementById('mobile-toggle');
+                    const menu = document.getElementById('mobile-menu');
+                    const overlay = document.getElementById('mobile-menu-overlay');
+                    const mobileLinks = document.querySelectorAll('.mobile-link');
+                    if (!toggle || !menu || !overlay) return;
+                    function openMenu(){ menu.classList.remove('hidden'); overlay.classList.remove('hidden'); overlay.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
+                    function closeMenu(){ menu.classList.add('hidden'); overlay.classList.add('hidden'); overlay.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
+                    toggle.addEventListener('click', ()=> menu.classList.contains('hidden') ? openMenu() : closeMenu());
+                    overlay.addEventListener('click', closeMenu);
+                    mobileLinks.forEach(l=>l.addEventListener('click', closeMenu));
+                    window.addEventListener('resize', ()=> { if (window.innerWidth >= 768) closeMenu(); });
+                }
+                document.addEventListener('DOMContentLoaded', ()=>{ initIcons(); initGsap(); initMobileMenu(); });
+            })();
+        </script>
+    <script src="cookie-consent.js"></script>
 </body>
+
 </html>

@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Pétros Biokinetics | Get In Touch</title>
-    <meta name="description" content="Contact Pétros Biokinetics in Swakopmund, Namibia. Reach out for biokinetic consultations, clinical restoration, and rehabilitation services.">
-    <meta name="keywords" content="contact biokinetics, reach us, consultation inquiry, rehabilitation contact, Swakopmund">
+    <meta name="description"
+        content="Contact Pétros Biokinetics in Swakopmund, Namibia. Reach out for biokinetic consultations, clinical restoration, and rehabilitation services.">
+    <meta name="keywords"
+        content="contact biokinetics, reach us, consultation inquiry, rehabilitation contact, Swakopmund">
     <meta name="canonical" content="https://petrosbiokinetics.com/contact.html">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Pétros Biokinetics">
     <meta property="og:title" content="Contact Pétros Biokinetics | Get In Touch">
-    <meta property="og:description" content="Get in touch for biokinetic services and clinical restoration in Swakopmund, Namibia.">
+    <meta property="og:description"
+        content="Get in touch for biokinetic services and clinical restoration in Swakopmund, Namibia.">
     <meta property="og:url" content="https://petrosbiokinetics.com/contact.html">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Contact Pétros Biokinetics">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact Pétros Biokinetics">
     <meta name="twitter:description" content="Reach out to Pétros Biokinetics for consultation inquiries.">
     <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -64,17 +68,40 @@
       }
     }
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstapi.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Shake animation keyframes for error fields (always present) -->
+    <style>
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-6px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+    </style>
 
     <script>
         tailwind.config = {
@@ -94,30 +121,7 @@
                         serif: ['"Playfair Display"', 'serif'],
                         sans: ['"Inter"', 'sans-serif'],
                     },
-                    animation: {
-                        'float-slow': 'float 8s ease-in-out infinite',
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
-                        'blob': 'blob 7s infinite',
-                    },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(40px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        pulseGlow: {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(122, 139, 105, 0.3)' },
-                            '50%': { boxShadow: '0 0 40px rgba(122, 139, 105, 0.6)' },
-                        },
                         blob: {
                             '0%': { transform: 'translate(0px, 0px) scale(1)' },
                             '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
@@ -133,8 +137,13 @@
     <style>
         .noise-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999; opacity: 0.03;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 40; /* lowered so header/nav and hero layers remain above */
+            opacity: 0.02;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
@@ -158,6 +167,7 @@
             border-radius: 1.5rem;
             overflow: hidden;
             transition: all 0.3s ease;
+            color: inherit;
         }
 
         .contact-card:hover {
@@ -168,18 +178,93 @@
 
         .icon-box {
             transition: all 0.3s ease;
+            background: transparent;
+            color: #7A8B69;
+        }
+
+        .contact-card .icon-box i,
+        .contact-card .icon-box svg {
+            color: inherit;
+            transition: color 0.25s ease;
+            fill: none; /* lucide icons are stroke-based — avoid filling them */
+            stroke: currentColor;
         }
 
         .contact-card:hover .icon-box {
             background: #7A8B69;
-            color: white;
+            color: #ffffff;
             transform: scale(1.1);
         }
 
-        html { scroll-behavior: smooth; }
-        body { background-color: #F5F4F0; overflow-x: hidden; }
+        .contact-card:hover .icon-box i,
+        .contact-card:hover .icon-box svg { color: #ffffff; fill: none; stroke: currentColor; }
+
+        /* Prevent anchors inside cards from turning green when the card is hovered */
+        .contact-card a:hover { color: #6b7280; }
+
+        /* Reduce mesh intensity on small screens for performance */
+        /* Gradient mesh removed per request */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F4F0;
+            overflow-x: hidden;
+        }
+        /* Cookie consent banner (prettier, subtle, session-friendly) */
+        .cookie-banner {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 1.25rem;
+            z-index: 60;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 56rem;
+            width: calc(100% - 2rem);
+            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(249,249,249,0.95));
+            border: 1px solid #e6e7eb;
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            box-shadow: 0 8px 30px rgba(15,23,42,0.08);
+            font-size: 0.95rem;
+        }
+
+        .cookie-banner .icon {
+            flex: 0 0 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: inline-grid;
+            place-items: center;
+            background: linear-gradient(135deg,#7A8B69,#2F3E30);
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(15,23,42,0.08);
+        }
+
+        /* Ensure any buttons inside the banner inherit our styles and look consistent */
+        .cookie-banner .actions button { font-family: inherit; font-size: 0.9rem; }
+
+        .cookie-content p { margin: 0; color: #374151; line-height: 1.25; }
+
+        .cookie-btn { border-radius: 10px; padding: 0.45rem 0.9rem; font-weight: 600; cursor: pointer; border: 0; font-size: 0.9rem; }
+        .cookie-accept { background: #7A8B69; color: white; box-shadow: 0 6px 18px rgba(122,139,105,0.18); }
+        .cookie-accept:hover { transform: translateY(-1px); }
+        .cookie-manage { background: transparent; color: #374151; border: 1px solid #e5e7eb; }
+        .cookie-manage:hover { background: #f8fafb; }
+        .cookie-notnow { background: transparent; color: #6b7280; border: none; font-weight: 600; padding: 0.25rem 0.5rem; }
+        .cookie-notnow:hover { text-decoration: underline; }
+
+        @media (max-width: 640px) {
+            .cookie-banner { flex-direction: column; align-items: stretch; gap: 0.5rem; padding: 0.75rem; }
+            .cookie-banner .actions { display: flex; gap: 0.5rem; }
+        }
     </style>
 </head>
+
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
     <!-- Page Loader -->
     <div id="page-loader" class="fixed inset-0 z-[9999]" style="display: none;">
@@ -195,9 +280,9 @@
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
-        
+
         // Hide loader when page is ready
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loader = document.getElementById('page-loader');
             if (loader.style.display === 'block') {
                 loader.style.opacity = '0';
@@ -215,123 +300,185 @@
     <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
         <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center">
-                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
-                </div>
-                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
-                    Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
-                </span>
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
+                        Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
+                    </span>
+                </a>
             </div>
 
             <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
-                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
-                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
-                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
-                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
-                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
-                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
+                <li><a href="index.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a>
+                </li>
+                <li><a href="the-method.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a>
+                </li>
+                <li><a href="services.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a>
+                </li>
+                <li><a href="pricing.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a>
+                </li>
+                <li><a href="faq.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a>
+                </li>
+                <li><a href="about.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a>
+                </li>
                 <li><a href="contact.html" class="font-medium tracking-wide text-petros-green">Contact</a></li>
             </ul>
 
             <div class="flex items-center gap-3 hidden md:flex">
-                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                <a href="book-now.html"
+                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
                     Book Now
                 </a>
             </div>
 
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </nav>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
+        aria-hidden="true"></div>
+    <div id="mobile-menu"
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
+        role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
-            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+            <a href="index.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
+                Now</a>
         </div>
     </div>
 
-    <script>
-        const toggle = document.getElementById('mobile-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let scrollTimeout;
+        <script>
+            (function () {
+                // 1) Safe icon init (never crash)
+                function initIcons() {
+                    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                        window.lucide.createIcons();
+                    }
+                }
 
-        function toggleMenu() {
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                overlay.classList.remove('hidden');
-                overlay.setAttribute('aria-hidden', 'false');
-                toggle.setAttribute('aria-expanded', 'true');
-            } else {
-                menu.classList.add('hidden');
-                overlay.classList.add('hidden');
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        }
+                // 2) Safe GSAP init (never crash)
+                function initGsap() {
+                    if (window.gsap && window.ScrollTrigger) {
+                        gsap.registerPlugin(ScrollTrigger);
 
-        function closeMenu() {
-            menu.classList.add('hidden');
-            overlay.classList.add('hidden');
-            overlay.setAttribute('aria-hidden', 'true');
-            toggle.setAttribute('aria-expanded', 'false');
-        }
+                        gsap.to("#hero-bg", {
+                            scrollTrigger: {
+                                trigger: "section",
+                                start: "top top",
+                                end: "bottom top",
+                                scrub: true
+                            },
+                            y: 100,
+                            scale: 1.04
+                        });
+                    }
+                }
 
-        toggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+                // 3) Safe mobile menu
+                function initMobileMenu() {
+                    const toggle = document.getElementById('mobile-toggle');
+                    const menu = document.getElementById('mobile-menu');
+                    const overlay = document.getElementById('mobile-menu-overlay');
+                    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        window.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(closeMenu, 500);
-        });
+                    if (!toggle || !menu || !overlay) return;
 
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                closeMenu();
-            }
-        });
-    </script>
+                    function openMenu() {
+                        menu.classList.remove('hidden');
+                        overlay.classList.remove('hidden');
+                        overlay.setAttribute('aria-hidden', 'false');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+
+                    function closeMenu() {
+                        menu.classList.add('hidden');
+                        overlay.classList.add('hidden');
+                        overlay.setAttribute('aria-hidden', 'true');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+
+                    toggle.addEventListener('click', () => {
+                        const isHidden = menu.classList.contains('hidden');
+                        if (isHidden) openMenu();
+                        else closeMenu();
+                    });
+
+                    overlay.addEventListener('click', closeMenu);
+                    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+                    // keep menu closed on desktop resize
+                    window.addEventListener('resize', () => {
+                        if (window.innerWidth >= 768) closeMenu();
+                    });
+                }
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    initIcons();
+                    initGsap();
+                    initMobileMenu();
+                });
+            })();
+        </script>
 
     <!-- Hero Section -->
-    <header class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
-        
+    <header
+        class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+
         <!-- 3D Particle Mesh Canvas -->
-        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
-        
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
+            style="transition: opacity 0.5s ease-out;"></canvas>
+
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
-            <img id="hero-bg" src="https://res.cloudinary.com/karlifunk/image/upload/v1767436746/pexels-pixabay-158163_jwrtsu.jpg?auto=compress&cs=tinysrgb&w=1600" 
-                 alt="Contact" 
-                 class="w-full h-full object-cover object-center">
+            <img id="hero-bg"
+                src="https://res.cloudinary.com/karlifunk/image/upload/v1767436746/pexels-pixabay-158163_jwrtsu.jpg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Contact" class="w-full h-full object-cover object-center">
             <div class="absolute inset-0 z-20 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
         </div>
 
         <div class="relative z-20 w-full px-6 flex justify-center">
             <div class="text-center max-w-4xl">
-                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block animate-fade-in">Get In Touch</span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 animate-slide-up">
-                    Contact <span class="italic text-petros-green">Pétros</span>
+                <span
+                    class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block reveal-fade">Get
+                    In Touch</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 reveal-fade">
+                    Contact <span class="italic text-petros-green draw-underline">Pétros</span>
                 </h1>
-                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto reveal-lines">
                     Reach out to us today and start your journey to pain-free movement.
                 </p>
             </div>
         </div>
 
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0">
+        </div>
     </header>
 
     <!-- Contact Section -->
@@ -339,16 +486,17 @@
         <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
         <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl mr-0 mb-0"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10 max-w-6xl">
-            
+
             <div class="text-center mb-20">
                 <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Reach Us</span>
                 <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight mb-4">
                     Visit Our Studio
                 </h2>
                 <p class="text-gray-700 text-lg leading-relaxed font-light max-w-2xl mx-auto">
-                    Located in beautiful Swakopmund, Namibia. We're here to answer your questions and help you begin your restoration journey.
+                    Located in beautiful Swakopmund, Namibia. We're here to answer your questions and help you begin
+                    your restoration journey.
                 </p>
             </div>
 
@@ -359,13 +507,10 @@
                         <i data-lucide="map-pin" class="w-7 h-7 text-petros-green"></i>
                     </div>
                     <h3 class="font-serif text-xl text-petros-slate mb-3">Our Location</h3>
-                    <a 
-                        href="https://www.google.com/maps/search/?api=1&query=Dr.+102+Libertina+Amathila+Avenue+Kramersdorf+Swakopmund+Namibia" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-gray-700 font-light hover:text-petros-green transition-colors"
-                    >
-                        Dr. 102 Libertina Amathila Avenue<br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=102+Dr.+Libertine+Amathila+Avenue+Kramersdorf+Swakopmund+Namibia"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-gray-700 font-light hover:text-petros-green transition-colors">
+                        102 Dr. Libertine Amathila Avenue<br>
                         Kramersdorf, Swakopmund<br>
                         Namibia
                     </a>
@@ -377,7 +522,8 @@
                         <i data-lucide="phone" class="w-7 h-7 text-petros-green"></i>
                     </div>
                     <h3 class="font-serif text-xl text-petros-slate mb-3">Direct Call</h3>
-                    <a href="tel:+264816835055" class="text-gray-700 font-light hover:text-petros-green transition-colors">
+                    <a href="tel:+264816835055"
+                        class="text-gray-700 font-light hover:text-petros-green transition-colors">
                         +264 (0)81 683 5055
                     </a>
                 </div>
@@ -389,7 +535,7 @@
                     </div>
                     <h3 class="font-serif text-xl text-petros-slate mb-3">Practice Hours</h3>
                     <p class="text-gray-700 font-light text-sm">
-                        Mon — Fri: 06:00 – 18:00<br>
+                        Mon — Fri: 07:00 – 18:00<br>
                         <span class="text-xs text-gray-500">Closed 13:00 – 14:00</span><br>
                         <span class="text-xs text-gray-500">Sat & Sun: Closed</span>
                     </p>
@@ -397,41 +543,116 @@
             </div>
 
             <!-- Contact Form -->
-            <div id="contact-form" class="max-w-2xl mx-auto">
-                <div class="contact-card p-8 md:p-12">
+            <div id="contact-form-container" class="max-w-2xl mx-auto">
+                <div class="contact-card p-8 md:p-12 relative overflow-hidden">
                     <h3 class="font-serif text-3xl text-petros-slate mb-8">Send an Inquiry</h3>
-                    
+
                     <form id="contactForm" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full Name *</label>
-                                <input type="text" id="name" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="John Doe">
+                            <div class="relative">
+                                <label for="name"
+                                    class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full
+                                    Name *</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
+                                    placeholder="John Doe">
+                                <p id="name-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span id="name-error-text"></span>
+                                </p>
                             </div>
-                            <div>
-                                <label for="phone" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone / WhatsApp *</label>
-                                <input type="tel" id="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 ...">
+                            <div class="relative">
+                                <label for="phone"
+                                    class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone
+                                    / WhatsApp *</label>
+                                <input type="tel" id="phone" name="phone" required
+                                    class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
+                                    placeholder="+264 81 123 4567">
+                                <p id="phone-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span id="phone-error-text"></span>
+                                </p>
                             </div>
                         </div>
 
-                        <div>
-                            <label for="email" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email Address *</label>
-                            <input type="email" id="email" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="hello@example.com">
+                        <div class="relative">
+                            <label for="email"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email
+                                Address *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
+                                placeholder="hello@example.com">
+                            <p id="email-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span id="email-error-text"></span>
+                            </p>
                         </div>
 
-                        <div>
-                            <label for="message" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Your Message *</label>
-                            <textarea id="message" required rows="5" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none" placeholder="How can we help you?"></textarea>
+                        <div class="relative">
+                            <label for="message"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Your
+                                Message *</label>
+                            <textarea id="message" name="message" required rows="5"
+                                class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none min-h-[120px] text-base"
+                                placeholder="How can we help you?"></textarea>
+                            <p id="message-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span id="message-error-text"></span>
+                            </p>
                         </div>
 
-                        <button type="submit" class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group min-h-[44px] magnetic-btn">
                             <span>Send via WhatsApp</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </button>
-                        
+
                         <p class="text-center text-xs text-gray-500 uppercase tracking-wider">
                             Your privacy is handled with medical confidentiality.
                         </p>
                     </form>
+                </div>
+
+                <!-- Success Message (Hidden initially) -->
+                <div id="success-message"
+                    class="hidden bg-white rounded-3xl p-12 shadow-2xl text-center border border-petros-green/10">
+                    <div class="success-icon mb-8">
+                        <div class="relative w-20 h-20 mx-auto">
+                            <div class="absolute inset-0 bg-petros-green/10 rounded-full animate-ping"></div>
+                            <div
+                                class="relative w-full h-full bg-petros-green/10 rounded-full flex items-center justify-center">
+                                <svg class="w-10 h-10 text-petros-green" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="font-serif text-3xl text-petros-slate mb-4">Message Sent!</h4>
+                    <p class="text-gray-600 mb-8 font-light">Thank you for reaching out. We've opened WhatsApp with your
+                        message. We'll get back to you as soon as possible.</p>
+                    <button onclick="location.reload()"
+                        class="bg-petros-green text-white px-8 py-3 rounded-full font-bold hover:bg-petros-slate transition-all shadow-lg">
+                        Send Another Message
+                    </button>
                 </div>
             </div>
 
@@ -439,13 +660,19 @@
             <div class="text-center mt-16">
                 <p class="text-gray-700 font-light mb-6">Connect with us on social media</p>
                 <div class="flex justify-center gap-4">
-                    <a href="https://www.facebook.com/profile.php?id=61570341071678" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-petros-green hover:bg-petros-green hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+                    <a href="https://www.facebook.com/profile.php?id=61570341071678" target="_blank"
+                        rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                        class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-petros-green hover:bg-petros-green hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                         <i data-lucide="facebook" class="w-5 h-5" aria-hidden="true"></i>
                     </a>
-                    <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-petros-green hover:bg-petros-green hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+                    <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                        aria-label="Follow us on Instagram"
+                        class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-petros-green hover:bg-petros-green hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                         <i data-lucide="instagram" class="w-5 h-5" aria-hidden="true"></i>
                     </a>
-                    <a href="https://wa.me/264816835055?text=Hello%20I'd%20like%20to%20book%20an%20appointment%20with%20Petros%20Biokinetics." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-petros-green hover:bg-petros-green hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
+                    <a href="https://wa.me/264816835055?text=Hello%20I'd%20like%20to%20book%20an%20appointment%20with%20Petros%20Biokinetics."
+                        target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                        class="w-12 h-12 rounded-full bg-white border border-gray-200 flex items-center justify-center text-petros-green hover:bg-petros-green hover:text-white transition-all duration-300 shadow-sm hover:shadow-md">
                         <i data-lucide="message-circle" class="w-5 h-5" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -456,7 +683,7 @@
     <!-- Map Section -->
     <section class="py-24 px-6 bg-white relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        
+
         <div class="container mx-auto max-w-6xl relative z-10">
             <div class="text-center mb-12">
                 <h2 class="font-serif text-4xl md:text-5xl text-petros-slate mb-4">Find Us in Swakopmund</h2>
@@ -464,35 +691,35 @@
             </div>
 
             <div class="rounded-2xl overflow-hidden shadow-xl h-[450px] border border-gray-200">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.456!2d14.528!3d-22.678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQwJzQ0LjAiUyAxNMKwMzEnNDAuOCJF!5e0!3m2!1sen!2sna!4v123456789" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy"
-                ></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.456!2d14.528!3d-22.678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDQwJzQ0LjAiUyAxNMKwMzEnNDAuOCJF!5e0!3m2!1sen!2sna!4v123456789"
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
+    <section
+        class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
         <div class="absolute inset-0">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob" style="animation-delay: 2s;"></div>
+            <div
+                class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob">
+            </div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob"
+                style="animation-delay: 2s;"></div>
         </div>
 
         <div class="container mx-auto px-4 text-center relative z-10">
             <h2 class="font-serif text-5xl md:text-7xl text-white mb-8 tracking-tight leading-tight">
                 Ready to Begin Your <br><span class="italic text-petros-green">Restoration?</span>
             </h2>
-            
+
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light">
                 Reach out via the form above or contact us directly. We're here to answer your questions.
             </p>
 
-            <a href="#contact-form" class="group inline-flex items-center gap-3 bg-petros-green text-white px-10 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1">
+            <a href="#contact-form"
+                class="group inline-flex items-center gap-3 bg-petros-green text-white px-10 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1">
                 Contact Us Now
                 <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
             </a>
@@ -502,30 +729,35 @@
     <!-- Footer -->
     <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                        <div
+                            class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
+                                class="font-light not-italic">Biokinetics</span></span>
                     </div>
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Facebook"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                            aria-label="Chat with us on WhatsApp"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
@@ -536,7 +768,8 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm text-petros-slate font-medium">
                         <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
+                        </li>
                         <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
                         <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
@@ -548,10 +781,14 @@
                 <div>
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 13:00 – 14:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
+                                18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed
+                                between 13:00 – 14:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span
+                                class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
+                                class="font-medium">Closed</span></li>
                     </ul>
                 </div>
 
@@ -559,12 +796,16 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
                     <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
                     <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
-                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                    <a href="tel:+264816835055" class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264 81 683 5055</a>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <a href="tel:+264816835055"
+                        class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264
+                        81 683 5055</a>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <div
+                class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
                 <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
@@ -577,9 +818,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+
     <script>
         lucide.createIcons();
         gsap.registerPlugin(ScrollTrigger);
+
+        // Add shake animation keyframes (same as booking form)
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20%, 60% { transform: translateX(-6px); }
+                40%, 80% { transform: translateX(6px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
 
         // Hero parallax
         gsap.to("#hero-bg", {
@@ -593,39 +846,246 @@
             scale: 1.1
         });
 
-        // WhatsApp Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // ===== ELEGANT FORM VALIDATION (BOOKING FORM STYLE) =====
+        const validationConfig = {
+            name: {
+                element: document.getElementById('name'),
+                errorElement: document.getElementById('name-error'),
+                errorTextElement: document.getElementById('name-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your full name' };
+                    if (value.trim().length < 2) return { valid: false, message: 'Name must be at least 2 characters' };
+                    if (!/^[a-zA-ZÀ-ÿ\s\-'\.]+$/.test(value.trim())) return { valid: false, message: 'Name contains invalid characters' };
+                    return { valid: true };
+                }
+            },
+            email: {
+                element: document.getElementById('email'),
+                errorElement: document.getElementById('email-error'),
+                errorTextElement: document.getElementById('email-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your email address' };
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value.trim())) return { valid: false, message: 'Please enter a valid email address (e.g. name@example.com)' };
+                    return { valid: true };
+                }
+            },
+            phone: {
+                element: document.getElementById('phone'),
+                errorElement: document.getElementById('phone-error'),
+                errorTextElement: document.getElementById('phone-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your phone number' };
+
+                    const cleaned = value.replace(/[\s\-\(\)\.]/g, '');
+                    const namibiaInternational = /^\+264(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
+                    const namibiaLocal = /^0(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
+                    const internationalFormat = /^\+\d{7,15}$/;
+                    const localFormat = /^0\d{7,14}$/;
+
+                    if (namibiaInternational.test(cleaned) || namibiaLocal.test(cleaned)) return { valid: true };
+                    if (internationalFormat.test(cleaned)) return { valid: true };
+                    if (localFormat.test(cleaned)) return { valid: true };
+
+                    if (cleaned.startsWith('+') && cleaned.length < 8) return { valid: false, message: 'Number too short for international format' };
+                    if (cleaned.startsWith('0') && cleaned.length < 8) return { valid: false, message: 'Number seems incomplete' };
+                    if (!cleaned.startsWith('+') && !cleaned.startsWith('0')) return { valid: false, message: 'Start with + for international or 0 for local' };
+
+                    return { valid: false, message: 'Please enter a valid phone number' };
+                }
+            },
+            message: {
+                element: document.getElementById('message'),
+                errorElement: document.getElementById('message-error'),
+                errorTextElement: document.getElementById('message-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your message' };
+                    if (value.trim().length < 5) return { valid: false, message: 'Message is too short' };
+                    return { valid: true };
+                }
+            }
+        };
+
+        function showError(field, message) {
+            const config = validationConfig[field];
+            if (!config) return;
+            config.errorTextElement.textContent = message;
+            config.errorElement.classList.remove('hidden');
+            config.element.classList.add('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+            config.element.classList.remove('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+            config.element.style.animation = 'shake 0.4s ease-in-out';
+            setTimeout(() => config.element.style.animation = '', 400);
+        }
+
+        function hideError(field) {
+            const config = validationConfig[field];
+            if (!config) return;
+            config.errorElement.classList.add('hidden');
+            config.element.classList.remove('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+            config.element.classList.add('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+        }
+
+        function validateField(field) {
+            const config = validationConfig[field];
+            if (!config) return true;
+            const result = config.validate(config.element.value);
+            if (!result.valid) {
+                showError(field, result.message);
+                return false;
+            } else {
+                hideError(field);
+                return true;
+            }
+        }
+
+        Object.keys(validationConfig).forEach(field => {
+            const config = validationConfig[field];
+            config.element.addEventListener('blur', () => validateField(field));
+            config.element.addEventListener('input', () => {
+                if (!config.errorElement.classList.contains('hidden')) {
+                    const result = config.validate(config.element.value);
+                    if (result.valid) hideError(field);
+                }
+            });
+        });
+
+        function validateForm() {
+            let isValid = true;
+            let firstError = null;
+            Object.keys(validationConfig).forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                    if (!firstError) firstError = validationConfig[field].element;
+                }
+            });
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (firstError.focus) firstError.focus();
+            }
+            return isValid;
+        }
+
+        function showFormError(message) {
+            const existingToast = document.getElementById('form-error-toast');
+            if (existingToast) existingToast.remove();
+
+            const toast = document.createElement('div');
+            toast.id = 'form-error-toast';
+            toast.className = 'fixed top-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[9999] md:max-w-md md:w-full bg-white rounded-2xl shadow-2xl border border-red-100 p-4 md:p-5 animate-slide-down';
+            toast.innerHTML = `
+                <div class="flex items-start gap-4">
+                    <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                        <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-semibold text-gray-900 mb-1">Unable to Submit</h4>
+                        <p class="text-sm text-gray-600">${message}</p>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="flex-shrink-0 text-gray-400 hover:text-gray-600 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.style.animation = 'slideUp 0.3s ease-out forwards';
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 8000);
+        }
+
+        // Add slide animations
+        const slideAnimations = document.createElement('style');
+        slideAnimations.textContent = `
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes slideUp {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+            .animate-slide-down {
+                animation: slideDown 0.3s ease-out;
+            }
+            @media (min-width: 768px) {
+                @keyframes slideDown {
+                    from { opacity: 0; transform: translate(-50%, -20px); }
+                    to { opacity: 1; transform: translate(-50%, 0); }
+                }
+                @keyframes slideUp {
+                    from { opacity: 1; transform: translate(-50%, 0); }
+                    to { opacity: 0; transform: translate(-50%, -20px); }
+                }
+            }
+        `;
+        document.head.appendChild(slideAnimations);
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
+            if (!validateForm()) return;
+
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="flex items-center justify-center gap-2"><i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Processing...</span>';
+            lucide.createIcons();
+
+            // WhatsApp Submission logic
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
-            const whatsappMessage = 
+
+            const whatsappMessage =
                 `👋 *Website Contact Inquiry*%0A%0A` +
                 `*Name:* ${encodeURIComponent(name)}%0A` +
                 `*Phone:* ${encodeURIComponent(phone)}%0A` +
                 `*Email:* ${encodeURIComponent(email)}%0A%0A` +
                 `*Message:*%0A${encodeURIComponent(message)}`;
-            
-            window.open(`https://wa.me/264816835055?text=${whatsappMessage}`, '_blank');
-            
-            this.reset();
+
+            try {
+                window.open(`https://wa.me/264816835055?text=${whatsappMessage}`, '_blank');
+
+                // Show success state
+                document.getElementById('contactForm').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+                window.scrollTo({ top: document.getElementById('contact-form-container').offsetTop - 100, behavior: 'smooth' });
+            } catch (err) {
+                showFormError('Something went wrong. Please try again or contact us via email.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                lucide.createIcons();
+            }
         });
     </script>
 
     <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
-    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
-       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+    <script src="cookie-consent.js"></script>
+
+    <a href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+        <span
+            class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat
+            with us</span>
     </a>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Scroll back to top of page" 
+    <button id="back-to-top" aria-label="Scroll back to top of page"
         class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
@@ -649,12 +1109,21 @@
         });
     </script>
 
+    
+
+    <!-- Lenis Smooth Scroll & Text Reveals -->
+    <script src="smooth-scroll.js"></script>
+    <!-- Code-Based Effects -->
+    <script src="effects.js"></script>
+    <script src="draw-animations.js"></script>
     <!-- 3D Particle Mesh -->
     <script src="particles.js"></script>
+    <script src="magnetic-button.js"></script>
     <script>
         if (typeof initParticles !== 'undefined') {
             initParticles('contact');
         }
     </script>
 </body>
+
 </html>

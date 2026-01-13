@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Specialized Services | Pétros Biokinetics - Clinical Restoration</title>
-    <meta name="description" content="Explore our specialized biokinetic services including initial assessment, prescriptive coding, dynamic results, and virtual consultations for complete clinical restoration.">
-    <meta name="keywords" content="physical therapy services, rehabilitation, biokinetics, assessment, clinical services, Swakopmund">
+    <meta name="description"
+        content="Explore our specialized biokinetic services including initial assessment, prescriptive coding, dynamic results, and virtual consultations for complete clinical restoration.">
+    <meta name="keywords"
+        content="physical therapy services, rehabilitation, biokinetics, assessment, clinical services, Swakopmund">
     <meta name="canonical" content="https://petrosbiokinetics.com/services.html">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Pétros Biokinetics">
     <meta property="og:title" content="Specialized Services | Pétros Biokinetics">
-    <meta property="og:description" content="Comprehensive biokinetic services for complete clinical restoration and movement therapy.">
+    <meta property="og:description"
+        content="Comprehensive biokinetic services for complete clinical restoration and movement therapy.">
     <meta property="og:url" content="https://petrosbiokinetics.com/services.html">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Pétros Biokinetics - Specialized Services">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Specialized Services | Pétros Biokinetics">
     <meta name="twitter:description" content="Professional biokinetic and rehabilitation services in Swakopmund.">
     <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -110,17 +114,39 @@
       }
     }
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Shake animation keyframes for error fields (always present) -->
+    <style>
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20%,
+            60% {
+                transform: translateX(-6px);
+            }
+
+            40%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+    </style>
 
     <script>
         tailwind.config = {
@@ -179,8 +205,13 @@
     <style>
         .noise-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999; opacity: 0.03;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
@@ -223,10 +254,17 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        html { scroll-behavior: smooth; }
-        body { background-color: #F5F4F0; overflow-x: hidden; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F4F0;
+            overflow-x: hidden;
+        }
     </style>
 </head>
+
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
     <!-- Page Loader -->
     <div id="page-loader" class="fixed inset-0 z-[9999]" style="display: none;">
@@ -242,9 +280,9 @@
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
-        
+
         // Hide loader when page is ready
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loader = document.getElementById('page-loader');
             if (loader.style.display === 'block') {
                 loader.style.opacity = '0';
@@ -262,116 +300,176 @@
     <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
         <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 flex items-center justify-center">
-                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
-                </div>
-                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
-                    Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
-                </span>
+                <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
+                    </div>
+                    <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
+                        Pétros <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
+                    </span>
+                </a>
             </div>
 
             <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
-                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
-                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
+                <li><a href="index.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a>
+                </li>
+                <li><a href="the-method.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a>
+                </li>
                 <li><a href="services.html" class="font-medium tracking-wide text-petros-green">Services</a></li>
-                <li><a href="pricing.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a></li>
-                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
-                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
-                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+                <li><a href="pricing.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a>
+                </li>
+                <li><a href="faq.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a>
+                </li>
+                <li><a href="about.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a>
+                </li>
+                <li><a href="contact.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a>
+                </li>
             </ul>
 
             <div class="flex items-center gap-3 hidden md:flex">
-                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                <a href="book-now.html"
+                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
                     Book Now
                 </a>
             </div>
 
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </nav>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
+        aria-hidden="true"></div>
+    <div id="mobile-menu"
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
+        role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
-            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+            <a href="index.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
+                Now</a>
         </div>
     </div>
 
-    <script>
-        const toggle = document.getElementById('mobile-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let scrollTimeout;
+        <script>
+            (function () {
+                // 1) Safe icon init (never crash)
+                function initIcons() {
+                    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                        window.lucide.createIcons();
+                    }
+                }
 
-        function toggleMenu() {
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                overlay.classList.remove('hidden');
-                overlay.setAttribute('aria-hidden', 'false');
-                toggle.setAttribute('aria-expanded', 'true');
-            } else {
-                menu.classList.add('hidden');
-                overlay.classList.add('hidden');
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        }
+                // 2) Safe GSAP init (never crash)
+                function initGsap() {
+                    if (window.gsap && window.ScrollTrigger) {
+                        gsap.registerPlugin(ScrollTrigger);
 
-        function closeMenu() {
-            menu.classList.add('hidden');
-            overlay.classList.add('hidden');
-            overlay.setAttribute('aria-hidden', 'true');
-            toggle.setAttribute('aria-expanded', 'false');
-        }
+                        gsap.to("#hero-bg-services", {
+                            scrollTrigger: {
+                                trigger: "section",
+                                start: "top top",
+                                end: "bottom top",
+                                scrub: true
+                            },
+                            y: 100,
+                            scale: 1.04
+                        });
+                    }
+                }
 
-        toggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+                // 3) Safe mobile menu
+                function initMobileMenu() {
+                    const toggle = document.getElementById('mobile-toggle');
+                    const menu = document.getElementById('mobile-menu');
+                    const overlay = document.getElementById('mobile-menu-overlay');
+                    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        window.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(closeMenu, 500);
-        });
+                    if (!toggle || !menu || !overlay) return;
 
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                closeMenu();
-            }
-        });
-    </script>
+                    function openMenu() {
+                        menu.classList.remove('hidden');
+                        overlay.classList.remove('hidden');
+                        overlay.setAttribute('aria-hidden', 'false');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+
+                    function closeMenu() {
+                        menu.classList.add('hidden');
+                        overlay.classList.add('hidden');
+                        overlay.setAttribute('aria-hidden', 'true');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+
+                    toggle.addEventListener('click', () => {
+                        const isHidden = menu.classList.contains('hidden');
+                        if (isHidden) openMenu();
+                        else closeMenu();
+                    });
+
+                    overlay.addEventListener('click', closeMenu);
+                    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+                    // keep menu closed on desktop resize
+                    window.addEventListener('resize', () => {
+                        if (window.innerWidth >= 768) closeMenu();
+                    });
+                }
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    initIcons();
+                    initGsap();
+                    initMobileMenu();
+                });
+            })();
+        </script>
 
     <!-- Hero Section -->
-    <header class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
-        
+    <header
+        class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+
         <!-- 3D Particle Mesh Canvas -->
-        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
-        
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
+            style="transition: opacity 0.5s ease-out;"></canvas>
+
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
-            <img id="hero-bg" src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1600/v1767433230/pexels-willpicturethis-1954524_etuv11.jpg" 
-                 alt="Specialized Services" 
-                 class="w-full h-full object-cover object-center">
+            <img id="hero-bg"
+                src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1600/v1767433230/pexels-willpicturethis-1954524_etuv11.jpg"
+                alt="Specialized Services" class="w-full h-full object-cover object-center">
             <!-- Seamless Blend to next section -->
             <div class="absolute inset-0 z-20 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
         </div>
 
         <div class="relative z-20 w-full px-6 flex justify-center">
             <div class="text-center max-w-4xl">
-                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block reveal-fade">Clinical Expertise</span>
+                <span
+                    class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block reveal-fade">Clinical
+                    Expertise</span>
                 <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 reveal-fade">
-                    Specialized <span class="italic text-petros-green">Services</span>
+                    Specialized <span class="italic text-petros-green draw-underline">Services</span>
                 </h1>
                 <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto reveal-lines">
                     Targeted restoration protocols for specific conditions and performance goals.
@@ -380,7 +478,9 @@
         </div>
 
         <!-- Animated blob -->
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0">
+        </div>
     </header>
 
     <!-- Services Section -->
@@ -388,40 +488,49 @@
         <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
         <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl mr-0 mb-0"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
-            
+
             <div class="max-w-4xl mx-auto text-center mb-24">
-                <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block reveal-fade">Comprehensive Care</span>
+                <span
+                    class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block reveal-fade">Comprehensive
+                    Care</span>
                 <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight mb-8 reveal-fade">
                     Clinical Excellence Across <span class="italic text-petros-green">All Conditions</span>
                 </h2>
                 <p class="text-gray-700 text-lg leading-relaxed font-light reveal-lines">
-                    At Pétros Biokinetics, we understand that every body tells a unique story. Our specialized services are designed to meet you exactly where you are in your journey—whether you're recovering from major surgery, managing chronic conditions, or seeking personalized support for long-term wellness.
+                    We combine clinical precision with patient-centered care to restore function, prevent injury,
+                    and improve performance. Our services are personalized to meet you where you are.
                 </p>
             </div>
 
             <div class="mb-24">
-                <h3 class="font-serif text-3xl text-petros-slate mb-12 text-center font-semibold reveal-fade">Pain & Injury Recovery</h3>
+                <h3 class="font-serif text-3xl text-petros-slate mb-12 text-center font-semibold reveal-fade">Pain &
+                    Injury Recovery</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
 
                     <!-- Service 1: Chronic Pain -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433409/pexels-karola-g-4506161_xr6pmc.jpg" class="w-full h-full object-cover" alt="Back Pain" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433409/pexels-karola-g-4506161_xr6pmc.jpg"
+                                class="w-full h-full object-cover" alt="Back Pain" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="shield-alert" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Chronic Back & Neck Pain</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Long-term relief through specialized posture correction and targeted core strengthening protocols that protect your spine.
+                                Experience lasting relief through specialized posture correction and gentle, targeted
+                                strengthening. We treat the root cause to protect your spine and restore your confidence
+                                to move freely.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Common Symptoms</p>
-                                <p class="text-sm text-white/80">Stiffness, limited mobility, persistent discomfort</p>
+                                <p class="text-sm text-white/80">Stiffness, limited mobility, persistent discomfort, and
+                                    comprehensive support for all spinal health concerns.</p>
                             </div>
                         </div>
                     </div>
@@ -429,20 +538,25 @@
                     <!-- Service 2: Sports Injuries -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433563/pexels-kindelmedia-7298422_zc84zt.jpg" class="w-full h-full object-cover" alt="Sports Injury" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433563/pexels-kindelmedia-7298422_zc84zt.jpg"
+                                class="w-full h-full object-cover" alt="Sports Injury" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="trophy" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Sports Injuries</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Return to sport safely and perform at your peak through biomechanical analysis and sport-specific drills tailored to your discipline.
+                                Don't let injury define your season. We carefully guide your return to sport with
+                                biomechanical expertise and personalized drills, ensuring you come back stronger, safer,
+                                and more confident.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Common Symptoms</p>
-                                <p class="text-sm text-white/80">Sprains, strains, overuse injuries, reduced performance</p>
+                                <p class="text-sm text-white/80">Sprains, strains, overuse injuries, reduced
+                                    performance, and comprehensive care for any setback on your athletic journey.</p>
                             </div>
                         </div>
                     </div>
@@ -450,20 +564,25 @@
                     <!-- Service 3: Post-Injury Recovery -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433915/pexels-shvetsa-3846157_hhxk4b.jpg" class="w-full h-full object-cover" alt="Recovery" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433915/pexels-shvetsa-3846157_hhxk4b.jpg"
+                                class="w-full h-full object-cover" alt="Recovery" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="refresh-cw" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Post-Injury Recovery</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Restoring full range of motion and functional strength after acute sprains, muscle strains, or bone fractures with progressive care.
+                                Healing is a journey, and you don't have to walk it alone. We gently guide you from
+                                acute injury back to full strength, restoring your range of motion and your trust in
+                                your body's ability to heal.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Common Symptoms</p>
-                                <p class="text-sm text-white/80">Limited movement, weakness, fear of re-injury</p>
+                                <p class="text-sm text-white/80">Limited movement, weakness, fear of re-injury, and the
+                                    emotional support you need to navigate every stage of your recovery.</p>
                             </div>
                         </div>
                     </div>
@@ -479,70 +598,56 @@
                     <!-- Service 4: Post-Surgery Rehab -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1768036425/pexels-funkcines-terapijos-centras-927573878-20860582_g3sb5m.jpg" class="w-full h-full object-cover" alt="Surgery Recovery" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1768036425/pexels-funkcines-terapijos-centras-927573878-20860582_g3sb5m.jpg"
+                                class="w-full h-full object-cover" alt="Surgery Recovery" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="scissors" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Post-Surgery Rehab</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Guided, gentle recovery for hip and knee replacements, shoulder repairs, and spinal surgeries to restore full mobility.
+                                Recovering from surgery is a major undertaking, but you don't have to face it alone. We
+                                offer gentle, expert guidance for hip and knee replacements, shoulder repairs, and
+                                spinal surgeries, working with your surgeon to ensure a safe, confident return to the
+                                life you love.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Surgeries We Support</p>
-                                <p class="text-sm text-white/80">Hip/knee replacements, ACL/rotator cuff repairs, spinal procedures</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Service 5: Cardiac & Pulmonary Recovery -->
-                    <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
-                        <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434040/pexels-martabranco-32236830_dshmlx.jpg" class="w-full h-full object-cover" alt="Cardiac Recovery" loading="lazy">
-                            <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
-                        </div>
-                        <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
-                                <i data-lucide="heart-pulse" class="w-7 h-7 text-petros-green"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl text-white mb-3">Cardiac & Pulmonary Recovery</h3>
-                            <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Monitored, progressive exercise programs to rebuild cardiovascular fitness and lung function after cardiac events or surgery.
-                            </p>
-                            <div class="pt-4 border-t border-white/20">
-                                <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Common Conditions</p>
-                                <p class="text-sm text-white/80">Post-heart attack, bypass surgery, COPD management</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                                <p class="text-sm text-white/80">Hip/knee replacements, ACL/rotator cuff repairs, spinal
+                                    procedures, and unwavering support for every step of your unique post-operative
+                                    
             </div>
 
             <!-- Chronic Conditions -->
             <div class="mb-24">
-                <h3 class="font-serif text-3xl text-petros-slate mb-12 text-center font-semibold">Chronic Conditions</h3>
+                <h3 class="font-serif text-3xl text-petros-slate mb-12 text-center font-semibold">Chronic Conditions
+                </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
 
                     <!-- Service 6: Lifestyle Diseases -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434040/pexels-n-voitkevich-6941098_c4zcy2.jpg" class="w-full h-full object-cover" alt="Fitness" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434040/pexels-n-voitkevich-6941098_c4zcy2.jpg"
+                                class="w-full h-full object-cover" alt="Fitness" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="activity" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Lifestyle Diseases</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Medically supervised exercise for diabetes, hypertension, and obesity to help you feel more energetic and healthy every day.
+                                Compassionate, medically supervised programs for diabetes, hypertension, and metabolic
+                                health. We help you reclaim your energy and confidence through safe, guided movement.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">We Help With</p>
-                                <p class="text-sm text-white/80">Type 2 diabetes, high blood pressure, weight management</p>
+                                <p class="text-sm text-white/80">Type 2 diabetes, hypertension, weight management, and
+                                    personalized care for your complete metabolic well-being.</p>
                             </div>
                         </div>
                     </div>
@@ -550,20 +655,24 @@
                     <!-- Service 7: Neurological Conditions -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434164/pexels-shvetsa-4226119_qyrttu.jpg" class="w-full h-full object-cover" alt="Neurological" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434164/pexels-shvetsa-4226119_qyrttu.jpg"
+                                class="w-full h-full object-cover" alt="Neurological" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="brain" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Neurological Conditions</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Supportive neuro-rehabilitation for stroke recovery, Parkinson's disease, and multiple sclerosis management.
+                                Empowering, specialized neuro-rehabilitation to help you regain independence. We provide
+                                compassionate, long-term support for stroke recovery, Parkinson's, and MS.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">We Help With</p>
-                                <p class="text-sm text-white/80">Stroke, Parkinson's, MS, balance disorders</p>
+                                <p class="text-sm text-white/80">Stroke, Parkinson's, MS, balance disorders, and
+                                    comprehensive care for a wide range of neurological challenges.</p>
                             </div>
                         </div>
                     </div>
@@ -571,20 +680,26 @@
                     <!-- Service 8: Chronic Fatigue -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434303/pexels-tara-winstead-8386710_algivj.jpg" class="w-full h-full object-cover" alt="Wellness" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434303/pexels-tara-winstead-8386710_algivj.jpg"
+                                class="w-full h-full object-cover" alt="Wellness" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="sparkles" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Chronic Fatigue & Fibromyalgia</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Gentle, paced programs that respect your energy limits while gradually building strength and reducing pain.
+                                We understand that every day is different. Our gentle, paced programs are designed to
+                                respect your energy limits, helping you gradually build resilience and reduce pain
+                                without overwhelming your body.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">We Help With</p>
-                                <p class="text-sm text-white/80">CFS/ME, fibromyalgia, chronic pain syndromes</p>
+                                <p class="text-sm text-white/80">CFS/ME, fibromyalgia, chronic pain syndromes, and
+                                    compassionate, patient-centered care for navigating the challenges of invisible
+                                    illness.</p>
                             </div>
                         </div>
                     </div>
@@ -600,20 +715,24 @@
                     <!-- Service 9: Women's Health -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434430/pexels-jonathanborba-2917339_sz0jhk.jpg" class="w-full h-full object-cover" alt="Women's Health" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434430/pexels-jonathanborba-2917339_sz0jhk.jpg"
+                                class="w-full h-full object-cover" alt="Women's Health" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="flower-2" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Women's Health</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Pre- and post-natal exercise programs designed to help women maintain strength, core stability, and a safe return to activity.
+                                Pre- and post-natal exercise programs designed to help women maintain strength, core
+                                stability, and a safe return to activity.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">We Help With</p>
-                                <p class="text-sm text-white/80">Pregnancy fitness, postpartum recovery, pelvic floor</p>
+                                <p class="text-sm text-white/80">Pregnancy fitness, postpartum recovery, pelvic floor
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -621,20 +740,26 @@
                     <!-- Service 10: Neurological Rehab -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434573/pexels-funkcines-terapijos-centras-927573878-20860586_sm031x.jpg" class="w-full h-full object-cover" alt="Movement" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434573/pexels-funkcines-terapijos-centras-927573878-20860586_sm031x.jpg"
+                                class="w-full h-full object-cover" alt="Movement" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="zap" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Neurological Rehabilitation</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Vital support for stroke recovery, Parkinson's disease, and multiple sclerosis through neuro-plasticity focused movement therapy.
+                                Our neuro-plasticity focused therapy offers vital support for stroke recovery,
+                                Parkinson's, and MS. We believe in your potential to improve, helping you retrain your
+                                brain and body for greater independence.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Best For</p>
-                                <p class="text-sm text-white/80">Post-stroke recovery, MS management, Parkinson's support</p>
+                                <p class="text-sm text-white/80">Post-stroke recovery, MS management, Parkinson's
+                                    support, and a committed partnership in your journey toward better movement and
+                                    function.</p>
                             </div>
                         </div>
                     </div>
@@ -642,20 +767,26 @@
                     <!-- Service 11: Aquatherapy -->
                     <div class="group gradient-card rounded-3xl p-10 card-hover relative overflow-hidden h-96">
                         <div class="absolute inset-0 z-0">
-                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434626/pexels-cottonbro-7222572_f3iang.jpg" class="w-full h-full object-cover" alt="Water Therapy" loading="lazy">
+                            <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434626/pexels-cottonbro-7222572_f3iang.jpg"
+                                class="w-full h-full object-cover" alt="Water Therapy" loading="lazy">
                             <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60"></div>
                         </div>
                         <div class="relative z-10 h-full flex flex-col justify-end">
-                            <div class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
+                            <div
+                                class="w-14 h-14 bg-gradient-to-br from-petros-green/40 to-petros-green/20 rounded-2xl flex items-center justify-center mb-6 group-hover:from-petros-green/60 group-hover:to-petros-green/30 transition-all">
                                 <i data-lucide="droplets" class="w-7 h-7 text-petros-green"></i>
                             </div>
                             <h3 class="font-serif text-2xl text-white mb-3">Aquatherapy</h3>
                             <p class="text-white/90 text-sm font-light leading-relaxed mb-4">
-                                Low-impact exercise in water to manage severe joint pain, improve mobility, and facilitate gentle, weightless rehabilitation.
+                                Discover the healing power of water. Our gentle, weightless environment alleviates pain
+                                and pressure on your joints, allowing you to move with a freedom and ease you might not
+                                have felt in years.
                             </p>
                             <div class="pt-4 border-t border-white/20">
                                 <p class="text-xs text-white/70 uppercase tracking-widest mb-2">Best For</p>
-                                <p class="text-sm text-white/80">Arthritis, joint pain, post-injury gentle recovery</p>
+                                <p class="text-sm text-white/80">Arthritis, joint pain, post-injury gentle recovery, and
+                                    a soothing, safe space to rebuild your strength without the fear of impact or
+                                    strain.</p>
                             </div>
                         </div>
                     </div>
@@ -669,9 +800,11 @@
                     Don't See Your <br><span class="italic text-petros-green">Condition Listed?</span>
                 </h3>
                 <p class="text-gray-700 text-lg leading-relaxed font-light mb-8">
-                    Every recovery journey is unique. Reach out to discuss your specific condition and see how we can support your path to wellness—regardless of your situation.
+                    Every recovery journey is unique. Reach out to discuss your specific condition and see how we can
+                    support your path to wellness—regardless of your situation.
                 </p>
-                <a href="contact.html" class="inline-block bg-petros-green text-white px-10 py-4 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-xl">
+                <a href="contact.html"
+                    class="inline-block bg-petros-green text-white px-10 py-4 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-xl">
                     Contact Us
                 </a>
             </div>
@@ -680,21 +813,28 @@
     </section>
 
     <!-- Contact Form Section -->
-    <section id="contact" class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
+    <section id="contact"
+        class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
         <div class="absolute inset-0">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob animation-delay-2000"></div>
+            <div
+                class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob">
+            </div>
+            <div
+                class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob animation-delay-2000">
+            </div>
         </div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-2xl mx-auto">
                 <div class="text-center mb-12">
-                    <p class="text-petros-green/90 uppercase tracking-[0.3em] text-xs font-bold mb-4 opacity-90">Get Started Today</p>
+                    <p class="text-petros-green/90 uppercase tracking-[0.3em] text-xs font-bold mb-4 opacity-90">Get
+                        Started Today</p>
                     <h2 class="font-serif text-4xl md:text-5xl text-white mb-6">
                         Begin Your <span class="italic text-petros-green">Specialized Protocol</span>
                     </h2>
                     <p class="text-gray-300 text-lg font-light">
-                        Contact us via WhatsApp with your details and we'll get back to you with a personalized treatment plan.
+                        Contact us via WhatsApp with your details and we'll get back to you with a personalized
+                        treatment plan.
                     </p>
                 </div>
 
@@ -702,24 +842,48 @@
                 <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
                     <form id="contactForm" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <label for="name" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full Name *</label>
-                                <input type="text" id="name" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="John Doe">
+                            <div class="relative">
+                                <label for="name"
+                                    class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Full
+                                    Name *</label>
+                                <input type="text" id="name" required
+                                    class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all"
+                                    placeholder="John Doe">
+                                <p id="name-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                    <span id="name-error-text"></span>
+                                </p>
                             </div>
-                            <div>
-                                <label for="phone" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone / WhatsApp *</label>
-                                <input type="tel" id="phone" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="+264 ...">
+                            <div class="relative">
+                                <label for="phone"
+                                    class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Phone
+                                    / WhatsApp *</label>
+                                <input type="tel" id="phone" required
+                                    class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all"
+                                    placeholder="+264 ...">
+                                <p id="phone-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                    <span id="phone-error-text"></span>
+                                </p>
                             </div>
                         </div>
 
-                        <div>
-                            <label for="email" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email Address *</label>
-                            <input type="email" id="email" required class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all" placeholder="hello@example.com">
+                        <div class="relative">
+                            <label for="email"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Email
+                                Address *</label>
+                            <input type="email" id="email" required
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all"
+                                placeholder="hello@example.com">
+                            <p id="email-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <span id="email-error-text"></span>
+                            </p>
                         </div>
 
-                        <div>
-                            <label for="service" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Interested Service</label>
-                            <select id="service" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
+                        <div class="relative">
+                            <label for="service"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Interested
+                                Service</label>
+                            <select id="service"
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all">
                                 <option value="">Select a service...</option>
                                 <option value="Chronic Back & Neck Pain">Chronic Back & Neck Pain</option>
                                 <option value="Sports Injuries">Sports Injuries</option>
@@ -734,19 +898,31 @@
                                 <option value="Aquatherapy">Aquatherapy</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <p id="service-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <span id="service-error-text"></span>
+                            </p>
                         </div>
 
-                        <div>
-                            <label for="message" class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Your Message *</label>
-                            <textarea id="message" required rows="5" class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none" placeholder="Tell us about your condition and goals..."></textarea>
+                        <div class="relative">
+                            <label for="message"
+                                class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Your
+                                Message *</label>
+                            <textarea id="message" required rows="5"
+                                class="w-full px-5 py-3 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all resize-none"
+                                placeholder="Tell us about your condition and goals..."></textarea>
+                            <p id="message-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
+                                <span id="message-error-text"></span>
+                            </p>
                         </div>
 
-                        <button type="submit" class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+                        <button type="submit"
+                            class="w-full px-8 py-4 bg-petros-green text-white rounded-lg font-bold hover:bg-petros-slate transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group magnetic-btn">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
                             <span>Send via WhatsApp</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right"
+                                class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                         </button>
-                        
+
                         <p class="text-center text-xs text-gray-500 uppercase tracking-wider">
                             Your privacy is handled with medical confidentiality.
                         </p>
@@ -759,30 +935,35 @@
     <!-- Footer -->
     <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                        <div
+                            class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
+                                class="font-light not-italic">Biokinetics</span></span>
                     </div>
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Facebook"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                            aria-label="Chat with us on WhatsApp"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
@@ -793,7 +974,8 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm text-petros-slate font-medium">
                         <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
+                        </li>
                         <li><a href="services.html" class="text-petros-green">Services</a></li>
                         <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
@@ -805,10 +987,14 @@
                 <div>
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 12:00 – 13:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
+                                18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed
+                                between 13:00 – 14:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span
+                                class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
+                                class="font-medium">Closed</span></li>
                     </ul>
                 </div>
 
@@ -816,12 +1002,16 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
                     <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
                     <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
-                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                    <a href="tel:+264816835055" class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264 81 683 5055</a>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <a href="tel:+264816835055"
+                        class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264
+                        81 683 5055</a>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <div
+                class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
                 <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
@@ -849,41 +1039,164 @@
             scale: 1.1
         });
 
-        // WhatsApp Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Elegant Form Validation (Contact Form)
+        const validationConfig = {
+            name: {
+                element: document.getElementById('name'),
+                errorElement: document.getElementById('name-error'),
+                errorTextElement: document.getElementById('name-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your full name' };
+                    if (value.trim().length < 2) return { valid: false, message: 'Name must be at least 2 characters' };
+                    if (!/^[a-zA-ZÀ-ÿ\s\-'.]+$/.test(value.trim())) return { valid: false, message: 'Name contains invalid characters' };
+                    return { valid: true };
+                }
+            },
+            email: {
+                element: document.getElementById('email'),
+                errorElement: document.getElementById('email-error'),
+                errorTextElement: document.getElementById('email-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your email address' };
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(value.trim())) return { valid: false, message: 'Please enter a valid email address (e.g. name@example.com)' };
+                    return { valid: true };
+                }
+            },
+            phone: {
+                element: document.getElementById('phone'),
+                errorElement: document.getElementById('phone-error'),
+                errorTextElement: document.getElementById('phone-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your phone number' };
+                    const cleaned = value.replace(/[\s\-().]/g, '');
+                    const namibiaInternational = /^\+264(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
+                    const namibiaLocal = /^0(81|85|83|84|60|61|62|63|64|65|66|67)\d{6,7}$/;
+                    const internationalFormat = /^\+\d{7,15}$/;
+                    const localFormat = /^0\d{7,14}$/;
+                    if (namibiaInternational.test(cleaned) || namibiaLocal.test(cleaned)) return { valid: true };
+                    if (internationalFormat.test(cleaned)) return { valid: true };
+                    if (localFormat.test(cleaned)) return { valid: true };
+                    if (cleaned.startsWith('+') && cleaned.length < 8) return { valid: false, message: 'Number too short for international format' };
+                    if (cleaned.startsWith('0') && cleaned.length < 8) return { valid: false, message: 'Number seems incomplete' };
+                    if (!cleaned.startsWith('+') && !cleaned.startsWith('0')) return { valid: false, message: 'Start with + for international or 0 for local' };
+                    return { valid: false, message: 'Please enter a valid phone number' };
+                }
+            },
+            service: {
+                element: document.getElementById('service'),
+                errorElement: document.getElementById('service-error'),
+                errorTextElement: document.getElementById('service-error-text'),
+                validate: (value) => {
+                    // Service is optional, but show error if not selected
+                    return { valid: true };
+                }
+            },
+            message: {
+                element: document.getElementById('message'),
+                errorElement: document.getElementById('message-error'),
+                errorTextElement: document.getElementById('message-error-text'),
+                validate: (value) => {
+                    if (!value.trim()) return { valid: false, message: 'Please enter your message' };
+                    if (value.trim().length < 5) return { valid: false, message: 'Message is too short' };
+                    return { valid: true };
+                }
+            }
+        };
+
+        function showError(field, message) {
+            const config = validationConfig[field];
+            if (!config) return;
+            config.errorTextElement.textContent = message;
+            config.errorElement.classList.remove('hidden');
+            config.element.classList.add('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+            config.element.classList.remove('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+            config.element.style.animation = 'shake 0.4s ease-in-out';
+            setTimeout(() => config.element.style.animation = '', 400);
+        }
+
+        function hideError(field) {
+            const config = validationConfig[field];
+            if (!config) return;
+            config.errorElement.classList.add('hidden');
+            config.element.classList.remove('border-red-400', 'focus:border-red-500', 'focus:ring-red-200');
+            config.element.classList.add('border-gray-200', 'focus:border-petros-green', 'focus:ring-petros-green/20');
+        }
+
+        function validateField(field) {
+            const config = validationConfig[field];
+            if (!config) return true;
+            const result = config.validate(config.element.value);
+            if (!result.valid) {
+                showError(field, result.message);
+                return false;
+            } else {
+                hideError(field);
+                return true;
+            }
+        }
+
+        Object.keys(validationConfig).forEach(field => {
+            const config = validationConfig[field];
+            config.element.addEventListener('blur', () => validateField(field));
+            config.element.addEventListener('input', () => {
+                if (!config.errorElement.classList.contains('hidden')) {
+                    const result = config.validate(config.element.value);
+                    if (result.valid) hideError(field);
+                }
+            });
+        });
+
+        function validateForm() {
+            let isValid = true;
+            let firstError = null;
+            Object.keys(validationConfig).forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                    if (!firstError) firstError = validationConfig[field].element;
+                }
+            });
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                if (firstError.focus) firstError.focus();
+            }
+            return isValid;
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+            if (!validateForm()) return;
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
             const service = document.getElementById('service').value;
             const message = document.getElementById('message').value;
-            
-            const whatsappMessage = 
+            const whatsappMessage =
                 `👋 *Service Inquiry from Website*%0A%0A` +
                 `*Name:* ${encodeURIComponent(name)}%0A` +
                 `*Phone:* ${encodeURIComponent(phone)}%0A` +
                 `*Email:* ${encodeURIComponent(email)}%0A` +
                 `*Service:* ${encodeURIComponent(service || 'Not specified')}%0A%0A` +
                 `*Message:*%0A${encodeURIComponent(message)}`;
-            
             window.open(`https://wa.me/264816835055?text=${whatsappMessage}`, '_blank');
-            
             this.reset();
         });
     </script>
 
     <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
-    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
-       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+    <a href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+        <span
+            class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat
+            with us</span>
     </a>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Scroll back to top of page" 
+    <button id="back-to-top" aria-label="Scroll back to top of page"
         class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
@@ -920,5 +1233,10 @@
 
     <!-- Lenis Smooth Scroll & Text Reveals -->
     <script src="smooth-scroll.js"></script>
+    <script src="effects.js"></script>
+    <script src="draw-animations.js"></script>
+    <script src="magnetic-button.js"></script>
+    <script src="cookie-consent.js"></script>
 </body>
+
 </html>

@@ -13,3 +13,63 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
 }
+
+/* Mobile Responsiveness Improvements */
+/* Prevent horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Ensure form inputs meet 44px minimum touch target on mobile */
+@media (max-width: 767px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    textarea,
+    select {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    /* Ensure buttons meet touch target requirements */
+    button,
+    a[role="button"],
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Improve hero text sizing on very small screens */
+    h1 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Prevent text overflow in hero sections */
+    .glass-hero-block h1 {
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        line-height: 1.2;
+    }
+    
+    /* Ensure images don't overflow */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Improve spacing on mobile */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Magnetic Button Effect Styles */
+[data-magnetic],
+.magnetic-btn {
+    transform-origin: center;
+    will-change: transform;
+    position: relative;
+}

@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | Pétros Biokinetics - Transparent Rates</title>
-    <meta name="description" content="Transparent pricing for biokinetic services including evaluations, treatment packages, and virtual consultations. Affordable clinical restoration in Swakopmund.">
-    <meta name="keywords" content="biokinetics pricing, physical therapy rates, rehabilitation cost, consultation fees, Swakopmund">
+    <meta name="description"
+        content="Transparent pricing for biokinetic services including evaluations, treatment packages, and virtual consultations. Affordable clinical restoration in Swakopmund.">
+    <meta name="keywords"
+        content="biokinetics pricing, physical therapy rates, rehabilitation cost, consultation fees, Swakopmund">
     <meta name="canonical" content="https://petrosbiokinetics.com/pricing.html">
-    
+
     <!-- Open Graph Tags -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
     <meta property="og:site_name" content="Pétros Biokinetics">
     <meta property="og:title" content="Pricing | Pétros Biokinetics - Transparent Rates">
-    <meta property="og:description" content="Transparent pricing for clinical restoration and biokinetic services in Swakopmund.">
+    <meta property="og:description"
+        content="Transparent pricing for clinical restoration and biokinetic services in Swakopmund.">
     <meta property="og:url" content="https://petrosbiokinetics.com/pricing.html">
     <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Pétros Biokinetics - Transparent Pricing">
-    
+
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pricing | Pétros Biokinetics">
     <meta name="twitter:description" content="Transparent and affordable biokinetic service pricing.">
     <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -87,16 +91,18 @@
       }
     }
     </script>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Three.js for 3D Effects -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
@@ -156,8 +162,13 @@
     <style>
         .noise-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 9999; opacity: 0.03;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
@@ -189,31 +200,6 @@
             transform: translateY(-4px);
         }
 
-        /* Staggered animation */
-        @keyframes fadeInStaggered {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .pricing-card {
-            animation: fadeInStaggered 0.6s ease-out forwards;
-            opacity: 0;
-        }
-
-        .pricing-card:nth-child(1) { animation-delay: 0.1s; }
-        .pricing-card:nth-child(2) { animation-delay: 0.2s; }
-        .pricing-card:nth-child(3) { animation-delay: 0.3s; }
-        .pricing-card:nth-child(4) { animation-delay: 0.4s; }
-        .pricing-card:nth-child(5) { animation-delay: 0.5s; }
-        .pricing-card:nth-child(6) { animation-delay: 0.6s; }
-        .pricing-card:nth-child(7) { animation-delay: 0.7s; }
-
         /* Glow effect on hover */
         .pricing-card:hover {
             box-shadow: 0 0 24px rgba(122, 139, 105, 0.4), 0 12px 24px rgba(0, 0, 0, 0.1) !important;
@@ -224,10 +210,17 @@
             border: 1px solid rgba(122, 139, 105, 0.2);
         }
 
-        html { scroll-behavior: smooth; }
-        body { background-color: #F5F4F0; overflow-x: hidden; }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #F5F4F0;
+            overflow-x: hidden;
+        }
     </style>
 </head>
+
 <body class="font-sans antialiased text-petros-slate selection:bg-petros-green selection:text-white">
     <!-- Page Loader -->
     <div id="page-loader" class="fixed inset-0 z-[9999]" style="display: none;">
@@ -243,9 +236,9 @@
             document.getElementById('page-loader').style.display = 'block';
             sessionStorage.setItem('petros-loaded', 'true');
         }
-        
+
         // Hide loader when page is ready
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const loader = document.getElementById('page-loader');
             if (loader.style.display === 'block') {
                 loader.style.opacity = '0';
@@ -263,129 +256,192 @@
     <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
         <div class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
             <!-- Logo -->
-            <div class="flex items-center gap-3">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
                 <div class="w-10 h-10 flex items-center justify-center">
                     <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
                 </div>
                 <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
                     Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
                 </span>
-            </div>
+            </a>
 
             <!-- Desktop Navigation -->
             <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
-                <li><a href="index.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a></li>
-                <li><a href="the-method.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a></li>
-                <li><a href="services.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a></li>
+                <li><a href="index.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a>
+                </li>
+                <li><a href="the-method.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a>
+                </li>
+                <li><a href="services.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a>
+                </li>
                 <li><a href="pricing.html" class="font-medium tracking-wide text-petros-green">Pricing</a></li>
-                <li><a href="faq.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a></li>
-                <li><a href="about.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a></li>
-                <li><a href="contact.html" class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a></li>
+                <li><a href="faq.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a>
+                </li>
+                <li><a href="about.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">About</a>
+                </li>
+                <li><a href="contact.html"
+                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a>
+                </li>
             </ul>
 
             <!-- Book Now Button -->
             <div class="flex items-center gap-3 hidden md:flex">
-                <a href="book-now.html" class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
+                <a href="book-now.html"
+                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
                     Book Now
                 </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
+                aria-expanded="false" aria-controls="mobile-menu">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden" aria-hidden="true"></div>
-    <div id="mobile-menu" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
+        aria-hidden="true"></div>
+    <div id="mobile-menu"
+        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
+        role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
-            <a href="index.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html" class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html" class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book Now</a>
+            <a href="index.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Home</a>
+            <a href="the-method.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
+            <a href="services.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
+            <a href="pricing.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Pricing</a>
+            <a href="faq.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
+            <a href="about.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
+            <a href="contact.html"
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
+            <a href="book-now.html"
+                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
+                Now</a>
         </div>
     </div>
 
-    <script>
-        const toggle = document.getElementById('mobile-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let scrollTimeout;
+        <script>
+            (function () {
+                // 1) Safe icon init (never crash)
+                function initIcons() {
+                    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                        window.lucide.createIcons();
+                    }
+                }
 
-        function toggleMenu() {
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                overlay.classList.remove('hidden');
-                overlay.setAttribute('aria-hidden', 'false');
-                toggle.setAttribute('aria-expanded', 'true');
-            } else {
-                menu.classList.add('hidden');
-                overlay.classList.add('hidden');
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        }
+                // 2) Safe GSAP init (never crash)
+                function initGsap() {
+                    if (window.gsap && window.ScrollTrigger) {
+                        gsap.registerPlugin(ScrollTrigger);
 
-        function closeMenu() {
-            menu.classList.add('hidden');
-            overlay.classList.add('hidden');
-            overlay.setAttribute('aria-hidden', 'true');
-            toggle.setAttribute('aria-expanded', 'false');
-        }
+                        // target hero id used on this page
+                        if (document.getElementById('hero-bg-pricing')) {
+                            gsap.to("#hero-bg-pricing", {
+                                scrollTrigger: {
+                                    trigger: "section",
+                                    start: "top top",
+                                    end: "bottom top",
+                                    scrub: true
+                                },
+                                y: 100,
+                                scale: 1.04
+                            });
+                        }
+                    }
+                }
 
-        toggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+                // 3) Safe mobile menu
+                function initMobileMenu() {
+                    const toggle = document.getElementById('mobile-toggle');
+                    const menu = document.getElementById('mobile-menu');
+                    const overlay = document.getElementById('mobile-menu-overlay');
+                    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        window.addEventListener('scroll', () => {
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(closeMenu, 500);
-        });
+                    if (!toggle || !menu || !overlay) return;
 
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                closeMenu();
-            }
-        });
-    </script>
+                    function openMenu() {
+                        menu.classList.remove('hidden');
+                        overlay.classList.remove('hidden');
+                        overlay.setAttribute('aria-hidden', 'false');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+
+                    function closeMenu() {
+                        menu.classList.add('hidden');
+                        overlay.classList.add('hidden');
+                        overlay.setAttribute('aria-hidden', 'true');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    }
+
+                    toggle.addEventListener('click', () => {
+                        const isHidden = menu.classList.contains('hidden');
+                        if (isHidden) openMenu();
+                        else closeMenu();
+                    });
+
+                    overlay.addEventListener('click', closeMenu);
+                    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+                    // keep menu closed on desktop resize
+                    window.addEventListener('resize', () => {
+                        if (window.innerWidth >= 768) closeMenu();
+                    });
+                }
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    initIcons();
+                    initGsap();
+                    initMobileMenu();
+                });
+            })();
+        </script>
 
     <!-- Hero Section -->
-    <header class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
-        
+    <header
+        class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+
         <!-- 3D Particle Mesh Canvas -->
-        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none" style="transition: opacity 0.5s ease-out;"></canvas>
-        
+        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
+            style="transition: opacity 0.5s ease-out;"></canvas>
+
         <div class="absolute inset-0 z-0">
             <div class="absolute inset-0 bg-gray-600/40 z-10"></div>
-            <img id="hero-bg" src="https://res.cloudinary.com/karlifunk/image/upload/v1767432676/pexels-daniel-jurin-358265-1835718_feqicx.jpg?auto=compress&cs=tinysrgb&w=1600" 
-                 alt="Pricing" 
-                 class="w-full h-full object-cover object-center">
+            <img id="hero-bg"
+                src="https://res.cloudinary.com/karlifunk/image/upload/v1767432676/pexels-daniel-jurin-358265-1835718_feqicx.jpg?auto=compress&cs=tinysrgb&w=1600"
+                alt="Pricing" class="w-full h-full object-cover object-center">
             <!-- Seamless Blend -->
             <div class="absolute inset-0 z-20 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
         </div>
 
         <div class="relative z-20 w-full px-6 flex justify-center">
             <div class="text-center max-w-4xl">
-                <span class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block animate-fade-in">Transparent Pricing</span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 animate-slide-up">
-                    Investment in <span class="italic text-petros-green">Your Health</span>
+                <span
+                    class="text-petros-green/90 text-xs font-bold tracking-[0.3em] uppercase mb-6 block reveal-fade">Transparent
+                    Pricing</span>
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-8 reveal-fade">
+                    Investment in <span class="italic text-petros-green draw-underline">Your Health</span>
                 </h1>
-                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                <p class="text-white/85 text-lg md:text-xl font-light max-w-3xl mx-auto reveal-lines">
                     Clear, competitive pricing for comprehensive restoration and rehabilitation programs.
                 </p>
             </div>
         </div>
 
         <!-- Animated blob -->
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0"></div>
+        <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl animate-blob -mr-48 -mb-48 z-0">
+        </div>
     </header>
 
     <!-- Pricing Section -->
@@ -393,13 +449,14 @@
         <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
         <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-deep/5 rounded-full blur-3xl mr-0 mb-0"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10 max-w-6xl">
-            
+
             <!-- Evaluations Section -->
             <div class="mb-20">
                 <div class="text-center mb-16">
-                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Session Types</span>
+                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Session
+                        Types</span>
                     <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight mb-4">
                         Assessments & Evaluations
                     </h2>
@@ -408,7 +465,7 @@
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 reveal-stagger">
                     <!-- Full Evaluation -->
                     <div class="pricing-card p-8">
                         <div class="flex items-center gap-3 mb-6">
@@ -525,36 +582,8 @@
             <!-- Monthly Packages -->
             <div class="mb-20 border-t border-gray-300 pt-20">
                 <div class="text-center mb-16">
-                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Better Value</span>
-                    <h2 class="font-serif text-5xl md:text-6xl text-petros-slate leading-tight mb-4">
-                        Monthly Packages
-                    </h2>
-                    <p class="text-gray-700 text-lg leading-relaxed font-light">
-                        Committed programs with consistent pricing for sustained restoration results.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Group Sessions Package -->
-                    <div class="pricing-card p-8 lg:p-10">
-                        <div class="flex items-center gap-3 mb-8">
-                            <div class="w-12 h-12 bg-petros-green/10 rounded-lg flex items-center justify-center">
-                                <i data-lucide="users" class="w-6 h-6 text-petros-green"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl text-petros-slate">Group Sessions</h3>
-                        </div>
+                    <span class="text-petros-green text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Better
                         
-                        <!-- Header Row -->
-                        <div class="flex justify-between items-center pb-3 mb-3 border-b-2 border-petros-green/30">
-                            <span class="text-gray-700 font-medium text-sm">Sessions/Week</span>
-                            <div class="flex gap-4">
-                                <span class="text-xs font-bold text-petros-green uppercase tracking-wider w-20 text-right">Student</span>
-                                <span class="text-xs font-bold text-petros-green uppercase tracking-wider w-20 text-right">Adult</span>
-                            </div>
-                        </div>
-                        
-                        <div class="space-y-3 mb-8">
-                            <div class="flex justify-between items-center pb-3 border-b border-gray-200">
                                 <span class="text-gray-600 font-light">1 session/week</span>
                                 <div class="flex gap-4">
                                     <span class="font-serif text-lg text-petros-green w-20 text-right">N$ 500</span>
@@ -611,16 +640,18 @@
                             </div>
                             <h3 class="font-serif text-2xl text-petros-slate">One-on-One Sessions</h3>
                         </div>
-                        
+
                         <!-- Header Row -->
                         <div class="flex justify-between items-center pb-3 mb-3 border-b-2 border-petros-green/30">
                             <span class="text-gray-700 font-medium text-sm">Sessions/Week</span>
                             <div class="flex gap-4">
-                                <span class="text-xs font-bold text-petros-green uppercase tracking-wider w-20 text-right">Student*</span>
-                                <span class="text-xs font-bold text-petros-green uppercase tracking-wider w-20 text-right">Adult</span>
+                                <span
+                                    class="text-xs font-bold text-petros-green uppercase tracking-wider w-20 text-right">Student*</span>
+                                <span
+                                    class="text-xs font-bold text-petros-green uppercase tracking-wider w-20 text-right">Adult</span>
                             </div>
                         </div>
-                        
+
                         <div class="space-y-3 mb-8">
                             <div class="flex justify-between items-center pb-3 border-b border-gray-200">
                                 <span class="text-gray-600 font-light">1 session/week</span>
@@ -660,7 +691,8 @@
 
                 <div class="mt-8 p-6 bg-petros-green/5 rounded-lg border border-petros-green/20 text-center">
                     <p class="text-sm text-gray-700">
-                        <span class="font-semibold">💡 Pro Tip:</span> Monthly packages secure your preferred booking slots and offer better value than single sessions.
+                        <span class="font-semibold">💡 Pro Tip:</span> Monthly packages secure your preferred booking
+                        slots and offer better value than single sessions.
                     </p>
                 </div>
             </div>
@@ -670,7 +702,8 @@
                 <div class="pricing-card p-8 md:p-12">
                     <div class="text-center mb-8">
                         <h3 class="font-serif text-3xl text-petros-slate mb-4">Facility User Membership</h3>
-                        <p class="text-gray-700 font-light">Independent access to rehabilitation equipment for active patients under clinical supervision</p>
+                        <p class="text-gray-700 font-light">Independent access to rehabilitation equipment for active
+                            patients under clinical supervision</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -691,7 +724,8 @@
                 <div class="pricing-card p-8 md:p-12">
                     <div class="text-center mb-8">
                         <h3 class="font-serif text-3xl text-petros-slate mb-4">Exercise Program</h3>
-                        <p class="text-gray-700 font-light">Customized exercise programs designed for your specific needs</p>
+                        <p class="text-gray-700 font-light">Customized exercise programs designed for your specific
+                            needs</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -720,12 +754,14 @@
                             Medical Aid Coverage
                         </h3>
                         <p class="text-gray-700 font-light mb-6">
-                            Pétros Biokinetics is a medically recognized practice. Most Namibian medical aid schemes cover Biokinetics services.
+                            Pétros Biokinetics is a medically recognized practice. Most Namibian medical aid schemes
+                            cover Biokinetics services.
                         </p>
                         <div class="space-y-3">
                             <div class="flex items-center gap-2">
                                 <i data-lucide="check-circle" class="w-5 h-5 text-petros-green"></i>
-                                <span class="text-gray-700 text-sm">Accepted Schemes: NHP, NMC, NAMMED, RMA, Prosperity</span>
+                                <span class="text-gray-700 text-sm">Accepted Schemes: NHP, NMC, NAMMED, RMA,
+                                    Prosperity</span>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i data-lucide="check-circle" class="w-5 h-5 text-petros-green"></i>
@@ -733,7 +769,8 @@
                             </div>
                             <div class="flex items-center gap-2">
                                 <i data-lucide="check-circle" class="w-5 h-5 text-petros-green"></i>
-                                <span class="text-gray-700 text-sm">PSEMAS: Invoice upfront, claim reimbursement directly</span>
+                                <span class="text-gray-700 text-sm">PSEMAS: Invoice upfront, claim reimbursement
+                                    directly</span>
                             </div>
                         </div>
                     </div>
@@ -765,12 +802,14 @@
             </div>
 
             <!-- Additional CTA -->
-            <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-petros-green/10 to-petros-slate/5 border border-petros-green/20 text-center">
+            <div
+                class="p-8 md:p-12 rounded-3xl bg-gradient-to-br from-petros-green/10 to-petros-slate/5 border border-petros-green/20 text-center">
                 <h3 class="font-serif text-2xl text-petros-slate mb-4">Ready to start your restoration journey?</h3>
                 <p class="text-gray-700 font-light mb-6 max-w-2xl mx-auto">
                     Get in touch and receive a personalized restoration plan with transparent pricing.
                 </p>
-                <a href="contact.html" class="inline-block bg-petros-green text-white px-8 py-3 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-petros-slate transition-all duration-300">
+                <a href="contact.html"
+                    class="inline-block bg-petros-green text-white px-8 py-3 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-petros-slate transition-all duration-300">
                     Contact Us
                 </a>
             </div>
@@ -778,30 +817,37 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
+    <section id="contact"
+        class="bg-gradient-to-br from-petros-deep via-petros-slate to-petros-deep py-24 md:py-40 relative overflow-hidden">
         <div class="absolute inset-0">
-            <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob"></div>
-            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob" style="animation-delay: 2s;"></div>
+            <div
+                class="absolute top-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl -ml-48 -mt-48 animate-blob">
+            </div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl mr-0 mb-0 animate-blob"
+                style="animation-delay: 2s;"></div>
         </div>
 
         <div class="container mx-auto px-4 text-center relative z-10">
             <p class="text-petros-green/90 uppercase tracking-[0.3em] text-xs font-bold mb-8 opacity-90">Get Started</p>
-            
+
             <h2 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-8 tracking-tight leading-tight">
                 Begin Your <br><span class="italic text-petros-green">Restoration Today</span>
             </h2>
-            
+
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-16 font-light">
                 Book your comprehensive assessment and discover the Pétros difference.
             </p>
 
             <div class="flex flex-col md:flex-row justify-center items-center gap-6">
-                <a href="book-now.html" class="group bg-petros-green text-white px-10 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 inline-flex items-center gap-2">
+                <a href="book-now.html"
+                    class="group bg-petros-green text-white px-10 py-5 rounded-full text-sm font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-petros-green transition-all duration-300 shadow-lg hover:shadow-2xl hover:-translate-y-1 inline-flex items-center gap-2 magnetic-btn">
                     Book Now
                     <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                 </a>
-                <a href="tel:+264816835055" class="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors px-6 py-5">
-                    <div class="w-12 h-12 rounded-full border border-petros-green/40 flex items-center justify-center group-hover:border-petros-green group-hover:bg-petros-green/10 transition-all duration-300">
+                <a href="tel:+264816835055"
+                    class="group flex items-center gap-3 text-gray-300 hover:text-white transition-colors px-6 py-5">
+                    <div
+                        class="w-12 h-12 rounded-full border border-petros-green/40 flex items-center justify-center group-hover:border-petros-green group-hover:bg-petros-green/10 transition-all duration-300">
                         <i data-lucide="phone" class="w-5 h-5"></i>
                     </div>
                     <div>
@@ -816,30 +862,35 @@
     <!-- Footer -->
     <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-        
+
         <div class="container mx-auto px-4 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
                 <div class="flex flex-col items-center md:items-start">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
+                        <div
+                            class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span class="font-light not-italic">Biokinetics</span></span>
+                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
+                                class="font-light not-italic">Biokinetics</span></span>
                     </div>
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
                         Pioneering biokinetic restoration where clinical science meets absolute serenity.
                     </p>
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"
+                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Instagram"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"
+                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
+                            aria-label="Follow us on Facebook"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"
+                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
+                            aria-label="Chat with us on WhatsApp"
                             class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
                             <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
@@ -850,7 +901,8 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm text-petros-slate font-medium">
                         <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a></li>
+                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
+                        </li>
                         <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
                         <li><a href="pricing.html" class="text-petros-green">Pricing</a></li>
                         <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
@@ -862,10 +914,14 @@
                 <div>
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 – 18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed between 13:00 – 14:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Saturday</span><span class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
+                                18:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed
+                                between 13:00 – 14:00</span></li>
+                        <li class="flex justify-between gap-4"><span>Saturday</span><span
+                                class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
+                                class="font-medium">Closed</span></li>
                     </ul>
                 </div>
 
@@ -873,12 +929,16 @@
                     <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
                     <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
                     <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
-                    <a href="mailto:petrosbiokinetics@gmail.com" class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                    <a href="tel:+264816835055" class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264 81 683 5055</a>
+                    <a href="mailto:petrosbiokinetics@gmail.com"
+                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
+                    <a href="tel:+264816835055"
+                        class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264
+                        81 683 5055</a>
                 </div>
             </div>
 
-            <div class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
+            <div
+                class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
                 <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
@@ -890,6 +950,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="smooth-scroll.js"></script>
 
     <script>
         lucide.createIcons();
@@ -909,16 +970,19 @@
     </script>
 
     <!-- WhatsApp Floating Button - Subtle & Non-intrusive -->
-    <a href="https://wa.me/264816503103" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" 
-       class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
+    <a href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
         <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
-        <span class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat with us</span>
+        <span
+            class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat
+            with us</span>
     </a>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Scroll back to top of page" 
+    <button id="back-to-top" aria-label="Scroll back to top of page"
         class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
@@ -952,5 +1016,11 @@
 
     <!-- 3D Card Tilt Effect -->
     <script src="tilt.js"></script>
+    <script src="smooth-scroll.js"></script>
+    <script src="effects.js"></script>
+    <script src="draw-animations.js"></script>
+    <script src="magnetic-button.js"></script>
+    <script src="cookie-consent.js"></script>
 </body>
+
 </html>
