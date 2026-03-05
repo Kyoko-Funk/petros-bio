@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Method | Pétros Biokinetics - Clinical Restoration Approach</title>
+    <title>The Petros Method | Clinical Restoration Approach Swakopmund | Biokinetics Namibia</title>
     <meta name="description"
-        content="Discover the Pétros Method - our evidence-based biokinetic approach to clinical restoration. Learn how we combine biomechanical science with therapeutic excellence.">
+        content="Discover the Petros Method - our evidence-based biokinetic approach to clinical restoration in Swakopmund, Namibia. Biomechanical science meets therapeutic excellence.">
     <meta name="keywords"
-        content="biokinetics method, clinical restoration, biomechanics, movement therapy, rehabilitation approach">
+        content="Petros Method, clinical restoration Namibia, biomechanics Swakopmund, movement therapy, biokinetics rehabilitation approach">
     <meta name="canonical" content="https://petrosbiokinetics.com/the-method.html">
 
     <!-- Open Graph Tags -->
@@ -43,81 +43,81 @@
       "name": "The Pétros Method",
       "description": "Evidence-based biokinetic approach to clinical restoration combining biomechanical science with therapeutic excellence.",
       "url": "https://petrosbiokinetics.com/the-method.html",
-      "isPartOf": {
-        "@id": "https://petrosbiokinetics.com/#website"
-      },
-        <script>
-            (function () {
-                // 1) Safe icon init (never crash)
-                function initIcons() {
-                    if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                        window.lucide.createIcons();
-                    }
+      }
+    }
+    </script>
+    <script>
+        (function () {
+            // 1) Safe icon init (never crash)
+            function initIcons() {
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    window.lucide.createIcons();
                 }
+            }
 
-                // 2) Safe GSAP init (never crash)
-                function initGsap() {
-                    if (window.gsap && window.ScrollTrigger) {
-                        gsap.registerPlugin(ScrollTrigger);
+            // 2) Safe GSAP init (never crash)
+            function initGsap() {
+                if (window.gsap && window.ScrollTrigger) {
+                    gsap.registerPlugin(ScrollTrigger);
 
-                        gsap.to("#hero-bg-method", {
-                            scrollTrigger: {
-                                trigger: "section",
-                                start: "top top",
-                                end: "bottom top",
-                                scrub: true
-                            },
-                            y: 100,
-                            scale: 1.04
-                        });
-                    }
-                }
-
-                // 3) Safe mobile menu
-                function initMobileMenu() {
-                    const toggle = document.getElementById('mobile-toggle');
-                    const menu = document.getElementById('mobile-menu');
-                    const overlay = document.getElementById('mobile-menu-overlay');
-                    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-                    if (!toggle || !menu || !overlay) return;
-
-                    function openMenu() {
-                        menu.classList.remove('hidden');
-                        overlay.classList.remove('hidden');
-                        overlay.setAttribute('aria-hidden', 'false');
-                        toggle.setAttribute('aria-expanded', 'true');
-                    }
-
-                    function closeMenu() {
-                        menu.classList.add('hidden');
-                        overlay.classList.add('hidden');
-                        overlay.setAttribute('aria-hidden', 'true');
-                        toggle.setAttribute('aria-expanded', 'false');
-                    }
-
-                    toggle.addEventListener('click', () => {
-                        const isHidden = menu.classList.contains('hidden');
-                        if (isHidden) openMenu();
-                        else closeMenu();
-                    });
-
-                    overlay.addEventListener('click', closeMenu);
-                    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-                    // keep menu closed on desktop resize
-                    window.addEventListener('resize', () => {
-                        if (window.innerWidth >= 768) closeMenu();
+                    gsap.to("#hero-bg-method", {
+                        scrollTrigger: {
+                            trigger: "section",
+                            start: "top top",
+                            end: "bottom top",
+                            scrub: true
+                        },
+                        y: 100,
+                        scale: 1.04
                     });
                 }
+            }
 
-                document.addEventListener('DOMContentLoaded', function () {
-                    initIcons();
-                    initGsap();
-                    initMobileMenu();
+            // 3) Safe mobile menu
+            function initMobileMenu() {
+                const toggle = document.getElementById('mobile-toggle');
+                const menu = document.getElementById('mobile-menu');
+                const overlay = document.getElementById('mobile-menu-overlay');
+                const mobileLinks = document.querySelectorAll('.mobile-link');
+
+                if (!toggle || !menu || !overlay) return;
+
+                function openMenu() {
+                    menu.classList.remove('hidden');
+                    overlay.classList.remove('hidden');
+                    overlay.setAttribute('aria-hidden', 'false');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+
+                function closeMenu() {
+                    menu.classList.add('hidden');
+                    overlay.classList.add('hidden');
+                    overlay.setAttribute('aria-hidden', 'true');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+
+                toggle.addEventListener('click', () => {
+                    const isHidden = menu.classList.contains('hidden');
+                    if (isHidden) openMenu();
+                    else closeMenu();
                 });
-            })();
-        </script>
+
+                overlay.addEventListener('click', closeMenu);
+                mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+                // keep menu closed on desktop resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 768) closeMenu();
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                initIcons();
+                initGsap();
+                initMobileMenu();
+            });
+        })();
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
