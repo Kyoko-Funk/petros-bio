@@ -21,8 +21,8 @@ class CardTilt {
 
         // Check for mobile - disable tilt on touch devices for better UX
         this.isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-                        || window.innerWidth < 768
-                        || 'ontouchstart' in window;
+            || window.innerWidth < 768
+            || 'ontouchstart' in window;
 
         if (this.isMobile) {
             // On mobile, just add a subtle scale effect instead
@@ -59,7 +59,7 @@ class CardTilt {
                     border-radius: inherit;
                     z-index: 10;
                 `;
-                
+
                 // Ensure card has relative positioning
                 if (getComputedStyle(card).position === 'static') {
                     card.style.position = 'relative';
@@ -79,11 +79,11 @@ class CardTilt {
         // Simple touch feedback for mobile
         this.cards.forEach(card => {
             card.style.transition = 'transform 200ms ease-out';
-            
+
             card.addEventListener('touchstart', () => {
                 card.style.transform = `scale(${this.config.scale - 0.01})`;
             }, { passive: true });
-            
+
             card.addEventListener('touchend', () => {
                 card.style.transform = 'scale(1)';
             }, { passive: true });
@@ -92,7 +92,7 @@ class CardTilt {
 
     onEnter(card) {
         card.style.transition = `transform ${this.config.speed}ms ease-out`;
-        
+
         const glare = card.querySelector('.tilt-glare');
         if (glare) {
             glare.style.opacity = '1';
@@ -184,5 +184,18 @@ document.addEventListener('DOMContentLoaded', () => {
         maxTilt: 5,
         scale: 1.02,
         glareOpacity: 0.1
+    });
+
+    // About page - qualifications and stats
+    new CardTilt('.qualification-tag', {
+        maxTilt: 10,
+        scale: 1.05,
+        glareOpacity: 0.15
+    });
+
+    new CardTilt('.stats-badge', {
+        maxTilt: 8,
+        scale: 1.03,
+        glareOpacity: 0.12
     });
 });

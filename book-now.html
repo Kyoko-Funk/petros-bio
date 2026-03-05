@@ -57,11 +57,14 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="book-now.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Three.js for 3D Effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+        integrity="sha512-dL9ah9T9lI8kU61uWnAnvAnbF/R2A62M4F4O4N8VnC7A6z6Vv7B6z9/7B0z3+"
+        crossorigin="anonymous"></script>
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -124,6 +127,8 @@
 
         html {
             scroll-behavior: smooth;
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
         }
 
         body {
@@ -315,7 +320,8 @@
                         <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
                     </div>
                     <span class="font-serif italic text-lg md:text-xl text-white tracking-wide">
-                        <span class="hidden sm:inline">Pétros</span> <span class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
+                        <span class="hidden sm:inline">Pétros</span> <span
+                            class="font-light not-italic text-white/80 hidden sm:inline">Biokinetics</span>
                     </span>
                 </a>
             </div>
@@ -366,7 +372,7 @@
         role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div class="flex flex-col gap-8">
             <a href="index.html"
-                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Home</a>
+                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
             <a href="the-method.html"
                 class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
             <a href="services.html"
@@ -385,11 +391,11 @@
         </div>
     </div>
 
-        <!-- mobile menu initializer removed (consolidated at end of file) -->
+    <!-- mobile menu initializer removed (consolidated at end of file) -->
 
     <!-- Hero Section -->
     <header
-        class="relative w-full h-[60vh] md:h-screen min-h-[750px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
+        class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
 
         <!-- 3D Particle Mesh Canvas -->
         <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
@@ -422,19 +428,24 @@
     </header>
 
     <!-- Booking Form Section -->
-    <section class="py-24 md:py-40 relative overflow-hidden">
+    <section class="py-24 md:py-40 relative overflow-visible">
         <div class="absolute inset-0 bg-gradient-to-br from-petros-cream via-white to-petros-cream/50 z-0"></div>
         <div class="absolute top-0 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl -ml-48 -mt-48"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-2xl mx-auto">
                 <!-- Booking Form -->
-                <div id="booking-form-container" class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
+                <div id="booking-form-container" class="bg-white rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl">
                     <h2 class="font-serif text-3xl text-petros-slate mb-2">Let's Get You Scheduled</h2>
                     <p class="text-gray-600 font-light mb-8">We'll review your preferences and contact you shortly with
                         available times.</p>
 
                     <form id="bookingForm" class="space-y-6">
+                        <!-- Honeypot field (hidden from users) -->
+                        <div class="hidden" aria-hidden="true">
+                            <label for="website">Website</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
                         <!-- Name and Email -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div class="relative">
@@ -459,7 +470,7 @@
                                     Address *</label>
                                 <input type="email" id="email" name="email" required
                                     class="w-full px-5 py-4 rounded-lg border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base"
-                                    placeholder="hello@example.com">
+                                    placeholder="petrosbiokinetics@gmail.com">
                                 <p id="email-error" class="text-xs text-red-500 mt-1 hidden flex items-center gap-1">
                                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
@@ -928,7 +939,7 @@
                         </div>
 
                         <p class="text-center text-xs text-gray-500 mt-6 uppercase tracking-widest">
-                            💡 You can also fill this out later and email it to us
+                            💡 You can also fill this out later at our office
                         </p>
                     </div>
                 </div>
@@ -1097,10 +1108,11 @@
                                 <div class="flex-1 space-y-3 w-full">
                                     <!-- Condition Type Dropdown -->
                                     <div>
-                                        <label class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Type
+                                        <label
+                                            class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Type
                                             of Concern</label>
                                         <select id="condition-type"
-                                            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm">
+                                            class="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white hover:border-petros-green/50 focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base">
                                             <option value="">Select type...</option>
                                             <option value="Chronic Pain">Chronic Pain</option>
                                             <option value="Sports Injury">Sports Injury</option>
@@ -1117,10 +1129,10 @@
                                     <!-- Selected Areas Display -->
                                     <div>
                                         <label
-                                            class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Selected
+                                            class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Selected
                                             Areas</label>
                                         <div id="selected-areas"
-                                            class="min-h-[60px] p-2 rounded-lg border border-gray-200 bg-gray-50 flex flex-wrap gap-1">
+                                            class="min-h-[60px] px-5 py-4 rounded-xl border border-gray-200 bg-white flex flex-wrap gap-2">
                                             <span class="text-xs text-gray-400 italic" id="no-areas-text">Click on the
                                                 body diagram...</span>
                                         </div>
@@ -1129,10 +1141,10 @@
                                     <!-- Additional Notes -->
                                     <div>
                                         <label
-                                            class="block text-[10px] font-semibold text-gray-500 uppercase mb-1">Additional
+                                            class="block text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-3">Additional
                                             Details</label>
                                         <textarea id="pain-notes" rows="2"
-                                            class="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-petros-green focus:outline-none text-sm resize-none"
+                                            class="w-full px-5 py-4 rounded-xl border border-gray-200 bg-white focus:border-petros-green focus:outline-none focus:ring-2 focus:ring-petros-green/20 transition-all min-h-[44px] text-base resize-none"
                                             placeholder="Any other details about your pain..."></textarea>
                                     </div>
                                 </div>
@@ -1249,19 +1261,28 @@
         <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
 
         <div class="container mx-auto px-4 relative z-10">
+            <!-- Footer Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
+
+                <!-- Column 1: Logo + Description + Social -->
                 <div class="flex flex-col items-center md:items-start">
+                    <!-- Logo + Name -->
                     <div class="flex items-center gap-2 mb-4">
                         <div
                             class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
                             <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
                         </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
-                                class="font-light not-italic">Biokinetics</span></span>
+                        <span class="font-serif italic text-lg text-petros-slate">
+                            Pétros <span class="font-light not-italic">Biokinetics</span>
+                        </span>
                     </div>
+
+                    <!-- Description -->
                     <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
-                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
+                        Pioneering biokinetic restoration where clinical science meets absolute
+                        serenity.
                     </p>
+
                     <!-- Social Icons -->
                     <div class="flex gap-3 justify-center md:justify-start">
                         <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
@@ -1282,22 +1303,27 @@
                     </div>
                 </div>
 
+                <!-- Column 2: Navigation -->
                 <div>
-                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">
+                        Navigation</h4>
                     <ul class="space-y-2 text-sm text-petros-slate font-medium">
                         <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
                         <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
                         </li>
                         <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
                         <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
-                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
+                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a>
+                        </li>
                         <li><a href="about.html" class="hover:text-petros-green transition-colors">About</a></li>
                         <li><a href="contact.html" class="hover:text-petros-green transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
+                <!-- Column 3: Clinic Hours -->
                 <div>
-                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">
+                        Hours</h4>
                     <ul class="space-y-2 text-sm text-gray-700">
                         <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
                                 18:00</span></li>
@@ -1305,13 +1331,16 @@
                                 between 13:00 – 14:00</span></li>
                         <li class="flex justify-between gap-4"><span>Saturday</span><span
                                 class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
-                                class="font-medium">Closed</span></li>
+                        <li class="flex justify-between gap-4 text-petros-green italic">
+                            <span>Sunday</span><span class="font-medium">Closed</span>
+                        </li>
                     </ul>
                 </div>
 
+                <!-- Column 4: Location -->
                 <div>
-                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
+                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">
+                        Location</h4>
                     <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
                     <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
                     <a href="mailto:petrosbiokinetics@gmail.com"
@@ -1322,12 +1351,14 @@
                 </div>
             </div>
 
+            <!-- Footer Bottom -->
             <div
                 class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
                 <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
-                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of
+                        Service</a>
                 </div>
             </div>
         </div>
@@ -1358,7 +1389,7 @@
                 validate: (value) => {
                     if (!value.trim()) return { valid: false, message: 'Please enter your email address' };
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(value.trim())) return { valid: false, message: 'Please enter a valid email address (e.g. name@example.com)' };
+                    if (!emailRegex.test(value.trim())) return { valid: false, message: 'Please enter a valid email address (e.g. petrosbiokinetics@gmail.com)' };
                     return { valid: true };
                 }
             },
@@ -1541,7 +1572,9 @@
             e.preventDefault();
 
             // Run validation first
-            if (!validateForm()) {
+            // Honeypot check
+            if (document.getElementById('website').value) {
+                console.warn('Honeypot triggered');
                 return;
             }
 
@@ -1559,7 +1592,7 @@
                 const formData = new FormData(form);
 
                 // Send to Formspree via fetch
-                const response = await fetch('https://formspree.io/f/maqnbgnn', {
+                const response = await fetch('https://formspree.io/f/xbddjlny', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -1609,7 +1642,7 @@
 
             const toast = document.createElement('div');
             toast.id = 'form-error-toast';
-            toast.className = 'fixed top-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[9999] md:max-w-md md:w-full bg-white rounded-2xl shadow-2xl border border-red-100 p-4 md:p-5 animate-slide-down';
+            toast.className = 'fixed top-4 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 z-[9999] md:max-w-md md:w-full bg-white rounded-2xl shadow-2xl border border-red-100 p-4 md:p-5 animate-toast-down';
             toast.innerHTML = `
                 <div class="flex items-start gap-4">
                     <div class="flex-shrink-0 w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
@@ -1634,7 +1667,7 @@
             // Auto-remove after 8 seconds
             setTimeout(() => {
                 if (toast.parentElement) {
-                    toast.style.animation = 'slideUp 0.3s ease-out forwards';
+                    toast.style.animation = 'toastSlideUp 0.3s ease-out forwards';
                     setTimeout(() => toast.remove(), 300);
                 }
             }, 8000);
@@ -1643,23 +1676,23 @@
         // Add slide animations
         const slideAnimations = document.createElement('style');
         slideAnimations.textContent = `
-            @keyframes slideDown {
+            @keyframes toastSlideDown {
                 from { opacity: 0; transform: translateY(-20px); }
                 to { opacity: 1; transform: translateY(0); }
             }
-            @keyframes slideUp {
+            @keyframes toastSlideUp {
                 from { opacity: 1; transform: translateY(0); }
                 to { opacity: 0; transform: translateY(-20px); }
             }
-            .animate-slide-down {
-                animation: slideDown 0.3s ease-out;
+            .animate-toast-down {
+                animation: toastSlideDown 0.3s ease-out;
             }
             @media (min-width: 768px) {
-                @keyframes slideDown {
+                @keyframes toastSlideDown {
                     from { opacity: 0; transform: translate(-50%, -20px); }
                     to { opacity: 1; transform: translate(-50%, 0); }
                 }
-                @keyframes slideUp {
+                @keyframes toastSlideUp {
                     from { opacity: 1; transform: translate(-50%, 0); }
                     to { opacity: 0; transform: translate(-50%, -20px); }
                 }
@@ -1849,7 +1882,7 @@
                 const formData = new FormData(form);
 
                 // Send to Formspree via fetch
-                const response = await fetch('https://formspree.io/f/xqeagoyz', {
+                const response = await fetch('https://formspree.io/f/xbddjlny', {
                     method: 'POST',
                     body: formData,
                     headers: {
@@ -1910,24 +1943,25 @@
         let currentDate = new Date();
         let selectedDate = null;
 
-        // Keep dropdown panels within the viewport (prevents the 'jump to the left' on mobile)
-        function clampDropdownToViewport(panel, padding = 12) {
-            if (!panel) return;
-            // Reset any previous clamp
-            panel.style.transform = '';
-            // Wait for layout after showing
-            requestAnimationFrame(() => {
-                try {
-                    const rect = panel.getBoundingClientRect();
-                    const vw = window.innerWidth;
-                    let dx = 0;
-                    if (rect.left < padding) dx = padding - rect.left;
-                    if (rect.right > vw - padding) dx = dx - (rect.right - (vw - padding));
-                    if (dx !== 0) panel.style.transform = `translateX(${dx}px)`;
-                } catch (e) { /* ignore */ }
-            });
+        function positionDropdown(dropdown, anchor) {
+            // IMPORTANT: keep dropdowns CSS-positioned (absolute inside their .relative field wrappers).
+            // This avoids the left "jump" caused by fixed-position calculations.
+            if (!dropdown) return;
+            dropdown.style.position = '';
+            dropdown.style.left = '';
+            dropdown.style.top = '';
+            dropdown.style.width = '';
+            dropdown.style.right = '';
         }
 
+        function resetDropdownPosition(dropdown) {
+            if (!dropdown) return;
+            dropdown.style.position = '';
+            dropdown.style.left = '';
+            dropdown.style.top = '';
+            dropdown.style.width = '';
+            dropdown.style.right = '';
+        }
 
         function toggleCalendar() {
             const dropdown = document.getElementById('calendar-dropdown');
@@ -1938,6 +1972,7 @@
             // Close other dropdowns
             timeDropdown.classList.add('hidden');
             timeDisplay.setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(timeDropdown);
 
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
@@ -1945,9 +1980,9 @@
 
             if (isExpanded) {
                 renderCalendar();
-                clampDropdownToViewport(dropdown);
+                positionDropdown(dropdown, display);
             } else {
-                dropdown.style.transform = '';
+                resetDropdownPosition(dropdown);
             }
         }
 
@@ -2033,6 +2068,7 @@
 
             document.getElementById('calendar-dropdown').classList.add('hidden');
             document.getElementById('date-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(document.getElementById('calendar-dropdown'));
             renderCalendar();
         }
 
@@ -2046,13 +2082,13 @@
             // Close other dropdowns
             calendarDropdown.classList.add('hidden');
             dateDisplay.setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(calendarDropdown);
 
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-
-            if (isExpanded) clampDropdownToViewport(dropdown);
-            else dropdown.style.transform = '';
+            if (isExpanded) positionDropdown(dropdown, display);
+            else resetDropdownPosition(dropdown);
         }
 
         function selectTime(value, display) {
@@ -2067,6 +2103,7 @@
 
             document.getElementById('time-dropdown').classList.add('hidden');
             document.getElementById('time-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(document.getElementById('time-dropdown'));
         }
 
         // ===== CUSTOM MEDICAL AID PICKER =====
@@ -2079,15 +2116,16 @@
             // Close other dropdowns
             calendarDropdown.classList.add('hidden');
             document.getElementById('date-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(calendarDropdown);
             timeDropdown.classList.add('hidden');
             document.getElementById('time-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(timeDropdown);
 
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-
-            if (isExpanded) clampDropdownToViewport(dropdown);
-            else dropdown.style.transform = '';
+            if (isExpanded) positionDropdown(dropdown, display);
+            else resetDropdownPosition(dropdown);
         }
 
         function selectMedicalAid(value, display) {
@@ -2102,6 +2140,7 @@
 
             document.getElementById('medical-aid-dropdown').classList.add('hidden');
             document.getElementById('medical-aid-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(document.getElementById('medical-aid-dropdown'));
         }
 
         // ===== CUSTOM CONDITION PICKER =====
@@ -2115,28 +2154,20 @@
             // Close other dropdowns
             calendarDropdown.classList.add('hidden');
             document.getElementById('date-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(calendarDropdown);
             timeDropdown.classList.add('hidden');
             document.getElementById('time-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(timeDropdown);
             medicalAidDropdown.classList.add('hidden');
             document.getElementById('medical-aid-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(medicalAidDropdown);
 
             dropdown.classList.toggle('hidden');
             const isExpanded = !dropdown.classList.contains('hidden');
             display.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-
-            if (isExpanded) clampDropdownToViewport(dropdown);
-            else dropdown.style.transform = '';
+            if (isExpanded) positionDropdown(dropdown, display);
+            else resetDropdownPosition(dropdown);
         }
-
-
-
-        // Re-clamp open dropdowns on resize / orientation change
-        window.addEventListener('resize', () => {
-            ['calendar-dropdown', 'time-dropdown', 'medical-aid-dropdown', 'condition-dropdown'].forEach((id) => {
-                const el = document.getElementById(id);
-                if (el && !el.classList.contains('hidden')) clampDropdownToViewport(el);
-            });
-        });
         function selectCondition(value) {
             document.getElementById('condition-type-booking').value = value;
             document.getElementById('condition-text').textContent = value;
@@ -2149,6 +2180,7 @@
 
             document.getElementById('condition-dropdown').classList.add('hidden');
             document.getElementById('condition-display').setAttribute('aria-expanded', 'false');
+            resetDropdownPosition(document.getElementById('condition-dropdown'));
         }
 
         // Close dropdowns when clicking outside
@@ -2165,18 +2197,22 @@
             if (!dateDisplay.contains(e.target) && !calendarDropdown.contains(e.target)) {
                 calendarDropdown.classList.add('hidden');
                 dateDisplay.setAttribute('aria-expanded', 'false');
+                resetDropdownPosition(calendarDropdown);
             }
             if (!timeDisplay.contains(e.target) && !timeDropdown.contains(e.target)) {
                 timeDropdown.classList.add('hidden');
                 timeDisplay.setAttribute('aria-expanded', 'false');
+                resetDropdownPosition(timeDropdown);
             }
             if (!medicalAidDisplay.contains(e.target) && !medicalAidDropdown.contains(e.target)) {
                 medicalAidDropdown.classList.add('hidden');
                 medicalAidDisplay.setAttribute('aria-expanded', 'false');
+                resetDropdownPosition(medicalAidDropdown);
             }
             if (!conditionDisplay.contains(e.target) && !conditionDropdown.contains(e.target)) {
                 conditionDropdown.classList.add('hidden');
                 conditionDisplay.setAttribute('aria-expanded', 'false');
+                resetDropdownPosition(conditionDropdown);
             }
         });
 
@@ -2297,31 +2333,31 @@
             initParticles('booking');
         }
     </script>
-        <script>
-            (function () {
-                function initIcons() { if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons(); }
-                function initGsap() {
-                    if (window.gsap && window.ScrollTrigger && document.getElementById('hero-bg-book')) {
-                        gsap.registerPlugin(ScrollTrigger);
-                        gsap.to('#hero-bg-book', { scrollTrigger: { trigger: 'section', start: 'top top', end: 'bottom top', scrub: true }, y: 100, scale: 1.04 });
-                    }
+    <script>
+        (function () {
+            function initIcons() { if (window.lucide && typeof window.lucide.createIcons === 'function') window.lucide.createIcons(); }
+            function initGsap() {
+                if (window.gsap && window.ScrollTrigger && document.getElementById('hero-bg-book')) {
+                    gsap.registerPlugin(ScrollTrigger);
+                    gsap.to('#hero-bg-book', { scrollTrigger: { trigger: 'section', start: 'top top', end: 'bottom top', scrub: true }, y: 100, scale: 1.04 });
                 }
-                function initMobileMenu() {
-                    const toggle = document.getElementById('mobile-toggle');
-                    const menu = document.getElementById('mobile-menu');
-                    const overlay = document.getElementById('mobile-menu-overlay');
-                    const mobileLinks = document.querySelectorAll('.mobile-link');
-                    if (!toggle || !menu || !overlay) return;
-                    function openMenu(){ menu.classList.remove('hidden'); overlay.classList.remove('hidden'); overlay.setAttribute('aria-hidden','false'); toggle.setAttribute('aria-expanded','true'); }
-                    function closeMenu(){ menu.classList.add('hidden'); overlay.classList.add('hidden'); overlay.setAttribute('aria-hidden','true'); toggle.setAttribute('aria-expanded','false'); }
-                    toggle.addEventListener('click', ()=> menu.classList.contains('hidden') ? openMenu() : closeMenu());
-                    overlay.addEventListener('click', closeMenu);
-                    mobileLinks.forEach(l=>l.addEventListener('click', closeMenu));
-                    window.addEventListener('resize', ()=> { if (window.innerWidth >= 768) closeMenu(); });
-                }
-                document.addEventListener('DOMContentLoaded', ()=>{ initIcons(); initGsap(); initMobileMenu(); });
-            })();
-        </script>
+            }
+            function initMobileMenu() {
+                const toggle = document.getElementById('mobile-toggle');
+                const menu = document.getElementById('mobile-menu');
+                const overlay = document.getElementById('mobile-menu-overlay');
+                const mobileLinks = document.querySelectorAll('.mobile-link');
+                if (!toggle || !menu || !overlay) return;
+                function openMenu() { menu.classList.remove('hidden'); overlay.classList.remove('hidden'); overlay.setAttribute('aria-hidden', 'false'); toggle.setAttribute('aria-expanded', 'true'); }
+                function closeMenu() { menu.classList.add('hidden'); overlay.classList.add('hidden'); overlay.setAttribute('aria-hidden', 'true'); toggle.setAttribute('aria-expanded', 'false'); }
+                toggle.addEventListener('click', () => menu.classList.contains('hidden') ? openMenu() : closeMenu());
+                overlay.addEventListener('click', closeMenu);
+                mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
+                window.addEventListener('resize', () => { if (window.innerWidth >= 768) closeMenu(); });
+            }
+            document.addEventListener('DOMContentLoaded', () => { initIcons(); initGsap(); initMobileMenu(); });
+        })();
+    </script>
     <script src="cookie-consent.js"></script>
 </body>
 

@@ -1,0 +1,206 @@
+.noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .glass-morphism {
+            background: rgba(31, 41, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+        }
+
+        body {
+            background-color: #F5F4F0;
+            overflow-x: clip;
+        }
+
+        #condition-type {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #fff;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%237A8B69' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+            padding-right: 3rem;
+        }
+
+        .success-icon {
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .checkmark {
+            animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
+        }
+
+        /* Custom Calendar Styles */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .calendar-day {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day:not(.disabled):not(.weekend):hover {
+            background: rgba(122, 139, 105, 0.15);
+            transform: scale(1.05);
+        }
+
+        .calendar-day.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(122, 139, 105, 0.3);
+        }
+
+        .calendar-day.today:not(.selected) {
+            border: 2px solid #7A8B69;
+            color: #7A8B69;
+        }
+
+        .calendar-day.disabled,
+        .calendar-day.weekend {
+            color: #d1d5db;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .calendar-day.other-month {
+            color: #e5e7eb;
+        }
+
+        .time-option.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+        }
+
+        #time-dropdown::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #time-dropdown::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        #time-dropdown::-webkit-scrollbar-thumb {
+            background: #7A8B69;
+            border-radius: 3px;
+        }
+
+        .medical-aid-option.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+        }
+
+        .medical-aid-option.selected svg {
+            color: white;
+        }
+
+        .condition-option.selected {
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+        }
+
+        /* Body Diagram Styles */
+        .body-part {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .body-part:hover {
+            fill: rgba(122, 139, 105, 0.3);
+            stroke: #7A8B69;
+        }
+
+        .body-part.selected {
+            fill: rgba(122, 139, 105, 0.6);
+            stroke: #7A8B69;
+            stroke-width: 2;
+        }
+
+        .pain-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            background: linear-gradient(135deg, #7A8B69, #6a7b59);
+            color: white;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .pain-tag button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .pain-tag button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+    
+        /* Dropdown anti-jitter (prevents subtle horizontal "jump" on open/close in some browsers) */
+        #calendar-dropdown,
+        #time-dropdown,
+        #medical-aid-dropdown,
+        #condition-dropdown {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+
+/* FORCE: dropdowns stay aligned with their input (no fixed-position math) */
+#calendar-dropdown,
+#time-dropdown,
+#medical-aid-dropdown,
+#condition-dropdown {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}

@@ -1,27 +1,164 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-:root { … }
-.glass-nav-container { … }
-.mobile-menu { … }
+
+/* =========================================================
+   DROPDOWNS: FORCE STABLE POSITIONING (NO JUMP)
+   - No vw units
+   - No translate centering
+   - Always align to the input width
+   ========================================================= */
+
+/* Keep page width stable (prevents center reflow when height changes) */
+html {
+  overflow-y: scroll;          /* always reserve scrollbar space */
+  scrollbar-gutter: stable;    /* modern browsers keep width stable */
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Make each dropdown anchor a positioning context */
+.dropdown-container {
+  position: relative;
+}
+
+/* Force dropdown panels to align to their input width */
+.dropdown-container .dropdown-panel,
+.dropdown-container [data-dropdown],
+.dropdown-container [role="listbox"],
+.dropdown-container [role="dialog"],
+.dropdown-container .dropdown-menu {
+  position: absolute !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+  z-index: 9999;
+}
+
+/* If your dropdown elements are just using Tailwind "absolute" class */
+.dropdown-container > .absolute {
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* Optional: calendar can have a max width WITHOUT vw/translate */
+#calendar-dropdown {
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   GLOBAL LAYOUT STABILITY (PREVENT CENTER "JUMP")
+   ---------------------------------------------------------
+   Key ideas:
+   - NEVER use max-width: 100vw on page wrappers (vw includes scrollbar).
+   - Always reserve vertical scrollbar space so width doesn't change.
+   - Clip horizontal overflow without changing layout width.
+   ========================================================= */
+html {
+    overflow-y: scroll;          /* always reserve scrollbar space */
+    scrollbar-gutter: stable;    /* keep gutter stable in modern browsers */
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;            /* better than hidden for avoiding jiggle */
+}
+
+/* =========================================================
+   ROOT VARIABLES
+   ========================================================= */
+:root {
+    --petros-green: #7A8B69;
+    --petros-deep: #2F3E30;
+    --petros-slate: #2C3E50;
+    --petros-charcoal: #151515;
+    --petros-cream: #F5F4F0;
+}
+
+/* =========================================================
+   GLASS / LUXURY UI ELEMENTS
+   ========================================================= */
+.glass-nav-container {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
 .luxury-glass {
-    /* 0.2 opacity is the 'sweet spot' for light backgrounds */
-    background: rgba(255, 255, 255, 0.2); 
+    /* 0.2 opacity is the sweet spot for light backgrounds */
+    background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
-    /* A bright white top border makes it look like caught light */
     border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile Responsiveness Improvements */
-/* Prevent horizontal overflow */
-html, body {
-    overflow-x: hidden;
-    max-width: 100vw;
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+.mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
 }
 
-/* Ensure form inputs meet 44px minimum touch target on mobile */
+/* =========================================================
+   DROPDOWNS
+   ---------------------------------------------------------
+   Wrap each field with .dropdown-container so the dropdown
+   can be positioned absolute without JS "fixed" math.
+   ========================================================= */
+.dropdown-container {
+    position: relative;
+}
+
+/* Generic dropdown panels inside a container */
+.dropdown-container > .dropdown-panel,
+.dropdown-container > div[role="listbox"],
+.dropdown-container > div[role="dialog"] {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* If your code uses Tailwind "absolute" class directly */
+.dropdown-container > div.absolute {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   FORMS & TOUCH TARGETS
+   ========================================================= */
+input,
+textarea,
+select,
+button {
+    box-sizing: border-box;
+}
+
 @media (max-width: 767px) {
     input[type="text"],
     input[type="email"],
@@ -30,46 +167,57 @@ html, body {
     textarea,
     select {
         min-height: 44px;
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px; /* prevents zoom on iOS */
     }
-    
-    /* Ensure buttons meet touch target requirements */
+
     button,
     a[role="button"],
     .btn {
         min-height: 44px;
         min-width: 44px;
     }
-    
-    /* Improve hero text sizing on very small screens */
+
     h1 {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
-    
-    /* Prevent text overflow in hero sections */
-    .glass-hero-block h1 {
-        font-size: clamp(1.75rem, 8vw, 2.5rem);
-        line-height: 1.2;
-    }
-    
-    /* Ensure images don't overflow */
+
     img {
         max-width: 100%;
         height: auto;
     }
-    
-    /* Improve spacing on mobile */
+
     .container {
         padding-left: 1rem;
         padding-right: 1rem;
     }
 }
 
-/* Magnetic Button Effect Styles */
+/* =========================================================
+   MAGNETIC BUTTONS
+   ========================================================= */
 [data-magnetic],
 .magnetic-btn {
     transform-origin: center;
     will-change: transform;
     position: relative;
+}
+
+/* =========================================================
+   NOISE OVERLAY SAFETY
+   ========================================================= */
+.noise-overlay {
+    pointer-events: none;
+}
+
+/* =========================================================
+   ANIMATION SAFETY (GSAP / SCROLLTRIGGER)
+   ========================================================= */
+.reveal-fade,
+.reveal-stagger,
+.reveal-lines,
+.reveal-image,
+.reveal-left,
+.reveal-right {
+    will-change: transform, opacity;
 }
