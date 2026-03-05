@@ -370,29 +370,11 @@
   }
 
   function avoidFloatingButtons(banner) {
-    // Keep this conservative: only adjust expanded banner
     if (!banner) return;
-
     try {
       const wa = document.querySelector('a[href*="wa.me"], a[href*="whatsapp"]');
       if (!wa) return;
-
-      const r = wa.getBoundingClientRect();
-      const offset = Math.round(r.width + 20);
-      banner.style.setProperty('--wa-offset', offset + 'px');
       banner.classList.add('avoid-wa');
-
-      // if wa is on left side, move collapsed pill to right
-      const waIsRightHalf = (r.left > window.innerWidth / 2);
-      if (!waIsRightHalf) banner.classList.add('collapsed-right');
-      else banner.classList.remove('collapsed-right');
-
-      window.addEventListener('resize', () => {
-        try {
-          const nr = wa.getBoundingClientRect();
-          banner.style.setProperty('--wa-offset', Math.round(nr.width + 20) + 'px');
-        } catch (e) { }
-      });
     } catch (e) { }
   }
 
@@ -402,8 +384,8 @@
 
       const banner = createBanner();
 
-      // On mobile, always start expanded so it's readable
-      if (window.innerWidth <= 640) {
+      // On mobile/tablet, always start expanded so it's readable
+      if (window.innerWidth < 768) {
         banner.classList.remove('collapsed');
         banner.setAttribute('aria-expanded', 'true');
       }
