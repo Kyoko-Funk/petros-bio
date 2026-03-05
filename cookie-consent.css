@@ -15,9 +15,9 @@
 
 .cookie-banner {
   position: fixed;
-  left: .75rem;
-  right: .75rem;
-  bottom: calc(.75rem + var(--cc-safe));
+  left: 1rem !important;
+  right: auto !important;
+  bottom: calc(1rem + var(--cc-safe));
   z-index: 9999;
 
   display: grid;
@@ -40,8 +40,8 @@
 
 /* Avoid overlapping with white floating buttons (like WhatsApp) */
 .cookie-banner.avoid-wa {
-  bottom: calc(5rem + var(--cc-safe));
-  /* Lift it above the WA button on mobile */
+  bottom: calc(6rem + var(--cc-safe)) !important;
+  /* High lift to clear WhatsApp button on small screens */
 }
 
 .cookie-banner.cc-show {
@@ -173,8 +173,8 @@
 
   /* Force left even if class is present */
   .cookie-banner.collapsed-right {
-    left: 1.5rem;
-    right: auto;
+    left: 1.5rem !important;
+    right: auto !important;
   }
 }
 

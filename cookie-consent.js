@@ -372,7 +372,8 @@
   function avoidFloatingButtons(banner) {
     if (!banner) return;
     try {
-      const wa = document.querySelector('a[href*="wa.me"], a[href*="whatsapp"]');
+      // Check for any link containing 'wa.me' or 'whatsapp'
+      const wa = document.querySelector('a[href*="wa.me"], a[href*="whatsapp"], #whatsapp-button, .whatsapp-button');
       if (!wa) return;
       banner.classList.add('avoid-wa');
     } catch (e) { }
