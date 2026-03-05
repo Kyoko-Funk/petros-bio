@@ -25,7 +25,7 @@
       link.rel = 'stylesheet';
       link.href = 'cookie-consent.css';
       document.head.appendChild(link);
-    } catch (e) {}
+    } catch (e) { }
   })();
 
   // Helper: safe storage wrappers
@@ -128,7 +128,7 @@
     if (!isAccepted()) return;
     if (window.__PETROS_ANALYTICS_ENABLED__) return;
     window.__PETROS_ANALYTICS_ENABLED__ = true;
-    try { window.enableAnalytics(); } catch (e) {}
+    try { window.enableAnalytics(); } catch (e) { }
   })();
 
   function removeBanner() {
@@ -140,16 +140,16 @@
       b.remove();
     }
   }
-function openPreferencesModal() {
-  // If already open, do nothing
-  if (document.querySelector('.cc-modal-overlay')) return;
+  function openPreferencesModal() {
+    // If already open, do nothing
+    if (document.querySelector('.cc-modal-overlay')) return;
 
-  const current = safeGet(localStorage, KEY);
-  const analyticsOn = (current === 'accepted'); // simple model: accepted => analytics on
+    const current = safeGet(localStorage, KEY);
+    const analyticsOn = (current === 'accepted'); // simple model: accepted => analytics on
 
-  const overlay = document.createElement('div');
-  overlay.className = 'cc-modal-overlay';
-  overlay.innerHTML = `
+    const overlay = document.createElement('div');
+    overlay.className = 'cc-modal-overlay';
+    overlay.innerHTML = `
     <div class="cc-modal" role="dialog" aria-modal="true" aria-label="Cookie preferences">
       <h3>Cookie preferences</h3>
       <p>We use essential cookies to make the site work. You can choose whether to allow analytics cookies to help us improve the website.</p>
@@ -178,58 +178,58 @@ function openPreferencesModal() {
     </div>
   `;
 
-  function close() { overlay.remove(); }
+    function close() { overlay.remove(); }
 
-  function toggleSwitch(el) {
-    const isOn = el.getAttribute('aria-checked') === 'true';
-    el.setAttribute('aria-checked', isOn ? 'false' : 'true');
-  }
-
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) close();
-  });
-
-  const sw = overlay.querySelector('#cc-analytics-switch');
-  sw.addEventListener('click', () => toggleSwitch(sw));
-  sw.addEventListener('keydown', (ev) => {
-    if (ev.key === 'Enter' || ev.key === ' ') {
-      ev.preventDefault();
-      toggleSwitch(sw);
+    function toggleSwitch(el) {
+      const isOn = el.getAttribute('aria-checked') === 'true';
+      el.setAttribute('aria-checked', isOn ? 'false' : 'true');
     }
-    if (ev.key === 'Escape') close();
-  });
 
-  overlay.querySelector('#cc-cancel').addEventListener('click', close);
-  overlay.querySelector('#cc-policy').addEventListener('click', () => {
-    window.open('/privacy-policy.html', '_blank', 'noopener');
-  });
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) close();
+    });
 
-  overlay.querySelector('#cc-save').addEventListener('click', () => {
-    const analyticsEnabled = sw.getAttribute('aria-checked') === 'true';
-
-    if (analyticsEnabled) {
-      safeSet(localStorage, KEY, 'accepted');
-      if (!window.__PETROS_ANALYTICS_ENABLED__) {
-        window.__PETROS_ANALYTICS_ENABLED__ = true;
-        try { window.enableAnalytics(); } catch (e) {}
+    const sw = overlay.querySelector('#cc-analytics-switch');
+    sw.addEventListener('click', () => toggleSwitch(sw));
+    sw.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Enter' || ev.key === ' ') {
+        ev.preventDefault();
+        toggleSwitch(sw);
       }
-    } else {
-      // simplest "reject": store something other than accepted
-      safeSet(localStorage, KEY, 'rejected');
-    }
+      if (ev.key === 'Escape') close();
+    });
 
-    safeSet(sessionStorage, SESSION_DISMISS, '1');
-    close();
-    removeBanner(); // hide banner after saving
-  });
+    overlay.querySelector('#cc-cancel').addEventListener('click', close);
+    overlay.querySelector('#cc-policy').addEventListener('click', () => {
+      window.open('/privacy-policy.html', '_blank', 'noopener');
+    });
 
-  document.body.appendChild(overlay);
+    overlay.querySelector('#cc-save').addEventListener('click', () => {
+      const analyticsEnabled = sw.getAttribute('aria-checked') === 'true';
 
-  // Focus switch for accessibility
-  setTimeout(() => {
-    try { sw.focus(); } catch (e) {}
-  }, 0);
-}
+      if (analyticsEnabled) {
+        safeSet(localStorage, KEY, 'accepted');
+        if (!window.__PETROS_ANALYTICS_ENABLED__) {
+          window.__PETROS_ANALYTICS_ENABLED__ = true;
+          try { window.enableAnalytics(); } catch (e) { }
+        }
+      } else {
+        // simplest "reject": store something other than accepted
+        safeSet(localStorage, KEY, 'rejected');
+      }
+
+      safeSet(sessionStorage, SESSION_DISMISS, '1');
+      close();
+      removeBanner(); // hide banner after saving
+    });
+
+    document.body.appendChild(overlay);
+
+    // Focus switch for accessibility
+    setTimeout(() => {
+      try { sw.focus(); } catch (e) { }
+    }, 0);
+  }
 
   function createBanner() {
     const div = document.createElement('div');
@@ -305,7 +305,7 @@ function openPreferencesModal() {
       // enable analytics immediately
       if (!window.__PETROS_ANALYTICS_ENABLED__) {
         window.__PETROS_ANALYTICS_ENABLED__ = true;
-        try { window.enableAnalytics(); } catch (err) {}
+        try { window.enableAnalytics(); } catch (err) { }
       }
       log('Accepted');
     });
@@ -318,9 +318,9 @@ function openPreferencesModal() {
     });
 
     div.querySelector('.cookie-manage').addEventListener('click', function (e) {
-  e.preventDefault();
-  openPreferencesModal();
-});
+      e.preventDefault();
+      openPreferencesModal();
+    });
 
 
     // Desktop-only: collapse when clicking outside or pressing Escape
@@ -370,9 +370,8 @@ function openPreferencesModal() {
   }
 
   function avoidFloatingButtons(banner) {
-    // Keep this conservative: only adjust desktop expanded banner
+    // Keep this conservative: only adjust expanded banner
     if (!banner) return;
-    if (window.innerWidth <= 640) return;
 
     try {
       const wa = document.querySelector('a[href*="wa.me"], a[href*="whatsapp"]');
@@ -392,9 +391,9 @@ function openPreferencesModal() {
         try {
           const nr = wa.getBoundingClientRect();
           banner.style.setProperty('--wa-offset', Math.round(nr.width + 20) + 'px');
-        } catch (e) {}
+        } catch (e) { }
       });
-    } catch (e) {}
+    } catch (e) { }
   }
 
   function init() {
