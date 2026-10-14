@@ -1,0 +1,156 @@
+/* Source stylesheet. Edit this file, then run `npm run build:css` to regenerate assets/css/site.css. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { font-size: 106.25%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (min-width: 768px) { html { font-size: 112.5%; } }
+  body { @apply bg-petros-cream text-petros-slate font-sans antialiased leading-relaxed; overflow-x: hidden; }
+  h1, h2, h3 { @apply font-serif font-normal leading-tight text-balance; }
+  ::selection { @apply bg-petros-green text-white; }
+  :focus-visible { outline: 3px solid #7A8B69; outline-offset: 3px; border-radius: 6px; }
+  a { text-underline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-5 md:px-8; }
+  .wrap-narrow { @apply mx-auto w-full max-w-3xl px-5 md:px-8; }
+  .section { @apply py-20 md:py-28; }
+  .eyebrow { @apply mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-petros-moss; }
+  .eyebrow-light { @apply mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-petros-mist; }
+  .h-section { @apply text-4xl text-petros-slate md:text-5xl; }
+  .h-section em, .h-hero em { @apply italic text-petros-green; }
+  .on-dark .h-section, .on-dark h2, .on-dark h3 { @apply text-white; }
+  .on-dark .h-section em, .h-hero em { @apply text-petros-mist; }
+  .lead { @apply text-lg leading-relaxed text-gray-600 md:text-xl; }
+
+  .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold tracking-wide transition duration-300 focus-visible:outline-offset-4; }
+  .btn svg { @apply h-4 w-4 shrink-0; }
+  .btn-primary { @apply btn bg-petros-moss text-white shadow-soft hover:bg-petros-deep hover:shadow-lift; }
+  .btn-light { @apply btn bg-white text-petros-deep shadow-soft hover:bg-petros-mist; }
+  .btn-outline { @apply btn border border-petros-moss/40 text-petros-moss hover:border-petros-moss hover:bg-petros-moss hover:text-white; }
+  .btn-ghost { @apply btn border border-white/40 text-white hover:bg-white hover:text-petros-deep; }
+  .btn-whatsapp { @apply btn bg-[#1F7A4D] text-white hover:bg-[#17603C]; }
+
+  .card { @apply rounded-[2rem] border border-black/5 bg-white p-7 shadow-soft md:p-8; }
+  .icon-tile { @apply mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-petros-green/15 text-petros-moss; }
+  .icon-tile svg { @apply h-6 w-6; }
+  .link-arrow { @apply inline-flex items-center gap-2 font-semibold text-petros-moss underline-offset-4 hover:underline; }
+  .link-arrow svg { @apply h-4 w-4 transition-transform; }
+  .link-arrow:hover svg { transform: translateX(3px); }
+
+  /* Page hero: photo + overlay + glass block, shared by every page */
+  .hero { @apply relative isolate flex min-h-[70vh] items-center overflow-hidden bg-petros-deep pb-20 pt-36 md:min-h-[78vh] md:pt-40; }
+  .hero-sm { @apply min-h-[52vh] md:min-h-[56vh]; }
+  .hero-media { @apply absolute inset-0 -z-10; }
+  .hero-media img { @apply h-full w-full object-cover; }
+  .hero-media::after { content: ''; @apply absolute inset-0; background: linear-gradient(180deg, rgba(31,42,32,.55) 0%, rgba(31,42,32,.45) 55%, rgba(31,42,32,.75) 100%); }
+  .hero-fade { @apply pointer-events-none absolute inset-x-0 bottom-0 -z-0 h-24 bg-gradient-to-b from-transparent to-petros-cream; }
+  .glass { background: rgba(255,255,255,.10); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.22); box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+  .h-hero { @apply text-[2.6rem] leading-[1.1] text-white sm:text-6xl md:text-7xl; }
+  .hero-sub { @apply mx-auto mt-6 max-w-xl text-lg text-white/90 md:text-xl; }
+
+  /* Navigation */
+  .site-header { @apply fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-5; }
+  .nav-shell { @apply mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 md:px-6; background: rgba(31,41,32,.42); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.12); }
+  .is-scrolled .nav-shell { background: rgba(31,42,32,.92); box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+  .nav-link { @apply relative rounded-lg px-1 py-2 text-[0.82rem] font-medium tracking-wide text-white/85 transition-colors hover:text-white; }
+  .nav-link[aria-current='page'] { @apply text-petros-mist; }
+  .nav-link[aria-current='page']::after { content: ''; @apply absolute inset-x-1 -bottom-0.5 h-px bg-petros-mist; }
+  .mobile-panel { @apply fixed inset-0 z-40 flex flex-col overflow-y-auto bg-petros-night/95 px-6 pb-10 pt-28 backdrop-blur-xl transition duration-300; }
+  .mobile-panel[hidden] { display: none; }
+  .mobile-link { @apply block border-b border-white/10 py-3.5 font-serif text-2xl text-white; }
+  .mobile-link[aria-current='page'] { @apply italic text-petros-mist; }
+
+  /* Footer */
+  .footer-h { @apply mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-petros-mist; }
+  .footer-link { @apply text-white/80 transition-colors hover:text-white hover:underline; }
+  .social-btn { @apply flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/85 transition hover:border-white hover:bg-white hover:text-petros-deep; }
+  .social-btn svg { @apply h-5 w-5; }
+
+  /* Tables (fees) */
+  .fee-table { @apply w-full border-collapse text-left; }
+  .fee-table caption { @apply sr-only; }
+  .fee-table th, .fee-table td { @apply border-b border-black/5 px-4 py-3.5 md:px-6; }
+  .fee-table thead th { @apply bg-petros-sand/70 text-xs font-semibold uppercase tracking-wider text-petros-slate/80; }
+  .fee-table tbody th { @apply font-medium text-petros-slate; }
+  .fee-table td { @apply whitespace-nowrap tabular-nums; }
+  .fee-table tbody tr:last-child > * { @apply border-b-0; }
+
+  /* FAQ accordions use native <details>, so answers work without JavaScript */
+  .faq-item { @apply rounded-2xl border border-black/5 bg-white shadow-soft transition; }
+  .faq-item summary { @apply flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-serif text-lg text-petros-slate md:text-xl; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary svg { @apply h-5 w-5 shrink-0 text-petros-moss transition-transform duration-300; }
+  .faq-item[open] summary svg { transform: rotate(180deg); }
+  .faq-item .faq-body { @apply px-6 pb-6 text-gray-600; }
+
+  /* Forms */
+  .field-label { @apply mb-2 block text-sm font-semibold text-petros-slate; }
+  .field { @apply block min-h-[48px] w-full rounded-xl border border-petros-slate/20 bg-white px-4 py-3 text-base text-petros-slate placeholder:text-gray-400 focus:border-petros-moss focus:outline-none focus:ring-2 focus:ring-petros-green/40; }
+  .field-hint { @apply mt-1.5 text-sm text-gray-500; }
+  .choice { @apply flex min-h-[48px] cursor-pointer items-center gap-3 rounded-xl border border-petros-slate/20 bg-white px-4 py-3 has-[:checked]:border-petros-moss has-[:checked]:bg-petros-green/10; }
+  .choice input { @apply h-5 w-5 accent-petros-moss; }
+  /* Spam trap: kept off-screen and out of the tab order */
+  .hp-field { position: absolute !important; left: -10000px !important; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  .form-status { @apply mt-4 rounded-xl px-4 py-3 text-sm; }
+  .form-status[data-state='ok'] { @apply bg-petros-green/15 text-petros-deep; }
+  .form-status[data-state='error'] { @apply bg-red-50 text-red-800; }
+
+  /* Long-form text (privacy, terms) */
+  .prose-petros { @apply text-gray-700; }
+  .prose-petros h2 { @apply mb-4 mt-12 text-3xl text-petros-slate; }
+  .prose-petros h3 { @apply mb-2 mt-8 font-sans text-lg font-semibold text-petros-slate; }
+  .prose-petros p, .prose-petros ul { @apply mb-4; }
+  .prose-petros ul { @apply list-disc space-y-2 pl-6; }
+  .prose-petros a { @apply text-petros-moss underline; }
+
+  .check-list li { @apply flex gap-3; }
+  .check-list li > svg { @apply mt-1 h-5 w-5 shrink-0 text-petros-moss; }
+  .on-dark .check-list li > svg { @apply text-petros-mist; }
+
+  /* WhatsApp floating button */
+  .wa-float { @apply fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#1F7A4D] text-white shadow-lift transition hover:scale-105 hover:bg-[#17603C] md:bottom-7 md:right-7; }
+  .wa-float svg { @apply h-7 w-7; }
+
+  /* 3D spine */
+  .spine-stage { @apply relative overflow-hidden rounded-[2rem] border border-petros-green/20 shadow-lift; background: linear-gradient(145deg, #2F3E30 0%, #1a2418 50%, #243024 100%); }
+  #spine-model { @apply relative h-[460px] w-full md:h-[600px]; touch-action: pan-y; }
+  #spine-model canvas { display: block; }
+  .spine-hint { @apply pointer-events-none absolute left-1/2 top-5 z-10 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-petros-mist/95 px-4 py-2 text-xs font-semibold text-petros-night shadow-soft transition-opacity duration-700; }
+  .spine-hint svg { @apply h-4 w-4; }
+  .spine-hint.is-hidden { opacity: 0; }
+  .spine-tooltip { @apply pointer-events-none absolute bottom-5 left-1/2 z-20 w-[min(90%,380px)] rounded-2xl border border-white/15 p-5 text-center text-white opacity-0 shadow-lift transition duration-300; transform: translate(-50%, 12px); background: rgba(70, 88, 66, .96); }
+  .spine-tooltip.visible { opacity: 1; transform: translate(-50%, 0); }
+  .tooltip-title { @apply font-serif text-xl; }
+  .tooltip-vertebrae { @apply mb-3 mt-1 border-b border-petros-mist/30 pb-2 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-petros-mist; }
+  .tooltip-desc { @apply text-sm text-white/90; }
+  .tooltip-conditions { @apply mt-3 text-xs text-white/70; }
+  .tooltip-conditions strong { @apply mb-1 block text-[0.65rem] uppercase tracking-widest text-petros-mist; }
+  .spine-regions button { @apply min-h-[44px] rounded-full text-center leading-tight border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white/85 transition hover:border-petros-mist hover:text-white; }
+  .spine-regions button[aria-pressed='true'] { @apply border-petros-mist bg-petros-mist text-petros-night; }
+
+  /* Scroll reveal: only hidden when JS is running */
+  .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
+  .js .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; } }
+
+  .todo-note { @apply rounded-xl border border-dashed border-amber-500/60 bg-amber-50 px-4 py-3 text-sm text-amber-900; }
+}
+
+@layer components {
+  .pulse-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: pulse-draw 5s ease-in-out infinite; }
+  @keyframes pulse-draw { 0% { stroke-dashoffset: 1; } 55% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
+}
+
+@layer components {
+  .spine-fallback { display: none; }
+  .spine-unsupported .spine-fallback, html:not(.js) .spine-fallback { display: block; }
+  .spine-unsupported #spine-model, .spine-unsupported [data-spine-hint], .spine-unsupported .spine-regions,
+  html:not(.js) #spine-model, html:not(.js) [data-spine-hint], html:not(.js) .spine-regions { display: none; }
+}

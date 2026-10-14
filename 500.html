@@ -1,324 +1,165 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Error | Pétros Biokinetics</title>
-    <meta name="description"
-        content="We encountered an unexpected issue. Our team is working to restore your experience.">
-    <meta name="robots" content="noindex, nofollow">
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
+    <!-- @head -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2F3E30">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap"
-        rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="/assets/css/site.css">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        petros: {
-                            green: '#7A8B69',
-                            deep: '#2F3E30',
-                            slate: '#2C3E50',
-                            charcoal: '#151515',
-                            cream: '#F5F4F0',
-                            white: '#FFFFFF',
-                        }
-                    },
-                    fontFamily: {
-                        serif: ['"Playfair Display"', 'serif'],
-                        sans: ['"Inter"', 'sans-serif'],
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.8s ease-in-out',
-                        'blob': 'blob 7s infinite',
-                        'pulse-slow': 'pulseSlow 3s ease-in-out infinite',
-                        'wiggle': 'wiggle 2s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        pulseSlow: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.6' },
-                        },
-                        wiggle: {
-                            '0%, 100%': { transform: 'rotate(0deg)' },
-                            '25%': { transform: 'rotate(-5deg)' },
-                            '75%': { transform: 'rotate(5deg)' },
-                        },
-                    },
-                },
-            },
-        };
+        document.documentElement.classList.add('js');
+        // Analytics only load after a visitor accepts cookies (see cookie-consent.js).
+        window.PETROS_GA_ID = 'G-Y28038R681';
+        window.PETROS_GTM_ID = 'GTM-PZ7LRKLC';
     </script>
-
-    <style>
-        :root {
-            color-scheme: dark;
-        }
-
-        body {
-            background: #151515;
-            overflow-x: hidden;
-        }
-
-        .glass-morphism {
-            background: rgba(31, 41, 55, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        @media (max-width: 640px) {
-            .glass-morphism {
-                background: rgba(31, 41, 55, 0.6);
-            }
-        }
-
-        .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.3;
-            filter: blur(30px);
-        }
-
-        .error-number {
-            font-size: clamp(5rem, 18vw, 12rem);
-            line-height: 1;
-            background: linear-gradient(135deg, #7A8B69 0%, #2F3E30 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 900;
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .btn-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 25px -5px rgba(122, 139, 105, 0.3);
-        }
-    </style>
+    <script src="/assets/js/site.js" defer></script>
+    <script src="/assets/js/cookie-consent.js" defer></script>
+    <!-- /@head -->
+    <title>Something went wrong | Pétros Biokinetics</title>
+    <meta name="robots" content="noindex">
 </head>
 
-<body class="font-sans antialiased text-petros-cream">
-    <!-- Animated Background Orbs -->
-    <div class="absolute inset-0 overflow-hidden">
-        <div class="floating-orb w-96 h-96 bg-red-500 top-10 -left-20 animate-blob opacity-20"></div>
-        <div class="floating-orb w-72 h-72 bg-petros-deep bottom-20 right-10 animate-blob opacity-20"
-            style="animation-delay: 2s;"></div>
-        <div class="floating-orb w-80 h-80 bg-petros-green top-1/2 right-1/3 animate-blob opacity-20"
-            style="animation-delay: 4s;"></div>
-    </div>
-
-    <!-- CONTENT WRAPPER -->
-    <main class="relative z-10 min-h-[100svh] pt-28 sm:pt-32 md:pt-36 pb-10 px-4 flex items-center justify-center">
-        <div class="w-full max-w-2xl text-center">
-            <!-- Error Number -->
-            <div class="mb-8 animate-fade-in">
-                <div class="error-number">500</div>
-            </div>
-
-            <!-- Animated Icon - Broken link -->
-            <div class="flex justify-center mb-8 animate-wiggle">
-                <div class="relative">
-                    <div class="absolute inset-0 bg-red-500 rounded-full opacity-20 blur-xl animate-pulse-slow"></div>
-                    <svg class="w-20 h-20 text-red-400 relative z-10" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                            d="M12 9v2m0 4v2m0 5v1m0-17v1m-9-4h18a2 2 0 012 2v12a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2zm10 8v-2a2 2 0 10-4 0v2m0-8h-2a2 2 0 00-2 2v2a2 2 0 002 2h2V5a2 2 0 00-2-2zm8 2h-2a2 2 0 00-2 2v2a2 2 0 002 2h2v-6z" />
-                    </svg>
-                </div>
-            </div>
-
-            <!-- Main Message -->
-            <div class="animate-fade-in" style="animation-delay: 0.2s;">
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-petros-cream mb-4">
-                    Something Went Wrong
-                </h1>
-
-                <p class="text-petros-cream text-opacity-70 text-lg mb-8">
-                    Our team of biokinetic experts is working on restoring your experience. We apologize for the
-                    interruption in your wellness journey.
-                </p>
-
-                <!-- Glass Card with info -->
-                <div class="glass rounded-2xl px-8 py-8 mb-8 space-y-6">
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-center gap-3 text-petros-cream text-opacity-70">
-                            <svg class="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <span class="text-sm font-semibold">Error Code: 500</span>
-                        </div>
-
-                        <p class="text-petros-cream text-opacity-60 text-sm">
-                            Our systems detected an issue. Please try again shortly or contact our support team for
-                            assistance.
-                        </p>
-                    </div>
-
-                    <!-- Action Buttons -->
-                    <div class="space-y-3 pt-4 border-t border-petros-cream border-opacity-10">
-                        <button onclick="location.reload()"
-                            class="w-full glass rounded-lg px-6 py-3 text-petros-green font-semibold hover:text-petros-cream hover:bg-petros-green/10 transition-all duration-300 btn-hover flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                            Try Again
-                        </button>
-                        <a href="index.html"
-                            class="w-full glass rounded-lg px-6 py-3 text-petros-cream text-opacity-70 font-semibold hover:text-petros-cream hover:bg-petros-deep/30 transition-all duration-300 btn-hover flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 12l2.83-2.83a3 3 0 004.24 0L12 9m0 0l2.93-2.93a3 3 0 014.24 0L21 12M3 12l6-6m0 0l6 6m-6-6v12" />
-                            </svg>
-                            Go Home
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Support Message -->
-                <p class="text-petros-cream text-opacity-50 text-sm italic">
-                    💬 Questions? <a href="contact.html" class="text-petros-green hover:underline font-semibold">Contact
-                        our support team</a>
-                </p>
-            </div>
-    </main>
-
-    <!-- Mobile Navigation -->
-    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
-        <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
-                <div class="w-10 h-10 flex items-center justify-center">
-                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
-                </div>
-                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
-                    Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
-                </span>
+<body data-page="500">
+    <!-- @header -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-petros-deep">Skip to content</a>
+    <header class="site-header" data-header>
+        <nav class="nav-shell" aria-label="Main">
+            <a href="/" class="flex items-center gap-3" aria-label="Pétros Biokinetics, home">
+                <img src="/assets/img/logo-white.png" alt="" width="40" height="40" class="h-10 w-10 object-contain">
+                <span class="font-serif text-lg italic text-white lg:hidden xl:inline">Pétros <span class="not-italic text-white/80">Biokinetics</span></span>
             </a>
-
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
-                aria-expanded="false" aria-controls="mobile-menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-
-            <!-- Optional desktop quick link (nice for error pages) -->
-            <div class="hidden md:flex items-center gap-3">
-                <a href="index.html"
-                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300">
-                    Back Home
-                </a>
+            <ul class="hidden items-center gap-5 lg:flex xl:gap-7">
+                <li><a class="nav-link" data-nav="home" href="/">Home</a></li>
+                <li><a class="nav-link" data-nav="method" href="/the-method.html">Method</a></li>
+                <li><a class="nav-link" data-nav="services" href="/services.html">Services</a></li>
+                <li><a class="nav-link" data-nav="fees" href="/pricing.html">Fees</a></li>
+                <li><a class="nav-link" data-nav="medical-aid" href="/medical-aid.html">Medical Aid</a></li>
+                <li><a class="nav-link" data-nav="faq" href="/faq.html">FAQ</a></li>
+                <li><a class="nav-link" data-nav="about" href="/about.html">About</a></li>
+                <li><a class="nav-link" data-nav="contact" href="/contact.html">Contact</a></li>
+            </ul>
+            <div class="flex items-center gap-2">
+                <a href="/book-now.html" class="btn-primary hidden min-h-[44px] px-5 sm:inline-flex" data-nav="book">Book Now</a>
+                <button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl text-white lg:hidden" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+                    <span class="sr-only" data-menu-label>Open menu</span>
+                    <svg data-icon="menu" class="h-6 w-6" data-menu-open xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+                    <svg data-icon="x" class="hidden h-6 w-6" data-menu-close xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                </button>
             </div>
         </nav>
-    </div>
-
-    <!-- Mobile Menu Backdrop -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
-        aria-hidden="true"></div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
-        role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <div class="flex flex-col gap-8">
-            <a href="index.html"
-                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html"
-                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
-                Now</a>
+    </header>
+    <div id="mobile-menu" class="mobile-panel lg:hidden" hidden>
+        <ul>
+            <li><a class="mobile-link" data-nav="home" href="/">Home</a></li>
+            <li><a class="mobile-link" data-nav="method" href="/the-method.html">Method</a></li>
+            <li><a class="mobile-link" data-nav="services" href="/services.html">Services</a></li>
+            <li><a class="mobile-link" data-nav="fees" href="/pricing.html">Fees</a></li>
+            <li><a class="mobile-link" data-nav="medical-aid" href="/medical-aid.html">Medical Aid</a></li>
+            <li><a class="mobile-link" data-nav="faq" href="/faq.html">FAQ</a></li>
+            <li><a class="mobile-link" data-nav="about" href="/about.html">About</a></li>
+            <li><a class="mobile-link" data-nav="contact" href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="mt-8 grid gap-3">
+            <a href="/book-now.html" class="btn-light w-full">Book an assessment</a>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="tel:+264816835055" class="btn-ghost w-full"><svg data-icon="phone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>Call us</a>
+                <a href="https://wa.me/264816835055?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20with%20P%C3%A9tros%20Biokinetics." class="btn-ghost w-full" target="_blank" rel="noopener"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
+            </div>
         </div>
     </div>
+    <!-- /@header -->
 
-    <script>
-        const toggle = document.getElementById('mobile-toggle');
-        const menu = document.getElementById('mobile-menu');
-        const overlay = document.getElementById('mobile-menu-overlay');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+    <main id="main">
+        <section class="hero min-h-[80vh]">
+            <div class="hero-media">
+                <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1920/v1767436999/pexels-pixabay-248796_tppwp7.jpg" alt="">
+            </div>
+            <div class="hero-fade"></div>
+            <div class="wrap flex justify-center">
+                <div class="glass w-full max-w-2xl rounded-[2.5rem] px-6 py-12 text-center md:px-12 md:py-14">
+                    <p class="eyebrow-light">Error 500</p>
+                    <h1 class="h-hero text-5xl md:text-6xl">Something went <em>wrong</em></h1>
+                    <p class="hero-sub">Sorry, the website had a problem. Please try again in a moment, or call or WhatsApp us on +264 81 683 5055.</p>
+                    <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+                        <a href="/" class="btn-light">Go to the home page</a>
+                        <a href="/contact.html" class="btn-ghost">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        function toggleMenu() {
-            const isHidden = menu.classList.contains('hidden');
-            if (isHidden) {
-                menu.classList.remove('hidden');
-                overlay.classList.remove('hidden');
-                overlay.setAttribute('aria-hidden', 'false');
-                toggle.setAttribute('aria-expanded', 'true');
-            } else {
-                menu.classList.add('hidden');
-                overlay.classList.add('hidden');
-                overlay.setAttribute('aria-hidden', 'true');
-                toggle.setAttribute('aria-expanded', 'false');
-            }
-        }
-
-        function closeMenu() {
-            menu.classList.add('hidden');
-            overlay.classList.add('hidden');
-            overlay.setAttribute('aria-hidden', 'true');
-            toggle.setAttribute('aria-expanded', 'false');
-        }
-
-        toggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) closeMenu();
-        });
-
-        lucide.createIcons();
-
-        // Animate elements on load
-        gsap.from(".error-number", {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            delay: 0.1
-        });
-    </script>
-    <script src="cookie-consent.js"></script>
+    <!-- @footer -->
+    <footer class="on-dark bg-petros-deep text-white">
+        <div class="wrap grid gap-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.2fr_0.7fr_1fr_1.3fr]">
+            <div>
+                <a href="/" class="inline-flex items-center gap-3" aria-label="Pétros Biokinetics, home">
+                    <img src="/assets/img/logo-white.png" alt="" width="48" height="48" class="h-12 w-12 object-contain" loading="lazy">
+                    <span class="font-serif text-xl italic">Pétros <span class="not-italic text-white/80">Biokinetics</span></span>
+                </a>
+                <p class="mt-5 max-w-xs text-white/80">Exercise-based rehabilitation and chronic-condition care in Swakopmund.</p>
+                <p class="mt-2 font-serif italic text-petros-mist">Movement is medicine.</p>
+                <div class="mt-6 flex gap-3">
+                    <a class="social-btn" href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener" aria-label="Pétros Biokinetics on Instagram"><svg data-icon="si:instagram" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+                    <!-- TODO [CONFIRM]: the old site used two Facebook links (/petrosbiokinetics and profile.php?id=61570341071678). Using the profile link; swap if the other is current. -->
+                    <a class="social-btn" href="https://www.facebook.com/profile.php?id=61570341071678" target="_blank" rel="noopener" aria-label="Pétros Biokinetics on Facebook"><svg data-icon="si:facebook" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+                    <a class="social-btn" href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="WhatsApp Pétros Biokinetics"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h2 class="footer-h font-sans">Pages</h2>
+                <ul class="space-y-2.5">
+                    <li><a class="footer-link" href="/the-method.html">Method</a></li>
+                    <li><a class="footer-link" href="/services.html">Services</a></li>
+                    <li><a class="footer-link" href="/pricing.html">Fees</a></li>
+                    <li><a class="footer-link" href="/medical-aid.html">Medical aid</a></li>
+                    <li><a class="footer-link" href="/faq.html">FAQ</a></li>
+                    <li><a class="footer-link" href="/about.html">About</a></li>
+                    <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="footer-h font-sans">Opening hours</h2>
+                <!-- TODO [CONFIRM]: opening hours are still correct. -->
+                <dl class="space-y-4 text-white/85">
+                    <div>
+                        <dt class="font-semibold text-white">Monday to Friday</dt>
+                        <dd>06:00 – 18:00 <span class="text-white/65">(closed 13:00 – 14:00)</span></dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-white">Saturday and Sunday</dt>
+                        <dd>Closed</dd>
+                    </div>
+                </dl>
+                <a href="/book-now.html" class="btn-light mt-8">Book Now</a>
+            </div>
+            <div>
+                <h2 class="footer-h font-sans">Visit or contact us</h2>
+                <ul class="space-y-3 text-white/85">
+                    <li class="flex gap-3"><svg data-icon="map-pin" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>102 Dr. Libertine Amathila Avenue, Kramersdorf, Swakopmund, Namibia</span></li>
+                    <li class="flex gap-3"><svg data-icon="phone" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg><a class="footer-link" href="tel:+264816835055">+264 81 683 5055</a></li>
+                    <li class="flex gap-3"><svg data-icon="mail" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg><a class="footer-link [overflow-wrap:anywhere]" href="mailto:petrosbiokinetics@gmail.com">petrosbiokinetics@gmail.com</a></li>
+                    <li class="flex gap-3"><svg data-icon="badge-check" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" /></svg><span>Practice number 091 000 0880485</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10">
+            <div class="wrap flex flex-col gap-3 py-6 text-sm text-white/65 md:flex-row md:items-center md:justify-between">
+                <p>© <span data-year>2026</span> Pétros Biokinetics. The information on this website is general and is not medical advice.</p>
+                <p class="flex gap-5"><a class="footer-link" href="/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/terms.html">Terms</a><button type="button" class="footer-link" data-cookie-settings>Cookie settings</button></p>
+            </div>
+        </div>
+    </footer>
+    <a class="wa-float" href="https://wa.me/264816835055?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20with%20P%C3%A9tros%20Biokinetics." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+    <!-- /@footer -->
 </body>
 
 </html>

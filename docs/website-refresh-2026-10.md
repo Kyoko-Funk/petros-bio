@@ -1,0 +1,53 @@
+# Website refresh, October 2026
+
+Work done from the "Pétros Biokinetics website: refresh brief" (14 October 2026), Parts 1–3. Part 4 (patient portal etc.) was not built.
+
+Backup: git tag `backup-before-refresh-2026-10-14` points at the site exactly as it was before this work.
+
+## Part 1: site-wide fixes
+- **One shared header, footer and head** on every page (`partials/`, synced with `npm run build`). One desktop menu and one mobile menu; Book Now in the header and footer of every page. Nav order: Home · Method · Services · Fees · Medical Aid · FAQ · About · Contact · Book Now.
+- **Leaked code/leftovers:** removed `loader.html` and its iframe, `gradient-test.html`, the stray About-page class text and the broken lightbox image. Canonical is now a real `<link rel="canonical">` (it was a `<meta name="canonical">`, which search engines ignore). `meta keywords` removed. `og:type` is `website` everywhere.
+- **Analytics:** Google Analytics and Tag Manager now load only after a visitor clicks Accept on a new, simpler cookie banner ("Cookie settings" in the footer lets people change their mind). Before, they loaded for everyone, before consent.
+- **Name and encoding:** "Pétros Biokinetics" everywhere, UTF-8, no `&amp;` in titles or alt text. Logo alt text fixed.
+- **URL style:** pages use `/page.html` everywhere (links, canonicals, sitemap). `.htaccess` 301-redirects `/contact`, `/contact/` and `/index.html` to the right page, plus redirects for removed files.
+- **Footer:** identical on every page, clean hours list, one phone format, practice number, new tagline, one Facebook link. The second WhatsApp number (+264 81 650 3103) is removed.
+- **Images:** descriptive alt text (decorative hero photos use empty alt); Cloudinary images now use `f_auto,q_auto` with sized widths; `loading="lazy"` below the fold; the home page no longer repeats the clinic photo. `3d-render.png` (506 KB) is now `assets/img/anatomy-figure.webp` (18 KB). Logo and favicons regenerated from the Pétros logo (the old favicon was a different "P" mark).
+- **Privacy:** the online Patient Assessment Form (medical history, allergies, medication…) is removed. Booking and contact forms collect only name, phone, email, preferred date and time, medical aid yes/no and a general reason. The "Website" field is a hidden spam trap (Formspree `_gotcha`), off-screen and out of the tab order.
+- **Wording:** absolute or unsupported claims replaced per the brief's table (checked automatically by `npm run check`).
+- **Structured data:** removed the made-up 5-star / 24-review rating; hours match the footer.
+- **Server config (`.htaccess`):** removed a `<Directory>` block that is not allowed in `.htaccess` (on Apache it causes a 500 error) and the `Cross-Origin-Embedder-Policy: require-corp` header, which blocks Cloudinary images, Google Fonts and the map. The Content Security Policy now lists exactly the services the site uses (it previously blocked Google Analytics, Tag Manager and the map).
+
+## Part 2: page copy
+All pages use the brief's text, titles and meta descriptions: Home, Method, Services (three groups; neurological cards merged; "Helps with"), Fees (2026 schedule, 12-hour cancellation), **new Medical Aid page**, FAQ (12 answers, readable without JavaScript), About, Contact (email shown, map regenerated from the address), Book Now (correct "we'll contact you to confirm" message, no 13:00 slot, weekends blocked), plain-English Privacy Policy and Terms, house-style 404 and 500 pages.
+
+## Part 3: new features
+- Forms send to petrosbiokinetics@gmail.com via Formspree (`https://formspree.io/f/xbddjlny`, the endpoint the old site already used), with clear success and error messages.
+- Floating WhatsApp button on every page with the pre-filled booking message.
+- Accessibility: 17–18 px body text, 44–48 px buttons, contrast-checked colours (small green text uses `#566643`), skip link, keyboard-usable menu (Escape closes), labelled form fields, reduced-motion support.
+- Performance: Tailwind is compiled (no 300 KB runtime CDN script), unused scripts removed, three.js is loaded only on Home and Method, and the 3D effects pause when off screen.
+- New favicon set, web manifest, sitemap.xml and robots.txt.
+
+## The 3D spine (Method page)
+Kept and improved: tap a region on phones (there's no hover on touch), region buttons under the model (also keyboard accessible), "Drag to rotate" shows once, vertical swipes still scroll the page, it pauses off screen, respects reduced motion, and shows a still image if the device can't run 3D or JavaScript is off.
+
+## Still to confirm with Jean-Pierre
+Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \[CONFIRM" *.html partials`).
+1. Opening hours: Mon–Fri 06:00–18:00, closed 13:00–14:00.
+2. Facebook: which page is current (now using `profile.php?id=61570341071678`).
+3. The removed second WhatsApp number (+264 81 650 3103): whose is it?
+4. Fees: still the 2026 schedule? Does a full evaluation include all three assessments? Session length? Virtual consultations (left off)?
+5. OK to publish banking details? PayToday still accepted? Not VAT-registered?
+6. OK to state the session tariff of N$ 379.80 on the Medical Aid page (left off for now)?
+7. Referral wording; "short health questionnaire at your first visit" wording; first assessment duration.
+8. All FAQ answers.
+9. About: exact qualification, HPCNA registration number, a 3–5 sentence bio, the pugs ("Meet the team"?).
+10. Real photo of the rehabilitation area (the AI-generated one was left out). Cloudinary file names can only be renamed in the Cloudinary account.
+11. Aquatherapy: offered, and where?
+12. "We usually reply within one working day."
+13. Map pin location.
+14. Privacy Policy and Terms: legal check, including Namibian data-protection requirements.
+15. Hosting: `.htaccess` assumes Apache/LiteSpeed. If the host ignores it, the redirects and headers need setting in the host's dashboard.
+
+## Notes
+- Fonts and colours stayed as on the current site (Playfair Display, Inter, sage/forest green) because the brief says to keep the visual style. The brand sheet's Belleza font and blue-grey #7E8DA4 can be swapped in through `tailwind.config.js` if wanted.
+- Alt text for stock photos was written from their file names and context, because the images couldn't be viewed during the work. Worth a quick look.

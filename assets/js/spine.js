@@ -7,6 +7,14 @@ class SpineModel {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
         if (!this.container) return;
+        if (!SpineModel.supported()) {
+            this.container.closest('[data-spine]')?.classList.add('spine-unsupported');
+            return;
+        }
+        this.reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.isVisible = true;
+        this.selectedRegion = null;
+        this.hint = document.querySelector('[data-spine-hint]');
         
         this.width = this.container.offsetWidth;
         this.height = this.container.offsetHeight;
@@ -72,13 +80,41 @@ class SpineModel {
         this.init();
     }
     
+    static supported() {
+        if (typeof THREE === 'undefined') return false;
+        try {
+            const c = document.createElement('canvas');
+            return !!(window.WebGLRenderingContext && (c.getContext('webgl') || c.getContext('experimental-webgl')));
+        } catch (e) {
+            return false;
+        }
+    }
+
     init() {
         this.setupScene();
         this.setupLights();
         this.createDetailedSpine();
         this.setupInteraction();
+        this.setupVisibility();
         this.animate();
         this.setupResize();
+        this.container.closest('[data-spine]')?.classList.add('spine-ready');
+    }
+
+    // Only render while the model is on screen (saves battery on phones)
+    setupVisibility() {
+        if (!('IntersectionObserver' in window)) return;
+        new IntersectionObserver((entries) => {
+            this.isVisible = entries[0].isIntersecting;
+        }).observe(this.container);
+    }
+
+    // "Drag to rotate" shows once, then fades after the first interaction
+    dismissHint() {
+        if (this.hint && !this.hint.classList.contains('is-hidden')) {
+            this.hint.classList.add('is-hidden');
+            try { sessionStorage.setItem('petros-spine-hint', '1'); } catch (e) { }
+        }
     }
     
     setupScene() {
@@ -99,6 +135,7 @@ class SpineModel {
         this.renderer.setSize(this.width, this.height);
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.renderer.setClearColor(0x000000, 0);
+        this.renderer.domElement.setAttribute('aria-hidden', 'true');
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         this.container.appendChild(this.renderer.domElement);
@@ -673,7 +710,9 @@ class SpineModel {
     }
     
     onPointerDown(e) {
+        this.dismissHint();
         this.isDragging = true;
+        this.dragDistance = 0;
         this.autoRotate = false;
         this.previousMousePosition = { x: e.clientX, y: e.clientY };
         this.renderer.domElement.style.cursor = 'grabbing';
@@ -687,6 +726,7 @@ class SpineModel {
         
         const deltaX = e.clientX - this.previousMousePosition.x;
         const deltaY = e.clientY - this.previousMousePosition.y;
+        this.dragDistance += Math.abs(deltaX) + Math.abs(deltaY);
         
         this.targetRotation.y += deltaX * 0.008;
         this.targetRotation.x += deltaY * 0.004;
@@ -700,13 +740,15 @@ class SpineModel {
         this.renderer.domElement.style.cursor = 'grab';
         
         setTimeout(() => {
-            if (!this.isDragging) this.autoRotate = true;
+            if (!this.isDragging && !this.reducedMotion) this.autoRotate = true;
         }, 3000);
     }
     
     onTouchStart(e) {
         if (e.touches.length === 1) {
+            this.dismissHint();
             this.isDragging = true;
+            this.dragDistance = 0;
             this.autoRotate = false;
             this.previousMousePosition = { 
                 x: e.touches[0].clientX, 
@@ -721,6 +763,7 @@ class SpineModel {
         const touch = e.touches[0];
         const deltaX = touch.clientX - this.previousMousePosition.x;
         const deltaY = touch.clientY - this.previousMousePosition.y;
+        this.dragDistance += Math.abs(deltaX) + Math.abs(deltaY);
         
         this.targetRotation.y += deltaX * 0.008;
         this.targetRotation.x += deltaY * 0.004;
@@ -752,6 +795,10 @@ class SpineModel {
                 this.unhighlightRegion();
                 this.hideTooltip();
                 this.hoveredRegion = null;
+                if (this.selectedRegion) {
+                    this.highlightRegion(this.selectedRegion);
+                    this.showTooltip(this.selectedRegion);
+                }
                 this.renderer.domElement.style.cursor = this.isDragging ? 'grabbing' : 'grab';
             }
         }
@@ -759,6 +806,7 @@ class SpineModel {
     
     highlightRegion(regionKey) {
         const region = this.regions[regionKey];
+        this.unhighlightRegion();
         
         this.spineGroup.traverse((child) => {
             if (child.isMesh && child.userData.region === regionKey && !child.userData.isIndicator) {
@@ -803,7 +851,7 @@ class SpineModel {
             <div class="tooltip-vertebrae">${region.count} • ${region.vertebrae}</div>
             <div class="tooltip-desc">${region.description}</div>
             <div class="tooltip-conditions">
-                <strong>Common Conditions</strong>
+                <strong>Common conditions</strong>
                 ${region.conditions}
             </div>
         `;
@@ -816,23 +864,37 @@ class SpineModel {
     }
     
     onClick(e) {
+        if (this.dragDistance > 6) return; // that was a drag, not a click
         this.updateMouse(e);
         this.raycaster.setFromCamera(this.mouse, this.camera);
         const intersects = this.raycaster.intersectObjects(this.regionMeshes);
         
+        // Tap or click selects a region (phones have no hover)
         if (intersects.length > 0) {
-            const region = intersects[0].object.userData.region;
-            const event = new CustomEvent('spineRegionClick', { 
-                detail: { key: region, ...this.regions[region] } 
-            });
-            this.container.dispatchEvent(event);
+            this.selectRegion(intersects[0].object.userData.region);
+        } else {
+            this.selectRegion(null);
         }
+    }
+
+    // Also used by the region buttons under the model
+    selectRegion(regionKey) {
+        this.dismissHint();
+        this.selectedRegion = regionKey && regionKey !== this.selectedRegion ? regionKey : null;
+        this.unhighlightRegion();
+        this.hideTooltip();
+        if (this.selectedRegion) {
+            this.highlightRegion(this.selectedRegion);
+            this.showTooltip(this.selectedRegion);
+        }
+        this.container.dispatchEvent(new CustomEvent('spineRegionChange', { detail: { key: this.selectedRegion } }));
     }
     
     animate() {
         requestAnimationFrame(() => this.animate());
-        
-        if (this.autoRotate) {
+        if (!this.isVisible) return;
+
+        if (this.autoRotate && !this.reducedMotion) {
             this.targetRotation.y += 0.002;
         }
         
@@ -869,7 +931,15 @@ class SpineModel {
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const spineContainer = document.getElementById('spine-model');
-    if (spineContainer) {
-        window.spineModel = new SpineModel('spine-model');
-    }
+    if (!spineContainer) return;
+    const hint = document.querySelector('[data-spine-hint]');
+    try { if (hint && sessionStorage.getItem('petros-spine-hint')) hint.classList.add('is-hidden'); } catch (e) { }
+    window.spineModel = new SpineModel('spine-model');
+    const buttons = document.querySelectorAll('[data-spine-region]');
+    buttons.forEach((btn) => btn.addEventListener('click', () => {
+        if (window.spineModel && window.spineModel.renderer) window.spineModel.selectRegion(btn.dataset.spineRegion);
+    }));
+    spineContainer.addEventListener('spineRegionChange', (e) => {
+        buttons.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.spineRegion === e.detail.key)));
+    });
 });

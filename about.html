@@ -1,1016 +1,253 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-PZ7LRKLC');</script>
-    <!-- End Google Tag Manager -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y28038R681"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-Y28038R681');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Jean-Pierre Grobler | Biokineticist in Swakopmund | Petros Biokinetics Namibia</title>
-    <meta name="description"
-        content="Meet Jean-Pierre Grobler, an expert Biokineticist in Swakopmund, Namibia. Discover his journey in clinical restoration, movement therapy, and pain rehabilitation at Petros Biokinetics.">
-    <meta name="keywords"
-        content="Jean-Pierre Grobler, Biokineticist Swakopmund, Petros Biokinetics, movement specialist Namibia, rehabilitation expert Swakopmund">
-    <meta name="canonical" content="https://petrosbiokinetics.com/about.html">
-
-    <!-- Open Graph Tags -->
-    <meta property="og:type" content="profile">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Pétros Biokinetics">
-    <meta property="og:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
-    <meta property="og:description"
-        content="Meet Jean-Pierre Grobler, founder and expert biokinetics practitioner dedicated to clinical restoration excellence.">
-    <meta property="og:url" content="https://petrosbiokinetics.com/about.html">
-    <meta property="og:image" content="https://petrosbiokinetics.com/og-image.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Jean-Pierre Grobler - Pétros Biokinetics Founder">
-
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
-    <meta name="twitter:description" content="Expert biokinetics practitioner and clinical restoration specialist.">
-    <meta name="twitter:image" content="https://petrosbiokinetics.com/og-image.jpg">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfilePage",
-      "@id": "https://petrosbiokinetics.com/about.html",
-      "name": "About Jean-Pierre Grobler",
-      "url": "https://petrosbiokinetics.com/about.html",
-      "isPartOf": {
-        "@id": "https://petrosbiokinetics.com/#website"
-      },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://petrosbiokinetics.com"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "About",
-            "item": "https://petrosbiokinetics.com/about.html"
-          }
-        ]
-      },
-      "mainEntity": {
-        "@type": "Person",
-        "@id": "https://petrosbiokinetics.com/#founder",
-        "name": "Jean-Pierre Grobler",
-        "jobTitle": "Biokinetics Practitioner & Founder",
-        "url": "https://petrosbiokinetics.com/about.html",
-        "worksFor": {
-          "@id": "https://petrosbiokinetics.com/#business"
-        },
-        "knowsAbout": [
-          "Biokinetics",
-          "Clinical Restoration",
-          "Movement Therapy",
-          "Physical Rehabilitation",
-          "Sports Performance"
-        ],
-        "areaServed": {
-          "@type": "City",
-          "name": "Swakopmund",
-          "containedInPlace": {
-            "@type": "Country",
-            "name": "Namibia"
-          }
-        }
-      }
-    }
-    </script>
-
-    <!-- Fonts -->
+    <!-- @head -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2F3E30">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Three.js for 3D Effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- GSAP & ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+    <link rel="stylesheet" href="/assets/css/site.css">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'petros-green': '#7A8B69',
-                        'petros-deep': '#2F3E30',
-                        'petros-slate': '#2C3E50',
-                        'petros-charcoal': '#151515',
-                        'petros-cream': '#F5F4F0',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                }
-            }
-        }
+        document.documentElement.classList.add('js');
+        // Analytics only load after a visitor accepts cookies (see cookie-consent.js).
+        window.PETROS_GA_ID = 'G-Y28038R681';
+        window.PETROS_GTM_ID = 'GTM-PZ7LRKLC';
     </script>
-
-    <style>
-        /* Animations */
-        @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slide-up {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float-slow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .fade-in {
-            animation: fade-in 0.8s ease-out;
-        }
-
-        .slide-up {
-            animation: slide-up 0.8s ease-out;
-        }
-
-        .float-slow {
-            animation: float-slow 6s ease-in-out infinite;
-        }
-
-        /* Glass morphism */
-        .glass-morphism {
-            background: rgba(31, 41, 55, 0.4);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* Hero background */
-        .hero-bg-about {
-            background: linear-gradient(135deg, rgba(122, 139, 105, 0.1) 0%, rgba(47, 62, 48, 0.05) 100%),
-                url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');
-            background-size: cover;
-            background-position: center;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .animate-slide-up {
-            animation: slideUp 0.8s ease-out;
-        }
-
-        /* Tour card hover effects */
-        .tour-card {
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .tour-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .cta-button {
-            background-color: #7A8B69;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #2F3E30;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -10px rgba(122, 139, 105, 0.5);
-        }
-    </style>
+    <script src="/assets/js/site.js" defer></script>
+    <script src="/assets/js/cookie-consent.js" defer></script>
+    <!-- /@head -->
+    <title>About Jean-Pierre Grobler | Pétros Biokinetics</title>
+    <meta name="description" content="Meet Jean-Pierre Grobler, registered Biokineticist and founder of Pétros Biokinetics in Swakopmund.">
+    <link rel="canonical" href="https://petrosbiokinetics.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pétros Biokinetics">
+    <meta property="og:title" content="About Jean-Pierre Grobler | Pétros Biokinetics">
+    <meta property="og:description" content="Meet Jean-Pierre Grobler, registered Biokineticist and founder of Pétros Biokinetics in Swakopmund.">
+    <meta property="og:url" content="https://petrosbiokinetics.com/about.html">
+    <meta property="og:image" content="https://petrosbiokinetics.com/assets/img/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="bg-petros-cream text-petros-charcoal font-sans selection:bg-petros-green/30">
-    <!-- Page Loader -->
-    <div id="page-loader" class="fixed inset-0 z-[9999]" style="display: none;">
-        <iframe src="loader.html" style="width: 100%; height: 100%; border: none;"></iframe>
-    </div>
-
-    <script>
-        // Show loader only on true page load (not on back/forward navigation)
-        // Use modern Navigation Timing API with fallback for older browsers
-        const navEntries = performance.getEntriesByType('navigation');
-        const isReload = navEntries.length > 0 ? navEntries[0].type === 'reload' : (performance.navigation && performance.navigation.type === 1);
-        if (isReload || !sessionStorage.getItem('petros-loaded')) {
-            document.getElementById('page-loader').style.display = 'block';
-            sessionStorage.setItem('petros-loaded', 'true');
-        }
-
-        // Hide loader when page is ready
-        window.addEventListener('load', function () {
-            const loader = document.getElementById('page-loader');
-            if (loader.style.display === 'block') {
-                loader.style.opacity = '0';
-                loader.style.transition = 'opacity 0.5s ease-out';
-                setTimeout(() => {
-                    loader.style.display = 'none';
-                }, 500);
-            }
-        });
-    </script>
-
-    <!-- Navigation Bar -->
-    <div class="fixed top-0 w-full z-50 px-4 py-4 md:py-6">
-        <nav class="max-w-7xl mx-auto glass-morphism rounded-2xl px-6 py-4 flex items-center justify-between shadow-lg">
-            <!-- Logo -->
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
-                <div class="w-10 h-10 flex items-center justify-center">
-                    <img src="logo.png" alt="Pétros Biokinetics" class="h-8 md:h-10 w-auto">
-                </div>
-                <span class="font-serif italic text-lg md:text-xl text-white tracking-wide hidden sm:inline">
-                    Pétros <span class="font-light not-italic text-white/80">Biokinetics</span>
-                </span>
+<body data-page="about">
+    <!-- @header -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-petros-deep">Skip to content</a>
+    <header class="site-header" data-header>
+        <nav class="nav-shell" aria-label="Main">
+            <a href="/" class="flex items-center gap-3" aria-label="Pétros Biokinetics, home">
+                <img src="/assets/img/logo-white.png" alt="" width="40" height="40" class="h-10 w-10 object-contain">
+                <span class="font-serif text-lg italic text-white lg:hidden xl:inline">Pétros <span class="not-italic text-white/80">Biokinetics</span></span>
             </a>
-
-            <!-- Desktop Navigation -->
-            <ul class="hidden md:flex flex-1 justify-center items-center gap-12 text-white font-sans text-sm">
-                <li><a href="index.html"
-                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Home</a>
-                </li>
-                <li><a href="the-method.html"
-                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Method</a>
-                </li>
-                <li><a href="services.html"
-                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Services</a>
-                </li>
-                <li><a href="pricing.html"
-                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Pricing</a>
-                </li>
-                <li><a href="faq.html"
-                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">FAQ</a>
-                </li>
-                <li><a href="about.html" class="font-medium tracking-wide text-petros-green draw-underline">About</a>
-                </li>
-                <li><a href="contact.html"
-                        class="font-medium tracking-wide text-white/90 hover:text-petros-green transition-all duration-300">Contact</a>
-                </li>
+            <ul class="hidden items-center gap-5 lg:flex xl:gap-7">
+                <li><a class="nav-link" data-nav="home" href="/">Home</a></li>
+                <li><a class="nav-link" data-nav="method" href="/the-method.html">Method</a></li>
+                <li><a class="nav-link" data-nav="services" href="/services.html">Services</a></li>
+                <li><a class="nav-link" data-nav="fees" href="/pricing.html">Fees</a></li>
+                <li><a class="nav-link" data-nav="medical-aid" href="/medical-aid.html">Medical Aid</a></li>
+                <li><a class="nav-link" data-nav="faq" href="/faq.html">FAQ</a></li>
+                <li><a class="nav-link" data-nav="about" href="/about.html" aria-current="page">About</a></li>
+                <li><a class="nav-link" data-nav="contact" href="/contact.html">Contact</a></li>
             </ul>
-
-            <!-- Book Now Button -->
-            <div class="flex items-center gap-3 hidden md:flex">
-                <a href="book-now.html"
-                    class="bg-petros-green text-white px-4 py-1.5 rounded-full font-semibold text-sm uppercase tracking-wider shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 magnetic-btn">
-                    Book Now
-                </a>
+            <div class="flex items-center gap-2">
+                <a href="/book-now.html" class="btn-primary hidden min-h-[44px] px-5 sm:inline-flex" data-nav="book">Book Now</a>
+                <button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl text-white lg:hidden" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+                    <span class="sr-only" data-menu-label>Open menu</span>
+                    <svg data-icon="menu" class="h-6 w-6" data-menu-open xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
+                    <svg data-icon="x" class="hidden h-6 w-6" data-menu-close xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                </button>
             </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open navigation menu"
-                aria-expanded="false" aria-controls="mobile-menu">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
         </nav>
-    </div>
-
-    <!-- Mobile Menu Backdrop -->
-    <div id="mobile-menu-overlay" class="hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm md:hidden"
-        aria-hidden="true"></div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-        class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 w-[90%] max-w-sm rounded-3xl p-8 md:hidden bg-petros-deep/90 backdrop-blur-2xl border border-white/10 shadow-2xl flex-col justify-center items-center text-center"
-        role="dialog" aria-modal="true" aria-label="Navigation menu">
-        <div class="flex flex-col gap-8">
-            <a href="index.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Home</a>
-            <a href="the-method.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Method</a>
-            <a href="services.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Services</a>
-            <a href="pricing.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Pricing</a>
-            <a href="faq.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">FAQ</a>
-            <a href="about.html"
-                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">About</a>
-            <a href="contact.html"
-                class="mobile-link text-xl font-serif text-white hover:text-petros-green italic transition-colors duration-300">Contact</a>
-            <a href="book-now.html"
-                class="mobile-link text-xl font-serif text-petros-green italic transition-colors duration-300">Book
-                Now</a>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <header
-        class="relative w-full h-[60vh] md:h-screen min-h-[500px] flex items-center justify-center overflow-hidden pt-32 md:pt-0">
-
-        <!-- 3D Particle Mesh Canvas -->
-        <canvas id="particle-canvas" class="absolute inset-0 z-[5] pointer-events-none"
-            style="transition: opacity 0.5s ease-out;"></canvas>
-
-        <div class="absolute inset-0 z-0">
-            <div id="hero-bg-about" class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('https://res.cloudinary.com/karlifunk/image/upload/v1767435252/pexels-ian-462526402-15639195_yrrmyg.jpg?auto=format&fit=crop&q=80&w=2070');">
-            </div>
-            <div class="absolute inset-0 bg-gray-600/40"></div>
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-petros-cream"></div>
-        </div>
-        <div class="relative z-10 max-w-4xl text-center px-6">
-            <span
-                class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-[10px] font-bold uppercase tracking-[0.2em] text-white mb-6 reveal-fade">Expertise
-                & Compassion</span>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-tight mb-6 reveal-fade">
-                Meet Jean-Pierre <span class="italic text-petros-green draw-underline">Grobler</span>
-            </h1>
-            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed font-light reveal-fade">
-                Clinical excellence meets compassionate care. Dedicated to restoring your movement and your quality of
-                life.
-            </p>
-        </div>
     </header>
-
-    <!-- Bio Section -->
-    <section class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <!-- Image -->
-                <div class="relative">
-                    <div class="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl relative">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/v1768038812/Untitled_design_3_hxx0nq.png?auto=format&fit=crop&q=80&w=800"
-                            alt="Jean-Pierre Grobler" class="w-full h-full object-cover">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-petros-green/20 to-transparent pointer-events-none">
-                        </div>
-                    </div>
-                    <!-- Stats Badge -->
-                    <div
-                        class="absolute -bottom-6 -left-6 glass-morphism p-8 rounded-3xl hidden md:block border-petros-green/20 stats-badge">
-                        <p class="text-4xl font-serif text-petros-green mb-1"><span id="experience-count">0</span>+</p>
-                        <p class="text-[10px] uppercase tracking-widest text-white/70 font-bold">Years Clinical
-                            Experience</p>
-                    </div>
-                </div>
-
-                <!-- Bio Content -->
-                <div>
-                    <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-8 leading-tight reveal-fade">
-                        Rehabilitation with <br><span class="italic text-petros-green draw-circle">clinical
-                            precision.</span></h2>
-
-                    <p class="text-petros-slate font-light leading-relaxed mb-6 text-lg reveal-fade">
-                        Jean-Pierre Grobler is a qualified Biokineticist specializing in orthopedic rehabilitation,
-                        chronic disease management, and athletic performance enhancement. With a deep understanding of
-                        human movement, Jean-Pierre focuses on finding the root cause of dysfunction rather than simply
-                        treating symptoms.
-                    </p>
-
-                    <p class="text-petros-slate font-light leading-relaxed mb-10">
-                        His approach combines evidence-based exercise prescription with a calm, patient-centered
-                        atmosphere. Every patient receives a comprehensive assessment and personalized treatment plan
-                        that respects their individual needs, goals, and pace of recovery.
-                    </p>
-
-                    <!-- Credentials -->
-                    <div class="flex flex-wrap gap-4 mb-10 reveal-fade">
-                        <span
-                            class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20 qualification-tag">HPCNA
-                            Registered</span>
-                        <span
-                            class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20 qualification-tag">BA
-                            (Hons) Biokinetics</span>
-                        <span
-                            class="px-4 py-2 glass-morphism rounded-full text-xs font-semibold text-petros-green border border-petros-green/20 qualification-tag">Clinical
-                            Specialist</span>
-                    </div>
-
-                    <a href="contact.html"
-                        class="cta-button inline-block px-10 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Contact
-                        Us</a>
-                </div>
+    <div id="mobile-menu" class="mobile-panel lg:hidden" hidden>
+        <ul>
+            <li><a class="mobile-link" data-nav="home" href="/">Home</a></li>
+            <li><a class="mobile-link" data-nav="method" href="/the-method.html">Method</a></li>
+            <li><a class="mobile-link" data-nav="services" href="/services.html">Services</a></li>
+            <li><a class="mobile-link" data-nav="fees" href="/pricing.html">Fees</a></li>
+            <li><a class="mobile-link" data-nav="medical-aid" href="/medical-aid.html">Medical Aid</a></li>
+            <li><a class="mobile-link" data-nav="faq" href="/faq.html">FAQ</a></li>
+            <li><a class="mobile-link" data-nav="about" href="/about.html" aria-current="page">About</a></li>
+            <li><a class="mobile-link" data-nav="contact" href="/contact.html">Contact</a></li>
+        </ul>
+        <div class="mt-8 grid gap-3">
+            <a href="/book-now.html" class="btn-light w-full">Book an assessment</a>
+            <div class="grid grid-cols-2 gap-3">
+                <a href="tel:+264816835055" class="btn-ghost w-full"><svg data-icon="phone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>Call us</a>
+                <a href="https://wa.me/264816835055?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20with%20P%C3%A9tros%20Biokinetics." class="btn-ghost w-full" target="_blank" rel="noopener"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>WhatsApp</a>
             </div>
         </div>
-    </section>
+    </div>
+    <!-- /@header -->
 
-    <!-- Philosophy Section -->
-    <section class="py-24 px-6 bg-petros-deep/5 relative overflow-hidden">
-        <div class="absolute top-20 right-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-20 left-0 w-96 h-96 bg-petros-green/5 rounded-full blur-3xl"></div>
-
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">The Pétros <span
-                        class="italic text-petros-green">Philosophy</span></h2>
-                <p class="text-petros-slate font-light italic max-w-2xl mx-auto">Movement is medicine. Recovery is a
-                    journey, not a destination.</p>
+    <main id="main">
+        <section class="hero hero-sm">
+            <div class="hero-media">
+                <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1920/v1767286640/Front_Yard_of_Practce_un8vfd.png" alt="" fetchpriority="high">
             </div>
-
-            <!-- Three Pillars -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div
-                    class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
-                    <div
-                        class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="heart" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Patient-Centered</h3>
-                    <p class="text-petros-slate font-light leading-relaxed">Your goals and comfort guide every decision.
-                        We listen, adapt, and support your unique journey.</p>
-                </div>
-
-                <div
-                    class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
-                    <div
-                        class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="microscope" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Evidence-Based</h3>
-                    <p class="text-petros-slate font-light leading-relaxed">Every recommendation is grounded in current
-                        research and clinical best practices.</p>
-                </div>
-
-                <div
-                    class="glass-morphism p-8 rounded-2xl text-center group hover:bg-petros-green/10 transition-all duration-300">
-                    <div
-                        class="w-16 h-16 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-6 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="zap" class="w-8 h-8 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <h3 class="font-serif text-2xl text-petros-charcoal mb-4">Results-Driven</h3>
-                    <p class="text-petros-slate font-light leading-relaxed">We measure progress and continuously refine
-                        your program for optimal outcomes.</p>
-                </div>
+            <div class="hero-fade"></div>
+            <div class="wrap-narrow text-center">
+                <p class="eyebrow-light">About us</p>
+                <h1 class="h-hero">About Pétros <em>Biokinetics</em></h1>
+                <p class="hero-sub">A calm, personal practice in Kramersdorf, Swakopmund.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Facility Tour Section -->
-    <section class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-4xl md:text-5xl text-petros-charcoal mb-4">Welcome to <span
-                        class="italic text-petros-green">the Space</span></h2>
-                <p class="text-petros-slate font-light italic">A modern, clinical sanctuary designed for your recovery.
-                </p>
-            </div>
-
-            <!-- Main Featured Image -->
-            <div
-                class="rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl relative group tour-card h-auto min-h-[400px] md:h-[500px] mb-8">
-                <img src="https://res.cloudinary.com/karlifunk/image/upload/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png"
-                    loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
-                    data-full="https://res.cloudinary.com/karlifunk/image/upload/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png">
-                <div
-                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none">
+        <!-- Practitioner -->
+        <section class="pb-20 md:pb-28">
+            <div class="wrap grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+                <div class="reveal">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1768038812/Untitled_design_3_hxx0nq.png" alt="Portrait of Jean-Pierre Grobler, Biokineticist" loading="lazy" class="aspect-[4/5] w-full rounded-[2.5rem] object-cover shadow-lift">
                 </div>
-                <div class="absolute bottom-4 left-4 right-4 md:bottom-10 md:left-10 md:right-auto pointer-events-none">
-                    <div
-                        class="glass-morphism p-5 md:p-8 rounded-2xl max-w-full md:max-w-md backdrop-blur-xl border-petros-green/20 pointer-events-auto">
-                        <div class="flex items-center gap-3 mb-2 md:mb-3">
-                            <div
-                                class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-petros-green/20 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="dumbbell" class="w-4 h-4 md:w-5 md:h-5 text-petros-green"></i>
-                            </div>
-                            <h4 class="font-serif text-xl md:text-2xl text-white">Rehabilitation Area</h4>
-                        </div>
-                        <p class="text-xs md:text-sm text-white/90 font-light leading-relaxed">Natural light floods our
-                            main rehabilitation space, equipped with professional-grade equipment for guided exercise
-                            and movement therapy.</p>
-                    </div>
-                </div>
-            </div>
+                <div class="reveal">
+                    <span class="eyebrow">Your biokineticist</span>
+                    <h2 class="h-section">Jean-Pierre <em>Grobler</em></h2>
+                    <p class="mt-2 text-lg text-gray-600">Biokineticist</p>
 
-            <!-- Three Supporting Images -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                <!-- Card 1 -->
-                <div
-                    class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[250px] md:h-[300px]">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286189/Consultation_Room_oicrx4.png"
-                        loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
-                        data-full="https://res.cloudinary.com/karlifunk/image/upload/v1767286189/Consultation_Room_oicrx4.png">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 pointer-events-none">
-                        <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
-                            <div
-                                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-petros-green/30 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="clipboard" class="w-3 h-3 md:w-4 md:h-4 text-white"></i>
-                            </div>
-                            <h5 class="font-serif text-base md:text-lg text-white">Consultation Room</h5>
-                        </div>
-                        <p class="text-[10px] md:text-xs text-white/80 font-light pl-9 md:pl-11">Private assessment
-                            space</p>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div
-                    class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[250px] md:h-[300px]">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286406/Reception_Area_qotwbb.png"
-                        loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
-                        data-full="https://res.cloudinary.com/karlifunk/image/upload/v1767286406/Reception_Area_qotwbb.png">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 pointer-events-none">
-                        <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
-                            <div
-                                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-petros-green/30 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="door-open" class="w-3 h-3 md:w-4 md:h-4 text-white"></i>
-                            </div>
-                            <h5 class="font-serif text-base md:text-lg text-white">Reception & Entry</h5>
-                        </div>
-                        <p class="text-[10px] md:text-xs text-white/80 font-light pl-9 md:pl-11">Welcoming arrival space
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div
-                    class="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl relative group tour-card h-[250px] md:h-[300px]">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_700/v1767286640/Front_Yard_of_Practce_un8vfd.png"
-                        loading="lazy" class="w-full h-full object-cover cursor-zoom-in lightbox-trigger"
-                        data-full="https://res.cloudinary.com/karlifunk/image/upload/v1767286640/Front_Yard_of_Practce_un8vfd.png">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none">
-                    </div>
-                    <div class="absolute bottom-4 left-4 right-4 md:bottom-8 md:left-8 md:right-8 pointer-events-none">
-                        <div class="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
-                            <div
-                                class="w-6 h-6 md:w-8 md:h-8 rounded-full bg-petros-green/30 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="home" class="w-3 h-3 md:w-4 md:h-4 text-white"></i>
-                            </div>
-                            <h5 class="font-serif text-base md:text-lg text-white">Practice Exterior</h5>
-                        </div>
-                        <p class="text-[10px] md:text-xs text-white/80 font-light pl-9 md:pl-11">Peaceful surroundings
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Facility Highlights -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12 md:mt-16">
-                <!-- Highlights same as before but refined spacing -->
-                <div
-                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div
-                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="shield-check"
-                            class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Fully
-                        Equipped</p>
-                </div>
-                <!-- ... other highlights same pattern ... -->
-                <div
-                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div
-                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="sun" class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Natural Light
-                    </p>
-                </div>
-                <div
-                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div
-                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="lock"
-                            class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Private
-                        Sessions</p>
-                </div>
-                <div
-                    class="glass-morphism p-5 md:p-6 rounded-2xl text-center group hover:bg-petros-green/10 transition-all">
-                    <div
-                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-petros-green/20 flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:bg-petros-green group-hover:text-white transition-all">
-                        <i data-lucide="sparkles"
-                            class="w-5 h-5 md:w-6 md:h-6 text-petros-green group-hover:text-white"></i>
-                    </div>
-                    <p class="text-[10px] md:text-xs font-bold uppercase tracking-wider text-petros-slate">Modern Design
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-24 px-6 bg-petros-deep relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-petros-green/10 rounded-full blur-3xl"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10 text-center">
-            <h2 class="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">Ready to Start Your <span
-                    class="italic text-petros-green">Recovery Journey?</span></h2>
-            <p class="text-white/80 font-light text-lg mb-10 max-w-2xl mx-auto">
-                Let's work together to restore your movement, rebuild your confidence, and reclaim your quality of life.
-            </p>
-            <a href="contact.html"
-                class="cta-button inline-block px-12 py-4 text-white rounded-full font-bold shadow-lg uppercase tracking-wider text-sm">Get
-                In Touch</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-white pt-12 pb-6 border-t border-gray-200 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-petros-green/3 rounded-full blur-3xl -mr-48 -mt-48"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 text-center md:text-left">
-                <!-- Column 1: Logo + Description + Social -->
-                <div class="flex flex-col items-center md:items-start">
-                    <div class="flex items-center gap-2 mb-4">
-                        <div
-                            class="w-10 h-10 bg-petros-slate rounded-md flex items-center justify-center overflow-hidden">
-                            <img src="logo.png" alt="Pétros Biokinetics" class="h-6 w-auto block">
-                        </div>
-                        <span class="font-serif italic text-lg text-petros-slate">Pétros <span
-                                class="font-light not-italic">Biokinetics</span></span>
-                    </div>
-                    <p class="text-gray-600 text-sm leading-snug mb-4 max-w-xs">
-                        Pioneering biokinetic restoration where clinical science meets absolute serenity.
-                    </p>
-                    <!-- Social Icons -->
-                    <div class="flex gap-3 justify-center md:justify-start">
-                        <a href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
-                            aria-label="Follow us on Instagram"
-                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                            <i data-lucide="instagram" class="w-4 h-4" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.facebook.com/petrosbiokinetics" target="_blank" rel="noopener noreferrer"
-                            aria-label="Follow us on Facebook"
-                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                            <i data-lucide="facebook" class="w-4 h-4" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://wa.me/264816835055" target="_blank" rel="noopener noreferrer"
-                            aria-label="Chat with us on WhatsApp"
-                            class="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-petros-green hover:text-white transition-all">
-                            <i data-lucide="message-circle" class="w-4 h-4" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Navigation -->
-                <div>
-                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Navigation</h4>
-                    <ul class="space-y-2 text-sm text-petros-slate font-medium">
-                        <li><a href="index.html" class="hover:text-petros-green transition-colors">Home</a></li>
-                        <li><a href="the-method.html" class="hover:text-petros-green transition-colors">The Method</a>
-                        </li>
-                        <li><a href="services.html" class="hover:text-petros-green transition-colors">Services</a></li>
-                        <li><a href="pricing.html" class="hover:text-petros-green transition-colors">Pricing</a></li>
-                        <li><a href="faq.html" class="hover:text-petros-green transition-colors">FAQ</a></li>
-                        <li><a href="about.html" class="text-petros-green">About</a></li>
-                        <li><a href="contact.html" class="hover:text-petros-green transition-colors">Contact</a></li>
+                    <!-- TODO [CONFIRM]: qualification exactly as it should appear, e.g. "BA Hons (Biokinetics), [university], [year]". -->
+                    <!-- TODO [CONFIRM]: add HPCNA registration number. -->
+                    <ul class="mt-6 flex flex-wrap gap-2">
+                        <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">BA (Hons) Biokinetics</li>
+                        <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">Registered with the HPCNA</li>
+                        <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">Practice number 091 000 0880485</li>
                     </ul>
-                </div>
 
-                <!-- Column 3: Hours -->
-                <div>
-                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Hours</h4>
-                    <ul class="space-y-2 text-sm text-gray-700">
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">07:00 –
-                                18:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Mon — Fri</span><span class="font-medium">Closed
-                                between 13:00 – 14:00</span></li>
-                        <li class="flex justify-between gap-4"><span>Saturday</span><span
-                                class="font-medium">Closed</span></li>
-                        <li class="flex justify-between gap-4 text-petros-green italic"><span>Sunday</span><span
-                                class="font-medium">Closed</span></li>
-                    </ul>
-                </div>
+                    <!-- TODO [CONFIRM]: replace with a 3–5 sentence bio from Jean-Pierre: why biokinetics, background, what he enjoys about the work, a personal note. -->
+                    <p class="mt-8 text-lg text-gray-700">Jean-Pierre is a biokineticist working with orthopaedic rehabilitation, chronic-condition care and sports performance.</p>
+                    <p class="mt-4 text-lg text-gray-700">His approach combines evidence-based exercise with a calm, personal atmosphere. Every patient starts with a full assessment and a plan that respects their needs, goals and pace of recovery.</p>
+                    <p class="mt-4 text-sm text-gray-500">The Health Professions Councils of Namibia (HPCNA) registers and regulates biokineticists in Namibia.</p>
 
-                <!-- Column 4: Location -->
-                <div>
-                    <h4 class="text-xs font-bold tracking-[0.2em] text-petros-green uppercase mb-4">Location</h4>
-                    <p class="text-sm text-gray-700 mb-2">102 Dr. Libertine Amathila Avenue</p>
-                    <p class="text-sm text-gray-700 mb-6">Kramersdorf, Swakopmund, Namibia</p>
-                    <a href="mailto:petrosbiokinetics@gmail.com"
-                        class="text-xs font-bold text-petros-green hover:underline uppercase block mb-3">petrosbiokinetics@gmail.com</a>
-                    <a href="tel:+264816835055"
-                        class="font-serif text-lg text-petros-slate italic hover:text-petros-green transition-colors">+264
-                        81 683 5055</a>
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a href="/book-now.html" class="btn-primary">Book an assessment</a>
+                        <a href="/contact.html" class="btn-outline">Contact us</a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Footer Bottom -->
-            <div
-                class="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 uppercase tracking-widest">
-                <p>&copy; 2026 Pétros Biokinetics. All rights reserved.</p>
-                <div class="flex gap-6 mt-4 md:mt-0">
-                    <a href="privacy-policy.html" class="hover:text-petros-green transition-colors">Privacy Policy</a>
-                    <a href="terms.html" class="hover:text-petros-green transition-colors">Terms of Service</a>
+        <!-- Principles -->
+        <section class="section bg-petros-sand/60">
+            <div class="wrap">
+                <div class="mx-auto mb-14 max-w-2xl text-center reveal">
+                    <span class="eyebrow">What we stand for</span>
+                    <h2 class="h-section">Our <em>principles</em></h2>
                 </div>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="card text-center reveal">
+                        <div class="icon-tile mx-auto"><svg data-icon="hand-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" /><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /><path d="m2 15 6 6" /><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z" /></svg></div>
+                        <h3 class="text-2xl">Patient-centred</h3>
+                        <p class="mt-3 text-gray-600">Your goals and comfort guide every decision. We listen, adapt and support you.</p>
+                    </div>
+                    <div class="card text-center reveal">
+                        <div class="icon-tile mx-auto"><svg data-icon="clipboard-list" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg></div>
+                        <h3 class="text-2xl">Evidence-based</h3>
+                        <p class="mt-3 text-gray-600">Recommendations grounded in current research and good clinical practice.</p>
+                    </div>
+                    <div class="card text-center reveal">
+                        <div class="icon-tile mx-auto"><svg data-icon="trending-up" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg></div>
+                        <h3 class="text-2xl">Focused on results you can measure</h3>
+                        <p class="mt-3 text-gray-600">We measure progress at re-evaluations and refine your programme as you go.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The practice -->
+        <section class="section">
+            <div class="wrap">
+                <div class="mx-auto mb-14 max-w-2xl text-center reveal">
+                    <span class="eyebrow">The practice</span>
+                    <h2 class="h-section">Welcome to <em>the space</em></h2>
+                    <p class="lead mt-5">102 Dr. Libertine Amathila Avenue, Kramersdorf, Swakopmund.</p>
+                </div>
+                <!-- TODO [CONFIRM]: the old site showed an AI-generated "Rehabilitation Area" image (ChatGPT_Image_Jan_10_2026…). It has been left out; add a real photo of the rehab area when available. -->
+                <div class="grid gap-6 md:grid-cols-3">
+                    <figure class="reveal">
+                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767286189/Consultation_Room_oicrx4.png" alt="The consultation room at Pétros Biokinetics" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-soft">
+                        <figcaption class="mt-3 text-center font-serif text-xl">Consultation room</figcaption>
+                    </figure>
+                    <figure class="reveal">
+                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767286406/Reception_Area_qotwbb.png" alt="The reception area at Pétros Biokinetics" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-soft">
+                        <figcaption class="mt-3 text-center font-serif text-xl">Reception</figcaption>
+                    </figure>
+                    <figure class="reveal">
+                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767286640/Front_Yard_of_Practce_un8vfd.png" alt="The front of the Pétros Biokinetics practice building in Kramersdorf" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-soft">
+                        <figcaption class="mt-3 text-center font-serif text-xl">Practice exterior</figcaption>
+                    </figure>
+                </div>
+                <!-- TODO [CONFIRM]: optional "Meet the team" note with the watercolour pug illustration (names, and whether the practitioner wants them on the site). -->
+            </div>
+        </section>
+    </main>
+
+    <!-- @footer -->
+    <footer class="on-dark bg-petros-deep text-white">
+        <div class="wrap grid gap-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-[1.2fr_0.7fr_1fr_1.3fr]">
+            <div>
+                <a href="/" class="inline-flex items-center gap-3" aria-label="Pétros Biokinetics, home">
+                    <img src="/assets/img/logo-white.png" alt="" width="48" height="48" class="h-12 w-12 object-contain" loading="lazy">
+                    <span class="font-serif text-xl italic">Pétros <span class="not-italic text-white/80">Biokinetics</span></span>
+                </a>
+                <p class="mt-5 max-w-xs text-white/80">Exercise-based rehabilitation and chronic-condition care in Swakopmund.</p>
+                <p class="mt-2 font-serif italic text-petros-mist">Movement is medicine.</p>
+                <div class="mt-6 flex gap-3">
+                    <a class="social-btn" href="https://www.instagram.com/petrosbiokinetics" target="_blank" rel="noopener" aria-label="Pétros Biokinetics on Instagram"><svg data-icon="si:instagram" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a>
+                    <!-- TODO [CONFIRM]: the old site used two Facebook links (/petrosbiokinetics and profile.php?id=61570341071678). Using the profile link; swap if the other is current. -->
+                    <a class="social-btn" href="https://www.facebook.com/profile.php?id=61570341071678" target="_blank" rel="noopener" aria-label="Pétros Biokinetics on Facebook"><svg data-icon="si:facebook" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a>
+                    <a class="social-btn" href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="WhatsApp Pétros Biokinetics"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h2 class="footer-h font-sans">Pages</h2>
+                <ul class="space-y-2.5">
+                    <li><a class="footer-link" href="/the-method.html">Method</a></li>
+                    <li><a class="footer-link" href="/services.html">Services</a></li>
+                    <li><a class="footer-link" href="/pricing.html">Fees</a></li>
+                    <li><a class="footer-link" href="/medical-aid.html">Medical aid</a></li>
+                    <li><a class="footer-link" href="/faq.html">FAQ</a></li>
+                    <li><a class="footer-link" href="/about.html">About</a></li>
+                    <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="footer-h font-sans">Opening hours</h2>
+                <!-- TODO [CONFIRM]: opening hours are still correct. -->
+                <dl class="space-y-4 text-white/85">
+                    <div>
+                        <dt class="font-semibold text-white">Monday to Friday</dt>
+                        <dd>06:00 – 18:00 <span class="text-white/65">(closed 13:00 – 14:00)</span></dd>
+                    </div>
+                    <div>
+                        <dt class="font-semibold text-white">Saturday and Sunday</dt>
+                        <dd>Closed</dd>
+                    </div>
+                </dl>
+                <a href="/book-now.html" class="btn-light mt-8">Book Now</a>
+            </div>
+            <div>
+                <h2 class="footer-h font-sans">Visit or contact us</h2>
+                <ul class="space-y-3 text-white/85">
+                    <li class="flex gap-3"><svg data-icon="map-pin" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>102 Dr. Libertine Amathila Avenue, Kramersdorf, Swakopmund, Namibia</span></li>
+                    <li class="flex gap-3"><svg data-icon="phone" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg><a class="footer-link" href="tel:+264816835055">+264 81 683 5055</a></li>
+                    <li class="flex gap-3"><svg data-icon="mail" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg><a class="footer-link [overflow-wrap:anywhere]" href="mailto:petrosbiokinetics@gmail.com">petrosbiokinetics@gmail.com</a></li>
+                    <li class="flex gap-3"><svg data-icon="badge-check" class="mt-1 h-5 w-5 shrink-0 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z" /><path d="m9 12 2 2 4-4" /></svg><span>Practice number 091 000 0880485</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10">
+            <div class="wrap flex flex-col gap-3 py-6 text-sm text-white/65 md:flex-row md:items-center md:justify-between">
+                <p>© <span data-year>2026</span> Pétros Biokinetics. The information on this website is general and is not medical advice.</p>
+                <p class="flex gap-5"><a class="footer-link" href="/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/terms.html">Terms</a><button type="button" class="footer-link" data-cookie-settings>Cookie settings</button></p>
             </div>
         </div>
     </footer>
-
-    <script>
-        (function () {
-            // 1) Safe icon init (never crash)
-            function initIcons() {
-                if (window.lucide && typeof window.lucide.createIcons === 'function') {
-                    window.lucide.createIcons();
-                }
-            }
-
-            // 2) Safe GSAP init (never crash)
-            function initGsap() {
-                if (window.gsap && window.ScrollTrigger) {
-                    gsap.registerPlugin(ScrollTrigger);
-
-                    gsap.to("#hero-bg-about", {
-                        scrollTrigger: {
-                            trigger: "section",
-                            start: "top top",
-                            end: "bottom top",
-                            scrub: true
-                        },
-                        y: 100,
-                        scale: 1.1
-                    });
-                }
-            }
-
-            // 3) Safe mobile menu
-            function initMobileMenu() {
-                const toggle = document.getElementById('mobile-toggle');
-                const menu = document.getElementById('mobile-menu');
-                const overlay = document.getElementById('mobile-menu-overlay');
-                const mobileLinks = document.querySelectorAll('.mobile-link');
-
-                if (!toggle || !menu || !overlay) return;
-
-                function openMenu() {
-                    menu.classList.remove('hidden');
-                    overlay.classList.remove('hidden');
-                    overlay.setAttribute('aria-hidden', 'false');
-                    toggle.setAttribute('aria-expanded', 'true');
-                }
-
-                function closeMenu() {
-                    menu.classList.add('hidden');
-                    overlay.classList.add('hidden');
-                    overlay.setAttribute('aria-hidden', 'true');
-                    toggle.setAttribute('aria-expanded', 'false');
-                }
-
-                toggle.addEventListener('click', () => {
-                    const isHidden = menu.classList.contains('hidden');
-                    if (isHidden) openMenu();
-                    else closeMenu();
-                });
-
-                overlay.addEventListener('click', closeMenu);
-                mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-            }
-
-            document.addEventListener('DOMContentLoaded', function () {
-                initIcons();
-                initGsap();
-                initMobileMenu();
-            });
-        })();
-    </script>
-
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/264816835055" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
-        class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg opacity-70 hover:opacity-100 hover:scale-110 transition-all duration-300 md:w-14 md:h-14 group">
-        <svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-        <span
-            class="absolute right-full mr-3 px-3 py-1.5 bg-white text-petros-slate text-sm font-medium rounded-lg shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none hidden md:block">Chat
-            with us</span>
-    </a>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" aria-label="Scroll back to top of page"
-        class="fixed bottom-24 right-6 z-40 w-11 h-11 bg-petros-slate/80 hover:bg-petros-green rounded-full flex items-center justify-center shadow-lg opacity-0 invisible hover:scale-110 transition-all duration-300 md:w-12 md:h-12 md:bottom-28">
-        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"></path>
-        </svg>
-    </button>
-
-    <script>
-        // Back to Top Button
-        const backToTopBtn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-70');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'invisible');
-                backToTopBtn.classList.remove('opacity-70');
-            }
-        });
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-
-    <!-- 3D Particle Mesh -->
-    <script src="particles.js"></script>
-    <script>
-        if (typeof initParticles !== 'undefined') {
-            initParticles('about');
-        }
-    </script>
-
-    <!-- Lenis Smooth Scroll & Text Reveals -->
-    <script src="smooth-scroll.js"></script>
-    <script src="magnetic-button.js"></script>
-
-    <!-- Premium Lightbox Modal -->
-    <div id="lightbox-modal" class="fixed inset-0 z-[99999] opacity-0 pointer-events-none transition-all duration-300"
-        aria-hidden="true">
-        <!-- Backdrop with blur -->
-        <div class="absolute inset-0 bg-black/90 backdrop-blur-md"></div>
-
-        <!-- Close Button -->
-        <button id="lightbox-close"
-            class="absolute top-4 right-4 z-50 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
-            aria-label="Close lightbox">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-
-        <!-- Image Container -->
-        <div class="absolute inset-0 flex items-center justify-center p-4">
-            <img id="lightbox-img" src="" alt="Expanded view"
-                class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl scale-95 transition-transform duration-300">
-        </div>
-    </div>
-
-    <script>
-        // Premium Lightbox Logic
-        document.addEventListener('DOMContentLoaded', function () {
-            const modal = document.getElementById('lightbox-modal');
-            const img = document.getElementById('lightbox-img');
-            const closeBtn = document.getElementById('lightbox-close');
-            let isOpen = false;
-
-            function openLightbox(thumb, full) {
-                if (!thumb && !full) return;
-
-                // Show thumbnail immediately (cached, instant)
-                img.src = thumb || full;
-
-                modal.classList.remove('opacity-0', 'pointer-events-none');
-                // Small delay to allow display to update before animating scale
-                requestAnimationFrame(() => {
-                    img.classList.remove('scale-95');
-                    img.classList.add('scale-100');
-                });
-                document.body.style.overflow = 'hidden'; // Prevent background scrolling
-                isOpen = true;
-
-                // Load full res if different
-                if (full && full !== thumb) {
-                    const fullImage = new Image();
-                    fullImage.src = full;
-                    fullImage.onload = () => {
-                        // Only swap if still open so we don't flash content if closed quickly
-                        if (isOpen && img.src === thumb) {
-                            img.src = full;
-                        }
-                    };
-                }
-            }
-
-            function closeLightbox() {
-                modal.classList.add('opacity-0', 'pointer-events-none');
-                img.classList.remove('scale-100');
-                img.classList.add('scale-95');
-                document.body.style.overflow = '';
-                isOpen = false;
-                // Clear src after animation to prevent flicker next time
-                setTimeout(() => {
-                    if (!isOpen) img.src = '';
-                }, 300);
-            }
-
-            // Attach listeners to triggers
-            document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
-                trigger.classList.add('cursor-zoom-in');
-                trigger.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    // Pass both thumbnail and full resolution URL
-                    const thumb = trigger.src;
-                    const full = trigger.getAttribute('data-full') || trigger.src;
-                    openLightbox(thumb, full);
-                });
-            });
-
-            // Close handlers
-            closeBtn.addEventListener('click', closeLightbox);
-
-            // Close on click anywhere (background, container, or image)
-            modal.addEventListener('click', closeLightbox);
-
-            // Close on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && isOpen) {
-                    closeLightbox();
-                }
-            });
-
-            // Count-up animation for Experience
-            gsap.to("#experience-count", {
-                scrollTrigger: {
-                    trigger: ".stats-badge",
-                    start: "top 90%",
-                    once: true
-                },
-                innerText: 8,
-                duration: 2,
-                snap: { innerText: 1 },
-                ease: "power2.out"
-            });
-        });
-    </script>
-    <script src="tilt.js"></script>
-    <script src="effects.js"></script>
-    <script src="draw-animations.js"></script>
-    <script src="cookie-consent.js"></script>
+    <a class="wa-float" href="https://wa.me/264816835055?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20with%20P%C3%A9tros%20Biokinetics." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
+    <!-- /@footer -->
 </body>
 
 </html>

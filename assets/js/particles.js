@@ -260,8 +260,8 @@ class ParticleMesh {
     }
 
     setupVisibilityObserver() {
-        const header = document.querySelector('header');
-        if (!header) return;
+        const header = this.canvas.parentElement;
+        if (!header || !('IntersectionObserver' in window)) return;
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -476,6 +476,7 @@ const particleConfigs = {
 
 // Initialize on page load
 function initParticles(pageType) {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const config = particleConfigs[pageType] || particleConfigs.home;
     new ParticleMesh('particle-canvas', config);
 }

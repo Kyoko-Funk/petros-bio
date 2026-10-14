@@ -1,27 +1,39 @@
-# Pétros Biokinetics Security & Performance Configuration
+# Pétros Biokinetics security and performance configuration
 # Apache Web Server Configuration (.htaccess)
 
 # Enable mod_rewrite
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
-    
+
     # Redirect HTTP to HTTPS
     RewriteCond %{HTTPS} off
     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-    
-    # Remove www subdomain (optional - uncomment to enforce non-www)
-    # RewriteCond %{HTTP_HOST} ^www\.
-    # RewriteRule ^(.*)$ https://petrosbiokinetics.com/$1 [R=301,L]
-    
-    # Remove .html extension from URLs (optional - uncomment to use clean URLs)
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+    # One URL style: pages live at /page.html. Old or clean URLs (/contact, /contact/) redirect there.
+    RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+    RewriteRule ^index\.html$ / [R=301,L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+    RewriteRule ^([^.]+?)/?$ /$1.html [R=301,L]
+
+    # Files removed in the October 2026 refresh
+    RewriteRule ^(loader|gradient-test)\.html$ / [R=301,L]
+    RewriteRule ^3d-render\.png$ /assets/img/anatomy-figure.webp [R=301,L]
+    RewriteRule ^logo\.png$ /assets/img/logo-full-white.png [R=301,L]
+    RewriteRule ^og-image\.jpg$ /assets/img/og-image.jpg [R=301,L]
 </IfModule>
 
-# Protect sensitive files and directories
-<FilesMatch "(?i)(^\.|env|config|\.htaccess|\.git|composer\.|package\.json|\.sql|\.pem|\.key)">
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# Protect source and config files (the site itself is plain HTML/CSS/JS)
+<IfModule mod_alias.c>
+    RedirectMatch 404 ^/(partials|src|tools|docs|node_modules)(/.*)?$
+    RedirectMatch 404 ^/(package(-lock)?\.json|tailwind\.config\.js|CLAUDE\.md|README\.md)$
+</IfModule>
+<FilesMatch "(^\.|\.(env|sql|pem|key|bak)$)">
     <IfModule mod_authz_core.c>
         Require all denied
     </IfModule>
@@ -53,16 +65,12 @@
     # Permissions Policy - control browser features
     Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
     
-    # Content Security Policy - prevent injection attacks
-    Header always set Content-Security-Policy "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com data:; img-src 'self' https: data:; connect-src 'self' https://formspree.io https://api.formspree.io https://www.google-analytics.com; frame-src 'self'; form-action 'self' https://formspree.io;"
-    
-    # Enforce Strict Transport Security (HTTPS only)
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    # Content Security Policy: only the services this site uses
+    # (Google Fonts, Google Analytics/Tag Manager after consent, Formspree forms, Google Maps embed, Cloudinary images)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-src https://www.google.com https://www.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-ancestors 'self'"
 
-    # Modern Cross-Origin Security Headers
-    Header always set Cross-Origin-Opener-Policy "same-origin"
-    Header always set Cross-Origin-Embedder-Policy "require-corp"
-    Header always set Cross-Origin-Resource-Policy "same-origin"
+    # Enforce Strict Transport Security (HTTPS only)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
 # Enable GZIP compression for text-based files
@@ -140,13 +148,6 @@ AddDefaultCharset UTF-8
 # Gzip ETags for proper compression
 <IfModule mod_headers.c>
     Header append Vary: Accept-Encoding
-</IfModule>
-
-# Disable execution of scripts in certain directories
-<IfModule mod_rewrite.c>
-    <Directory "*.jpg">
-        AddType text/plain .jpg .png .gif
-    </Directory>
 </IfModule>
 
 # Performance: Disable ETags if you use multiple servers
