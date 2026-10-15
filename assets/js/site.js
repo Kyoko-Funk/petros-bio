@@ -77,6 +77,17 @@
       document.querySelectorAll('svg[data-pulse]').forEach(function (svg) { if (svg.pauseAnimations) { svg.setCurrentTime(3.3); svg.pauseAnimations(); } });
     }
 
+    // Spotlight cards: soft glow follows the pointer (mouse only)
+    if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('[data-spotlight]').forEach(function (card) {
+        card.addEventListener('pointermove', function (e) {
+          var r = card.getBoundingClientRect();
+          card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+          card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+        });
+      });
+    }
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.
