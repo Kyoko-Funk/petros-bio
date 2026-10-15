@@ -32,45 +32,46 @@ class SpineModel {
         this.mouse = new THREE.Vector2();
         
         // Spine regions data - detailed anatomical information
+        // Plain-language region details for the panel on the Method page (medical terms in brackets)
         this.regions = {
             cervical: {
-                name: 'Cervical Spine',
-                vertebrae: 'C1 (Atlas) – C7 (Vertebra Prominens)',
+                name: 'Neck (cervical spine)',
+                vertebrae: 'C1 – C7',
                 count: '7 vertebrae',
-                description: 'The most mobile spinal region, supporting the head and enabling a wide range of neck movements including rotation, flexion, and extension.',
-                function: 'Head support, neck mobility, houses vertebral arteries',
-                nerves: 'C1-C8 nerves control head, neck, shoulders, arms, and diaphragm',
-                conditions: 'Whiplash, cervical radiculopathy, neck strain, herniated disc',
+                description: 'The most mobile part of the spine. It holds up your head and lets you turn, nod and tilt it.',
+                function: 'Supports your head and lets your neck move freely.',
+                conditions: 'Neck pain and stiffness, whiplash, a pinched nerve that causes pain down the arm (radiculopathy), disc problems.',
+                help: 'Posture work, neck and upper-back strengthening, and gentle mobility exercises to move with less pain.',
                 color: 0x3A5A8F
             },
             thoracic: {
-                name: 'Thoracic Spine', 
+                name: 'Upper back (thoracic spine)',
                 vertebrae: 'T1 – T12',
                 count: '12 vertebrae',
-                description: 'The longest spinal region, providing structural support for the ribcage and protecting vital organs including the heart and lungs.',
-                function: 'Ribcage attachment, organ protection, posture stability',
-                nerves: 'T1-T12 nerves control chest muscles, abdominal muscles, and trunk',
-                conditions: 'Kyphosis, Scheuermann\'s disease, thoracic outlet syndrome',
+                description: 'The longest part of the spine. Your ribs attach here, protecting your heart and lungs.',
+                function: 'Anchors the ribcage and keeps your posture upright and stable.',
+                conditions: 'Stiffness from sitting, a forward-rounded upper back (kyphosis), pain between the shoulder blades.',
+                help: 'Mobility and posture exercises, and strengthening for the shoulder blades and upper back.',
                 color: 0x2F5088
             },
             lumbar: {
-                name: 'Lumbar Spine',
+                name: 'Lower back (lumbar spine)',
                 vertebrae: 'L1 – L5',
                 count: '5 vertebrae',
-                description: 'The weight-bearing powerhouse of the spine, featuring the largest vertebrae to support the upper body and enable bending and twisting movements.',
-                function: 'Weight bearing, flexibility, power transfer to lower body',
-                nerves: 'L1-L5 nerves control hips, legs, feet, and lower body function',
-                conditions: 'Lower back pain, sciatica, lumbar stenosis, spondylolisthesis',
+                description: 'The largest vertebrae, carrying most of your upper body\'s weight when you stand, bend and lift.',
+                function: 'Carries your body weight and lets you bend and twist.',
+                conditions: 'Lower back pain, pain down the leg (sciatica), narrowing of the spinal canal (stenosis), a slipped vertebra (spondylolisthesis).',
+                help: 'Core and hip strengthening, movement retraining, and a gradual return to bending, lifting and activity.',
                 color: 0x2B4A80
             },
             sacral: {
-                name: 'Sacrum & Coccyx',
-                vertebrae: 'S1 – S5 (fused) + Co1-Co4',
-                count: '5 fused + 4 coccygeal',
-                description: 'The foundation of the spine, connecting the vertebral column to the pelvis. The sacrum transmits body weight to the hip bones while the coccyx serves as an attachment point for ligaments and muscles.',
-                function: 'Pelvic stability, weight distribution, muscle attachment',
-                nerves: 'Sacral plexus controls bowel, bladder, and sexual function',
-                conditions: 'Sacroiliac dysfunction, coccydynia, sacral fractures',
+                name: 'Sacrum and tailbone',
+                vertebrae: 'S1 – S5 and coccyx',
+                count: '5 fused vertebrae + tailbone',
+                description: 'The base of the spine. It connects your spine to your pelvis and passes your body weight to your hips.',
+                function: 'Keeps the pelvis stable and spreads your weight to your hips and legs.',
+                conditions: 'Pain at the back of the pelvis (sacroiliac joint), tailbone pain (coccydynia).',
+                help: 'Pelvic and hip stability exercises, glute strengthening, and balanced movement patterns.',
                 color: 0x5A7524
             }
         };
@@ -987,6 +988,8 @@ document.addEventListener('DOMContentLoaded', () => {
         panel.querySelector('[data-panel-desc]').textContent = r.description;
         panel.querySelector('[data-panel-function]').textContent = r.function;
         panel.querySelector('[data-panel-conditions]').textContent = r.conditions;
+        const help = panel.querySelector('[data-panel-help]');
+        if (help) help.textContent = r.help;
         intro.hidden = true;
         detail.hidden = false;
     }

@@ -102,3 +102,9 @@ After comparing the branch with the live site and the brief:
 - Ready for the next pages: `knee-assessment-*` (hands-on knee assessment), `skeleton-illustration-*` (AI anatomy
   illustration, accurate enough for the Method page), `knee-taping-*` (sports taping, for performance/sports injuries).
 - Not used: a wrist-mobilisation photo showing another company's logo on the sleeve.
+
+## Confirmed by the practice (15 October 2026)
+- First visit takes 30 to 60 minutes.
+- Movement and strength are tested and recorded in the patient's file; a re-evaluation is done when the practitioner judges it right.
+- A report is sent to the referring doctor, even for patients seen only once.
+- Virtual consultations are offered and paid by EFT.

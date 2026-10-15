@@ -307,3 +307,8 @@
   .spine-showcase .spine-regions button:hover { @apply border-white/40 bg-white/10; }
   .spine-showcase .spine-regions button[aria-pressed='true']:hover { @apply bg-petros-mist; }
 }
+
+@layer components {
+  .step-chip { @apply mb-3 inline-flex items-center gap-1.5 rounded-full bg-petros-sand px-3 py-1 text-xs font-medium text-petros-slate; }
+  .step-chip svg { @apply h-3.5 w-3.5 text-petros-navy; }
+}
