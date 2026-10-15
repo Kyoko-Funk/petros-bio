@@ -72,6 +72,11 @@
       });
     }
 
+    // SVG (SMIL) animations ignore the CSS reduced-motion rule, so pause them here
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('svg[data-pulse]').forEach(function (svg) { if (svg.pauseAnimations) { svg.setCurrentTime(3.3); svg.pauseAnimations(); } });
+    }
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.

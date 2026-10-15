@@ -147,8 +147,6 @@
 }
 
 @layer components {
-  .pulse-line { stroke-dasharray: 1; stroke-dashoffset: 1; animation: pulse-draw 5s ease-in-out infinite; }
-  @keyframes pulse-draw { 0% { stroke-dashoffset: 1; } 55% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: -1; } }
 }
 
 @layer components {
