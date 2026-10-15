@@ -61,3 +61,23 @@ New page `hydrotherapy.html`, linked from Services, the home page and the footer
 - "Book hydrotherapy" opens the booking form with "Hydrotherapy (aquatherapy)" already selected (`/book-now.html?reason=hydrotherapy`).
 
 Still to confirm with Jean-Pierre (all marked `TODO [CONFIRM]` on the page): which pool and where, water temperature, session length, one-on-one or group, fees, medical aid cover, the conditions list, the "please tell us first" list, the weight percentages, and the FAQ answers. A real photo of the pool would be a good addition.
+
+## Going live (host: Namhost Plesk, Windows/IIS)
+Findings from a check of the live site and Google Search Console (15 Oct 2026): 9 pages indexed, 13 not. The real problem is
+4 × "Not found (404)" for `/terms`, `/privacy-policy`, `/faq` and `/contact`: the live pages point Google to those clean addresses,
+but IIS can't serve them. This branch points every canonical to the working `/page.html` address, and `web.config` redirects
+those old clean addresses to the `.html` pages using IIS's built-in HTTP Redirection (no URL Rewrite add-on needed).
+
+1. Back up the current live files in Plesk (File Manager → select all → Archive, or download).
+2. Upload the site files from this branch: the `.html` pages, `assets/`, `.well-known/`, `web.config`, `robots.txt`,
+   `sitemap.xml`, `site.webmanifest`, `favicon.png`, `apple-touch-icon.png` and `googleb72ec79db06fb2cb.html`.
+   Source files (`partials/`, `src/`, `tools/`, `docs/`, `node_modules/`, `package*.json`, `tailwind.config.js`,
+   `CLAUDE.md`, `.htaccess`) are not needed on the server; `web.config` hides them if they are uploaded.
+3. Delete from the server: `loader.html`, `gradient-test.html`, `3d-render.png`, `logo.png`, `og-image.jpg`, and the old
+   scripts no longer used (`tilt.js`, `magnetic-button.js`, `smooth-scroll.js`, `effects.js`, `draw-animations.js`,
+   `particles.js`, `spine.js`, `cookie-consent.js`, `cookie-consent.css`, `index.css`, `book-now.css`).
+4. Check straight away: the home page loads (no "500" error), `/contact.html` loads, `/contact` redirects to it,
+   `/does-not-exist` shows the house-style "Page not found", and the anatomy image (`.webp`) shows on the home page.
+   If any page shows a 500 error: delete `web.config` and report the error code.
+5. Google Search Console: submit `https://petrosbiokinetics.com/sitemap.xml`, open the "Not found (404)" reason and click
+   "Validate fix", then "Request indexing" for the home page and `/services.html`.
