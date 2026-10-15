@@ -29,7 +29,7 @@ for (const f of pages) {
   if (!title) err('missing <title>');
   else if (/&amp;|Petros(?!\w)/.test(title)) err(`bad title text: ${title}`);
   if (!isError && !/<meta name="description" content="[^"]{50,}">/.test(s)) err('missing or short meta description');
-  if (!isError && !/<link rel="canonical" href="https:\/\/petrosbiokinetics\.com\/[^"]*">/.test(s)) err('missing canonical');
+  if (!isError && !/<link rel="canonical" href="https:\/\/petrosbiokinetics\.com\/[^".]*">/.test(s)) err('missing canonical, or canonical uses .html');
   if ((s.match(/<h1\b/g) || []).length !== 1) err('should have exactly one <h1>');
   if ((s.match(/<nav class="nav-shell"/g) || []).length !== 1) err('should have exactly one main navigation');
   for (const re of banned) if (re.test(s)) err(`contains banned text ${re}`);
@@ -43,7 +43,9 @@ for (const f of pages) {
   for (const m of s.matchAll(/href="(\/[^"#?]*)?(#[^"]*)?"/g)) {
     let [, p, hash] = m;
     if (p === undefined && !hash) continue;
+    if (p && /\.html$/.test(p)) err(`link uses .html, use the clean address instead: ${p}`);
     let target = p === undefined ? f : p === '/' ? 'index.html' : p.slice(1);
+    if (target && !fs.existsSync(path.join(root, target)) && fs.existsSync(path.join(root, target + '.html'))) target += '.html';
     if (!fs.existsSync(path.join(root, target))) { err(`broken link ${m[1] || ''}${hash || ''}`); continue; }
     if (hash && hash.length > 1 && target.endsWith('.html') && ids[target] && !ids[target].has(hash.slice(1))) err(`missing anchor ${target}${hash}`);
   }

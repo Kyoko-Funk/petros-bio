@@ -34,7 +34,7 @@
     el.className = 'fixed bottom-4 left-4 right-24 z-40 max-w-md rounded-2xl border border-black/5 bg-white p-5 text-sm text-petros-slate shadow-lift md:bottom-6 md:left-6 md:right-auto';
     el.innerHTML =
       '<p>We use analytics cookies to see how people use this website. They are only set if you accept. ' +
-      '<a class="text-petros-moss underline" href="/privacy-policy.html">Privacy Policy</a></p>' +
+      '<a class="text-petros-moss underline" href="/privacy-policy">Privacy Policy</a></p>' +
       '<div class="mt-4 flex gap-3"><button type="button" class="btn-primary min-h-[44px] px-5" data-c="accepted">Accept</button>' +
       '<button type="button" class="btn-outline min-h-[44px] px-5" data-c="declined">Decline</button></div>';
     el.addEventListener('click', function (e) {

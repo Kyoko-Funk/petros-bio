@@ -10,7 +10,8 @@ Static site for petrosbiokinetics.com: plain HTML pages at the repo root, no fra
 - Styles: Tailwind, compiled. Edit `src/site.css` / `tailwind.config.js` or use Tailwind classes in pages, then
   `npm run build` (it also runs `build:css`). Commit the generated `assets/css/site.css`.
 - Run `npm run check` before committing: it checks titles, descriptions, canonicals, links, alt text, banned claims.
-- Links are root-relative with `.html` (`/contact.html`); `.htaccess` redirects clean URLs to them.
+- Links and canonicals use clean addresses without `.html` (`/contact`, `/the-method`). `.htaccess` serves `contact.html`
+  for `/contact`, redirects old `.html` and `www.` addresses, and serves `404.html` for missing pages.
 - Name is always "Pétros Biokinetics" (with the accent). No absolute or unsupported health claims.
 - No health information may be collected by website forms. Forms post to Formspree (`xbddjlny`) and email the practice.
 - `TODO [CONFIRM]` comments mark facts the practitioner still has to confirm. Don't remove them without an answer.
