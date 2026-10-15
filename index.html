@@ -89,7 +89,7 @@
                 <li><a class="nav-link" data-nav="contact" href="/contact.html">Contact</a></li>
             </ul>
             <div class="flex items-center gap-2">
-                <a href="/book-now.html" class="btn-primary hidden min-h-[44px] px-5 sm:inline-flex" data-nav="book">Book Now</a>
+                <a href="/book-now.html" class="btn-light hidden min-h-[44px] px-5 sm:inline-flex" data-nav="book">Book Now</a>
                 <button type="button" class="flex h-11 w-11 items-center justify-center rounded-xl text-white lg:hidden" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
                     <span class="sr-only" data-menu-label>Open menu</span>
                     <svg data-icon="menu" class="h-6 w-6" data-menu-open xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="4" x2="20" y1="12" y2="12" /><line x1="4" x2="20" y1="6" y2="6" /><line x1="4" x2="20" y1="18" y2="18" /></svg>
@@ -121,14 +121,15 @@
 
     <main id="main">
         <!-- Hero -->
-        <section class="hero md:min-h-screen">
+        <section class="hero hero-warm md:min-h-screen">
+            <!-- AI-generated landscape (dunes meeting the sea near Swakopmund); decorative only -->
             <div class="hero-media">
-                <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1920/v1767436999/pexels-pixabay-248796_tppwp7.jpg" alt="" fetchpriority="high">
+                <img src="/assets/img/hero-namib.webp" srcset="/assets/img/hero-namib-900.webp 900w, /assets/img/hero-namib.webp 1642w" sizes="100vw" width="1642" height="958" alt="" fetchpriority="high" class="object-[50%_70%]">
             </div>
             <canvas id="particle-canvas" class="pointer-events-none absolute inset-0 -z-[5] h-full w-full" aria-hidden="true"></canvas>
             <div class="hero-fade"></div>
             <div class="wrap flex justify-center">
-                <div class="glass w-full max-w-3xl rounded-[2.5rem] px-6 py-12 text-center md:px-14 md:py-16">
+                <div class="glass glass-tint w-full max-w-3xl rounded-[2.5rem] px-6 py-12 text-center md:px-14 md:py-16">
                     <p class="eyebrow-light">Biokineticist in Swakopmund</p>
                     <h1 class="h-hero">Movement is <em class="draw">medicine.</em></h1>
                     <p class="hero-sub">Clinically guided exercise to help you recover from injury, manage chronic conditions and move with confidence.</p>

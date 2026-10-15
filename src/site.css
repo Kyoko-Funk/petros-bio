@@ -272,3 +272,9 @@
   .hero-trust span { @apply inline-flex items-center gap-2; }
   .hero-trust svg { @apply h-4 w-4 text-petros-mist; }
 }
+
+/* Home hero over the warm desert photo: a lighter overlay keeps the warmth, a tinted glass card keeps text readable */
+@layer components {
+  .hero-warm .hero-media::after { background: linear-gradient(180deg, rgba(42,50,61,.30) 0%, rgba(42,50,61,.12) 45%, rgba(54,40,26,.30) 100%); }
+  .glass-tint { background: rgba(42, 50, 61, .30); }
+}
