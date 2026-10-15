@@ -13,6 +13,10 @@ Static site for petrosbiokinetics.com: plain HTML pages at the repo root, no fra
 - The live server is Microsoft IIS: it ignores `.htaccess` and uses `web.config`. IIS has no clean-URL support without
   an add-on, so links and canonicals use `.html` addresses (`/contact.html`); the home page is `/`. `web.config` sets the
   404 page, file types (.webp), security headers and hides source folders. `.htaccess` is kept for Apache hosts only.
+- Brand (brief section 5): blue-grey `petros-blue` #7E8DA4 primary (`petros-navy` #4E5D73 for buttons/small text),
+  olive #708238 and deep green `petros-moss` #566643 accents, warm off-white #FAFAF7, ink #2B2F36. Headings in Belleza
+  (no italic: accent words use `<em>` in blue), labels in Barlow Condensed, body in Inter. Hand-drawn pen strokes:
+  `<em class="draw">` (underline) or `draw-circle` (oval); use sparingly.
 - Name is always "Pétros Biokinetics" (with the accent). No absolute or unsupported health claims.
 - No health information may be collected by website forms. Forms post to Formspree (`xbddjlny`) and email the practice.
 - `TODO [CONFIRM]` comments mark facts the practitioner still has to confirm. Don't remove them without an answer.

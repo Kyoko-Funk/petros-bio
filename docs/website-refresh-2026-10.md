@@ -81,3 +81,17 @@ those old clean addresses to the `.html` pages using IIS's built-in HTTP Redirec
    If any page shows a 500 error: delete `web.config` and report the error code.
 5. Google Search Console: submit `https://petrosbiokinetics.com/sitemap.xml`, open the "Not found (404)" reason and click
    "Validate fix", then "Request indexing" for the home page and `/services.html`.
+
+## Overhaul (15 October 2026)
+After comparing the branch with the live site and the brief:
+- **Brand palette and fonts from brief section 5:** blue-grey primary, olive and deep green accents, warm off-white,
+  Belleza headings, Barlow Condensed labels (free stand-in for Heartland Sans Condensed), Inter body text. The 3D spine,
+  particles, favicons and theme colour follow the new palette.
+- **Hand-drawn pen strokes** (as on the live site) on every page title and a few key headings; they draw themselves in on scroll.
+- **Real practice photos** instead of stock: rehab area (home closing section, Method step 3, About), consultation room
+  (Book Now hero, Method step 1), reception (About hero), practice exterior (Contact hero), and a new
+  "Meet Jean-Pierre" section with his portrait on the home page.
+- **Phones:** a Call button above the WhatsApp button.
+- **About:** practice photos open full size when tapped.
+- Still left out on purpose until confirmed: virtual consultations and PayToday (fees page).
+- Still missing: the watercolour pug illustration (for About and the 404 page) and a pool photo for Hydrotherapy.

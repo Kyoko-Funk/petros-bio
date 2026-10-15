@@ -7,9 +7,11 @@
   html { font-size: 106.25%; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   @media (min-width: 768px) { html { font-size: 112.5%; } }
   body { @apply bg-petros-cream text-petros-slate font-sans antialiased leading-relaxed; overflow-x: hidden; }
-  h1, h2, h3 { @apply font-serif font-normal leading-tight text-balance; }
-  ::selection { @apply bg-petros-green text-white; }
-  :focus-visible { outline: 3px solid #7A8B69; outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3 { @apply font-serif font-normal leading-tight text-balance; letter-spacing: 0.01em; }
+  /* Belleza has no italic: accent words are set apart by colour (and sometimes a hand-drawn stroke) */
+  h1 em, h2 em, h3 em { font-style: normal; }
+  ::selection { @apply bg-petros-blue text-white; }
+  :focus-visible { outline: 3px solid #7E8DA4; outline-offset: 3px; border-radius: 6px; }
   a { text-underline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -21,26 +23,26 @@
   .wrap { @apply mx-auto w-full max-w-6xl px-5 md:px-8; }
   .wrap-narrow { @apply mx-auto w-full max-w-3xl px-5 md:px-8; }
   .section { @apply py-20 md:py-28; }
-  .eyebrow { @apply mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-petros-moss; }
-  .eyebrow-light { @apply mb-4 block text-xs font-semibold uppercase tracking-[0.2em] text-petros-mist; }
+  .eyebrow { @apply mb-4 block font-condensed text-[0.95rem] font-semibold uppercase tracking-[0.16em] text-petros-moss; }
+  .eyebrow-light { @apply mb-4 block font-condensed text-[0.95rem] font-semibold uppercase tracking-[0.16em] text-petros-mist; }
   .h-section { @apply text-4xl text-petros-slate md:text-5xl; }
-  .h-section em, .h-hero em { @apply italic text-petros-green; }
+  .h-section em { @apply text-petros-blue; }
   .on-dark .h-section, .on-dark h2, .on-dark h3 { @apply text-white; }
   .on-dark .h-section em, .h-hero em { @apply text-petros-mist; }
   .lead { @apply text-lg leading-relaxed text-gray-600 md:text-xl; }
 
   .btn { @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-semibold tracking-wide transition duration-300 focus-visible:outline-offset-4; }
   .btn svg { @apply h-4 w-4 shrink-0; }
-  .btn-primary { @apply btn bg-petros-moss text-white shadow-soft hover:bg-petros-deep hover:shadow-lift; }
-  .btn-light { @apply btn bg-white text-petros-deep shadow-soft hover:bg-petros-mist; }
-  .btn-outline { @apply btn border border-petros-moss/40 text-petros-moss hover:border-petros-moss hover:bg-petros-moss hover:text-white; }
+  .btn-primary { @apply btn bg-petros-navy text-white shadow-soft hover:bg-petros-deep hover:shadow-lift; }
+  .btn-light { @apply btn bg-white text-petros-deep shadow-soft hover:bg-petros-sand; }
+  .btn-outline { @apply btn border border-petros-navy/40 text-petros-navy hover:border-petros-navy hover:bg-petros-navy hover:text-white; }
   .btn-ghost { @apply btn border border-white/40 text-white hover:bg-white hover:text-petros-deep; }
   .btn-whatsapp { @apply btn bg-[#1F7A4D] text-white hover:bg-[#17603C]; }
 
   .card { @apply rounded-[2rem] border border-black/5 bg-white p-7 shadow-soft md:p-8; }
-  .icon-tile { @apply mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-petros-green/15 text-petros-moss; }
+  .icon-tile { @apply mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-petros-olive/10 text-petros-moss; }
   .icon-tile svg { @apply h-6 w-6; }
-  .link-arrow { @apply inline-flex items-center gap-2 font-semibold text-petros-moss underline-offset-4 hover:underline; }
+  .link-arrow { @apply inline-flex items-center gap-2 font-semibold text-petros-navy underline-offset-4 hover:underline; }
   .link-arrow svg { @apply h-4 w-4 transition-transform; }
   .link-arrow:hover svg { transform: translateX(3px); }
 
@@ -49,26 +51,27 @@
   .hero-sm { @apply min-h-[52vh] md:min-h-[56vh]; }
   .hero-media { @apply absolute inset-0 -z-10; }
   .hero-media img { @apply h-full w-full object-cover; }
-  .hero-media::after { content: ''; @apply absolute inset-0; background: linear-gradient(180deg, rgba(31,42,32,.55) 0%, rgba(31,42,32,.45) 55%, rgba(31,42,32,.75) 100%); }
+  .hero-media::after { content: ''; @apply absolute inset-0; background: linear-gradient(180deg, rgba(42,50,61,.55) 0%, rgba(42,50,61,.42) 55%, rgba(42,50,61,.72) 100%); }
   .hero-fade { @apply pointer-events-none absolute inset-x-0 bottom-0 -z-0 h-24 bg-gradient-to-b from-transparent to-petros-cream; }
   .glass { background: rgba(255,255,255,.10); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.22); box-shadow: 0 8px 32px rgba(0,0,0,.12); }
-  .h-hero { @apply text-[2.6rem] leading-[1.1] text-white sm:text-6xl md:text-7xl; }
+  .h-hero { @apply text-[2.7rem] leading-[1.08] text-white sm:text-6xl md:text-[5rem]; }
+  .h-hero em { @apply text-petros-mist; }
   .hero-sub { @apply mx-auto mt-6 max-w-xl text-lg text-white/90 md:text-xl; }
 
   /* Navigation */
   .site-header { @apply fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-5; }
-  .nav-shell { @apply mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 md:px-6; background: rgba(31,41,32,.42); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.12); }
-  .is-scrolled .nav-shell { background: rgba(31,42,32,.92); box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+  .nav-shell { @apply mx-auto flex max-w-7xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 md:px-6; background: rgba(42,50,61,.42); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,.12); }
+  .is-scrolled .nav-shell { background: rgba(42,50,61,.92); box-shadow: 0 10px 30px rgba(0,0,0,.18); }
   .nav-link { @apply relative rounded-lg px-1 py-2 text-[0.82rem] font-medium tracking-wide text-white/85 transition-colors hover:text-white; }
   .nav-link[aria-current='page'] { @apply text-petros-mist; }
   .nav-link[aria-current='page']::after { content: ''; @apply absolute inset-x-1 -bottom-0.5 h-px bg-petros-mist; }
   .mobile-panel { @apply fixed inset-0 z-40 flex flex-col overflow-y-auto bg-petros-night/95 px-6 pb-10 pt-28 backdrop-blur-xl transition duration-300; }
   .mobile-panel[hidden] { display: none; }
   .mobile-link { @apply block border-b border-white/10 py-3.5 font-serif text-2xl text-white; }
-  .mobile-link[aria-current='page'] { @apply italic text-petros-mist; }
+  .mobile-link[aria-current='page'] { @apply text-petros-mist; }
 
   /* Footer */
-  .footer-h { @apply mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-petros-mist; }
+  .footer-h { @apply mb-4 font-condensed text-[0.95rem] font-semibold uppercase tracking-[0.16em] text-petros-mist; }
   .footer-link { @apply text-white/80 transition-colors hover:text-white hover:underline; }
   .social-btn { @apply flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white/85 transition hover:border-white hover:bg-white hover:text-petros-deep; }
   .social-btn svg { @apply h-5 w-5; }
@@ -77,7 +80,7 @@
   .fee-table { @apply w-full border-collapse text-left; }
   .fee-table caption { @apply sr-only; }
   .fee-table th, .fee-table td { @apply border-b border-black/5 px-4 py-3.5 md:px-6; }
-  .fee-table thead th { @apply bg-petros-sand/70 text-xs font-semibold uppercase tracking-wider text-petros-slate/80; }
+  .fee-table thead th { @apply bg-petros-sand/80 font-condensed text-sm font-semibold uppercase tracking-wider text-petros-slate/80; }
   .fee-table tbody th { @apply font-medium text-petros-slate; }
   .fee-table td { @apply whitespace-nowrap tabular-nums; }
   .fee-table tbody tr:last-child > * { @apply border-b-0; }
@@ -86,20 +89,20 @@
   .faq-item { @apply rounded-2xl border border-black/5 bg-white shadow-soft transition; }
   .faq-item summary { @apply flex min-h-[56px] cursor-pointer list-none items-center justify-between gap-4 px-6 py-4 font-serif text-lg text-petros-slate md:text-xl; }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary svg { @apply h-5 w-5 shrink-0 text-petros-moss transition-transform duration-300; }
+  .faq-item summary svg { @apply h-5 w-5 shrink-0 text-petros-navy transition-transform duration-300; }
   .faq-item[open] summary svg { transform: rotate(180deg); }
   .faq-item .faq-body { @apply px-6 pb-6 text-gray-600; }
 
   /* Forms */
   .field-label { @apply mb-2 block text-sm font-semibold text-petros-slate; }
-  .field { @apply block min-h-[48px] w-full rounded-xl border border-petros-slate/20 bg-white px-4 py-3 text-base text-petros-slate placeholder:text-gray-400 focus:border-petros-moss focus:outline-none focus:ring-2 focus:ring-petros-green/40; }
+  .field { @apply block min-h-[48px] w-full rounded-xl border border-petros-slate/20 bg-white px-4 py-3 text-base text-petros-slate placeholder:text-gray-400 focus:border-petros-navy focus:outline-none focus:ring-2 focus:ring-petros-blue/40; }
   .field-hint { @apply mt-1.5 text-sm text-gray-500; }
-  .choice { @apply flex min-h-[48px] cursor-pointer items-center gap-3 rounded-xl border border-petros-slate/20 bg-white px-4 py-3 has-[:checked]:border-petros-moss has-[:checked]:bg-petros-green/10; }
-  .choice input { @apply h-5 w-5 accent-petros-moss; }
+  .choice { @apply flex min-h-[48px] cursor-pointer items-center gap-3 rounded-xl border border-petros-slate/20 bg-white px-4 py-3 has-[:checked]:border-petros-navy has-[:checked]:bg-petros-blue/10; }
+  .choice input { @apply h-5 w-5 accent-petros-navy; }
   /* Spam trap: kept off-screen and out of the tab order */
   .hp-field { position: absolute !important; left: -10000px !important; top: auto; width: 1px; height: 1px; overflow: hidden; }
   .form-status { @apply mt-4 rounded-xl px-4 py-3 text-sm; }
-  .form-status[data-state='ok'] { @apply bg-petros-green/15 text-petros-deep; }
+  .form-status[data-state='ok'] { @apply bg-petros-olive/15 text-petros-deep; }
   .form-status[data-state='error'] { @apply bg-red-50 text-red-800; }
 
   /* Long-form text (privacy, terms) */
@@ -108,7 +111,7 @@
   .prose-petros h3 { @apply mb-2 mt-8 font-sans text-lg font-semibold text-petros-slate; }
   .prose-petros p, .prose-petros ul { @apply mb-4; }
   .prose-petros ul { @apply list-disc space-y-2 pl-6; }
-  .prose-petros a { @apply text-petros-moss underline; }
+  .prose-petros a { @apply text-petros-navy underline; }
 
   .check-list li { @apply flex gap-3; }
   .check-list li > svg { @apply mt-1 h-5 w-5 shrink-0 text-petros-moss; }
@@ -119,13 +122,13 @@
   .wa-float svg { @apply h-7 w-7; }
 
   /* 3D spine */
-  .spine-stage { @apply relative overflow-hidden rounded-[2rem] border border-petros-green/20 shadow-lift; background: linear-gradient(145deg, #2F3E30 0%, #1a2418 50%, #243024 100%); }
+  .spine-stage { @apply relative overflow-hidden rounded-[2rem] border border-petros-blue/20 shadow-lift; background: linear-gradient(145deg, #36404D 0%, #232A33 50%, #2E3641 100%); }
   #spine-model { @apply relative h-[460px] w-full md:h-[600px]; touch-action: pan-y; }
   #spine-model canvas { display: block; }
   .spine-hint { @apply pointer-events-none absolute left-1/2 top-5 z-10 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-petros-mist/95 px-4 py-2 text-xs font-semibold text-petros-night shadow-soft transition-opacity duration-700; }
   .spine-hint svg { @apply h-4 w-4; }
   .spine-hint.is-hidden { opacity: 0; }
-  .spine-tooltip { @apply pointer-events-none absolute bottom-5 left-1/2 z-20 w-[min(90%,380px)] rounded-2xl border border-white/15 p-5 text-center text-white opacity-0 shadow-lift transition duration-300; transform: translate(-50%, 12px); background: rgba(70, 88, 66, .96); }
+  .spine-tooltip { @apply pointer-events-none absolute bottom-5 left-1/2 z-20 w-[min(90%,380px)] rounded-2xl border border-white/15 p-5 text-center text-white opacity-0 shadow-lift transition duration-300; transform: translate(-50%, 12px); background: rgba(54, 64, 77, .96); }
   .spine-tooltip.visible { opacity: 1; transform: translate(-50%, 0); }
   .tooltip-title { @apply font-serif text-xl; }
   .tooltip-vertebrae { @apply mb-3 mt-1 border-b border-petros-mist/30 pb-2 text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-petros-mist; }
@@ -201,4 +204,42 @@
   .page-hydro .faq-item summary svg { @apply text-petros-tide; }
 
   @media (prefers-reduced-motion: reduce) { .buoy-figure .wave { animation: none; } }
+}
+
+
+/* ---------- Brand details ---------- */
+@layer components {
+  /* Hand-drawn pen strokes on key words: <em class="draw">word</em> or class="draw-circle".
+     They draw themselves in when scrolled into view (assets/js/site.js). */
+  .draw, .draw-circle { --draw: #708238; position: relative; display: inline-block; }
+  .draw-circle { margin: 0 0.12em; }
+  .h-hero .draw, .h-hero .draw-circle, .on-dark .draw, .on-dark .draw-circle { --draw: #C9D3A6; }
+  .draw::after, .draw-circle::after {
+    content: ''; position: absolute; pointer-events: none; background-color: var(--draw);
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+    clip-path: inset(0 100% 0 0); transition: clip-path 1.2s cubic-bezier(.65, 0, .35, 1) .25s;
+  }
+  .draw::after { left: -3%; right: -3%; bottom: -0.16em; height: 0.3em;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 20%22 preserveAspectRatio=%22none%22%3E%3Cpath d=%22M3 13 C 38 6, 88 3, 128 7 S 182 13, 197 6%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%223.2%22 stroke-linecap=%22round%22/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 20%22 preserveAspectRatio=%22none%22%3E%3Cpath d=%22M3 13 C 38 6, 88 3, 128 7 S 182 13, 197 6%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%223.2%22 stroke-linecap=%22round%22/%3E%3C/svg%3E"); }
+  .draw-circle::after { left: -9%; right: -9%; top: -14%; bottom: -20%;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 80%22 preserveAspectRatio=%22none%22%3E%3Cpath d=%22M170 12 C 122 1, 44 4, 15 25 C -5 42, 34 75, 102 75 C 164 75, 201 55, 188 30 C 178 13, 142 6, 104 8%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222.6%22 stroke-linecap=%22round%22/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 80%22 preserveAspectRatio=%22none%22%3E%3Cpath d=%22M170 12 C 122 1, 44 4, 15 25 C -5 42, 34 75, 102 75 C 164 75, 201 55, 188 30 C 178 13, 142 6, 104 8%22 fill=%22none%22 stroke=%22%23000%22 stroke-width=%222.6%22 stroke-linecap=%22round%22/%3E%3C/svg%3E"); }
+  .draw.is-drawn::after, .draw-circle.is-drawn::after, html:not(.js) .draw::after, html:not(.js) .draw-circle::after { clip-path: inset(0 0 0 0); }
+
+  /* Phones: a Call button above the WhatsApp button */
+  .call-float { @apply fixed bottom-[5.25rem] right-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-petros-navy text-white shadow-lift transition hover:bg-petros-deep md:hidden; }
+  .call-float svg { @apply h-5 w-5; }
+
+  /* Photo lightbox (About page) */
+  .lightbox-trigger { @apply relative block w-full cursor-zoom-in overflow-hidden rounded-[2rem] focus-visible:outline-offset-4; }
+  .lightbox-trigger img { @apply transition duration-700; }
+  .lightbox-trigger:hover img { transform: scale(1.03); }
+  .lightbox-trigger .zoom { @apply absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-white/85 text-petros-slate opacity-0 shadow-soft transition; }
+  .lightbox-trigger:hover .zoom, .lightbox-trigger:focus-visible .zoom { opacity: 1; }
+  .lightbox-trigger .zoom svg { @apply h-5 w-5; }
+  dialog.lightbox { @apply m-auto max-h-[92vh] max-w-[94vw] overflow-visible bg-transparent p-0; }
+  dialog.lightbox::backdrop { background: rgba(26, 31, 38, .88); backdrop-filter: blur(4px); }
+  dialog.lightbox img { @apply block max-h-[84vh] w-auto max-w-[94vw] rounded-2xl shadow-lift; }
+  dialog.lightbox p { @apply mt-3 text-center text-white/85; }
+  dialog.lightbox button { @apply absolute -top-3 right-0 flex h-11 w-11 -translate-y-full items-center justify-center rounded-full bg-white text-petros-slate shadow-soft; }
+  dialog.lightbox button svg { @apply h-5 w-5; }
 }

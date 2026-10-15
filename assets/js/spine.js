@@ -41,7 +41,7 @@ class SpineModel {
                 function: 'Head support, neck mobility, houses vertebral arteries',
                 nerves: 'C1-C8 nerves control head, neck, shoulders, arms, and diaphragm',
                 conditions: 'Whiplash, cervical radiculopathy, neck strain, herniated disc',
-                color: 0x8FA07A
+                color: 0x9AA7BB
             },
             thoracic: {
                 name: 'Thoracic Spine', 
@@ -51,7 +51,7 @@ class SpineModel {
                 function: 'Ribcage attachment, organ protection, posture stability',
                 nerves: 'T1-T12 nerves control chest muscles, abdominal muscles, and trunk',
                 conditions: 'Kyphosis, Scheuermann\'s disease, thoracic outlet syndrome',
-                color: 0x7A8B69
+                color: 0x8B9AB0
             },
             lumbar: {
                 name: 'Lumbar Spine',
@@ -61,7 +61,7 @@ class SpineModel {
                 function: 'Weight bearing, flexibility, power transfer to lower body',
                 nerves: 'L1-L5 nerves control hips, legs, feet, and lower body function',
                 conditions: 'Lower back pain, sciatica, lumbar stenosis, spondylolisthesis',
-                color: 0x6B7C5A
+                color: 0x7E8DA4
             },
             sacral: {
                 name: 'Sacrum & Coccyx',
@@ -71,7 +71,7 @@ class SpineModel {
                 function: 'Pelvic stability, weight distribution, muscle attachment',
                 nerves: 'Sacral plexus controls bowel, bladder, and sexual function',
                 conditions: 'Sacroiliac dysfunction, coccydynia, sacral fractures',
-                color: 0x5C6D4B
+                color: 0x8A9A5B
             }
         };
         
@@ -162,7 +162,7 @@ class SpineModel {
         this.scene.add(fillLight);
         
         // Rim light - green accent for brand consistency
-        const rimLight = new THREE.DirectionalLight(0x9AAB8A, 0.4);
+        const rimLight = new THREE.DirectionalLight(0xA9B4C6, 0.4);
         rimLight.position.set(0, -5, -10);
         this.scene.add(rimLight);
         
@@ -180,7 +180,7 @@ class SpineModel {
     // Create realistic bone material - warm ivory tones
     createBoneMaterial(isHighlight = false) {
         return new THREE.MeshStandardMaterial({
-            color: isHighlight ? 0x8FA07A : 0xD4C8B8, // Warm ivory bone color
+            color: isHighlight ? 0x9AA7BB : 0xD4C8B8, // Warm ivory bone color
             roughness: 0.65,
             metalness: 0.02,
             flatShading: false
@@ -199,7 +199,7 @@ class SpineModel {
     // Create cartilage/disc material - green tinted
     createDiscMaterial() {
         return new THREE.MeshStandardMaterial({
-            color: 0x7A8B69,
+            color: 0x7E8DA4,
             roughness: 0.45,
             metalness: 0.0,
             transparent: true,
@@ -416,7 +416,7 @@ class SpineModel {
         // Annulus fibrosus (outer ring)
         const annulusGeometry = new THREE.TorusGeometry(0.28 * scale, 0.08 * scale, 8, 24);
         const annulusMaterial = new THREE.MeshStandardMaterial({
-            color: 0x7A8B69,
+            color: 0x7E8DA4,
             roughness: 0.6,
             metalness: 0.0,
             transparent: true,
@@ -431,7 +431,7 @@ class SpineModel {
         const nucleusGeometry = new THREE.SphereGeometry(0.2 * scale, 16, 12);
         nucleusGeometry.scale(1, 0.4, 1);
         const nucleusMaterial = new THREE.MeshStandardMaterial({
-            color: 0x9AAB8A,
+            color: 0xA9B4C6,
             roughness: 0.3,
             metalness: 0.0,
             transparent: true,

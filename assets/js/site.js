@@ -35,14 +35,41 @@
     }
 
     // Reveal on scroll
-    var items = document.querySelectorAll('.reveal');
+    var items = document.querySelectorAll('.reveal, .draw, .draw-circle');
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); } });
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          en.target.classList.add(en.target.classList.contains('reveal') ? 'is-visible' : 'is-drawn');
+          io.unobserve(en.target);
+        });
       }, { rootMargin: '0px 0px -8% 0px' });
       items.forEach(function (el) { io.observe(el); });
     } else {
-      items.forEach(function (el) { el.classList.add('is-visible'); });
+      items.forEach(function (el) { el.classList.add('is-visible', 'is-drawn'); });
+    }
+
+    // Photo lightbox: <button class="lightbox-trigger" data-lightbox="full-size-url"><img alt="…"></button>
+    var triggers = document.querySelectorAll('[data-lightbox]');
+    if (triggers.length && window.HTMLDialogElement) {
+      var dlg = document.createElement('dialog');
+      dlg.className = 'lightbox';
+      dlg.setAttribute('aria-label', 'Enlarged photo');
+      dlg.innerHTML = '<button type="button" aria-label="Close photo"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button><img alt=""><p></p>';
+      document.body.appendChild(dlg);
+      var big = dlg.querySelector('img');
+      var cap = dlg.querySelector('p');
+      dlg.querySelector('button').addEventListener('click', function () { dlg.close(); });
+      dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+      triggers.forEach(function (t) {
+        t.addEventListener('click', function () {
+          var small = t.querySelector('img');
+          big.src = t.getAttribute('data-lightbox');
+          big.alt = small ? small.alt : '';
+          cap.textContent = t.getAttribute('data-caption') || '';
+          dlg.showModal();
+        });
+      });
     }
 
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
