@@ -112,6 +112,8 @@
                     <!-- TODO [CONFIRM]: qualification exactly as it should appear, e.g. "BA Hons (Biokinetics), [university], [year]". -->
                     <!-- TODO [CONFIRM]: add HPCNA registration number. -->
                     <ul class="mt-6 flex flex-wrap gap-2">
+                        <!-- TODO [CONFIRM]: years of clinical experience (the old site showed 8+). -->
+                        <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">8+ years' clinical experience</li>
                         <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">BA (Hons) Biokinetics</li>
                         <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">Registered with the HPCNA</li>
                         <li class="rounded-full border border-petros-green/30 bg-white px-4 py-2 text-sm font-medium text-petros-moss">Practice number 091 000 0880485</li>
@@ -165,7 +167,14 @@
                     <h2 class="h-section">Welcome to <em>the space</em></h2>
                     <p class="lead mt-5">102 Dr. Libertine Amathila Avenue, Kramersdorf, Swakopmund.</p>
                 </div>
-                <!-- TODO [CONFIRM]: the old site showed an AI-generated "Rehabilitation Area" image (ChatGPT_Image_Jan_10_2026…). It has been left out; add a real photo of the rehab area when available. -->
+                <!-- The rehab-area photo is a real photo of the practice; its Cloudinary file name (ChatGPT_Image_Jan_10_2026…) can only be renamed in the Cloudinary account. -->
+                <figure class="relative mb-6 overflow-hidden rounded-[2rem] shadow-lift reveal">
+                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1600/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png" alt="The rehabilitation area at Pétros Biokinetics, with exercise machines, a wall bar, resistance bands and a parquet floor" loading="lazy" class="aspect-[16/9] w-full object-cover md:aspect-[21/9]">
+                    <figcaption class="absolute inset-x-4 bottom-4 max-w-md rounded-2xl border border-white/15 bg-petros-night/70 p-5 text-white backdrop-blur-md md:inset-x-auto md:bottom-8 md:left-8 md:p-7">
+                        <span class="block font-serif text-2xl">Rehabilitation area</span>
+                        <span class="mt-2 block text-sm text-white/85">Our main exercise space, with equipment for guided exercise and rehabilitation.</span>
+                    </figcaption>
+                </figure>
                 <div class="grid gap-6 md:grid-cols-3">
                     <figure class="reveal">
                         <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767286189/Consultation_Room_oicrx4.png" alt="The consultation room at Pétros Biokinetics" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-soft">

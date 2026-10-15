@@ -41,7 +41,7 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 7. Referral wording; "short health questionnaire at your first visit" wording; first assessment duration.
 8. All FAQ answers.
 9. About: exact qualification, HPCNA registration number, a 3–5 sentence bio, the pugs ("Meet the team"?).
-10. Real photo of the rehabilitation area (the AI-generated one was left out). Cloudinary file names can only be renamed in the Cloudinary account.
+10. Cloudinary file names (e.g. the rehab-area photo named "ChatGPT_Image_Jan_10_2026…") can only be renamed in the Cloudinary account. Years of experience ("8+") to confirm.
 11. Aquatherapy: offered, and where?
 12. "We usually reply within one working day."
 13. Map pin location.
