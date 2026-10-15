@@ -21,4 +21,4 @@ Static site for petrosbiokinetics.com: plain HTML pages at the repo root, no fra
 - No health information may be collected by website forms. Forms post to Formspree (`xbddjlny`) and email the practice.
 - `TODO [CONFIRM]` comments mark facts the practitioner still has to confirm. Don't remove them without an answer.
 - The 3D spine (`assets/js/spine.js`) and hero particles (`assets/js/particles.js`) use the vendored three.js r128
-  in `assets/vendor/`. They load only on the home and Method pages.
+  in `assets/vendor/`. They load only on the Method page; the home hero uses the light 2D `assets/js/particles-lite.js`.

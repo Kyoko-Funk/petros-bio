@@ -254,3 +254,21 @@
     background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(126, 141, 164, .16), transparent 45%); }
   .spotlight:hover::before { opacity: 1; }
 }
+
+
+/* ---------- Home polish ---------- */
+@layer components {
+  /* Cookie choice: slim bar along the bottom on phones, small card on larger screens */
+  .cookie-bar { @apply fixed inset-x-0 bottom-0 z-50 flex flex-col gap-3 border-t border-black/5 bg-white/95 px-4 py-3 text-sm text-petros-slate shadow-lift backdrop-blur
+    sm:flex-row sm:items-center sm:justify-between md:inset-x-auto md:bottom-6 md:left-6 md:max-w-md md:flex-col md:items-stretch md:rounded-2xl md:border md:p-5; }
+  .cookie-actions { @apply flex shrink-0 gap-3; }
+  .cookie-actions .btn { @apply flex-1 sm:flex-none; }
+  .wa-float { bottom: calc(var(--cookie-h, 0px) + 1.25rem); }
+  .call-float { bottom: calc(var(--cookie-h, 0px) + 5.25rem); }
+  @media (min-width: 768px) { .wa-float { bottom: 1.75rem; } }
+
+  /* Quiet trust line under the hero buttons */
+  .hero-trust { @apply mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/80; }
+  .hero-trust span { @apply inline-flex items-center gap-2; }
+  .hero-trust svg { @apply h-4 w-4 text-petros-mist; }
+}

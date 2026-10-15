@@ -31,11 +31,11 @@
     el.id = 'cookie-banner';
     el.setAttribute('role', 'region');
     el.setAttribute('aria-label', 'Cookie choice');
-    el.className = 'fixed bottom-4 left-4 right-24 z-40 max-w-md rounded-2xl border border-black/5 bg-white p-5 text-sm text-petros-slate shadow-lift md:bottom-6 md:left-6 md:right-auto';
+    el.className = 'cookie-bar';
     el.innerHTML =
-      '<p>We use analytics cookies to see how people use this website. They are only set if you accept. ' +
-      '<a class="text-petros-moss underline" href="/privacy-policy.html">Privacy Policy</a></p>' +
-      '<div class="mt-4 flex gap-3"><button type="button" class="btn-primary min-h-[44px] px-5" data-c="accepted">Accept</button>' +
+      '<p>We use analytics cookies to see how people use this website, only if you accept. ' +
+      '<a class="text-petros-navy underline" href="/privacy-policy.html">Privacy Policy</a></p>' +
+      '<div class="cookie-actions"><button type="button" class="btn-primary min-h-[44px] px-5" data-c="accepted">Accept</button>' +
       '<button type="button" class="btn-outline min-h-[44px] px-5" data-c="declined">Decline</button></div>';
     el.addEventListener('click', function (e) {
       var b = e.target.closest('button[data-c]');
@@ -43,8 +43,17 @@
       set(b.getAttribute('data-c'));
       if (b.getAttribute('data-c') === 'accepted') loadAnalytics();
       el.remove();
+      document.documentElement.style.removeProperty('--cookie-h');
     });
     document.body.appendChild(el);
+    // Keep the Call and WhatsApp buttons above the bar on phones
+    var fit = function () {
+      if (!document.body.contains(el)) return;
+      var phone = window.innerWidth < 768;
+      document.documentElement.style.setProperty('--cookie-h', phone ? el.offsetHeight + 'px' : '0px');
+    };
+    fit();
+    window.addEventListener('resize', fit, { passive: true });
   }
 
   function init() {
