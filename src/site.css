@@ -278,3 +278,32 @@
   .hero-warm .hero-media::after { background: linear-gradient(180deg, rgba(42,50,61,.30) 0%, rgba(42,50,61,.12) 45%, rgba(54,40,26,.30) 100%); }
   .glass-tint { background: rgba(42, 50, 61, .30); }
 }
+
+/* ---------- Method: spine showcase and tilt cards ---------- */
+@layer components {
+  .spine-showcase { @apply relative isolate overflow-hidden py-20 text-white md:py-28;
+    background: radial-gradient(70% 60% at 72% 45%, #46536A 0%, #323B48 45%, #232A33 100%); }
+  .spine-showcase::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .07;
+    background-image: radial-gradient(circle at 1px 1px, #C9D3DE 1px, transparent 0); background-size: 26px 26px; }
+  .spine-stage-lux { @apply relative; }
+  /* soft halo and floor glow behind the model */
+  .spine-stage-lux::before { content: ''; position: absolute; left: 50%; top: 48%; width: min(80%, 520px); aspect-ratio: 1; transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(157, 178, 208, .35) 0%, rgba(157, 178, 208, .08) 45%, transparent 70%); filter: blur(10px); pointer-events: none; }
+  .spine-stage-lux::after { content: ''; position: absolute; left: 50%; bottom: 3%; width: 46%; height: 26px; transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(0, 0, 0, .45), transparent 70%); pointer-events: none; }
+  .spine-stage-lux #spine-model { @apply h-[440px] md:h-[620px]; }
+  .spine-panel { @apply min-h-[230px] rounded-[1.75rem] p-6 md:p-7;
+    background: rgba(255, 255, 255, .07); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255, 255, 255, .14); }
+  .spine-panel [data-panel-detail]:not([hidden]) { animation: panel-in .45s ease both; }
+  @keyframes panel-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .spine-showcase .spine-regions button { @apply rounded-2xl border-white/15 bg-white/5 py-2.5 text-left normal-case tracking-normal; }
+
+  /* Cards that tilt gently towards the pointer (assets/js/site.js) */
+  .tilt-card { transform-style: preserve-3d; transition: transform .5s cubic-bezier(.22,.61,.36,1), box-shadow .5s; will-change: transform; }
+  .tilt-card:hover { box-shadow: 0 28px 60px -24px rgba(54, 64, 77, .45); }
+}
+@layer components {
+  .spine-showcase .spine-regions button[aria-pressed='true'] { @apply border-petros-mist bg-petros-mist text-petros-night; }
+  .spine-showcase .spine-regions button:hover { @apply border-white/40 bg-white/10; }
+  .spine-showcase .spine-regions button[aria-pressed='true']:hover { @apply bg-petros-mist; }
+}

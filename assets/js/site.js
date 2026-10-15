@@ -88,6 +88,19 @@
       });
     }
 
+    // Tilt cards: lean gently towards the pointer (mouse only, not with reduced motion)
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!calm && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('[data-tilt]').forEach(function (card) {
+        card.addEventListener('pointermove', function (e) {
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+          card.style.transform = 'perspective(900px) rotateX(' + (-y * 6).toFixed(2) + 'deg) rotateY(' + (x * 6).toFixed(2) + 'deg) translateY(-4px)';
+        });
+        card.addEventListener('pointerleave', function () { card.style.transform = ''; });
+      });
+    }
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.

@@ -90,7 +90,7 @@
             <div class="hero-media">
                 <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_1920/v1767434791/pexels-karola-g-4506160_vmat1g.jpg" alt="" fetchpriority="high">
             </div>
-            <canvas id="particle-canvas" class="pointer-events-none absolute inset-0 -z-[5]" aria-hidden="true"></canvas>
+            <canvas id="particle-canvas" class="pointer-events-none absolute inset-0 -z-[5] h-full w-full" aria-hidden="true"></canvas>
             <div class="hero-fade"></div>
             <div class="wrap-narrow text-center">
                 <p class="eyebrow-light">Our method</p>
@@ -99,102 +99,133 @@
             </div>
         </section>
 
-        <!-- Interactive spine -->
-        <section class="section pb-12 md:pb-16">
-            <div class="wrap">
-                <div class="mx-auto mb-12 max-w-2xl text-center reveal">
-                    <span class="eyebrow">It starts with how you move</span>
-                    <h2 class="h-section">Your spine, <em class="draw-circle">in 3D</em></h2>
-                    <p class="lead mt-5">Understanding how the spine and joints work together helps us find the underlying cause, not just the symptoms. Explore each region below.</p>
-                </div>
+        <!-- Spine showcase: interactive 3D model on a dark stage, with a glass panel for the selected region -->
+        <section class="spine-showcase on-dark" data-spine>
+            <div class="wrap grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+                <div class="order-2 lg:order-1">
+                    <div class="reveal">
+                        <span class="eyebrow-light">It starts with how you move</span>
+                        <h2 class="h-section">Your spine, <em class="draw-circle !text-petros-mist">in 3D</em></h2>
+                        <p class="mt-5 text-lg text-white/80">Understanding how the spine and joints work together helps us find the underlying cause, not just the symptoms.</p>
+                    </div>
 
-                <div class="mx-auto max-w-4xl" data-spine>
-                    <div class="spine-stage">
-                        <div aria-hidden="true" class="pointer-events-none absolute inset-0 opacity-[0.06]" style="background-image: radial-gradient(circle at 1px 1px, rgba(197,212,184,.9) 1px, transparent 0); background-size: 24px 24px;"></div>
-
-                        <p class="spine-hint" data-spine-hint><svg data-icon="rotate-3d" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2" /><path d="m15.194 13.707 3.814 1.86-1.86 3.814" /><path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" /></svg>Drag to rotate · tap a region</p>
-
-                        <div id="spine-model" role="img" aria-label="Interactive 3D model of the human spine, slowly rotating. Use the buttons below the model to explore each region."></div>
-
-                        <img class="spine-fallback mx-auto h-[420px] w-auto object-contain py-8" src="/assets/img/anatomy-figure.webp" alt="Illustration of a human figure with the spine, muscles and joints highlighted in green" loading="lazy">
-
-                        <div aria-hidden="true" class="pointer-events-none absolute left-6 top-1/2 hidden -translate-y-1/2 flex-col gap-12 md:flex">
-                            <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">C1–C7 <span class="h-px w-8 bg-petros-blue/50"></span></span>
-                            <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">T1–T12 <span class="h-px w-8 bg-petros-blue/50"></span></span>
-                            <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">L1–L5 <span class="h-px w-8 bg-petros-blue/50"></span></span>
-                            <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white/70">S1–S5 <span class="h-px w-8 bg-petros-blue/50"></span></span>
+                    <div class="spine-panel mt-8" data-spine-panel aria-live="polite">
+                        <div data-panel-intro>
+                            <p class="font-serif text-2xl text-white">Explore each region</p>
+                            <p class="mt-2 text-white/75">Choose a region below, or touch the spine itself, to see what it does and which problems often start there.</p>
+                        </div>
+                        <div data-panel-detail hidden>
+                            <p class="font-condensed text-sm font-semibold uppercase tracking-[0.16em] text-petros-mist" data-panel-count></p>
+                            <p class="mt-1 font-serif text-3xl text-white" data-panel-name></p>
+                            <p class="mt-4 text-white/85" data-panel-desc></p>
+                            <dl class="mt-5 grid gap-4 border-t border-white/15 pt-5 text-sm sm:grid-cols-2">
+                                <div><dt class="font-condensed font-semibold uppercase tracking-[0.14em] text-petros-mist">Its job</dt><dd class="mt-1 text-white/80" data-panel-function></dd></div>
+                                <div><dt class="font-condensed font-semibold uppercase tracking-[0.14em] text-petros-mist">Common problems</dt><dd class="mt-1 text-white/80" data-panel-conditions></dd></div>
+                            </dl>
                         </div>
                     </div>
 
-                    <div class="spine-regions mt-5 grid grid-cols-2 gap-2 rounded-[1.5rem] bg-petros-deep p-2 md:mx-auto md:flex md:w-fit md:rounded-full" role="group" aria-label="Spine regions">
-                        <button type="button" data-spine-region="cervical" aria-pressed="false">Neck <span class="hidden sm:inline">(cervical)</span></button>
-                        <button type="button" data-spine-region="thoracic" aria-pressed="false">Upper back <span class="hidden sm:inline">(thoracic)</span></button>
-                        <button type="button" data-spine-region="lumbar" aria-pressed="false">Lower back <span class="hidden sm:inline">(lumbar)</span></button>
-                        <button type="button" data-spine-region="sacral" aria-pressed="false">Sacrum and coccyx</button>
+                    <div class="spine-regions mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4" role="group" aria-label="Spine regions">
+                        <button type="button" data-spine-region="cervical" aria-pressed="false"><span class="block">Neck</span><span class="block text-[0.7rem] font-normal tracking-wider opacity-70">C1–C7</span></button>
+                        <button type="button" data-spine-region="thoracic" aria-pressed="false"><span class="block">Upper back</span><span class="block text-[0.7rem] font-normal tracking-wider opacity-70">T1–T12</span></button>
+                        <button type="button" data-spine-region="lumbar" aria-pressed="false"><span class="block">Lower back</span><span class="block text-[0.7rem] font-normal tracking-wider opacity-70">L1–L5</span></button>
+                        <button type="button" data-spine-region="sacral" aria-pressed="false"><span class="block">Sacrum</span><span class="block text-[0.7rem] font-normal tracking-wider opacity-70">S1–S5</span></button>
                     </div>
-                    <p class="mt-4 text-center text-sm text-gray-500">A simplified model for illustration. Your assessment looks at how your whole body moves.</p>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <div class="spine-stage-lux">
+                        <p class="spine-hint" data-spine-hint><svg data-icon="rotate-3d" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2" /><path d="m15.194 13.707 3.814 1.86-1.86 3.814" /><path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4" /></svg>Drag to rotate · tap a region</p>
+                        <div id="spine-model" role="img" aria-label="Interactive 3D model of the human spine, slowly turning. Use the region buttons to explore each part."></div>
+                        <img class="spine-fallback mx-auto h-[420px] w-auto object-contain py-6" src="/assets/img/skeleton-illustration-600.webp" alt="Illustration of the human skeleton with the spine highlighted" loading="lazy">
+                    </div>
+                    <p class="mt-3 text-center text-sm text-white/55">A simplified model for illustration.</p>
                 </div>
             </div>
         </section>
 
-        <!-- The three steps -->
-        <section class="section pt-12 md:pt-16">
-            <div class="wrap space-y-20 md:space-y-28">
-                <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16 reveal">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_900/v1767286189/Consultation_Room_oicrx4.png" alt="The consultation room at Pétros Biokinetics, where assessments start" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-lift">
-                    <div>
-                        <span class="eyebrow">Step 1 · Assessment</span>
-                        <h2 class="h-section">Understanding <em>how you move</em></h2>
-                        <p class="mt-6 text-lg text-gray-700">Your first visit is a full evaluation. Depending on your needs this may include an ergological assessment (strength, endurance and function), a functional work assessment, and a body composition analysis.</p>
-                        <p class="mt-4 text-lg text-gray-700">We also discuss your history, goals, and any reports from your doctor or physiotherapist.</p>
+        <!-- The three steps: cards that tilt gently towards the pointer -->
+        <section class="section">
+            <div class="wrap">
+                <div class="mx-auto mb-14 max-w-2xl text-center reveal">
+                    <span class="eyebrow">Three steps</span>
+                    <h2 class="h-section">From first visit to <em class="draw">steady progress</em></h2>
+                </div>
+                <div class="grid gap-6 md:grid-cols-3">
+                <article class="tilt-card group overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal" data-tilt>
+                    <div class="relative overflow-hidden">
+                        <img src="/assets/img/knee-assessment-700.webp" srcset="/assets/img/knee-assessment-700.webp 700w, /assets/img/knee-assessment-1200.webp 1200w" sizes="(min-width: 768px) 33vw, 90vw" width="700" height="467" alt="A practitioner assessing the movement of a patient's knee" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105">
+                        <span class="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/85 font-serif text-lg text-petros-navy shadow-soft backdrop-blur">1</span>
+                    </div>
+                    <div class="p-7">
+                        <span class="eyebrow mb-2">Step 1 · Assessment</span>
+                        <h3 class="text-2xl">Understanding how you move</h3>
+                        <p class="mt-3 text-gray-700">Your first visit is a full evaluation. Depending on your needs this may include an ergological assessment, a functional work assessment and a body composition analysis.</p>
+                        <ul class="check-list mt-5 space-y-2 border-t border-black/5 pt-5 text-sm text-gray-600">
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Movement, posture and strength</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Your history and goals</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Reports from your doctor or physio</span></li>
+                        </ul>
                     </div>
                 </article>
-                <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16 reveal">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_900/v1767434983/pexels-kampus-6111604_sa1tqr.jpg" alt="An exercise programme being planned on a clipboard" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-lift md:order-2">
-                    <div>
-                        <span class="eyebrow">Step 2 · Prescription</span>
-                        <h2 class="h-section">Your <em>personalised</em> plan</h2>
-                        <p class="mt-6 text-lg text-gray-700">We design an exercise programme around your condition, goals and current ability, including what to do in sessions and, where helpful, at home.</p>
+                <article class="tilt-card group overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal" data-tilt>
+                    <div class="relative overflow-hidden">
+                        <img src="/assets/img/skeleton-illustration-600.webp" srcset="/assets/img/skeleton-illustration-600.webp 600w, /assets/img/skeleton-illustration-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 90vw" width="600" height="600" alt="Illustration of the human skeleton with the spine, hips and joints highlighted" loading="lazy" class="aspect-[4/3] w-full bg-petros-cream object-contain p-4 transition duration-700 group-hover:scale-105">
+                        <span class="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/85 font-serif text-lg text-petros-navy shadow-soft backdrop-blur">2</span>
+                    </div>
+                    <div class="p-7">
+                        <span class="eyebrow mb-2">Step 2 · Prescription</span>
+                        <h3 class="text-2xl">Your personalised plan</h3>
+                        <p class="mt-3 text-gray-700">We design an exercise programme around your condition, goals and current ability, for your sessions and, where helpful, at home.</p>
+                        <ul class="check-list mt-5 space-y-2 border-t border-black/5 pt-5 text-sm text-gray-600">
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Exercises chosen for you</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Clear, realistic goals</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>A home programme if useful</span></li>
+                        </ul>
                     </div>
                 </article>
-                <article class="grid items-center gap-10 md:grid-cols-2 md:gap-16 reveal">
-                    <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_900/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png" alt="The rehabilitation area at Pétros Biokinetics, where supervised sessions take place" loading="lazy" class="aspect-[4/3] w-full rounded-[2rem] object-cover shadow-lift">
-                    <div>
-                        <span class="eyebrow">Step 3 · Guided progress</span>
-                        <h2 class="h-section">Progress you can <em>see</em></h2>
-                        <p class="mt-6 text-lg text-gray-700">Sessions are supervised and adjusted as you improve. Regular re-evaluations measure your progress against your starting point, so changes are based on results.</p>
+                <article class="tilt-card group overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal" data-tilt>
+                    <div class="relative overflow-hidden">
+                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_900/v1768038823/ChatGPT_Image_Jan_10_2026_11_47_09_AM_xl8uz6.png" alt="The rehabilitation area at Pétros Biokinetics, where supervised sessions take place" loading="lazy" class="aspect-[4/3] w-full object-cover transition duration-700 group-hover:scale-105">
+                        <span class="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-white/85 font-serif text-lg text-petros-navy shadow-soft backdrop-blur">3</span>
+                    </div>
+                    <div class="p-7">
+                        <span class="eyebrow mb-2">Step 3 · Guided progress</span>
+                        <h3 class="text-2xl">Progress you can see</h3>
+                        <p class="mt-3 text-gray-700">Sessions are supervised and adjusted as you improve. Regular re-evaluations measure your progress against your starting point.</p>
+                        <ul class="check-list mt-5 space-y-2 border-t border-black/5 pt-5 text-sm text-gray-600">
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Supervised sessions</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Adjusted as you improve</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Regular re-evaluations</span></li>
+                        </ul>
                     </div>
                 </article>
+                </div>
             </div>
         </section>
 
-        <!-- Why this works -->
-        <section class="on-dark section bg-petros-deep text-white">
-            <div class="wrap grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-                <div class="reveal">
+        <!-- Why this works, with the booking prompt -->
+        <section class="on-dark relative isolate overflow-hidden bg-petros-deep py-20 text-white md:py-28">
+            <div class="pointer-events-none absolute -right-40 -top-40 -z-10 h-[32rem] w-[32rem] rounded-full bg-petros-blue/20 blur-3xl" aria-hidden="true"></div>
+            <div class="wrap">
+                <div class="mx-auto mb-12 max-w-2xl text-center reveal">
                     <span class="eyebrow-light">Why this works</span>
-                    <h2 class="h-section">Simple, <em>supervised</em>, measured</h2>
+                    <h2 class="h-section">Simple, supervised, <em class="!text-petros-mist">measured</em></h2>
                 </div>
-                <ul class="check-list grid gap-6 text-lg text-white/90 sm:grid-cols-2 reveal">
-                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Exercise prescription based on current evidence</span></li>
-                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Supervision, so exercises are done safely and correctly</span></li>
-                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Programmes that adapt as you progress</span></li>
-                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Progress measured at re-evaluations</span></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section text-center">
-            <div class="wrap-narrow reveal">
-                <h2 class="h-section">Start with an <em>assessment</em></h2>
-                <p class="lead mt-5">We will look at how you move and agree a plan together.</p>
-                <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-                    <a href="/book-now.html" class="btn-primary">Book an assessment</a>
-                    <a href="tel:+264816835055" class="btn-outline"><svg data-icon="phone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>Call +264 81 683 5055</a>
+                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="glass rounded-[1.5rem] p-6 reveal"><svg data-icon="clipboard-list" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg><p class="mt-4 text-white/90">Exercise prescription based on current evidence</p></div>
+                    <div class="glass rounded-[1.5rem] p-6 reveal"><svg data-icon="eye" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /><circle cx="12" cy="12" r="3" /></svg><p class="mt-4 text-white/90">Supervision, so exercises are done safely and correctly</p></div>
+                    <div class="glass rounded-[1.5rem] p-6 reveal"><svg data-icon="trending-up" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17" /><polyline points="16 7 22 7 22 13" /></svg><p class="mt-4 text-white/90">Programmes that adapt as you progress</p></div>
+                    <div class="glass rounded-[1.5rem] p-6 reveal"><svg data-icon="ruler" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z" /><path d="m14.5 12.5 2-2" /><path d="m11.5 9.5 2-2" /><path d="m8.5 6.5 2-2" /><path d="m17.5 15.5 2-2" /></svg><p class="mt-4 text-white/90">Progress measured at re-evaluations</p></div>
+                </div>
+                <div class="mt-14 flex flex-col justify-center gap-3 sm:flex-row reveal">
+                    <a href="/book-now.html" class="btn-light">Book an assessment</a>
+                    <a href="tel:+264816835055" class="btn-ghost"><svg data-icon="phone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>Call +264 81 683 5055</a>
                 </div>
             </div>
         </section>
     </main>
+
 
     <!-- @footer -->
     <footer class="on-dark bg-petros-deep text-white">
@@ -262,12 +293,9 @@
     <a class="wa-float" href="https://wa.me/264816835055?text=Hello%2C%20I%27d%20like%20to%20book%20an%20appointment%20with%20P%C3%A9tros%20Biokinetics." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
     <!-- /@footer -->
 
+    <script src="/assets/js/particles-lite.js" defer></script>
     <script src="/assets/vendor/three-r128.min.js" defer></script>
-    <script src="/assets/js/particles.js" defer></script>
     <script src="/assets/js/spine.js" defer></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', function () { if (window.initParticles && window.THREE) initParticles('method'); });
-    </script>
 </body>
 
 </html>

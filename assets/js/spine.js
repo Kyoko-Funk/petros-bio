@@ -41,7 +41,7 @@ class SpineModel {
                 function: 'Head support, neck mobility, houses vertebral arteries',
                 nerves: 'C1-C8 nerves control head, neck, shoulders, arms, and diaphragm',
                 conditions: 'Whiplash, cervical radiculopathy, neck strain, herniated disc',
-                color: 0x9AA7BB
+                color: 0x3A5A8F
             },
             thoracic: {
                 name: 'Thoracic Spine', 
@@ -51,7 +51,7 @@ class SpineModel {
                 function: 'Ribcage attachment, organ protection, posture stability',
                 nerves: 'T1-T12 nerves control chest muscles, abdominal muscles, and trunk',
                 conditions: 'Kyphosis, Scheuermann\'s disease, thoracic outlet syndrome',
-                color: 0x8B9AB0
+                color: 0x2F5088
             },
             lumbar: {
                 name: 'Lumbar Spine',
@@ -61,7 +61,7 @@ class SpineModel {
                 function: 'Weight bearing, flexibility, power transfer to lower body',
                 nerves: 'L1-L5 nerves control hips, legs, feet, and lower body function',
                 conditions: 'Lower back pain, sciatica, lumbar stenosis, spondylolisthesis',
-                color: 0x7E8DA4
+                color: 0x2B4A80
             },
             sacral: {
                 name: 'Sacrum & Coccyx',
@@ -71,7 +71,7 @@ class SpineModel {
                 function: 'Pelvic stability, weight distribution, muscle attachment',
                 nerves: 'Sacral plexus controls bowel, bladder, and sexual function',
                 conditions: 'Sacroiliac dysfunction, coccydynia, sacral fractures',
-                color: 0x8A9A5B
+                color: 0x5A7524
             }
         };
         
@@ -94,6 +94,7 @@ class SpineModel {
         this.setupScene();
         this.setupLights();
         this.createDetailedSpine();
+        this.collectRegionMaterials();
         this.setupInteraction();
         this.setupVisibility();
         this.animate();
@@ -123,7 +124,7 @@ class SpineModel {
         
         // Camera - pulled back for full view
         this.camera = new THREE.PerspectiveCamera(40, this.width / this.height, 0.1, 1000);
-        this.camera.position.z = 18;
+        this.camera.position.z = 15.5;
         this.camera.position.y = 0;
         
         // Renderer with better quality
@@ -136,8 +137,9 @@ class SpineModel {
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         this.renderer.setClearColor(0x000000, 0);
         this.renderer.domElement.setAttribute('aria-hidden', 'true');
-        this.renderer.shadowMap.enabled = true;
-        this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        this.renderer.outputEncoding = THREE.sRGBEncoding;
+        this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        this.renderer.toneMappingExposure = 0.95;
         this.container.appendChild(this.renderer.domElement);
         
         // Spine group for rotation
@@ -146,62 +148,60 @@ class SpineModel {
     }
     
     setupLights() {
-        // Ambient light - warmer for bone appearance
-        const ambient = new THREE.AmbientLight(0xFFF8F0, 0.6);
-        this.scene.add(ambient);
-        
-        // Main key light - warm white
-        const keyLight = new THREE.DirectionalLight(0xFFFAF0, 1.0);
-        keyLight.position.set(8, 8, 12);
-        keyLight.castShadow = true;
+        // Soft sky and warm ground bounce
+        this.scene.add(new THREE.HemisphereLight(0xEEF2F8, 0x4A3F33, 0.55));
+
+        // Warm key light from the front right
+        const keyLight = new THREE.DirectionalLight(0xFFF1DC, 1.0);
+        keyLight.position.set(7, 9, 12);
         this.scene.add(keyLight);
-        
-        // Fill light - warm tone for bone depth
-        const fillLight = new THREE.DirectionalLight(0xFFE4C4, 0.5);
-        fillLight.position.set(-6, 2, 8);
+
+        // Gentle fill from the left
+        const fillLight = new THREE.DirectionalLight(0xF3E6D2, 0.3);
+        fillLight.position.set(-9, 2, 7);
         this.scene.add(fillLight);
-        
-        // Rim light - green accent for brand consistency
-        const rimLight = new THREE.DirectionalLight(0xA9B4C6, 0.4);
-        rimLight.position.set(0, -5, -10);
-        this.scene.add(rimLight);
-        
-        // Top light for depth
-        const topLight = new THREE.DirectionalLight(0xFFFAF5, 0.4);
-        topLight.position.set(0, 15, 0);
-        this.scene.add(topLight);
-        
-        // Bottom fill to reduce harsh shadows
-        const bottomLight = new THREE.DirectionalLight(0xE8DED0, 0.2);
-        bottomLight.position.set(0, -10, 5);
-        this.scene.add(bottomLight);
+
+        // Cool brand-blue rim lights behind the spine: a luminous outline against the dark stage
+        const rimLeft = new THREE.DirectionalLight(0x9DB2D0, 0.9);
+        rimLeft.position.set(-8, 4, -10);
+        this.scene.add(rimLeft);
+        const rimRight = new THREE.DirectionalLight(0xC9D3A6, 0.5);
+        rimRight.position.set(9, -3, -8);
+        this.scene.add(rimRight);
     }
-    
+
     // Create realistic bone material - warm ivory tones
     createBoneMaterial(isHighlight = false) {
-        return new THREE.MeshStandardMaterial({
-            color: isHighlight ? 0x9AA7BB : 0xD4C8B8, // Warm ivory bone color
-            roughness: 0.65,
-            metalness: 0.02,
-            flatShading: false
+        return new THREE.MeshPhysicalMaterial({
+            color: isHighlight ? 0x9AA7BB : 0xCDBFA6, // warm ivory bone (sRGB output lightens it)
+            roughness: 0.42,
+            metalness: 0.0,
+            clearcoat: 0.35,
+            clearcoatRoughness: 0.45
         });
     }
     
     // Secondary bone material for details
     createDarkBoneMaterial() {
-        return new THREE.MeshStandardMaterial({
-            color: 0xC4B8A8, // Slightly darker ivory
-            roughness: 0.75,
-            metalness: 0.01
+        return new THREE.MeshPhysicalMaterial({
+            color: 0xB9AA90, // slightly deeper ivory for processes and facets
+            roughness: 0.55,
+            metalness: 0.0,
+            clearcoat: 0.2,
+            clearcoatRoughness: 0.6
         });
     }
     
     // Create cartilage/disc material - green tinted
     createDiscMaterial() {
-        return new THREE.MeshStandardMaterial({
-            color: 0x7E8DA4,
-            roughness: 0.45,
+        return new THREE.MeshPhysicalMaterial({
+            color: 0x5F7699, // brand blue-grey discs, slightly glassy
+            roughness: 0.22,
             metalness: 0.0,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.2,
+            emissive: 0x23324A,
+            emissiveIntensity: 0.35,
             transparent: true,
             opacity: 0.9
         });
@@ -804,38 +804,63 @@ class SpineModel {
         }
     }
     
+    // Group every bone material by spine region (the region is set on each vertebra's group)
+    collectRegionMaterials() {
+        this.regionMaterials = {};
+        this.glow = {};
+        this.activeRegion = null;
+        Object.keys(this.regions).forEach((k) => { this.regionMaterials[k] = []; this.glow[k] = 0; });
+        this.spineGroup.traverse((child) => {
+            if (!child.isMesh || child.userData.isIndicator || !child.material) return;
+            let node = child, key = null;
+            while (node && node !== this.spineGroup) {
+                if (node.userData && node.userData.region) { key = node.userData.region; break; }
+                node = node.parent;
+            }
+            if (!key || !this.regionMaterials[key]) return;
+            const mat = child.material;
+            if (mat.userData.base === undefined) {
+                mat.userData.base = mat.color.clone();
+                if (!mat.emissive) mat.emissive = new THREE.Color(0x000000);
+                mat.userData.baseEmissive = mat.emissive.clone();
+                mat.userData.baseEmissiveIntensity = mat.emissiveIntensity || 0;
+            }
+            if (this.regionMaterials[key].indexOf(mat) === -1) this.regionMaterials[key].push(mat);
+        });
+        this._tint = new THREE.Color();
+    }
+
     highlightRegion(regionKey) {
-        const region = this.regions[regionKey];
-        this.unhighlightRegion();
-        
-        this.spineGroup.traverse((child) => {
-            if (child.isMesh && child.userData.region === regionKey && !child.userData.isIndicator) {
-                if (child.material) {
-                    child.userData.originalColor = child.material.color.getHex();
-                    child.userData.originalEmissive = child.material.emissive ? child.material.emissive.getHex() : 0;
-                    child.material.color.setHex(region.color);
-                    if (child.material.emissive) {
-                        child.material.emissive.setHex(region.color);
-                        child.material.emissiveIntensity = 0.2;
-                    }
-                }
-            }
-        });
+        this.activeRegion = regionKey;
+        this.container.dispatchEvent(new CustomEvent('spineRegionPreview', { detail: { key: regionKey } }));
     }
-    
+
     unhighlightRegion() {
-        this.spineGroup.traverse((child) => {
-            if (child.isMesh && child.userData.originalColor !== undefined) {
-                child.material.color.setHex(child.userData.originalColor);
-                if (child.material.emissive) {
-                    child.material.emissive.setHex(child.userData.originalEmissive || 0);
-                    child.material.emissiveIntensity = 0;
-                }
-            }
+        this.activeRegion = null;
+        this.container.dispatchEvent(new CustomEvent('spineRegionPreview', { detail: { key: this.selectedRegion || null } }));
+    }
+
+    // Ease each region's glow towards its target every frame
+    updateGlow() {
+        if (!this.regionMaterials) return;
+        const active = this.activeRegion || this.selectedRegion;
+        const pulse = this.reducedMotion ? 1 : 0.85 + 0.15 * Math.sin(performance.now() / 450);
+        Object.keys(this.regionMaterials).forEach((k) => {
+            const target = k === active ? 1 : 0;
+            this.glow[k] += (target - this.glow[k]) * 0.12;
+            const g = this.glow[k];
+            const region = this.regions[k];
+            this.regionMaterials[k].forEach((mat) => {
+                this._tint.setHex(region.color);
+                mat.color.copy(mat.userData.base).lerp(this._tint, g * 0.92);
+                mat.emissive.copy(mat.userData.baseEmissive).lerp(this._tint, g);
+                mat.emissiveIntensity = mat.userData.baseEmissiveIntensity + g * 0.32 * pulse;
+            });
         });
     }
-    
+
     showTooltip(regionKey) {
+        if (document.querySelector('[data-spine-panel]')) return; // the page shows details in its own panel
         const region = this.regions[regionKey];
         let tooltip = document.getElementById('spine-tooltip');
         
@@ -903,7 +928,9 @@ class SpineModel {
         
         this.spineGroup.rotation.x = 0.15 + this.currentRotation.x;
         this.spineGroup.rotation.y = this.currentRotation.y;
-        
+        if (!this.reducedMotion) this.spineGroup.position.y = Math.sin(performance.now() / 1600) * 0.12;
+        this.updateGlow();
+
         this.renderer.render(this.scene, this.camera);
     }
     
@@ -941,5 +968,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
     spineContainer.addEventListener('spineRegionChange', (e) => {
         buttons.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.spineRegion === e.detail.key)));
+        showPanel(e.detail.key);
     });
+
+    // Glass details panel next to the model (Method page)
+    const panel = document.querySelector('[data-spine-panel]');
+    let shown = null;
+    function showPanel(key) {
+        if (!panel || !window.spineModel || !window.spineModel.regions) return;
+        if (key === shown) return;
+        shown = key;
+        const intro = panel.querySelector('[data-panel-intro]');
+        const detail = panel.querySelector('[data-panel-detail]');
+        if (!key) { intro.hidden = false; detail.hidden = true; return; }
+        const r = window.spineModel.regions[key];
+        panel.querySelector('[data-panel-count]').textContent = r.count + ' · ' + r.vertebrae;
+        panel.querySelector('[data-panel-name]').textContent = r.name;
+        panel.querySelector('[data-panel-desc]').textContent = r.description;
+        panel.querySelector('[data-panel-function]').textContent = r.function;
+        panel.querySelector('[data-panel-conditions]').textContent = r.conditions;
+        intro.hidden = true;
+        detail.hidden = false;
+    }
+    spineContainer.addEventListener('spineRegionPreview', (e) => showPanel(e.detail.key));
 });
