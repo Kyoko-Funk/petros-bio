@@ -95,3 +95,10 @@ After comparing the branch with the live site and the brief:
 - **About:** practice photos open full size when tapped.
 - Virtual consultations added back to Fees (offered, paid by EFT; prices to confirm). Still left out until confirmed: PayToday.
 - Still missing: the watercolour pug illustration (for About and the 404 page) and a pool photo for Hydrotherapy.
+
+## Images added 15 October 2026
+- `hero-namib*.webp`: AI-generated dunes-meeting-the-sea landscape (home hero, decorative).
+- `exercise-band-*.webp`: stock photo of guided resistance-band exercise (home, "What is biokinetics").
+- Ready for the next pages: `knee-assessment-*` (hands-on knee assessment), `skeleton-illustration-*` (AI anatomy
+  illustration, accurate enough for the Method page), `knee-taping-*` (sports taping, for performance/sports injuries).
+- Not used: a wrist-mobilisation photo showing another company's logo on the sleeve.
