@@ -35,7 +35,7 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 1. Opening hours: Mon–Fri 06:00–18:00, closed 13:00–14:00.
 2. Facebook: which page is current (now using `profile.php?id=61570341071678`).
 3. The removed second WhatsApp number (+264 81 650 3103): whose is it?
-4. Fees: still the 2026 schedule? Does a full evaluation include all three assessments? Session length? Virtual consultations (left off)?
+4. Fees: still the 2026 schedule? Does a full evaluation include all three assessments? Session length? Virtual consultations are offered and paid by EFT (confirmed); their prices (N$ 300 / 250 / 350, from the old site) still need confirming.
 5. OK to publish banking details? PayToday still accepted? Not VAT-registered?
 6. OK to state the session tariff of N$ 379.80 on the Medical Aid page (left off for now)?
 7. Referral wording; "short health questionnaire at your first visit" wording; first assessment duration.
@@ -93,5 +93,5 @@ After comparing the branch with the live site and the brief:
   "Meet Jean-Pierre" section with his portrait on the home page.
 - **Phones:** a Call button above the WhatsApp button.
 - **About:** practice photos open full size when tapped.
-- Still left out on purpose until confirmed: virtual consultations and PayToday (fees page).
+- Virtual consultations added back to Fees (offered, paid by EFT; prices to confirm). Still left out until confirmed: PayToday.
 - Still missing: the watercolour pug illustration (for About and the 404 page) and a pool photo for Hydrotherapy.
