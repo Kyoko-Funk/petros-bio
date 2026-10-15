@@ -1,5 +1,7 @@
 # Pétros Biokinetics security and performance configuration
 # Apache Web Server Configuration (.htaccess)
+# NOTE: the live server is Microsoft IIS, which ignores this file and uses web.config instead.
+# This file is kept so the site still works if it ever moves to an Apache or LiteSpeed host.
 
 # Enable mod_rewrite
 <IfModule mod_rewrite.c>
@@ -14,25 +16,16 @@
     RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
     RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-    # One URL style: clean addresses without .html (/contact, /the-method).
-    # /index.html goes to the home page
-    RewriteCond %{THE_REQUEST} \s/index(\.html)?[\s?]
-    RewriteRule ^index(\.html)?$ / [R=301,L]
-    # Old /page.html links redirect to /page (only for real visitor requests, so no loops)
-    RewriteCond %{THE_REQUEST} \s/([^\s?]+)\.html[\s?]
-    RewriteCond %{REQUEST_URI} !^/(404|500)\.html$
-    RewriteRule ^(.+)\.html$ /$1 [R=301,L]
-    # A trailing slash is removed (/contact/ to /contact)
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.+)/$ /$1 [R=301,L]
-    # Serve /page from page.html behind the scenes
+    # One URL style: pages live at /page.html. /index.html and clean URLs (/contact, /contact/) redirect there.
+    RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+    RewriteRule ^index\.html$ / [R=301,L]
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-    RewriteRule ^([^.]+)$ /$1.html [L]
+    RewriteRule ^([^.]+?)/?$ /$1.html [R=301,L]
 
     # Files removed in the October 2026 refresh
-    RewriteRule ^(loader|gradient-test)(\.html)?$ / [R=301,L]
+    RewriteRule ^(loader|gradient-test)\.html$ / [R=301,L]
     RewriteRule ^3d-render\.png$ /assets/img/anatomy-figure.webp [R=301,L]
     RewriteRule ^logo\.png$ /assets/img/logo-full-white.png [R=301,L]
     RewriteRule ^og-image\.jpg$ /assets/img/og-image.jpg [R=301,L]

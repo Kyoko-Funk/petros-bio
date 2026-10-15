@@ -77,7 +77,7 @@
       }
     });
 
-    // Booking reason can be pre-selected from a link, e.g. /book-now?reason=hydrotherapy
+    // Booking reason can be pre-selected from a link, e.g. /book-now.html?reason=hydrotherapy
     var reason = new URLSearchParams(window.location.search).get('reason');
     var reasonSelect = document.getElementById('book-reason');
     if (reason && reasonSelect) {

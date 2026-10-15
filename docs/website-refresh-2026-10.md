@@ -9,7 +9,7 @@ Backup: git tag `backup-before-refresh-2026-10-14` points at the site exactly as
 - **Leaked code/leftovers:** removed `loader.html` and its iframe, `gradient-test.html`, the stray About-page class text and the broken lightbox image. Canonical is now a real `<link rel="canonical">` (it was a `<meta name="canonical">`, which search engines ignore). `meta keywords` removed. `og:type` is `website` everywhere.
 - **Analytics:** Google Analytics and Tag Manager now load only after a visitor clicks Accept on a new, simpler cookie banner ("Cookie settings" in the footer lets people change their mind). Before, they loaded for everyone, before consent.
 - **Name and encoding:** "Pétros Biokinetics" everywhere, UTF-8, no `&amp;` in titles or alt text. Logo alt text fixed.
-- **URL style:** clean addresses everywhere (`/contact`, `/the-method`): links, canonicals, sitemap and structured data. `.htaccess` serves the `.html` file behind the scenes and 301-redirects `/contact.html`, `/contact/`, `/index.html` and `www.` to the clean, non-www address, plus redirects for removed files. Tested on a local Apache server.
+- **URL style:** the live server is Microsoft IIS, which ignores `.htaccess`. Pages therefore use `.html` addresses everywhere (`/contact.html`): links, canonicals, sitemap and structured data, with real `<link rel="canonical">` tags (the old site used a meta tag Google ignores). `web.config` gives IIS the custom 404 page, the .webp file type, security headers and hides source folders. When uploading, delete `loader.html` and `gradient-test.html` from the server.
 - **Footer:** identical on every page, clean hours list, one phone format, practice number, new tagline, one Facebook link. The second WhatsApp number (+264 81 650 3103) is removed.
 - **Images:** descriptive alt text (decorative hero photos use empty alt); Cloudinary images now use `f_auto,q_auto` with sized widths; `loading="lazy"` below the fold; the home page no longer repeats the clinic photo. `3d-render.png` (506 KB) is now `assets/img/anatomy-figure.webp` (18 KB). Logo and favicons regenerated from the Pétros logo (the old favicon was a different "P" mark).
 - **Privacy:** the online Patient Assessment Form (medical history, allergies, medication…) is removed. Booking and contact forms collect only name, phone, email, preferred date and time, medical aid yes/no and a general reason. The "Website" field is a hidden spam trap (Formspree `_gotcha`), off-screen and out of the tab order.
@@ -46,7 +46,7 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 12. "We usually reply within one working day."
 13. Map pin location.
 14. Privacy Policy and Terms: legal check, including Namibian data-protection requirements.
-15. Hosting: `.htaccess` assumes Apache/LiteSpeed. If the host ignores it, the redirects and headers need setting in the host's dashboard.
+15. Hosting: the server is IIS. After uploading `web.config`, open a page: if it shows a 500 error, the host has locked a setting; delete `web.config` and check with the host. A `www.` to non-www redirect, if wanted, is set in the host's dashboard.
 
 ## Notes
 - Fonts and colours stayed as on the current site (Playfair Display, Inter, sage/forest green) because the brief says to keep the visual style. The brand sheet's Belleza font and blue-grey #7E8DA4 can be swapped in through `tailwind.config.js` if wanted.
@@ -58,6 +58,6 @@ New page `hydrotherapy.html`, linked from Services, the home page and the footer
 - Hero: a live water surface with soft sunlight patterns that ripples where you move or tap (`assets/js/hydrotherapy.js`, plain WebGL, about 8 KB, no library). It pauses off screen, shows a still frame for people who reduce motion, and falls back to a gradient.
 - "How much does the water carry?": a slider with a figure that shows the approximate share of body weight carried at hip, waist, chest and neck depth.
 - Sections: what hydrotherapy is, why water helps, who it can help, what a session looks like, "Is it right for me?", what to bring, fees, medical aid, a short FAQ, and a call to action.
-- "Book hydrotherapy" opens the booking form with "Hydrotherapy (aquatherapy)" already selected (`/book-now?reason=hydrotherapy`).
+- "Book hydrotherapy" opens the booking form with "Hydrotherapy (aquatherapy)" already selected (`/book-now.html?reason=hydrotherapy`).
 
 Still to confirm with Jean-Pierre (all marked `TODO [CONFIRM]` on the page): which pool and where, water temperature, session length, one-on-one or group, fees, medical aid cover, the conditions list, the "please tell us first" list, the weight percentages, and the FAQ answers. A real photo of the pool would be a good addition.
