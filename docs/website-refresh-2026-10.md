@@ -51,3 +51,13 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 ## Notes
 - Fonts and colours stayed as on the current site (Playfair Display, Inter, sage/forest green) because the brief says to keep the visual style. The brand sheet's Belleza font and blue-grey #7E8DA4 can be swapped in through `tailwind.config.js` if wanted.
 - Alt text for stock photos was written from their file names and context, because the images couldn't be viewed during the work. Worth a quick look.
+
+## Hydrotherapy page (added 15 October 2026)
+New page `hydrotherapy.html`, linked from Services, the home page and the footer (it highlights "Services" in the menu).
+- Warm Scandinavian look used only on this page: linen and oat backgrounds, oak accents, the brand blue-grey as the water colour.
+- Hero: a live water surface with soft sunlight patterns that ripples where you move or tap (`assets/js/hydrotherapy.js`, plain WebGL, about 8 KB, no library). It pauses off screen, shows a still frame for people who reduce motion, and falls back to a gradient.
+- "How much does the water carry?": a slider with a figure that shows the approximate share of body weight carried at hip, waist, chest and neck depth.
+- Sections: what hydrotherapy is, why water helps, who it can help, what a session looks like, "Is it right for me?", what to bring, fees, medical aid, a short FAQ, and a call to action.
+- "Book hydrotherapy" opens the booking form with "Hydrotherapy (aquatherapy)" already selected (`/book-now.html?reason=hydrotherapy`).
+
+Still to confirm with Jean-Pierre (all marked `TODO [CONFIRM]` on the page): which pool and where, water temperature, session length, one-on-one or group, fees, medical aid cover, the conditions list, the "please tell us first" list, the weight percentages, and the FAQ answers. A real photo of the pool would be a good addition.

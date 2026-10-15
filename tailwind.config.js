@@ -13,6 +13,14 @@ module.exports = {
           slate: '#2C3E50', // body text
           cream: '#F5F4F0',
           sand: '#ECEAE3',
+          // Hydrotherapy page: warm Scandinavian palette
+          linen: '#FAF7F2',
+          oat: '#EFE8DD',
+          oak: '#8A6A43', // warm accent, passes contrast on linen
+          water: '#7E8DA4', // brand blue-grey, decorative
+          tide: '#4E5D73', // text and buttons on light backgrounds
+          abyss: '#3F4E5F',
+          glow: '#F6E7CC',
         },
       },
       fontFamily: {

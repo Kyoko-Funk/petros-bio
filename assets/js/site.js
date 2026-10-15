@@ -77,6 +77,16 @@
       }
     });
 
+    // Booking reason can be pre-selected from a link, e.g. /book-now.html?reason=hydrotherapy
+    var reason = new URLSearchParams(window.location.search).get('reason');
+    var reasonSelect = document.getElementById('book-reason');
+    if (reason && reasonSelect) {
+      var match = Array.prototype.find.call(reasonSelect.options, function (o) {
+        return o.value && o.text.toLowerCase().indexOf(reason.toLowerCase()) !== -1;
+      });
+      if (match) reasonSelect.value = match.value;
+    }
+
     // Booking date: no past dates, no weekends
     document.querySelectorAll('input[type="date"][data-weekdays]').forEach(function (input) {
       var d = new Date();

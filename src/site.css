@@ -154,3 +154,51 @@
   .spine-unsupported #spine-model, .spine-unsupported [data-spine-hint], .spine-unsupported .spine-regions,
   html:not(.js) #spine-model, html:not(.js) [data-spine-hint], html:not(.js) .spine-regions { display: none; }
 }
+
+/* ---------- Hydrotherapy page: warm Scandinavian ---------- */
+@layer components {
+  .page-hydro { @apply bg-petros-linen; }
+  .page-hydro .eyebrow { @apply text-petros-oak; }
+  .page-hydro .h-section em { @apply text-petros-tide; }
+  .btn-tide { @apply btn bg-petros-tide text-white shadow-soft hover:bg-petros-abyss hover:shadow-lift; }
+  .btn-tide-outline { @apply btn border border-petros-tide/40 text-petros-tide hover:border-petros-tide hover:bg-petros-tide hover:text-white; }
+  .hydro-card { @apply rounded-[1.75rem] border border-petros-oak/15 bg-white/80 p-7 md:p-8; box-shadow: 0 10px 36px -16px rgba(138, 106, 67, 0.25); }
+  .hydro-icon { @apply mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-petros-oat text-petros-tide; }
+  .hydro-icon svg { @apply h-6 w-6; }
+  .hydro-rule { @apply h-px w-16 bg-petros-oak/40; }
+
+  /* Hero water: CSS gradient first, WebGL canvas fades in on top */
+  .water-hero { background: radial-gradient(120% 90% at 85% 0%, #E9D9BF 0%, transparent 55%), linear-gradient(180deg, #8A9AB0 0%, #5E6E84 55%, #3F4E5F 100%); }
+  #water-canvas { @apply absolute inset-0 -z-[5] h-full w-full opacity-0 transition-opacity duration-1000; }
+  #water-canvas.is-live { opacity: 1; }
+  .water-hero .hero-fade { @apply to-petros-linen; }
+  .water-hint { @apply pointer-events-none mt-8 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-white/75; }
+  .water-hint svg { @apply h-4 w-4; }
+
+  /* Buoyancy explorer */
+  .buoy-figure .water { transition: transform 0.9s cubic-bezier(.22,.61,.36,1); }
+  .buoy-figure .wave { animation: buoy-wave 6s ease-in-out infinite alternate; }
+  @keyframes buoy-wave { from { transform: translateX(-12px); } to { transform: translateX(12px); } }
+  .buoy-range { @apply w-full cursor-pointer appearance-none bg-transparent; height: 44px; }
+  .buoy-range::-webkit-slider-runnable-track { height: 6px; border-radius: 999px; background: linear-gradient(90deg, #EFE8DD, #7E8DA4); }
+  .buoy-range::-moz-range-track { height: 6px; border-radius: 999px; background: linear-gradient(90deg, #EFE8DD, #7E8DA4); }
+  .buoy-range::-webkit-slider-thumb { -webkit-appearance: none; margin-top: -11px; height: 28px; width: 28px; border-radius: 999px; background: #4E5D73; border: 4px solid #FAF7F2; box-shadow: 0 4px 14px rgba(63,78,95,.35); }
+  .buoy-range::-moz-range-thumb { height: 22px; width: 22px; border-radius: 999px; background: #4E5D73; border: 4px solid #FAF7F2; box-shadow: 0 4px 14px rgba(63,78,95,.35); }
+  .buoy-stop { @apply min-h-[44px] rounded-full px-3 py-2 text-sm font-medium text-petros-slate/70 transition hover:text-petros-tide; }
+  .buoy-stop[aria-pressed='true'] { @apply bg-petros-oat text-petros-tide; }
+  .buoy-bar { @apply h-2 overflow-hidden rounded-full bg-petros-oat; }
+  .buoy-bar > span { @apply block h-full rounded-full bg-petros-tide transition-all duration-700; }
+
+  /* Session timeline */
+  .tide-steps { @apply relative grid gap-10 md:grid-cols-4 md:gap-6; }
+  .tide-steps::before { content: ''; @apply absolute left-6 top-6 hidden h-px bg-petros-oak/25 md:block; right: 12%; }
+  .tide-num { @apply relative mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-petros-oak/30 bg-petros-linen font-serif text-xl text-petros-tide; }
+
+  .fit-list li { @apply flex gap-3; }
+  .fit-list li > svg { @apply mt-1 h-5 w-5 shrink-0; }
+
+  .page-hydro .faq-item { @apply border-petros-oak/15 bg-white/80 shadow-none; }
+  .page-hydro .faq-item summary svg { @apply text-petros-tide; }
+
+  @media (prefers-reduced-motion: reduce) { .buoy-figure .wave { animation: none; } }
+}
