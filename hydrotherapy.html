@@ -114,7 +114,7 @@
                     <p class="mt-6 text-lg text-gray-700">Hydrotherapy, also called aquatherapy, is biokinetic exercise done in a warm pool. Your programme is planned and supervised in the same way as on land: we assess you first, set goals together and adjust the exercises as you improve.</p>
                     <p class="mt-4 text-lg text-gray-700">It is often a good starting point when exercise on land is too painful, or as a step on the way back to it.</p>
                 </div>
-                <div class="hydro-card reveal">
+                <div class="hydro-card spotlight reveal" data-spotlight>
                     <!-- TODO [CONFIRM]: pool location, water temperature, session length, one-on-one or group. -->
                     <dl class="grid gap-6 sm:grid-cols-2">
                         <div>
@@ -147,22 +147,22 @@
                     <div class="hydro-rule mx-auto mt-8"></div>
                 </div>
                 <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="hydro-card reveal">
+                    <div class="hydro-card spotlight reveal" data-spotlight>
                         <div class="hydro-icon"><svg data-icon="feather" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.67 19a2 2 0 0 0 1.416-.588l6.154-6.172a6 6 0 0 0-8.49-8.49L5.586 9.914A2 2 0 0 0 5 11.328V18a1 1 0 0 0 1 1z" /><path d="M16 8 2 22" /><path d="M17.5 15H9" /></svg></div>
                         <h3 class="text-2xl">Support</h3>
                         <p class="mt-3 text-gray-700">Water carries part of your body weight, which reduces the load on your joints.</p>
                     </div>
-                    <div class="hydro-card reveal">
+                    <div class="hydro-card spotlight reveal" data-spotlight>
                         <div class="hydro-icon"><svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" /><path d="M12 2v2" /><path d="M12 20v2" /><path d="m4.93 4.93 1.41 1.41" /><path d="m17.66 17.66 1.41 1.41" /><path d="M2 12h2" /><path d="M20 12h2" /><path d="m6.34 17.66-1.41 1.41" /><path d="m19.07 4.93-1.41 1.41" /></svg></div>
                         <h3 class="text-2xl">Warmth</h3>
                         <p class="mt-3 text-gray-700">Warm water can help stiff muscles and joints relax, so moving feels easier.</p>
                     </div>
-                    <div class="hydro-card reveal">
+                    <div class="hydro-card spotlight reveal" data-spotlight>
                         <div class="hydro-icon"><svg data-icon="waves" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /></svg></div>
                         <h3 class="text-2xl">Gentle resistance</h3>
                         <p class="mt-3 text-gray-700">Moving through water builds strength without heavy weights. Move faster for more resistance.</p>
                     </div>
-                    <div class="hydro-card reveal">
+                    <div class="hydro-card spotlight reveal" data-spotlight>
                         <div class="hydro-icon"><svg data-icon="shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg></div>
                         <h3 class="text-2xl">Confidence</h3>
                         <p class="mt-3 text-gray-700">Practise balance and walking with the water around you, under supervision.</p>
@@ -233,28 +233,6 @@
             </div>
         </section>
 
-        <!-- Who it can help -->
-        <section class="section bg-white/70">
-            <div class="wrap">
-                <div class="mx-auto mb-12 max-w-2xl text-center reveal">
-                    <span class="eyebrow">Who it can help</span>
-                    <h2 class="h-section">Often a good fit <em>for</em></h2>
-                </div>
-                <!-- TODO [CONFIRM]: conditions list for hydrotherapy. -->
-                <ul class="mx-auto flex max-w-4xl flex-wrap justify-center gap-3 reveal">
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Arthritis and joint pain</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Early recovery after injury</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Rehabilitation after surgery, once healed</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Back pain</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Fibromyalgia and chronic pain</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Balance and confidence</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Pregnancy</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Neurological conditions</li>
-                    <li class="rounded-full border border-petros-oak/20 bg-petros-linen px-5 py-3 text-petros-slate">Anyone who finds exercise on land difficult</li>
-                </ul>
-            </div>
-        </section>
-
         <!-- What a session looks like -->
         <section id="session" class="section scroll-mt-24">
             <div class="wrap">
@@ -297,9 +275,24 @@
                     <h2 class="h-section">We check <em>together</em></h2>
                     <p class="lead mt-5">Your assessment tells us whether hydrotherapy suits you. A few things to know beforehand:</p>
                 </div>
+                <div class="mx-auto mb-12 max-w-4xl text-center">
+                    <p class="mb-4 font-condensed text-sm font-semibold uppercase tracking-[0.16em] text-petros-oak">Often a good fit for</p>
+                    <!-- TODO [CONFIRM]: conditions list for hydrotherapy. -->
+                <ul class="mx-auto flex max-w-4xl flex-wrap justify-center gap-2.5 reveal">
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Arthritis and joint pain</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Early recovery after injury</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Rehabilitation after surgery, once healed</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Back pain</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Fibromyalgia and chronic pain</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Balance and confidence</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Pregnancy</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Neurological conditions</li>
+                    <li class="rounded-full border border-petros-oak/20 bg-white/80 px-4 py-2.5 text-petros-slate">Anyone who finds exercise on land difficult</li>
+                </ul>
+                </div>
                 <!-- TODO [CONFIRM]: suitability and "talk to us first" lists. -->
                 <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
-                    <div class="hydro-card reveal">
+                    <div class="hydro-card spotlight reveal" data-spotlight>
                         <h3 class="text-2xl">Good to know</h3>
                         <ul class="fit-list mt-5 space-y-4 text-gray-700">
                             <li><svg data-icon="check" class="text-petros-tide" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>You don't need to be able to swim. Exercises are done standing or holding on.</span></li>
@@ -307,7 +300,7 @@
                             <li><svg data-icon="check" class="text-petros-tide" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Many people combine water and land sessions.</span></li>
                         </ul>
                     </div>
-                    <div class="hydro-card reveal">
+                    <div class="hydro-card spotlight reveal" data-spotlight>
                         <h3 class="text-2xl">Please tell us first if you have</h3>
                         <ul class="fit-list mt-5 space-y-4 text-gray-700">
                             <li><svg data-icon="info" class="text-petros-oak" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg><span>An open wound, recent surgical scar that hasn't healed, or a skin infection</span></li>
@@ -323,22 +316,21 @@
         <!-- Practical -->
         <section class="section">
             <div class="wrap grid gap-6 md:grid-cols-3">
-                <div class="hydro-card reveal">
+                <div class="hydro-card spotlight reveal" data-spotlight>
                     <div class="hydro-icon"><svg data-icon="backpack" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" /><path d="M8 10h8" /><path d="M8 18h8" /><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6" /><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /></svg></div>
                     <h2 class="text-2xl">What to bring</h2>
                     <ul class="fit-list mt-5 space-y-3 text-gray-700">
                         <li><svg data-icon="check" class="text-petros-tide" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Swimwear and a towel</span></li>
                         <li><svg data-icon="check" class="text-petros-tide" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Slip-on shoes or flip-flops</span></li>
-                        <li><svg data-icon="check" class="text-petros-tide" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>A water bottle</span></li>
                     </ul>
                 </div>
-                <div class="hydro-card reveal">
+                <div class="hydro-card spotlight reveal" data-spotlight>
                     <div class="hydro-icon"><svg data-icon="wallet" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></svg></div>
                     <h2 class="text-2xl">Fees</h2>
                     <!-- TODO [CONFIRM]: hydrotherapy fees (not on the 2026 fee schedule in the brief). -->
                     <p class="mt-3 text-gray-700">Please contact us for hydrotherapy fees. Assessment fees are on our <a class="text-petros-tide underline" href="/pricing.html">Fees</a> page.</p>
                 </div>
-                <div class="hydro-card reveal">
+                <div class="hydro-card spotlight reveal" data-spotlight>
                     <div class="hydro-icon"><svg data-icon="shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg></div>
                     <h2 class="text-2xl">Medical aid</h2>
                     <!-- TODO [CONFIRM]: how hydrotherapy is claimed from medical aid; update this text once confirmed. -->
