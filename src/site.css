@@ -326,3 +326,25 @@
   .helps { @apply flex flex-wrap gap-2; }
   .helps li { @apply rounded-full border border-petros-blue/25 bg-petros-cream px-3 py-1 text-sm text-petros-slate; }
 }
+
+/* ---------- Fees ---------- */
+@layer components {
+  .seg { @apply inline-flex shrink-0 rounded-full border border-black/5 bg-white p-1.5 shadow-soft; }
+  .seg button { @apply min-h-[44px] rounded-full px-5 text-sm font-semibold text-petros-slate/75 transition; }
+  .seg button[aria-pressed='true'] { @apply bg-petros-navy text-white shadow-soft; }
+  .price-tile { @apply flex items-center justify-between gap-3 rounded-2xl bg-petros-cream px-4 py-3.5 transition hover:bg-petros-sand sm:px-5; }
+  .price-label { @apply whitespace-nowrap text-gray-700; }
+  .price { @apply whitespace-nowrap text-right text-lg font-semibold tabular-nums text-petros-slate sm:text-xl; }
+  .price-sm { @apply whitespace-nowrap font-semibold tabular-nums text-petros-slate; }
+  .price-tag { @apply text-xs font-normal text-gray-500; }
+  /* With JavaScript, show one rate at a time; without it, both rates are listed */
+  .js [data-fees] .price, .js [data-fees] .price-sm { display: none; }
+  .js [data-fees][data-rate-shown='adult'] [data-rate='adult'],
+  .js [data-fees][data-rate-shown='concession'] [data-rate='concession'] { display: inline; animation: panel-in .35s ease both; }
+  .js [data-fees] .price-tag { @apply sr-only; }
+  html:not(.js) [data-rate-toggle] { display: none; }
+  html:not(.js) [data-fees] .price { @apply block text-base; }
+  html:not(.js) [data-fees] .price-sm + .price-sm::before { content: ' / '; }
+  .copy-btn { @apply inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-white/25 px-3 text-xs font-semibold text-white/85 transition hover:bg-white hover:text-petros-deep; }
+  .copy-btn svg { @apply h-3.5 w-3.5; }
+}

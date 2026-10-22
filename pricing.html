@@ -98,124 +98,201 @@
             </div>
         </section>
 
-        <!-- TODO [CONFIRM]: these are still the current fees (2026 fee schedule). -->
-        <!-- TODO [CONFIRM]: session length (e.g. 45 or 60 minutes) to show on this page. -->
+        <!-- 2026 fee schedule, confirmed by the practice 21 Oct 2026 -->
         <div class="wrap pb-20 md:pb-28">
-            <div class="mx-auto max-w-4xl space-y-16">
-                <div class="flex flex-col gap-5 rounded-[2rem] border border-petros-blue/25 bg-white p-7 shadow-soft md:flex-row md:items-center md:justify-between reveal">
-                    <p class="text-gray-700"><strong class="text-petros-slate">Have medical aid?</strong> See how it works with us, which schemes we claim from, and what happens when your benefit runs out.</p>
+            <div class="mx-auto max-w-5xl space-y-20">
+                <div class="glass-light flex flex-col gap-5 rounded-[2rem] p-7 md:flex-row md:items-center md:justify-between reveal">
+                    <div class="flex gap-4">
+                        <div class="icon-tile mb-0 shrink-0"><svg data-icon="shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg></div>
+                        <p class="text-gray-700"><strong class="text-petros-slate">Have medical aid?</strong> Most of our patients' sessions are claimed directly from their medical aid. See which schemes we claim from and what happens when your benefit runs out.</p>
+                    </div>
                     <a href="/medical-aid.html" class="btn-outline shrink-0">Medical aid explained</a>
                 </div>
 
-                <section aria-labelledby="assessments" class="reveal">
-                    <h2 id="assessments" class="h-section mb-6">Assessments</h2>
+                <!-- Assessments -->
+                <section aria-labelledby="assessments">
+                    <div class="mb-8 max-w-2xl reveal">
+                        <span class="eyebrow">Step 1</span>
+                        <h2 id="assessments" class="h-section">Assessments</h2>
+                        <p class="lead mt-3">Your first visit takes 30 to 60 minutes. Re-evaluations repeat the same tests to measure your progress.</p>
+                    </div>
                     <!-- TODO [CONFIRM]: does a full evaluation include all three, or are they charged separately as needed? -->
-                    <div class="overflow-x-auto rounded-[1.5rem] border border-black/5 bg-white shadow-soft">
-                        <table class="fee-table">
-                            <caption>Assessment fees</caption>
-                            <thead>
-                                <tr><th scope="col">Assessment</th><th scope="col">Full evaluation</th><th scope="col">Re-evaluation</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><th scope="row">Ergological assessment</th><td>N$ 900</td><td>N$ 500</td></tr>
-                                <tr><th scope="row">Functional work value (FWV)</th><td>N$ 800</td><td>N$ 400</td></tr>
-                                <tr><th scope="row">Body stat</th><td>N$ 400</td><td>N$ 250</td></tr>
-                            </tbody>
-                        </table>
+                    <div class="grid gap-5 md:grid-cols-3">
+                    <div class="card spotlight p-6 reveal" data-spotlight>
+                        <h3 class="text-2xl">Ergological assessment</h3>
+                        <p class="mt-2 text-sm text-gray-600">Strength, endurance and function.</p>
+                        <dl class="mt-5 grid grid-cols-2 gap-3">
+                            <div class="rounded-2xl bg-petros-cream px-4 py-3"><dt class="text-sm text-gray-600">Full evaluation</dt><dd class="mt-1 text-xl font-semibold tabular-nums">N$ 900</dd></div>
+                            <div class="rounded-2xl bg-petros-cream px-4 py-3"><dt class="text-sm text-gray-600">Re-evaluation</dt><dd class="mt-1 text-xl font-semibold tabular-nums">N$ 500</dd></div>
+                        </dl>
+                    </div>
+                    <div class="card spotlight p-6 reveal" data-spotlight>
+                        <h3 class="text-2xl">Functional work value (FWV)</h3>
+                        <p class="mt-2 text-sm text-gray-600">How well you can do the physical tasks of your work.</p>
+                        <dl class="mt-5 grid grid-cols-2 gap-3">
+                            <div class="rounded-2xl bg-petros-cream px-4 py-3"><dt class="text-sm text-gray-600">Full evaluation</dt><dd class="mt-1 text-xl font-semibold tabular-nums">N$ 800</dd></div>
+                            <div class="rounded-2xl bg-petros-cream px-4 py-3"><dt class="text-sm text-gray-600">Re-evaluation</dt><dd class="mt-1 text-xl font-semibold tabular-nums">N$ 400</dd></div>
+                        </dl>
+                    </div>
+                    <div class="card spotlight p-6 reveal" data-spotlight>
+                        <h3 class="text-2xl">Body stat</h3>
+                        <p class="mt-2 text-sm text-gray-600">Body composition analysis.</p>
+                        <dl class="mt-5 grid grid-cols-2 gap-3">
+                            <div class="rounded-2xl bg-petros-cream px-4 py-3"><dt class="text-sm text-gray-600">Full evaluation</dt><dd class="mt-1 text-xl font-semibold tabular-nums">N$ 400</dd></div>
+                            <div class="rounded-2xl bg-petros-cream px-4 py-3"><dt class="text-sm text-gray-600">Re-evaluation</dt><dd class="mt-1 text-xl font-semibold tabular-nums">N$ 250</dd></div>
+                        </dl>
+                    </div>
                     </div>
                 </section>
 
-                <div class="space-y-16">
-                    <section aria-labelledby="group" class="reveal">
-                        <h2 id="group" class="h-section mb-2">Group sessions</h2>
-                        <p class="mb-6 text-gray-600">Monthly fee</p>
-                        <div class="overflow-x-auto rounded-[1.5rem] border border-black/5 bg-white shadow-soft">
-                            <table class="fee-table">
-                                <caption>Group session fees per month</caption>
-                                <thead>
-                                    <tr><th scope="col">Sessions per week</th><th scope="col">Pensioner / Student</th><th scope="col">Adult</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><th scope="row">1</th><td>N$ 500</td><td>N$ 600</td></tr>
-                                    <tr><th scope="row">2</th><td>N$ 1,000</td><td>N$ 1,200</td></tr>
-                                    <tr><th scope="row">3</th><td>N$ 1,200</td><td>N$ 1,350</td></tr>
-                                    <tr><th scope="row">4</th><td>N$ 1,450</td><td>N$ 1,550</td></tr>
-                                    <tr><th scope="row">5</th><td>N$ 1,650</td><td>N$ 1,750</td></tr>
-                                    <tr><th scope="row">Single session</th><td>N$ 300</td><td>N$ 350</td></tr>
-                                </tbody>
-                            </table>
+                <!-- Monthly sessions with toggles -->
+                <section aria-labelledby="sessions" class="fees-sessions" data-fees data-rate-shown="adult">
+                    <div class="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+                        <div class="max-w-xl reveal">
+                            <span class="eyebrow">Step 2</span>
+                            <h2 id="sessions" class="h-section">Monthly <em>sessions</em></h2>
+                            <p class="lead mt-3">A monthly fee reserves your regular session times.</p>
                         </div>
-                    </section>
-
-                    <section aria-labelledby="one-on-one" class="reveal">
-                        <h2 id="one-on-one" class="h-section mb-2">One-on-one sessions</h2>
-                        <p class="mb-6 text-gray-600">Monthly fee</p>
-                        <div class="overflow-x-auto rounded-[1.5rem] border border-black/5 bg-white shadow-soft">
-                            <table class="fee-table">
-                                <caption>One-on-one session fees per month</caption>
-                                <thead>
-                                    <tr><th scope="col">Sessions per week</th><th scope="col">Pensioner / Student</th><th scope="col">Adult</th></tr>
-                                </thead>
-                                <tbody>
-                                    <tr><th scope="row">1</th><td>N$ 900</td><td>N$ 1,100</td></tr>
-                                    <tr><th scope="row">2</th><td>N$ 1,300</td><td>N$ 2,000</td></tr>
-                                    <tr><th scope="row">3</th><td>N$ 1,800</td><td>N$ 2,200</td></tr>
-                                    <tr><th scope="row">Single session</th><td>N$ 450</td><td>N$ 700</td></tr>
-                                </tbody>
-                            </table>
+                        <div class="seg reveal" role="group" aria-label="Show prices for" data-rate-toggle>
+                            <button type="button" data-rate-btn="adult" aria-pressed="true">Adult</button>
+                            <button type="button" data-rate-btn="concession" aria-pressed="false">Pensioner / Student</button>
                         </div>
-                    </section>
-                </div>
+                    </div>
 
-                <div class="grid gap-6 md:grid-cols-2">
-                    <section aria-labelledby="facility" class="card reveal">
-                        <div class="icon-tile"><svg data-icon="dumbbell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.4 14.4 9.6 9.6" /><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" /><path d="m21.5 21.5-1.4-1.4" /><path d="M3.9 3.9 2.5 2.5" /><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" /></svg></div>
-                        <h2 id="facility" class="text-2xl">Facility use</h2>
-                        <p class="mt-3 text-gray-700">For existing patients, under supervision.</p>
-                        <dl class="mt-4 space-y-1.5 text-lg">
-                            <div class="flex justify-between gap-4"><dt>Per session</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 300</dd></div>
-                            <div class="flex justify-between gap-4"><dt>Per month</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 700</dd></div>
-                        </dl>
-                    </section>
-                    <section aria-labelledby="home-programmes" class="card reveal">
-                        <div class="icon-tile"><svg data-icon="file-text" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></div>
-                        <h2 id="home-programmes" class="scroll-mt-28 text-2xl">Home exercise programmes</h2>
-                        <p class="mt-3 text-gray-700">A written programme to follow at home.</p>
-                        <dl class="mt-4 space-y-1.5 text-lg">
-                            <div class="flex justify-between gap-4"><dt>1-day programme</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 400</dd></div>
-                            <div class="flex justify-between gap-4"><dt>2-day programme</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 500</dd></div>
-                            <div class="flex justify-between gap-4"><dt>3-day programme</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 900</dd></div>
-                        </dl>
-                    </section>
-                    <!-- Virtual consultations are offered and paid by EFT (confirmed 15 Oct 2026). -->
-                    <!-- TODO [CONFIRM]: virtual consultation prices (from the old site; not on the 2026 fee schedule). -->
-                    <section aria-labelledby="virtual" class="card scroll-mt-28 reveal md:col-span-2">
-                        <div class="icon-tile"><svg data-icon="video" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></svg></div>
-                        <h2 id="virtual" class="scroll-mt-28 text-2xl">Virtual consultations</h2>
-                        <p class="mt-3 text-gray-700">A video consultation from home. Paid by EFT before the session.</p>
-                        <dl class="mt-5 grid gap-3 sm:grid-cols-3">
-                            <div class="rounded-2xl bg-petros-cream px-5 py-4"><dt class="text-gray-600">Initial consultation</dt><dd class="mt-1 whitespace-nowrap text-xl font-semibold tabular-nums">N$ 300</dd></div>
-                            <div class="rounded-2xl bg-petros-cream px-5 py-4"><dt class="text-gray-600">Follow-up session</dt><dd class="mt-1 whitespace-nowrap text-xl font-semibold tabular-nums">N$ 250</dd></div>
-                            <div class="rounded-2xl bg-petros-cream px-5 py-4"><dt class="text-gray-600">Remote programme design</dt><dd class="mt-1 whitespace-nowrap text-xl font-semibold tabular-nums">N$ 350</dd></div>
-                        </dl>
-                    </section>
-                </div>
-
-                <section aria-labelledby="good-to-know" class="rounded-[2rem] bg-petros-sand/70 p-8 md:p-10 reveal">
-                    <h2 id="good-to-know" class="h-section mb-6">Good to know</h2>
-                    <ul class="check-list space-y-4 text-gray-700">
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Monthly fees are payable <strong>in advance, at the beginning of each month</strong>.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Monthly fees reserve your regular session times.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>If you start part-way through a month, the first month is charged pro rata.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span><strong>Cancellations:</strong> a full cancellation fee applies if an appointment is not kept, or is cancelled less than <strong>12 hours</strong> beforehand.</span></li>
-                        <!-- TODO [CONFIRM]: OK to publish banking details on the site; is PayToday still accepted? -->
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span><strong>Payment:</strong> EFT to Pétros Biokinetics, Bank Windhoek, SME Cheque Account, account number 8041196806, branch code 481-573. <strong>Reference: your surname and account number</strong> (for example "Klose 288"), as shown on your invoice.</span></li>
-                        <!-- TODO [CONFIRM]: Pétros Biokinetics is not VAT-registered. -->
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Pétros Biokinetics is not VAT-registered, so invoices show no VAT.</span></li>
-                    </ul>
+                    <div class="grid gap-6 lg:grid-cols-2">
+                        <div id="group" class="card scroll-mt-28 reveal" data-tilt>
+                            <div class="flex items-center gap-3">
+                                <div class="icon-tile mb-0"><svg data-icon="users" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></div>
+                                <h3 class="text-2xl">Group sessions</h3>
+                            </div>
+                            <ul class="mt-6 grid gap-2">
+                            <li class="price-tile">
+                                <span class="price-label">1 session a week</span>
+                                <span class="price" data-rate="adult">N$ 600<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 500<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            <li class="price-tile">
+                                <span class="price-label">2 sessions a week</span>
+                                <span class="price" data-rate="adult">N$ 1,200<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 1,000<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            <li class="price-tile">
+                                <span class="price-label">3 sessions a week</span>
+                                <span class="price" data-rate="adult">N$ 1,350<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 1,200<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            <li class="price-tile">
+                                <span class="price-label">4 sessions a week</span>
+                                <span class="price" data-rate="adult">N$ 1,550<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 1,450<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            <li class="price-tile">
+                                <span class="price-label">5 sessions a week</span>
+                                <span class="price" data-rate="adult">N$ 1,750<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 1,650<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            </ul>
+                            <p class="mt-5 flex items-baseline justify-between gap-4 border-t border-black/5 pt-4 text-gray-700">Single session
+                                <span><span class="price-sm" data-rate="adult">N$ 350</span><span class="price-sm" data-rate="concession">N$ 300</span></span></p>
+                        </div>
+                        <div id="one-on-one" class="card scroll-mt-28 reveal" data-tilt>
+                            <div class="flex items-center gap-3">
+                                <div class="icon-tile mb-0"><svg data-icon="user" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg></div>
+                                <h3 class="text-2xl">One-on-one sessions</h3>
+                            </div>
+                            <ul class="mt-6 grid gap-2">
+                            <li class="price-tile">
+                                <span class="price-label">1 session a week</span>
+                                <span class="price" data-rate="adult">N$ 1,100<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 900<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            <li class="price-tile">
+                                <span class="price-label">2 sessions a week</span>
+                                <span class="price" data-rate="adult">N$ 2,000<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 1,300<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            <li class="price-tile">
+                                <span class="price-label">3 sessions a week</span>
+                                <span class="price" data-rate="adult">N$ 2,200<span class="price-tag"> adult</span></span>
+                                <span class="price" data-rate="concession">N$ 1,800<span class="price-tag"> pensioner / student</span></span>
+                            </li>
+                            </ul>
+                            <p class="mt-5 flex items-baseline justify-between gap-4 border-t border-black/5 pt-4 text-gray-700">Single session
+                                <span><span class="price-sm" data-rate="adult">N$ 700</span><span class="price-sm" data-rate="concession">N$ 450</span></span></p>
+                            <p class="mt-3 text-sm text-gray-600">Your full attention from the practitioner for the whole session.</p>
+                        </div>
+                    </div>
                 </section>
 
-                <p class="text-center"><a href="/book-now.html" class="btn-primary">Book an assessment</a></p>
+                <!-- Other services -->
+                <section aria-labelledby="more">
+                    <div class="mb-8 max-w-2xl reveal">
+                        <span class="eyebrow">Also available</span>
+                        <h2 id="more" class="h-section">Other <em>services</em></h2>
+                    </div>
+                    <div class="grid gap-5 md:grid-cols-3">
+                        <div class="card spotlight p-6 reveal" data-spotlight>
+                            <div class="icon-tile"><svg data-icon="dumbbell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.4 14.4 9.6 9.6" /><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" /><path d="m21.5 21.5-1.4-1.4" /><path d="M3.9 3.9 2.5 2.5" /><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" /></svg></div>
+                            <h3 id="facility" class="scroll-mt-28 text-2xl">Facility use</h3>
+                            <p class="mt-2 text-sm text-gray-600">For existing patients, under supervision.</p>
+                            <dl class="mt-5 space-y-2">
+                                <div class="flex justify-between gap-4"><dt>Per session</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 300</dd></div>
+                                <div class="flex justify-between gap-4"><dt>Per month</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 700</dd></div>
+                            </dl>
+                        </div>
+                        <div class="card spotlight p-6 reveal" data-spotlight>
+                            <div class="icon-tile"><svg data-icon="house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></div>
+                            <h3 id="home-programmes" class="scroll-mt-28 text-2xl">Home programmes</h3>
+                            <p class="mt-2 text-sm text-gray-600">A written exercise programme to follow at home.</p>
+                            <dl class="mt-5 space-y-2">
+                                <div class="flex justify-between gap-4"><dt>1-day programme</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 400</dd></div>
+                                <div class="flex justify-between gap-4"><dt>2-day programme</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 500</dd></div>
+                                <div class="flex justify-between gap-4"><dt>3-day programme</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 900</dd></div>
+                            </dl>
+                        </div>
+                        <!-- Virtual consultations: kept, same prices, paid by EFT (confirmed 21 Oct 2026) -->
+                        <div class="card spotlight p-6 reveal" data-spotlight>
+                            <div class="icon-tile"><svg data-icon="video" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></svg></div>
+                            <h3 id="virtual" class="scroll-mt-28 text-2xl">Virtual consultations</h3>
+                            <p class="mt-2 text-sm text-gray-600">A video session from home, 30 to 60 minutes. Paid by EFT before the session.</p>
+                            <dl class="mt-5 space-y-2">
+                                <div class="flex justify-between gap-4"><dt>Initial consultation</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 300</dd></div>
+                                <div class="flex justify-between gap-4"><dt>Follow-up session</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 250</dd></div>
+                                <div class="flex justify-between gap-4"><dt>Remote programme design</dt><dd class="whitespace-nowrap font-semibold tabular-nums">N$ 350</dd></div>
+                            </dl>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Good to know + payment -->
+                <section aria-labelledby="good-to-know" class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+                    <div class="rounded-[2rem] bg-petros-sand/70 p-8 md:p-10 reveal">
+                        <h2 id="good-to-know" class="h-section mb-6">Good to <em>know</em></h2>
+                        <ul class="check-list space-y-4 text-gray-700">
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Monthly fees are payable <strong>in advance, at the beginning of each month</strong>.</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Monthly fees reserve your regular session times. The fee stays the same if sessions are missed during the month.</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>If you start part-way through a month, the first month is charged pro rata.</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span><strong>Cancellations:</strong> a full cancellation fee applies if an appointment is not kept, or is cancelled less than <strong>12 hours</strong> beforehand.</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Pétros Biokinetics does not charge VAT, so invoices show no VAT.</span></li>
+                        </ul>
+                    </div>
+                    <!-- TODO [CONFIRM]: OK to publish banking details on the site. -->
+                    <div class="on-dark rounded-[2rem] bg-petros-deep p-8 text-white md:p-10 reveal">
+                        <div class="flex items-center gap-3"><svg data-icon="landmark" class="h-6 w-6 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><line x1="3" x2="21" y1="22" y2="22" /><line x1="6" x2="6" y1="18" y2="11" /><line x1="10" x2="10" y1="18" y2="11" /><line x1="14" x2="14" y1="18" y2="11" /><line x1="18" x2="18" y1="18" y2="11" /><polygon points="12 2 20 7 4 7" /></svg><h2 class="font-serif text-2xl">Paying by EFT</h2></div>
+                        <dl class="mt-6 space-y-3 text-white/85">
+                            <div><dt class="text-sm text-white/60">Account name</dt><dd>Pétros Biokinetics</dd></div>
+                            <div><dt class="text-sm text-white/60">Bank</dt><dd>Bank Windhoek, SME Cheque Account</dd></div>
+                            <div><dt class="text-sm text-white/60">Account number</dt><dd class="flex items-center gap-3"><span class="font-semibold tabular-nums text-white">8041196806</span><button type="button" class="copy-btn" data-copy="8041196806" aria-label="Copy account number"><svg data-icon="copy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" /><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg><span data-copy-label>Copy</span></button></dd></div>
+                            <div><dt class="text-sm text-white/60">Branch code</dt><dd class="tabular-nums">481-573</dd></div>
+                            <div><dt class="text-sm text-white/60">Reference</dt><dd>Your surname and account number, as on your invoice (for example "Klose 288")</dd></div>
+                        </dl>
+                    </div>
+                </section>
+
+                <div class="text-center reveal">
+                    <a href="/book-now.html" class="btn-primary">Book an assessment</a>
+                    <p class="mt-4 text-sm text-gray-600">Questions about fees? <a href="https://wa.me/264816835055" class="text-petros-navy underline" target="_blank" rel="noopener">WhatsApp us</a> or call <a href="tel:+264816835055" class="text-petros-navy underline">+264 81 683 5055</a>.</p>
+                </div>
             </div>
         </div>
     </main>

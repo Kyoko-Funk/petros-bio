@@ -115,6 +115,26 @@
       sections.forEach(function (sec) { spy.observe(sec); });
     });
 
+    // Fees: switch between adult and pensioner / student prices
+    document.querySelectorAll('[data-fees]').forEach(function (box) {
+      var btns = box.querySelectorAll('[data-rate-btn]');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          box.setAttribute('data-rate-shown', b.getAttribute('data-rate-btn'));
+          btns.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        });
+      });
+    });
+
+    // Copy buttons (e.g. bank account number)
+    document.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var label = btn.querySelector('[data-copy-label]');
+        var done = function () { if (label) { label.textContent = 'Copied'; setTimeout(function () { label.textContent = 'Copy'; }, 2000); } };
+        if (navigator.clipboard) navigator.clipboard.writeText(btn.getAttribute('data-copy')).then(done, function () {});
+      });
+    });
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.

@@ -35,8 +35,8 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 1. Opening hours: Mon–Fri 06:00–18:00, closed 13:00–14:00.
 2. Facebook: which page is current (now using `profile.php?id=61570341071678`).
 3. The removed second WhatsApp number (+264 81 650 3103): whose is it?
-4. Fees: still the 2026 schedule? Does a full evaluation include all three assessments? Session length? Virtual consultations are offered and paid by EFT (confirmed); their prices (N$ 300 / 250 / 350, from the old site) still need confirming.
-5. OK to publish banking details? PayToday still accepted? Not VAT-registered?
+4. Fees: the 2026 schedule and virtual consultation prices are confirmed (21 Oct 2026). Still open: does a full evaluation include all three assessments?
+5. OK to publish banking details? (PayToday is not accepted and is removed; no VAT is charged: both confirmed.)
 6. OK to state the session tariff of N$ 379.80 on the Medical Aid page (left off for now)?
 7. Referral wording; "short health questionnaire at your first visit" wording; first assessment duration.
 8. All FAQ answers.
@@ -108,3 +108,9 @@ After comparing the branch with the live site and the brief:
 - Movement and strength are tested and recorded in the patient's file; a re-evaluation is done when the practitioner judges it right.
 - A report is sent to the referring doctor, even for patients seen only once.
 - Virtual consultations are offered and paid by EFT.
+
+## Updated brief (21 October 2026)
+- Fees page: 2026 schedule confirmed; virtual consultations kept (30 to 60 minutes, same prices, EFT); "the monthly fee stays the same if sessions are missed"; PayToday removed (not accepted); no VAT confirmed.
+- Fees page redesigned: assessment cards, monthly sessions with an Adult / Pensioner-Student switch (both shown without JavaScript), other services, "Good to know", and an EFT card with a copy button for the account number.
+- About: qualification is "BA Honours (Biokinetics), University of Johannesburg, 2018". Note: 8+ years of experience would mean before graduation; check the "8+ years" figure with Jean-Pierre.
+- To do later (brief, Cloudinary note): move the Cloudinary photos into the site's own image folder with sensible names, then close Cloudinary once every page is checked.
