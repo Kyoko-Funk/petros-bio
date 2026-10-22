@@ -99,50 +99,98 @@
         </section>
 
         <div class="wrap pb-20 md:pb-28">
-            <div class="mx-auto max-w-4xl space-y-16">
-                <section aria-labelledby="schemes" class="grid gap-6 md:grid-cols-2">
-                    <div class="card reveal">
-                        <div class="icon-tile"><svg data-icon="shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /><path d="m9 12 2 2 4-4" /></svg></div>
-                        <h2 id="schemes" class="text-2xl">Schemes we claim from directly</h2>
-                        <ul class="check-list mt-5 space-y-3 text-gray-700">
-                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Namibia Health Plan (NHP)</span></li>
-                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Namibia Medical Care (NMC), administered by Methealth</span></li>
-                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>NAMMED, administered by Medscheme</span></li>
-                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Renaissance Health Medical Aid Fund (RMA), administered by Prosperity</span></li>
+            <div class="mx-auto max-w-5xl space-y-20">
+
+                <!-- Interactive: which medical aid do you have? -->
+                <section aria-labelledby="schemes" class="aid-picker" data-aid>
+                    <div class="mb-8 max-w-2xl reveal">
+                        <span class="eyebrow">Start here</span>
+                        <h2 id="schemes" class="h-section">Which medical aid <em>do you have?</em></h2>
+                        <p class="lead mt-3">Choose yours to see how paying works.</p>
+                    </div>
+                    <div class="grid gap-6 lg:grid-cols-[1fr_1.1fr]">
+                        <div class="aid-chips reveal" role="group" aria-label="Your medical aid">
+                            <button type="button" data-scheme="nhp" data-kind="direct" data-full="Namibia Health Plan" aria-pressed="false">NHP</button>
+                            <button type="button" data-scheme="nmc" data-kind="direct" data-full="Namibia Medical Care (Methealth)" aria-pressed="false">NMC</button>
+                            <button type="button" data-scheme="nammed" data-kind="direct" data-full="NAMMED (Medscheme)" aria-pressed="false">NAMMED</button>
+                            <button type="button" data-scheme="rma" data-kind="direct" data-full="Renaissance Health (Prosperity)" aria-pressed="false">RMA</button>
+                            <button type="button" data-scheme="psemas" data-kind="claimback" data-full="PSEMAS" aria-pressed="false">PSEMAS</button>
+                            <button type="button" data-scheme="other" data-kind="claimback" data-full="Another medical aid" aria-pressed="false">Other / international</button>
+                            <button type="button" data-scheme="none" data-kind="private" data-full="Private client" aria-pressed="false">No medical aid</button>
+                        </div>
+                        <div class="aid-panels reveal" aria-live="polite">
+                            <article class="aid-panel" data-panel="direct">
+                                <div class="flex items-center gap-3"><span class="aid-badge bg-petros-olive/15 text-petros-moss"><svg data-icon="circle-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg></span><h3 class="text-2xl">We claim directly</h3></div>
+                                <p class="mt-4 text-gray-700"><span data-aid-name>Your scheme</span> pays us directly. We submit the claims for you, so you don't pay upfront for sessions covered by your benefit.</p>
+                                <ul class="check-list mt-5 space-y-2 text-gray-700">
+                                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>We check your available benefit before you start.</span></li>
+                                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Most schemes need a referral from your doctor (see below).</span></li>
+                                </ul>
+                            </article>
+                            <article class="aid-panel" data-panel="claimback">
+                                <div class="flex items-center gap-3"><span class="aid-badge bg-petros-blue/15 text-petros-navy"><svg data-icon="receipt" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" /><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" /><path d="M12 17.5v-11" /></svg></span><h3 class="text-2xl">Pay and claim back</h3></div>
+                                <p class="mt-4 text-gray-700">With <span data-aid-name>your medical aid</span>, you pay us and claim the amount back yourself.</p>
+                                <ul class="check-list mt-5 space-y-2 text-gray-700">
+                                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>We give you an itemised invoice with treatment dates, tariff codes and our practice number (091 000 0880485) to submit.</span></li>
+                                    <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Ask your medical aid what your plan covers before you start.</span></li>
+                                </ul>
+                            </article>
+                            <article class="aid-panel" data-panel="private">
+                                <div class="flex items-center gap-3"><span class="aid-badge bg-petros-sand text-petros-slate"><svg data-icon="hand-coins" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" /><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" /><path d="m2 16 6 6" /><circle cx="16" cy="9" r="2.9" /><circle cx="6" cy="5" r="3" /></svg></span><h3 class="text-2xl">Private client</h3></div>
+                                <p class="mt-4 text-gray-700">You pay our private fees by EFT. Monthly packages are usually the best value.</p>
+                                <a href="/pricing.html" class="link-arrow mt-5">See our fees <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                            </article>
+                            <p class="aid-hint" data-aid-hint>Choose your medical aid to see how it works.</p>
+                        </div>
+                    </div>
+                    <!-- Without JavaScript, all three options are shown as a plain list (see CSS). -->
+                </section>
+
+                <!-- How your benefit works: a year at a glance -->
+                <section aria-labelledby="benefits">
+                    <div class="mb-8 max-w-2xl reveal">
+                        <span class="eyebrow">Your benefit</span>
+                        <h2 id="benefits" class="h-section">How biokinetics <em>benefits</em> work</h2>
+                        <p class="lead mt-3">On most plans, biokinetics falls under an <strong>"auxiliary services" benefit</strong>: a yearly family limit shared with physiotherapy, dieticians, chiropractors, psychologists and similar services.</p>
+                    </div>
+
+                    <div class="card p-6 md:p-8 reveal">
+                        <p class="text-sm font-semibold text-petros-slate">Example: one family's yearly auxiliary benefit</p>
+                        <div class="benefit-bar mt-4" aria-hidden="true">
+                            <span style="width:38%" class="bg-petros-navy"></span>
+                            <span style="width:22%" class="bg-petros-blue"></span>
+                            <span style="width:12%" class="bg-petros-olive/70"></span>
+                            <span style="width:28%" class="bg-petros-sand"></span>
+                        </div>
+                        <ul class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-petros-navy"></span>Biokinetics</li>
+                            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-petros-blue"></span>Physiotherapy</li>
+                            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-petros-olive/70"></span>Other family members</li>
+                            <li class="flex items-center gap-2"><span class="h-3 w-3 rounded-full border border-black/10 bg-petros-sand"></span>Still available</li>
                         </ul>
+                        <p class="mt-4 text-sm text-gray-600">An illustration only. If you or a family member see a physiotherapist or dietician, it comes off the same amount.</p>
                     </div>
-                    <div class="card reveal">
-                        <div class="icon-tile"><svg data-icon="wallet" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /></svg></div>
-                        <h2 class="text-2xl">Pay and claim back</h2>
-                        <h3 class="mt-5 font-sans text-base font-semibold">PSEMAS</h3>
-                        <p class="mt-1 text-gray-700">You pay us upfront and claim the amount back from PSEMAS. We give you a detailed invoice to submit.</p>
-                        <h3 class="mt-5 font-sans text-base font-semibold">International and other medical aids</h3>
-                        <p class="mt-1 text-gray-700">You pay us and claim back from your medical aid. We provide an itemised invoice with treatment dates, tariff codes and our practice number (091 000 0880485).</p>
-                    </div>
+
+                    <!-- TODO [CONFIRM]: OK to state the standard session rate of N$ 379.80? -->
+                    <ol class="aid-timeline mt-10">
+                        <li class="reveal"><span class="aid-step"><svg data-icon="search" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg></span><h3 class="text-xl">Before you start</h3><p class="mt-2 text-gray-700">We check how much benefit you have left.</p></li>
+                        <li class="reveal"><span class="aid-step"><svg data-icon="send-horizontal" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" /><path d="M6 12h16" /></svg></span><h3 class="text-xl">Each session</h3><p class="mt-2 text-gray-700">We claim it from your medical aid at the official tariff.</p></li>
+                        <li class="reveal"><span class="aid-step"><svg data-icon="bell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span><h3 class="text-xl">Running low</h3><p class="mt-2 text-gray-700">We tell you in advance when it is close to running out.</p></li>
+                        <li class="reveal"><span class="aid-step"><svg data-icon="calendar-range" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M16 2v4" /><path d="M3 10h18" /><path d="M8 2v4" /><path d="M17 14h-6" /><path d="M13 18H7" /><path d="M7 14h.01" /><path d="M17 18h.01" /></svg></span><h3 class="text-xl">Used up</h3><p class="mt-2 text-gray-700">Pause until it renews in January, or continue at our <a class="text-petros-navy underline" href="/pricing.html">private rate</a>.</p></li>
+                    </ol>
                 </section>
 
-                <section aria-labelledby="benefits" class="reveal">
-                    <span class="eyebrow">Your benefit</span>
-                    <h2 id="benefits" class="h-section">How biokinetics <em>benefits</em> work</h2>
-                    <ul class="check-list mt-8 space-y-4 text-lg text-gray-700">
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>On most plans, biokinetics falls under an <strong>"auxiliary services" benefit</strong>. This is usually a <strong>yearly family limit</strong> shared with physiotherapy, dieticians, chiropractors, psychologists and similar services. If you or a family member see one of those, it comes off the same amount.</span></li>
-                        <!-- TODO [CONFIRM]: OK to state the standard session rate of N$ 379.80? -->
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Each session is claimed at the official tariff.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span><strong>We check your available benefit before you start</strong> and keep an eye on it as you go. We'll tell you in advance when it is close to running out.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>When your benefit is used up, you can <strong>pause until it renews in January</strong>, or <strong>continue at our private rate</strong> (see <a class="text-petros-moss underline" href="/pricing.html">Fees</a>).</span></li>
-                    </ul>
-                </section>
-
+                <!-- Referral and what to bring -->
                 <div class="grid gap-6 md:grid-cols-2">
-                    <section aria-labelledby="referral" class="card reveal">
+                    <section aria-labelledby="referral" class="card reveal" data-tilt>
                         <div class="icon-tile"><svg data-icon="stethoscope" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 2v2" /><path d="M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></svg></div>
-                        <h2 id="referral" class="text-2xl">Do I need a referral?</h2>
+                        <h2 id="referral" class="scroll-mt-28 text-2xl">Do I need a referral?</h2>
                         <!-- TODO [CONFIRM]: wording of the referral section. -->
-                        <p class="mt-3 text-gray-700">Medical aids usually require a referral from a doctor or other registered practitioner before they will pay for biokinetics. Please bring the referral, or the doctor's name and practice number, to your first visit.</p>
+                        <p class="mt-3 text-gray-700">You can book without one. Medical aids usually require a referral from a doctor or other registered practitioner before they will pay for biokinetics. Please bring the referral, or the doctor's name and practice number, to your first visit.</p>
                     </section>
-                    <section aria-labelledby="bring" class="card reveal">
-                        <div class="icon-tile"><svg data-icon="clipboard-list" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg></div>
-                        <h2 id="bring" class="text-2xl">What to bring to your first visit</h2>
+                    <section aria-labelledby="bring" class="card reveal" data-tilt>
+                        <div class="icon-tile"><svg data-icon="id-card" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 10h2" /><path d="M16 14h2" /><path d="M6.17 15a3 3 0 0 1 5.66 0" /><circle cx="9" cy="11" r="2" /><rect x="2" y="5" width="20" height="14" rx="2" /></svg></div>
+                        <h2 id="bring" class="text-2xl">What to bring</h2>
                         <ul class="check-list mt-4 space-y-3 text-gray-700">
                             <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Your medical aid card (and the main member's details, if you are a dependant)</span></li>
                             <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Your ID</span></li>
@@ -151,20 +199,21 @@
                     </section>
                 </div>
 
-                <section aria-labelledby="claims" class="rounded-[2rem] bg-petros-sand/70 p-8 md:p-10 reveal">
-                    <h2 id="claims" class="h-section mb-6">Claims and statements</h2>
-                    <ul class="check-list space-y-4 text-gray-700">
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>We submit claims to your medical aid on your behalf.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Claims must reach the medical aid within a set time (for NHP, 4 months after treatment), so please give us your correct medical aid details from the start.</span></li>
-                        <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>If a claim is rejected, we will let you know and help sort it out with the medical aid.</span></li>
-                    </ul>
+                <!-- Claims -->
+                <section aria-labelledby="claims" class="on-dark rounded-[2rem] bg-petros-deep p-8 text-white md:p-12 reveal">
+                    <h2 id="claims" class="h-section">Claims and <em class="!text-petros-mist">statements</em></h2>
+                    <div class="mt-8 grid gap-4 md:grid-cols-3">
+                        <div class="glass rounded-[1.5rem] p-6"><svg data-icon="file-check" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="m9 15 2 2 4-4" /></svg><p class="mt-4 text-white/90">We submit claims to your medical aid on your behalf.</p></div>
+                        <div class="glass rounded-[1.5rem] p-6"><svg data-icon="clock" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg><p class="mt-4 text-white/90">Claims must reach the medical aid in time (for NHP, within 4 months), so please give us your correct details from the start.</p></div>
+                        <div class="glass rounded-[1.5rem] p-6"><svg data-icon="message-circle" class="h-7 w-7 text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" /></svg><p class="mt-4 text-white/90">If a claim is rejected, we let you know and help sort it out with the medical aid.</p></div>
+                    </div>
                 </section>
 
                 <div class="text-center reveal">
                     <p class="lead">Questions about your cover? We are happy to help.</p>
                     <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
                         <a href="/book-now.html" class="btn-primary">Book an assessment</a>
-                        <a href="/contact.html" class="btn-outline">Ask us a question</a>
+                        <a href="https://wa.me/264816835055?text=Hello%2C%20I%20have%20a%20question%20about%20my%20medical%20aid." class="btn-outline" target="_blank" rel="noopener"><svg data-icon="si:whatsapp" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>Ask on WhatsApp</a>
                     </div>
                 </div>
             </div>

@@ -348,3 +348,29 @@
   .copy-btn { @apply inline-flex min-h-[36px] items-center gap-1.5 rounded-full border border-white/25 px-3 text-xs font-semibold text-white/85 transition hover:bg-white hover:text-petros-deep; }
   .copy-btn svg { @apply h-3.5 w-3.5; }
 }
+
+/* ---------- Medical aid ---------- */
+@layer components {
+  .aid-chips { @apply grid grid-cols-2 content-start gap-2 sm:grid-cols-3 lg:grid-cols-2; }
+  .aid-chips button { @apply min-h-[56px] rounded-2xl border border-black/5 bg-white px-4 py-3 text-left font-semibold text-petros-slate shadow-soft transition hover:-translate-y-0.5 hover:border-petros-blue/40; }
+  .aid-chips button[aria-pressed='true'] { @apply border-petros-navy bg-petros-navy text-white; }
+  .aid-panels { @apply relative rounded-[2rem] p-7 md:min-h-[260px] md:p-8;
+    background: rgba(255,255,255,.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,.9); box-shadow: 0 10px 40px -14px rgba(54,64,77,.28); }
+  .aid-badge { @apply flex h-11 w-11 items-center justify-center rounded-full; }
+  .aid-badge svg { @apply h-5 w-5; }
+  .aid-hint { @apply flex h-full items-center justify-center text-center text-gray-500 md:min-h-[200px]; }
+  /* With JavaScript: one panel at a time. Without: all panels listed. */
+  .js .aid-panel { display: none; }
+  .js [data-aid][data-kind='direct'] .aid-panel[data-panel='direct'],
+  .js [data-aid][data-kind='claimback'] .aid-panel[data-panel='claimback'],
+  .js [data-aid][data-kind='private'] .aid-panel[data-panel='private'] { display: block; animation: panel-in .4s ease both; }
+  .js [data-aid][data-kind] .aid-hint { display: none; }
+  html:not(.js) .aid-chips, html:not(.js) .aid-hint { display: none; }
+  html:not(.js) .aid-panel + .aid-panel { @apply mt-8 border-t border-black/5 pt-8; }
+  .benefit-bar { @apply flex h-5 w-full overflow-hidden rounded-full; }
+  .benefit-bar span { @apply block h-full; }
+  .aid-timeline { @apply relative grid gap-8 md:grid-cols-4 md:gap-6; }
+  .aid-timeline::before { content: ''; @apply absolute left-6 top-6 hidden h-px bg-petros-blue/30 md:block; right: 12%; }
+  .aid-step { @apply relative mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-petros-blue/30 bg-petros-cream text-petros-navy; }
+  .aid-step svg { @apply h-5 w-5; }
+}

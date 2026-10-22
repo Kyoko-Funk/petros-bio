@@ -135,6 +135,18 @@
       });
     });
 
+    // Medical aid picker: show how paying works for the chosen scheme
+    document.querySelectorAll('[data-aid]').forEach(function (box) {
+      var chips = box.querySelectorAll('[data-scheme]');
+      chips.forEach(function (c) {
+        c.addEventListener('click', function () {
+          box.setAttribute('data-kind', c.getAttribute('data-kind'));
+          chips.forEach(function (o) { o.setAttribute('aria-pressed', String(o === c)); });
+          box.querySelectorAll('[data-aid-name]').forEach(function (n) { n.textContent = c.getAttribute('data-full'); });
+        });
+      });
+    });
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.

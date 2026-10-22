@@ -35,7 +35,7 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 1. Opening hours: Mon–Fri 06:00–18:00, closed 13:00–14:00.
 2. Facebook: which page is current (now using `profile.php?id=61570341071678`).
 3. The removed second WhatsApp number (+264 81 650 3103): whose is it?
-4. Fees: the 2026 schedule and virtual consultation prices are confirmed (21 Oct 2026). Still open: does a full evaluation include all three assessments?
+4. Fees: all confirmed. Each assessment is charged separately (confirmed 22 Oct 2026). Karli will send a photo of the fee schedule to double-check.
 5. OK to publish banking details? (PayToday is not accepted and is removed; no VAT is charged: both confirmed.)
 6. OK to state the session tariff of N$ 379.80 on the Medical Aid page (left off for now)?
 7. Referral wording; "short health questionnaire at your first visit" wording; first assessment duration.
@@ -114,3 +114,8 @@ After comparing the branch with the live site and the brief:
 - Fees page redesigned: assessment cards, monthly sessions with an Adult / Pensioner-Student switch (both shown without JavaScript), other services, "Good to know", and an EFT card with a copy button for the account number.
 - About: qualification is "BA Honours (Biokinetics), University of Johannesburg, 2018". Note: 8+ years of experience would mean before graduation; check the "8+ years" figure with Jean-Pierre.
 - To do later (brief, Cloudinary note): move the Cloudinary photos into the site's own image folder with sensible names, then close Cloudinary once every page is checked.
+
+## 22 October 2026
+- Experience: "In practice since 2018" (About) and "qualified since 2018" (home), instead of "8+ years".
+- Fees: each assessment is charged separately; a full evaluation does not include all three.
+- Medical Aid page redesigned: "Which medical aid do you have?" picker (claim directly / pay and claim back / private; all listed without JavaScript), an illustrated shared yearly benefit, a four-step benefit timeline, referral and what to bring, and claims tiles.
