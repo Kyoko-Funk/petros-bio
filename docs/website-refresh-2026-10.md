@@ -37,8 +37,8 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 3. The removed second WhatsApp number (+264 81 650 3103): whose is it?
 4. Fees: all confirmed. Each assessment is charged separately (confirmed 22 Oct 2026). Karli will send a photo of the fee schedule to double-check.
 5. OK to publish banking details? (PayToday is not accepted and is removed; no VAT is charged: both confirmed.)
-6. OK to state the session tariff of N$ 379.80 on the Medical Aid page (left off for now)?
-7. Referral wording; "short health questionnaire at your first visit" wording; first assessment duration.
+6. Session tariff amount: decided not to show it on the site (22 Oct 2026).
+7. "Short health questionnaire at your first visit" wording. (Referral wording and first-visit length confirmed.)
 8. All FAQ answers.
 9. About: exact qualification, HPCNA registration number, a 3–5 sentence bio, the pugs ("Meet the team"?).
 10. Cloudinary file names (e.g. the rehab-area photo named "ChatGPT_Image_Jan_10_2026…") can only be renamed in the Cloudinary account. Years of experience ("8+") to confirm.
@@ -119,3 +119,5 @@ After comparing the branch with the live site and the brief:
 - Experience: "In practice since 2018" (About) and "qualified since 2018" (home), instead of "8+ years".
 - Fees: each assessment is charged separately; a full evaluation does not include all three.
 - Medical Aid page redesigned: "Which medical aid do you have?" picker (claim directly / pay and claim back / private; all listed without JavaScript), an illustrated shared yearly benefit, a four-step benefit timeline, referral and what to bring, and claims tiles.
+- Medical Aid: session tariff amount is not shown (decided); referral wording confirmed and made slightly warmer.
+- FAQ redesigned: 15 questions in three topics (Getting started, Your visits, Medical aid and fees), a search box that shows and opens matching answers, topic chips; new answers on fitness, virtual consultations, reports to the doctor and missed sessions. Answers still to be checked by Jean-Pierre.

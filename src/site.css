@@ -374,3 +374,13 @@
   .aid-step { @apply relative mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-petros-blue/30 bg-petros-cream text-petros-navy; }
   .aid-step svg { @apply h-5 w-5; }
 }
+
+/* ---------- FAQ ---------- */
+@layer components {
+  .faq-tools { @apply relative z-10; }
+  .faq-tools nav a { @apply inline-flex min-h-[40px] items-center rounded-full border border-black/5 bg-white px-4 text-sm font-semibold text-petros-slate/80 transition hover:border-petros-navy hover:text-petros-navy; }
+  .faq-item[open] { @apply border-petros-blue/40 shadow-lift; }
+  .faq-item .faq-body { animation: panel-in .35s ease both; }
+  .faq-item mark { @apply rounded bg-petros-mist/60 px-0.5 text-inherit; }
+  html:not(.js) [data-faq-tools] { display: none; }
+}

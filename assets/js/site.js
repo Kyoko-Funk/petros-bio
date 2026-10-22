@@ -147,6 +147,26 @@
       });
     });
 
+    // FAQ search: show only matching questions, open them, hide empty groups
+    var faqSearch = document.querySelector('[data-faq-search]');
+    if (faqSearch) {
+      var faqItems = Array.prototype.slice.call(document.querySelectorAll('[data-faq]'));
+      var groups = document.querySelectorAll('[data-faq-group]');
+      var none = document.querySelector('[data-faq-none]');
+      faqSearch.addEventListener('input', function () {
+        var q = faqSearch.value.trim().toLowerCase();
+        var shown = 0;
+        faqItems.forEach(function (it) {
+          var hit = !q || it.textContent.toLowerCase().indexOf(q) !== -1;
+          it.hidden = !hit;
+          if (q) it.open = hit; else it.open = false;
+          if (hit) shown++;
+        });
+        groups.forEach(function (g) { g.hidden = !g.querySelector('[data-faq]:not([hidden])'); });
+        if (none) none.classList.toggle('hidden', shown > 0);
+      });
+    }
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.
