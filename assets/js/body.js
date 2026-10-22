@@ -79,7 +79,7 @@
         this.raycaster = new THREE.Raycaster();
         this.mouse = new THREE.Vector2();
         this.base = new THREE.Color(0xD3CCBF);
-        this.accent = new THREE.Color(0x3F5B8A);
+        this.accent = new THREE.Color(0x304C7C);
         this.tint = new THREE.Color();
 
         var w = container.clientWidth, h = container.clientHeight;
@@ -132,6 +132,7 @@
         var mesh = new THREE.Mesh(new THREE.LatheGeometry(pts, 32), this.material(id));
         mesh.position.copy(a);
         mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), b.clone().sub(a).normalize());
+        mesh.userData.radial = true; // grows in thickness only, so it stays attached at the joints
         return this.add(mesh, id);
     };
 
@@ -144,6 +145,7 @@
 
     BodyFigure.prototype.add = function (mesh, id) {
         mesh.userData.id = id;
+        mesh.userData.baseScale = mesh.scale.clone();
         if (id !== 'none') this.parts.push(mesh);
         this.figure.add(mesh);
         return mesh;
@@ -160,6 +162,7 @@
             var g = new THREE.LatheGeometry(profile.map(function (p) { return new THREE.Vector2(Math.max(p[0], 0.0001), p[1]); }), 48);
             var m = new THREE.Mesh(g, self.material(id));
             m.scale.z = 0.6;
+            m.userData.radial = true;
             self.add(m, id);
         }
         torso(lower, 'lowerBack');
@@ -301,7 +304,12 @@
             var g = this.glow[id], mat = this.materials[id];
             mat.color.copy(this.base).lerp(this.accent, g);
             mat.emissive.copy(this.accent).multiplyScalar(g);
-            mat.emissiveIntensity = g * 0.18 * pulse;
+            mat.emissiveIntensity = g * 0.25 * pulse;
+        }
+        // The highlighted area also swells slightly, so it stands out on small screens
+        for (var i = 0; i < this.parts.length; i++) {
+            var m = this.parts[i], base = m.userData.baseScale, grow = 1 + 0.08 * this.glow[m.userData.id];
+            m.scale.set(base.x * grow, m.userData.radial ? base.y : base.y * grow, base.z * grow);
         }
         this.renderer.render(this.scene, this.camera);
     };

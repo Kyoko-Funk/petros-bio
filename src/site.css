@@ -318,7 +318,7 @@
     background: radial-gradient(60% 55% at 50% 42%, #FFFFFF 0%, #F4F2EC 55%, #EAE6DC 100%); }
   #body-model { @apply relative h-[460px] w-full md:h-[580px]; touch-action: pan-y; }
   #body-model canvas { display: block; }
-  .body-hint { @apply bg-petros-navy text-white; }
+  .body-hint { @apply bottom-4 top-auto bg-petros-navy text-white; } /* at the bottom, so it never covers the head */
   .body-fallback { @apply hidden p-10 text-center text-gray-600; }
   .body-unsupported #body-model, .body-unsupported .body-hint, html:not(.js) #body-model, html:not(.js) .body-hint { display: none; }
   .body-unsupported .body-fallback, html:not(.js) .body-fallback { display: block; }
