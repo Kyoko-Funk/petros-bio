@@ -40,7 +40,7 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 6. Session tariff amount: decided not to show it on the site (22 Oct 2026).
 7. "Short health questionnaire at your first visit" wording. (Referral wording and first-visit length confirmed.)
 8. All FAQ answers.
-9. About: exact qualification, HPCNA registration number, a 3–5 sentence bio, the pugs ("Meet the team"?).
+9. About: HPCNA registration number (Karli will send); Jean-Pierre to approve the new bio; whether the pugs are at the practice during sessions.
 10. Cloudinary file names (e.g. the rehab-area photo named "ChatGPT_Image_Jan_10_2026…") can only be renamed in the Cloudinary account. Years of experience ("8+") to confirm.
 11. Aquatherapy: offered, and where?
 12. "We usually reply within one working day."
@@ -121,3 +121,4 @@ After comparing the branch with the live site and the brief:
 - Medical Aid page redesigned: "Which medical aid do you have?" picker (claim directly / pay and claim back / private; all listed without JavaScript), an illustrated shared yearly benefit, a four-step benefit timeline, referral and what to bring, and claims tiles.
 - Medical Aid: session tariff amount is not shown (decided); referral wording confirmed and made slightly warmer.
 - FAQ redesigned: 15 questions in three topics (Getting started, Your visits, Medical aid and fees), a search box that shows and opens matching answers, topic chips; new answers on fitness, virtual consultations, reports to the doctor and missed sessions. Answers still to be checked by Jean-Pierre.
+- About redesigned: bio written from what the practice shared (helps people reach their goals, patient, explains every step, sense of humour, loves his dogs), "In practice since 2018" badge on the portrait, a credentials card, three principles (Patient-centred, Every step explained, Results you can measure), and "Meet the team": the watercolour illustration of the pugs Peanut (rounder) and Lily (slim). The illustration is also on the 404 page. No real photos of the dogs for now.
