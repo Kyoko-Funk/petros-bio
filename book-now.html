@@ -99,69 +99,82 @@
         </section>
 
         <div class="wrap pb-20 md:pb-28">
-            <div class="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:gap-14">
+            <div class="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:gap-14">
                 <div class="card p-7 md:p-10 reveal">
                     <h2 class="h-section text-3xl md:text-4xl">Request an <em>appointment</em></h2>
-                    <p class="mt-3 text-gray-600">Your request is emailed to us. It is not confirmed until we contact you. Prefer to talk? Call or WhatsApp <a class="text-petros-moss underline" href="tel:+264816835055">+264 81 683 5055</a>.</p>
+                    <p class="mt-3 text-gray-600">Three short steps. Your request is emailed to us, and it is not confirmed until we contact you. Prefer to talk? Call or WhatsApp <a class="text-petros-navy underline" href="tel:+264816835055">+264 81 683 5055</a>.</p>
 
-                    <!-- Only contact and scheduling details are collected here. No health information: see brief 1.6 / Privacy Policy. -->
-                    <form class="mt-8 space-y-5" action="https://formspree.io/f/xbddjlny" method="POST" data-ajax data-success="Thank you, we've received your request. We'll contact you within 24 hours (on working days) to confirm your appointment.">
+                    <ol class="book-progress mt-8" aria-hidden="true" data-book-progress>
+                        <li class="is-active"><span>1</span>Your details</li>
+                        <li><span>2</span>Day and time</li>
+                        <li><span>3</span>How we can help</li>
+                    </ol>
+
+                    <!-- Only contact and scheduling details, plus an optional body area, are collected. No medical history (brief 1.6). -->
+                    <form class="mt-8" action="https://formspree.io/f/xbddjlny" method="POST" data-ajax data-book data-success="Thank you, we've received your request. We'll contact you soon, usually within a few hours on working days, to confirm your appointment.">
                         <input type="hidden" name="_subject" value="Booking request (website)">
                         <input type="hidden" name="form" value="Booking">
                         <div class="hp-field" aria-hidden="true">
                             <label for="book-website">Website</label>
                             <input type="text" id="book-website" name="_gotcha" tabindex="-1" autocomplete="off">
                         </div>
-                        <div>
-                            <label class="field-label" for="book-name">Full name</label>
-                            <input class="field" type="text" id="book-name" name="name" autocomplete="name" required>
-                        </div>
-                        <div class="grid gap-5 sm:grid-cols-2">
+
+                        <fieldset class="book-step space-y-5" data-step="1">
+                            <legend class="book-legend">Step 1 of 3 · Your details</legend>
                             <div>
-                                <label class="field-label" for="book-phone">Phone / WhatsApp</label>
-                                <input class="field" type="tel" id="book-phone" name="phone" autocomplete="tel" inputmode="tel" required>
+                                <label class="field-label" for="book-name">Full name</label>
+                                <input class="field" type="text" id="book-name" name="name" autocomplete="name" required>
                             </div>
-                            <div>
-                                <label class="field-label" for="book-email">Email</label>
-                                <input class="field" type="email" id="book-email" name="email" autocomplete="email" required>
+                            <div class="grid gap-5 sm:grid-cols-2">
+                                <div>
+                                    <label class="field-label" for="book-phone">Phone / WhatsApp</label>
+                                    <input class="field" type="tel" id="book-phone" name="phone" autocomplete="tel" inputmode="tel" required>
+                                </div>
+                                <div>
+                                    <label class="field-label" for="book-email">Email</label>
+                                    <input class="field" type="email" id="book-email" name="email" autocomplete="email" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="grid gap-5 sm:grid-cols-2">
+                            <fieldset>
+                                <legend class="field-label">Do you have medical aid?</legend>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="choice"><input type="radio" name="medical_aid" value="Yes" required>Yes</label>
+                                    <label class="choice"><input type="radio" name="medical_aid" value="No">No</label>
+                                </div>
+                            </fieldset>
+                            <div class="book-nav"><span></span><button type="button" class="btn-primary" data-next>Next: day and time <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></button></div>
+                        </fieldset>
+
+                        <fieldset class="book-step space-y-5" data-step="2">
+                            <legend class="book-legend">Step 2 of 3 · Day and time</legend>
                             <div>
                                 <label class="field-label" for="book-date">Preferred date</label>
                                 <input class="field" type="date" id="book-date" name="preferred_date" data-weekdays required aria-describedby="book-date-hint">
                                 <p class="field-hint" id="book-date-hint">Monday to Friday</p>
                             </div>
-                            <div>
-                                <label class="field-label" for="book-time">Preferred time</label>
-                                <select class="field" id="book-time" name="preferred_time" required aria-describedby="book-time-hint">
-                                    <option value="">Choose a time</option>
-                                    <option value="06:00">06:00</option>
-                                    <option value="07:00">07:00</option>
-                                    <option value="08:00">08:00</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                </select>
-                                <p class="field-hint" id="book-time-hint">We are closed 13:00 – 14:00</p>
-                            </div>
-                        </div>
-                        <fieldset>
-                            <legend class="field-label">Do you have medical aid?</legend>
-                            <div class="grid grid-cols-2 gap-3">
-                                <label class="choice"><input type="radio" name="medical_aid" value="Yes" required>Yes</label>
-                                <label class="choice"><input type="radio" name="medical_aid" value="No">No</label>
-                            </div>
+                            <fieldset>
+                                <legend class="field-label">Preferred time</legend>
+                                <!-- TODO [CONFIRM]: appointment start times (based on opening hours 06:30 – 12:00 and 13:00 – 18:00). -->
+                                <p class="field-hint -mt-1 mb-3">Morning</p>
+                                <div class="flex flex-wrap gap-2">                                    <label class="time-chip"><input type="radio" name="preferred_time" value="06:30" required><span>06:30</span></label>                                    <label class="time-chip"><input type="radio" name="preferred_time" value="07:30"><span>07:30</span></label>                                    <label class="time-chip"><input type="radio" name="preferred_time" value="08:30"><span>08:30</span></label>                                    <label class="time-chip"><input type="radio" name="preferred_time" value="09:30"><span>09:30</span></label>                                    <label class="time-chip"><input type="radio" name="preferred_time" value="10:30"><span>10:30</span></label>                                    <label class="time-chip"><input type="radio" name="preferred_time" value="11:00"><span>11:00</span></label>
+                                </div>
+                                <p class="field-hint mb-3 mt-4">Afternoon (we're closed 12:00 – 13:00)</p>
+                                <div class="flex flex-wrap gap-2">                                    <label class="time-chip"><input type="radio" name="preferred_time" value="13:00"><span>13:00</span></label>
+                                    <label class="time-chip"><input type="radio" name="preferred_time" value="14:00"><span>14:00</span></label>
+                                    <label class="time-chip"><input type="radio" name="preferred_time" value="15:00"><span>15:00</span></label>
+                                    <label class="time-chip"><input type="radio" name="preferred_time" value="16:00"><span>16:00</span></label>
+                                    <label class="time-chip"><input type="radio" name="preferred_time" value="17:00"><span>17:00</span></label>
+                                </div>
+                            </fieldset>
+                            <div class="book-nav"><button type="button" class="btn-outline" data-back>Back</button><button type="button" class="btn-primary" data-next>Next: how we can help <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></button></div>
                         </fieldset>
-                        <div>
-                            <label class="field-label" for="book-reason">Reason for your visit</label>
-                            <select class="field" id="book-reason" name="reason" required>
-                                <option value="">Choose the closest match</option>
+
+                        <fieldset class="book-step space-y-5" data-step="3">
+                            <legend class="book-legend">Step 3 of 3 · How we can help</legend>
+                            <div>
+                                <label class="field-label" for="book-reason">Reason for your visit</label>
+                                <select class="field" id="book-reason" name="reason" required>
+                                    <option value="">Choose the closest match</option>
                                     <option>Back and neck pain</option>
                                     <option>Sports injury</option>
                                     <option>Recovery after injury</option>
@@ -174,36 +187,83 @@
                                     <option>Hydrotherapy (aquatherapy)</option>
                                     <option>Performance and conditioning</option>
                                     <option>Home exercise programme</option>
+                                    <option>Virtual consultation</option>
                                     <option>Other / not sure</option>
-                            </select>
-                            <p class="field-hint">Just the general reason. We will go through your health history in person.</p>
-                        </div>
-                        <p class="text-sm text-gray-600">By sending this form you agree to us using your details to arrange your appointment. See our <a class="text-petros-moss underline" href="/privacy-policy.html">Privacy Policy</a>.</p>
-                        <button type="submit" class="btn-primary w-full sm:w-auto"><svg data-icon="calendar-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="m9 16 2 2 4-4" /></svg>Request appointment</button>
+                                </select>
+                            </div>
+                            <fieldset class="body-picker">
+                                <legend class="field-label">Where do you feel it? <span class="font-normal text-gray-500">(optional)</span></legend>
+                                <p class="field-hint -mt-1 mb-4">Tap the body or the list. Seen from behind, so your left is on the left. Only the area is sent; we go through the details with you in person.</p>
+                                <div class="grid items-start gap-6 sm:grid-cols-[180px_1fr]">
+                                    <svg class="body-map mx-auto w-40 sm:w-full" viewBox="20 10 160 390" aria-hidden="true" data-body-map>
+                                        <g class="body-shape">
+                                            <circle cx="100" cy="36" r="20"/>
+                                            <path d="M100 56 V76" stroke-width="13"/>
+                                            <path d="M70 80 Q100 70 130 80 L136 140 Q127 180 125 214 L75 214 Q73 180 64 140 Z"/>
+                                            <path d="M70 88 L52 160 L44 232" stroke-width="14"/>
+                                            <path d="M130 88 L148 160 L156 232" stroke-width="14"/>
+                                            <path d="M88 212 L84 300 L82 378" stroke-width="18"/>
+                                            <path d="M112 212 L116 300 L118 378" stroke-width="18"/>
+                                        </g>
+                                        <circle class="body-spot" data-area="Neck" cx="100" cy="66" r="11"><title>Neck</title></circle>
+                                        <circle class="body-spot" data-area="Left shoulder" cx="72" cy="90" r="11"><title>Left shoulder</title></circle>
+                                        <circle class="body-spot" data-area="Right shoulder" cx="128" cy="90" r="11"><title>Right shoulder</title></circle>
+                                        <circle class="body-spot" data-area="Upper back" cx="100" cy="118" r="11"><title>Upper back</title></circle>
+                                        <circle class="body-spot" data-area="Lower back" cx="100" cy="178" r="11"><title>Lower back</title></circle>
+                                        <circle class="body-spot" data-area="Left elbow or arm" cx="52" cy="160" r="11"><title>Left elbow or arm</title></circle>
+                                        <circle class="body-spot" data-area="Right elbow or arm" cx="148" cy="160" r="11"><title>Right elbow or arm</title></circle>
+                                        <circle class="body-spot" data-area="Left wrist or hand" cx="44" cy="232" r="11"><title>Left wrist or hand</title></circle>
+                                        <circle class="body-spot" data-area="Right wrist or hand" cx="156" cy="232" r="11"><title>Right wrist or hand</title></circle>
+                                        <circle class="body-spot" data-area="Left hip" cx="86" cy="212" r="11"><title>Left hip</title></circle>
+                                        <circle class="body-spot" data-area="Right hip" cx="114" cy="212" r="11"><title>Right hip</title></circle>
+                                        <circle class="body-spot" data-area="Left knee" cx="84" cy="300" r="11"><title>Left knee</title></circle>
+                                        <circle class="body-spot" data-area="Right knee" cx="116" cy="300" r="11"><title>Right knee</title></circle>
+                                        <circle class="body-spot" data-area="Left ankle or foot" cx="82" cy="376" r="11"><title>Left ankle or foot</title></circle>
+                                        <circle class="body-spot" data-area="Right ankle or foot" cx="118" cy="376" r="11"><title>Right ankle or foot</title></circle>
+                                    </svg>
+                                    <div class="flex flex-wrap gap-2" data-area-list>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Neck"><span>Neck</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Left shoulder"><span>Left shoulder</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Right shoulder"><span>Right shoulder</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Upper back"><span>Upper back</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Lower back"><span>Lower back</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Left elbow or arm"><span>Left elbow or arm</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Right elbow or arm"><span>Right elbow or arm</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Left wrist or hand"><span>Left wrist or hand</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Right wrist or hand"><span>Right wrist or hand</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Left hip"><span>Left hip</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Right hip"><span>Right hip</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Left knee"><span>Left knee</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Right knee"><span>Right knee</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Left ankle or foot"><span>Left ankle or foot</span></label>
+                                    <label class="area-chip"><input type="checkbox" name="areas" value="Right ankle or foot"><span>Right ankle or foot</span></label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <p class="text-sm text-gray-600">By sending this form you agree to us using your details to arrange your appointment. See our <a class="text-petros-navy underline" href="/privacy-policy.html">Privacy Policy</a>.</p>
+                            <div class="book-nav"><button type="button" class="btn-outline" data-back>Back</button><button type="submit" class="btn-primary"><svg data-icon="calendar-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /><path d="m9 16 2 2 4-4" /></svg>Request appointment</button></div>
+                        </fieldset>
                         <p class="form-status" role="status" tabindex="-1" hidden></p>
                     </form>
                 </div>
 
                 <aside class="space-y-6">
-                    <div class="card reveal">
-                        <div class="icon-tile"><svg data-icon="clipboard-list" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="8" height="4" x="8" y="2" rx="1" ry="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><path d="M12 11h4" /><path d="M12 16h4" /><path d="M8 11h.01" /><path d="M8 16h.01" /></svg></div>
-                        <h2 class="text-2xl">Before your first visit</h2>
+                    <div class="glass-light rounded-[2rem] p-7 reveal">
+                        <div class="icon-tile"><svg data-icon="clock" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg></div>
+                        <h2 class="text-2xl">Your first visit</h2>
                         <!-- TODO [CONFIRM with practitioner]: wording about the health questionnaire. -->
-                        <p class="mt-3 text-gray-700">You will complete a short health questionnaire at your first visit.</p>
-                    </div>
-                    <div class="card reveal">
-                        <div class="icon-tile"><svg data-icon="user-round" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></svg></div>
-                        <h2 class="text-2xl">What to wear</h2>
-                        <p class="mt-3 text-gray-700">Comfortable exercise clothes and trainers. Avoid clothing that limits your movement.</p>
+                        <p class="mt-3 text-gray-700">It takes 30 to 60 minutes. You will complete a short health questionnaire at your first visit.</p>
+                        <p class="mt-3 text-sm text-gray-600">Walk-ins are welcome; we will usually give you a booking for your assessment.</p>
                     </div>
                     <div class="card reveal">
                         <div class="icon-tile"><svg data-icon="file-text" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></div>
-                        <h2 class="text-2xl">What to bring</h2>
+                        <h2 class="text-2xl">Wear and bring</h2>
                         <ul class="check-list mt-4 space-y-3 text-gray-700">
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Comfortable exercise clothes and trainers</span></li>
                             <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>A water bottle and towel</span></li>
                             <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Your medical aid card and ID</span></li>
-                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Your referral, if you have one (<a class="text-petros-moss underline" href="/medical-aid.html#referral">do I need one?</a>)</span></li>
-                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Any recent medical reports or scans (X-rays, MRI)</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Your referral, if you have one (<a class="text-petros-navy underline" href="/medical-aid.html#referral">do I need one?</a>)</span></li>
+                            <li><svg data-icon="check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5" /></svg><span>Any recent reports or scans (X-rays, MRI)</span></li>
                         </ul>
                     </div>
                     <p class="px-2 text-sm text-gray-600 reveal">Need to cancel? Please let us know at least 12 hours beforehand. A full fee applies for missed appointments or later cancellations.</p>
@@ -244,11 +304,11 @@
             </div>
             <div>
                 <h2 class="footer-h font-sans">Opening hours</h2>
-                <!-- TODO [CONFIRM]: opening hours are still correct. -->
+                <!-- Hours confirmed 22 Oct 2026. Keep in sync with contact.html, index.html (structured data) and assets/js/site.js. -->
                 <dl class="space-y-4 text-white/85">
                     <div>
                         <dt class="font-semibold text-white">Monday to Friday</dt>
-                        <dd>06:00 – 18:00 <span class="text-white/65">(closed 13:00 – 14:00)</span></dd>
+                        <dd>06:30 – 18:00 <span class="text-white/65">(closed 12:00 – 13:00)</span></dd>
                     </div>
                     <div>
                         <dt class="font-semibold text-white">Saturday and Sunday</dt>

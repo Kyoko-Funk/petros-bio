@@ -408,3 +408,30 @@
   .open-badge[data-state='closed'] .dot { @apply bg-petros-blue; }
   @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
 }
+
+/* ---------- Book now ---------- */
+@layer components {
+  .book-progress { @apply grid grid-cols-3 gap-2 text-xs font-semibold text-gray-500 sm:text-sm; }
+  .book-progress li { @apply flex flex-col items-start gap-2 border-t-4 border-petros-sand pt-3 transition-colors sm:flex-row sm:items-center; }
+  .book-progress li span { @apply flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-petros-sand text-petros-slate; }
+  .book-progress li.is-active, .book-progress li.is-done { @apply border-petros-navy text-petros-slate; }
+  .book-progress li.is-active span, .book-progress li.is-done span { @apply bg-petros-navy text-white; }
+  .book-legend { @apply mb-2 font-condensed text-sm font-semibold uppercase tracking-[0.16em] text-petros-moss; }
+  .book-nav { @apply flex items-center justify-between gap-3 pt-2; }
+  /* Steps: with JavaScript one step at a time; without, the whole form is shown */
+  .js [data-book] .book-step:not(.is-current) { display: none; }
+  .js [data-book] .book-step.is-current { animation: panel-in .4s ease both; }
+  html:not(.js) .book-nav button[type='button'], html:not(.js) .book-progress { display: none; }
+  html:not(.js) .book-step + .book-step { @apply mt-10 border-t border-black/5 pt-8; }
+  .time-chip, .area-chip { @apply cursor-pointer; }
+  .time-chip input, .area-chip input { @apply sr-only; }
+  .time-chip span { @apply inline-flex min-h-[48px] min-w-[5rem] items-center justify-center rounded-xl border border-petros-slate/20 bg-white px-3 font-semibold tabular-nums text-petros-slate transition hover:border-petros-navy; }
+  .area-chip span { @apply inline-flex min-h-[40px] items-center rounded-full border border-petros-slate/20 bg-white px-3 text-sm text-petros-slate transition hover:border-petros-navy; }
+  .time-chip input:checked + span, .area-chip input:checked + span { @apply border-petros-navy bg-petros-navy text-white; }
+  .time-chip input:focus-visible + span, .area-chip input:focus-visible + span { outline: 3px solid #7E8DA4; outline-offset: 2px; }
+  .body-map .body-shape * { fill: #EFEDE6; stroke: #EFEDE6; stroke-linecap: round; stroke-linejoin: round; }
+  .body-map .body-shape path[d^='M70 80'] { stroke-width: 2; }
+  .body-spot { fill: rgba(126,141,164,.28); stroke: #7E8DA4; stroke-width: 1.5; cursor: pointer; transition: fill .25s, r .25s; }
+  .body-spot:hover { fill: rgba(126,141,164,.5); }
+  .body-spot.is-on { fill: #4E5D73; stroke: #fff; stroke-width: 2.5; filter: drop-shadow(0 0 6px rgba(78,93,115,.6)); }
+}

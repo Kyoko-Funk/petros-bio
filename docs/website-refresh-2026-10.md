@@ -32,7 +32,7 @@ Kept and improved: tap a region on phones (there's no hover on touch), region bu
 
 ## Still to confirm with Jean-Pierre
 Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \[CONFIRM" *.html partials`).
-1. Opening hours: Mon–Fri 06:00–18:00, closed 13:00–14:00.
+1. Opening hours: confirmed 22 Oct 2026 as Mon–Fri 06:30–18:00, closed 12:00–13:00.
 2. Facebook: which page is current (now using `profile.php?id=61570341071678`).
 3. The removed second WhatsApp number (+264 81 650 3103): whose is it?
 4. Fees: all confirmed. Each assessment is charged separately (confirmed 22 Oct 2026). Karli will send a photo of the fee schedule to double-check.
@@ -43,7 +43,7 @@ Every item is also marked in the code as `TODO [CONFIRM]` (run `grep -rn "TODO \
 9. About: HPCNA registration number (Karli will send); Jean-Pierre to approve the new bio; whether the pugs are at the practice during sessions.
 10. Cloudinary file names (e.g. the rehab-area photo named "ChatGPT_Image_Jan_10_2026…") can only be renamed in the Cloudinary account. Years of experience ("8+") to confirm.
 11. Aquatherapy: offered, and where?
-12. "We usually reply within one working day."
+12. Reply time: "We reply as soon as we can, often within minutes" (confirmed). Walk-ins welcome; usually given a booking.
 13. Map pin location.
 14. Privacy Policy and Terms: legal check, including Namibian data-protection requirements.
 15. Hosting: the server is IIS. After uploading `web.config`, open a page: if it shows a 500 error, the host has locked a setting; delete `web.config` and check with the host. A `www.` to non-www redirect, if wanted, is set in the host's dashboard.
@@ -123,3 +123,6 @@ After comparing the branch with the live site and the brief:
 - FAQ redesigned: 15 questions in three topics (Getting started, Your visits, Medical aid and fees), a search box that shows and opens matching answers, topic chips; new answers on fitness, virtual consultations, reports to the doctor and missed sessions. Answers still to be checked by Jean-Pierre.
 - About redesigned: bio written from what the practice shared (helps people reach their goals, patient, explains every step, sense of humour, loves his dogs), "In practice since 2018" badge on the portrait, a credentials card, three principles (Patient-centred, Every step explained, Results you can measure), and "Meet the team": the watercolour illustration of the pugs Peanut (rounder) and Lily (slim). The illustration is also on the 404 page. No real photos of the dogs for now.
 - Contact redesigned: three glass quick-contact tiles (call, WhatsApp, email) with copy buttons; form with a "What is it about?" topic choice (booking, medical aid, fees, something else; sent with the message); opening hours with today highlighted and a live "Open now / Lunch / Closed" badge in Namibian time; "Get directions" button and map. If the hours change, update partials/footer.html, contact.html and the times in assets/js/site.js.
+- Opening hours changed everywhere to 06:30 – 18:00, closed 12:00 – 13:00 (footer, Contact, live "Open now" badge, Google structured data, booking times).
+- Contact: "We reply as soon as we can, often within minutes"; walk-ins welcome, usually given a booking for the assessment.
+- Book Now redesigned as three steps (your details → day and time → how we can help) with a progress bar; time chips (no 12:00 slot; start times to confirm); optional "Where do you feel it?" body map (seen from behind) synced with a list. This replaces the old site's pain-area diagram, which was part of the removed health form: only the area is sent, no medical history. Without JavaScript the whole form shows at once.

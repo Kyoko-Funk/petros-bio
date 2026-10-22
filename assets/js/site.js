@@ -184,17 +184,61 @@
         if (badge) {
           var weekday = day >= 1 && day <= 5;
           var text, open = false;
-          if (weekday && mins >= 360 && mins < 780) { open = true; text = 'Open now · until 13:00'; }
-          else if (weekday && mins >= 840 && mins < 1080) { open = true; text = 'Open now · until 18:00'; }
-          else if (weekday && mins >= 780 && mins < 840) { text = 'Lunch · back at 14:00'; }
-          else if (weekday && mins < 360) { text = 'Closed · opens at 06:00'; }
-          else { text = 'Closed · opens ' + (day === 5 || day === 6 ? 'Monday' : 'tomorrow') + ' at 06:00'; }
+          if (weekday && mins >= 390 && mins < 720) { open = true; text = 'Open now · until 12:00'; }
+          else if (weekday && mins >= 780 && mins < 1080) { open = true; text = 'Open now · until 18:00'; }
+          else if (weekday && mins >= 720 && mins < 780) { text = 'Lunch · back at 13:00'; }
+          else if (weekday && mins < 390) { text = 'Closed · opens at 06:30'; }
+          else { text = 'Closed · opens ' + (day === 5 || day === 6 ? 'Monday' : 'tomorrow') + ' at 06:30'; }
           badge.setAttribute('data-state', open ? 'open' : 'closed');
           badge.querySelector('[data-open-text]').textContent = text;
           badge.hidden = false;
         }
       }
     }
+
+    // Booking: three steps, each checked before moving on
+    document.querySelectorAll('[data-book]').forEach(function (form) {
+      var steps = Array.prototype.slice.call(form.querySelectorAll('.book-step'));
+      var bar = document.querySelectorAll('[data-book-progress] li');
+      var current = 0;
+      var show = function (i, focus) {
+        current = i;
+        steps.forEach(function (st, n) { st.classList.toggle('is-current', n === i); });
+        bar.forEach(function (li, n) { li.classList.toggle('is-active', n === i); li.classList.toggle('is-done', n < i); });
+        if (focus) {
+          var first = steps[i].querySelector('input:not([type=hidden]), select, textarea');
+          steps[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (first) setTimeout(function () { first.focus({ preventScroll: true }); }, 300);
+        }
+      };
+      var valid = function (st) {
+        var fields = st.querySelectorAll('input, select, textarea');
+        for (var k = 0; k < fields.length; k++) { if (!fields[k].checkValidity()) { fields[k].reportValidity(); return false; } }
+        return true;
+      };
+      form.querySelectorAll('[data-next]').forEach(function (b) { b.addEventListener('click', function () { if (valid(steps[current])) show(current + 1, true); }); });
+      form.querySelectorAll('[data-back]').forEach(function (b) { b.addEventListener('click', function () { show(current - 1, true); }); });
+      show(0, false);
+
+      // Body map and area list stay in sync (the checkboxes are what is sent)
+      var map = form.querySelector('[data-body-map]');
+      if (map) {
+        var boxes = form.querySelectorAll('[data-area-list] input');
+        var sync = function () {
+          boxes.forEach(function (bx) {
+            var spot = map.querySelector('[data-area="' + bx.value + '"]');
+            if (spot) spot.classList.toggle('is-on', bx.checked);
+          });
+        };
+        map.addEventListener('click', function (e) {
+          var spot = e.target.closest('[data-area]');
+          if (!spot) return;
+          boxes.forEach(function (bx) { if (bx.value === spot.getAttribute('data-area')) bx.checked = !bx.checked; });
+          sync();
+        });
+        boxes.forEach(function (bx) { bx.addEventListener('change', sync); });
+      }
+    });
 
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
@@ -212,6 +256,10 @@
           .then(function (r) { if (!r.ok) throw new Error('bad status ' + r.status); })
           .then(function () {
             form.reset();
+            if (form.hasAttribute('data-book')) {
+              form.querySelectorAll('.book-step').forEach(function (st) { st.classList.remove('is-current'); });
+              form.querySelectorAll('.body-spot.is-on').forEach(function (sp) { sp.classList.remove('is-on'); });
+            }
             show('ok', form.getAttribute('data-success'));
           })
           .catch(function () {
