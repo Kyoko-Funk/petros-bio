@@ -384,3 +384,27 @@
   .faq-item mark { @apply rounded bg-petros-mist/60 px-0.5 text-inherit; }
   html:not(.js) [data-faq-tools] { display: none; }
 }
+
+/* ---------- Contact ---------- */
+@layer components {
+  .contact-tile { @apply glass-light flex items-center justify-between gap-3 rounded-[1.5rem] p-4 transition hover:-translate-y-0.5 md:p-5; }
+  .contact-tile-main { @apply flex min-w-0 flex-1 items-center gap-4; }
+  .contact-copy { @apply inline-flex min-h-[40px] shrink-0 items-center gap-1.5 rounded-full border border-petros-navy/25 px-3 text-xs font-semibold text-petros-navy transition hover:bg-petros-navy hover:text-white; }
+  .contact-copy svg { @apply h-3.5 w-3.5; }
+  .topic-chip { @apply cursor-pointer; }
+  .topic-chip input { @apply sr-only; }
+  .topic-chip span { @apply inline-flex min-h-[44px] items-center rounded-full border border-petros-slate/20 bg-white px-4 text-sm font-medium text-petros-slate transition; }
+  .topic-chip input:checked + span { @apply border-petros-navy bg-petros-navy text-white; }
+  .topic-chip input:focus-visible + span { outline: 3px solid #7E8DA4; outline-offset: 2px; }
+  .hours-row { @apply flex justify-between gap-4 rounded-xl px-3 py-2 text-gray-700; }
+  .hours-row dt { @apply font-medium; }
+  .hours-row dd { @apply text-right tabular-nums; }
+  .hours-row.is-today { @apply bg-petros-sand font-semibold text-petros-slate; }
+  .open-badge { @apply inline-flex shrink-0 items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold; }
+  .open-badge .dot { @apply h-2.5 w-2.5 rounded-full; }
+  .open-badge[data-state='open'] { @apply bg-[#1F7A4D]/10 text-[#17603C]; }
+  .open-badge[data-state='open'] .dot { @apply bg-[#1F7A4D]; animation: pulse-dot 2s ease-in-out infinite; }
+  .open-badge[data-state='closed'] { @apply bg-petros-sand text-petros-slate; }
+  .open-badge[data-state='closed'] .dot { @apply bg-petros-blue; }
+  @keyframes pulse-dot { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+}

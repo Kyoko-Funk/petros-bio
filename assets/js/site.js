@@ -167,6 +167,35 @@
       });
     }
 
+    // Opening hours: highlight today and show "Open now" in Namibian time (keep in sync with the hours on the page)
+    var hours = document.querySelector('[data-hours]');
+    var badge = document.querySelector('[data-open-status]');
+    if (hours) {
+      var parts = {};
+      try {
+        new Intl.DateTimeFormat('en-GB', { timeZone: 'Africa/Windhoek', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' })
+          .formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
+      } catch (e) { parts = null; }
+      if (parts) {
+        var day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+        var mins = parseInt(parts.hour, 10) * 60 + parseInt(parts.minute, 10);
+        var row = hours.querySelector('[data-day="' + day + '"]');
+        if (row) row.classList.add('is-today');
+        if (badge) {
+          var weekday = day >= 1 && day <= 5;
+          var text, open = false;
+          if (weekday && mins >= 360 && mins < 780) { open = true; text = 'Open now · until 13:00'; }
+          else if (weekday && mins >= 840 && mins < 1080) { open = true; text = 'Open now · until 18:00'; }
+          else if (weekday && mins >= 780 && mins < 840) { text = 'Lunch · back at 14:00'; }
+          else if (weekday && mins < 360) { text = 'Closed · opens at 06:00'; }
+          else { text = 'Closed · opens ' + (day === 5 || day === 6 ? 'Monday' : 'tomorrow') + ' at 06:00'; }
+          badge.setAttribute('data-state', open ? 'open' : 'closed');
+          badge.querySelector('[data-open-text]').textContent = text;
+          badge.hidden = false;
+        }
+      }
+    }
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.
