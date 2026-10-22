@@ -7,7 +7,11 @@
   ready(function () {
     // Header turns solid once the page scrolls
     var header = document.querySelector('[data-header]');
-    function onScroll() { if (header) header.classList.toggle('is-scrolled', window.scrollY > 40); }
+    function onScroll() {
+      if (header) header.classList.toggle('is-scrolled', window.scrollY > 40);
+      // Floating call and WhatsApp buttons appear once the first screen is passed (phones only, see site.css)
+      document.body.classList.toggle('floats-on', window.scrollY > window.innerHeight * 0.5);
+    }
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -277,6 +281,18 @@
     });
 
     // Booking reason can be pre-selected from a link, e.g. /book-now.html?reason=hydrotherapy
+    // Body areas can be ticked from a link too, e.g. /book-now.html?area=Left%20knee (from the Method page figure)
+    var areaParam = new URLSearchParams(window.location.search).get('area');
+    if (areaParam) {
+      areaParam.split(',').forEach(function (v) {
+        document.querySelectorAll('input[name="areas"]').forEach(function (box) {
+          if (box.value.toLowerCase() === v.trim().toLowerCase() && !box.checked) {
+            box.checked = true;
+            box.dispatchEvent(new Event('change', { bubbles: true }));
+          }
+        });
+      });
+    }
     var reason = new URLSearchParams(window.location.search).get('reason');
     var reasonSelect = document.getElementById('book-reason');
     if (reason && reasonSelect) {

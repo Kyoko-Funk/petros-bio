@@ -266,6 +266,12 @@
   .wa-float { bottom: calc(var(--cookie-h, 0px) + 1.25rem); }
   .call-float { bottom: calc(var(--cookie-h, 0px) + 5.25rem); }
   @media (min-width: 768px) { .wa-float { bottom: 1.75rem; } }
+  /* Phones and tablets: the floating buttons wait until the visitor scrolls past the first screen,
+     so they never cover the hero text */
+  @media (max-width: 1023px) {
+    .js .wa-float, .js .call-float { @apply invisible translate-y-3 opacity-0; transition: opacity .3s, transform .3s, visibility .3s; }
+    .js body.floats-on .wa-float, .js body.floats-on .call-float { @apply visible translate-y-0 opacity-100; }
+  }
 
   /* Quiet trust line under the hero buttons */
   .hero-trust { @apply mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-white/80; }
@@ -306,6 +312,20 @@
   .spine-showcase .spine-regions button[aria-pressed='true'] { @apply border-petros-mist bg-petros-mist text-petros-night; }
   .spine-showcase .spine-regions button:hover { @apply border-white/40 bg-white/10; }
   .spine-showcase .spine-regions button[aria-pressed='true']:hover { @apply bg-petros-mist; }
+
+  /* Whole-body figure ("Where does it hurt?") */
+  .body-stage { @apply relative overflow-hidden rounded-[2rem] border border-black/5 shadow-soft;
+    background: radial-gradient(60% 55% at 50% 42%, #FFFFFF 0%, #F4F2EC 55%, #EAE6DC 100%); }
+  #body-model { @apply relative h-[460px] w-full md:h-[580px]; touch-action: pan-y; }
+  #body-model canvas { display: block; }
+  .body-hint { @apply bg-petros-navy text-white; }
+  .body-fallback { @apply hidden p-10 text-center text-gray-600; }
+  .body-unsupported #body-model, .body-unsupported .body-hint, html:not(.js) #body-model, html:not(.js) .body-hint { display: none; }
+  .body-unsupported .body-fallback, html:not(.js) .body-fallback { display: block; }
+  .body-panel { @apply min-h-[220px] rounded-[1.75rem] border border-black/5 bg-white/80 p-6 shadow-soft backdrop-blur md:p-7; }
+  .body-panel [data-body-detail]:not([hidden]) { animation: panel-in .45s ease both; }
+  .body-areas button { @apply min-h-[44px] rounded-2xl border border-black/10 bg-white px-4 py-2.5 text-left text-sm font-semibold text-petros-slate transition hover:border-petros-blue; }
+  .body-areas button[aria-pressed='true'] { @apply border-petros-navy bg-petros-navy text-white; }
 }
 
 @layer components {
@@ -373,6 +393,7 @@
   .aid-timeline::before { content: ''; @apply absolute left-6 top-6 hidden h-px bg-petros-blue/30 md:block; right: 12%; }
   .aid-step { @apply relative mb-4 flex h-12 w-12 items-center justify-center rounded-full border border-petros-blue/30 bg-petros-cream text-petros-navy; }
   .aid-step svg { @apply h-5 w-5; }
+  .step-dot { @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-petros-navy font-serif text-white; }
 }
 
 /* ---------- FAQ ---------- */

@@ -130,3 +130,15 @@ After comparing the branch with the live site and the brief:
 - Privacy Policy updated (22 Oct 2026): "In short" summary and on-page contents; booking form's optional body area and contact topic; cookies explained (analytics only after Accept, the stored cookie choice, small conveniences like the spine hint); WhatsApp and call buttons (nothing is sent until you choose to); Google Maps, Google Fonts and Cloudinary.
 - Terms updated: walk-ins, virtual consultations paid by EFT beforehand, each assessment charged separately, monthly fee unchanged for missed sessions, no VAT, the 3D spine is a simplified model, don't send medical details by WhatsApp or forms. Both still need a legal check before launch.
 - Hydrotherapy polished: "Who it can help" folded into "Is it right for me?", cards get the pointer glow, water bottle removed from what to bring.
+
+### Pre-launch additions (22 October 2026)
+- Phones and tablets: the floating call and WhatsApp buttons appear only after the visitor scrolls past the first
+  screen, so they no longer cover the hero text (`floats-on` class in `site.js`, styles in `src/site.css`).
+- Medical Aid page: new "For doctors and therapists" section (`#doctors`): how to refer, what happens, practitioner
+  contact. Footer links to it. TODO [CONFIRM] whether doctors may email referral letters, and "seen within a few days".
+- Google reviews link in the footer and on the Contact page. It points to a Google Maps search for the practice until
+  the Business Profile review link is supplied (TODO [CONFIRM]).
+- Method page: "Where does it hurt?" whole-body figure (`assets/js/body.js`). Built from simple shapes with the
+  three.js already on the page (no download), starts only when scrolled near, falls back to the area buttons without
+  WebGL. Tapping an area shows plain-language text and links to `/book-now.html?area=Left%20knee`, which ticks that
+  area on the booking body map. Nothing tapped is saved or sent. JP must approve the area wording.
