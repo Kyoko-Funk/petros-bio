@@ -98,151 +98,201 @@
             </div>
         </section>
 
-        <nav aria-label="Service groups" class="wrap -mt-4 mb-14 flex flex-wrap justify-center gap-3 md:mb-20">
-            <a href="#pain-injury" class="btn-outline bg-white">Pain and injury</a>
-            <a href="#chronic" class="btn-outline bg-white">Chronic and lifestyle conditions</a>
-            <a href="#specialised" class="btn-outline bg-white">Specialised care</a>
+        <!-- Group tabs: stay visible while scrolling and highlight the current group -->
+        <nav aria-label="Service groups" class="group-tabs" data-scrollspy>
+            <div class="wrap">
+                <div class="group-tabs-inner">
+                    <a href="#pain-injury"><svg data-icon="bone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z" /></svg>Pain<span class="hidden whitespace-pre sm:inline"> and injury</span></a>
+                    <a href="#chronic"><svg data-icon="heart-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></svg>Chronic<span class="hidden whitespace-pre sm:inline"> and lifestyle</span></a>
+                    <a href="#specialised"><svg data-icon="brain" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M19.938 10.5a4 4 0 0 1 .585.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M19.967 17.484A4 4 0 0 1 18 18" /></svg>Specialised<span class="hidden whitespace-pre sm:inline"> care</span></a>
+                </div>
+            </div>
         </nav>
 
-        <section id="pain-injury" class="scroll-mt-24 pb-20 md:pb-28">
-            <div class="wrap">
-                <div class="mb-10 flex items-end gap-6 reveal">
-                    <h2 class="h-section">Pain and <em>injury</em></h2>
-                    <span class="mb-3 hidden h-px flex-1 bg-petros-blue/30 md:block"></span>
+        <section id="pain-injury" class="scroll-mt-40 py-16 md:py-24 ">
+            <div class="wrap grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+                <div class="lg:sticky lg:top-40  reveal">
+                    <span class="eyebrow">Pain and injury</span>
+                    <h2 class="h-section">Moving <em>without pain</em></h2>
+                    <p class="lead mt-4">Exercise-based rehabilitation for pain, injuries and recovery after surgery.</p>
+                    <div class="mt-8 hidden overflow-hidden rounded-[2rem] shadow-lift sm:block"><img src="/assets/img/knee-taping-600.webp" srcset="/assets/img/knee-taping-600.webp 600w, /assets/img/knee-taping-900.webp 900w" sizes="(min-width: 1024px) 35vw, 90vw" width="600" height="900" alt="A practitioner explains knee taping to an athlete sitting on a sports floor" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-[3/4]"></div>
                 </div>
-                <div class="grid gap-6 md:grid-cols-2">
-                    <article id="back-neck" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433409/pexels-karola-g-4506161_xr6pmc.jpg" alt="A patient doing a guided back-strengthening exercise" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Back and neck pain</h3>
-                            <p class="mt-3 text-gray-700">Posture, mobility and targeted strengthening to reduce pain and help prevent it returning.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> stiffness, limited movement, recurring pain.</p>
-                        </div>
-                    </article>
-                    <article id="sports-injuries" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433563/pexels-kindelmedia-7298422_zc84zt.jpg" alt="An athlete working through a rehabilitation exercise" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Sports injuries</h3>
-                            <p class="mt-3 text-gray-700">Rehabilitation and a guided return to sport, based on how you move.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> sprains, strains, overuse injuries.</p>
-                        </div>
-                    </article>
-                    <article id="injury-recovery" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767433915/pexels-shvetsa-3846157_hhxk4b.jpg" alt="A patient regaining strength with light resistance exercise" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Recovery after injury</h3>
-                            <p class="mt-3 text-gray-700">A step-by-step return to strength, movement and confidence.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> weakness, limited movement, fear of re-injury.</p>
-                        </div>
-                    </article>
-                    <article id="after-surgery" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1768036425/pexels-funkcines-terapijos-centras-927573878-20860582_g3sb5m.jpg" alt="A patient exercising under supervision in a rehabilitation centre" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Rehabilitation after surgery</h3>
-                            <p class="mt-3 text-gray-700">Programmes in line with your surgeon's guidance.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> hip and knee replacements, ACL and shoulder repairs, spinal surgery.</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="chronic" class="scroll-mt-24 pb-20 md:pb-28">
-            <div class="wrap">
-                <div class="mb-10 flex items-end gap-6 reveal">
-                    <h2 class="h-section">Chronic and <em>lifestyle</em> conditions</h2>
-                    <span class="mb-3 hidden h-px flex-1 bg-petros-blue/30 md:block"></span>
-                </div>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <article id="heart-lung" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434040/pexels-martabranco-32236830_dshmlx.jpg" alt="A person walking outdoors as part of a cardiac exercise programme" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Heart and lung health</h3>
-                            <p class="mt-3 text-gray-700">Supervised exercise to build endurance and breathing capacity.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> recovery after cardiac events, respiratory conditions, low stamina.</p>
-                        </div>
-                    </article>
-                    <article id="lifestyle" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434040/pexels-n-voitkevich-6941098_c4zcy2.jpg" alt="Exercise equipment and a water bottle ready for a training session" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Lifestyle conditions</h3>
-                            <p class="mt-3 text-gray-700">Medically informed exercise programmes.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> type 2 diabetes, high blood pressure, weight management, metabolic health.</p>
-                        </div>
-                    </article>
-                    <article id="fatigue-fibromyalgia" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434303/pexels-tara-winstead-8386710_algivj.jpg" alt="A calm, gentle stretching exercise" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Chronic fatigue and fibromyalgia</h3>
-                            <p class="mt-3 text-gray-700">Paced programmes that respect your energy levels.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> CFS/ME, fibromyalgia, chronic pain.</p>
-                        </div>
-                    </article>
+                <div class="grid gap-5">
+                        <article id="back-neck" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="bone" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 10c.7-.7 1.69 0 2.5 0a2.5 2.5 0 1 0 0-5 .5.5 0 0 1-.5-.5 2.5 2.5 0 1 0-5 0c0 .81.7 1.8 0 2.5l-7 7c-.7.7-1.69 0-2.5 0a2.5 2.5 0 0 0 0 5c.28 0 .5.22.5.5a2.5 2.5 0 1 0 5 0c0-.81-.7-1.8 0-2.5Z" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Back and neck pain</h3>
+                                    <p class="mt-2 text-gray-700">Posture, mobility and targeted strengthening to reduce pain and help prevent it returning.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Stiffness</li><li>Limited movement</li><li>Recurring pain</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article id="sports-injuries" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="trophy" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Sports injuries</h3>
+                                    <p class="mt-2 text-gray-700">Rehabilitation and a guided return to sport, based on how you move.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Sprains</li><li>Strains</li><li>Overuse injuries</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article id="injury-recovery" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="refresh-cw" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Recovery after injury</h3>
+                                    <p class="mt-2 text-gray-700">A step-by-step return to strength, movement and confidence.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Weakness</li><li>Limited movement</li><li>Fear of re-injury</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article id="after-surgery" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="stethoscope" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 2v2" /><path d="M5 2v2" /><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1" /><path d="M8 15a6 6 0 0 0 12 0v-3" /><circle cx="20" cy="10" r="2" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Rehabilitation after surgery</h3>
+                                    <p class="mt-2 text-gray-700">Programmes in line with your surgeon's guidance.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Hip and knee replacements</li><li>ACL and shoulder repairs</li><li>Spinal surgery</li></ul>
+                                </div>
+                            </div>
+                        </article>
                 </div>
             </div>
         </section>
 
-        <section id="specialised" class="scroll-mt-24 pb-20 md:pb-28">
-            <div class="wrap">
-                <div class="mb-10 flex items-end gap-6 reveal">
-                    <h2 class="h-section">Specialised <em>care</em></h2>
-                    <span class="mb-3 hidden h-px flex-1 bg-petros-blue/30 md:block"></span>
+        <section id="chronic" class="scroll-mt-40 py-16 md:py-24 bg-petros-sand/60">
+            <div class="wrap grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
+                <div class="lg:sticky lg:top-40 lg:order-2 reveal">
+                    <span class="eyebrow">Chronic and lifestyle conditions</span>
+                    <h2 class="h-section">Living <em>well</em>, long term</h2>
+                    <p class="lead mt-4">Supervised exercise to help manage long-term conditions and build everyday energy.</p>
+                    <div class="mt-8 hidden overflow-hidden rounded-[2rem] shadow-lift sm:block"><img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_900/v1767434040/pexels-n-voitkevich-6941098_c4zcy2.jpg" alt="Exercise equipment and a water bottle ready for a training session" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-[3/4]"></div>
                 </div>
-                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <article id="neurological" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434164/pexels-shvetsa-4226119_qyrttu.jpg" alt="A patient practising a balance exercise with support" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Neurological conditions</h3>
-                            <p class="mt-3 text-gray-700">Long-term programmes to support balance, strength and independence.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> stroke, Parkinson's disease, multiple sclerosis, balance disorders.</p>
-                        </div>
-                    </article>
-                    <article id="womens-health" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434430/pexels-jonathanborba-2917339_sz0jhk.jpg" alt="A woman doing a gentle core exercise on a mat" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl">Women's health</h3>
-                            <p class="mt-3 text-gray-700">Exercise before and after pregnancy for strength, core stability and a safe return to activity.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> pregnancy fitness, postnatal recovery, pelvic floor strength.</p>
-                        </div>
-                    </article>
-                    <!-- TODO [CONFIRM]: hydrotherapy (aquatherapy) is currently offered, and where. -->
-                    <article id="aquatherapy" class="scroll-mt-28 overflow-hidden rounded-[2rem] border border-black/5 bg-white shadow-soft reveal">
-                        <img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_800/v1767434626/pexels-cottonbro-7222572_f3iang.jpg" alt="Exercise in a swimming pool" loading="lazy" class="aspect-[16/10] w-full object-cover">
-                        <div class="p-7">
-                            <h3 class="text-2xl"><a href="/hydrotherapy.html" class="hover:text-petros-moss">Hydrotherapy</a></h3>
-                            <p class="mt-3 text-gray-700">Also called aquatherapy: exercise in warm water, which supports your body and reduces the load on your joints.</p>
-                            <p class="mt-4 border-t border-black/5 pt-4 text-sm text-gray-600"><strong class="font-semibold text-petros-moss">Helps with:</strong> arthritis, joint pain, early recovery after injury.</p>
-                            <a href="/hydrotherapy.html" class="link-arrow mt-4">About hydrotherapy <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
-                        </div>
-                    </article>
-                </div>
-                <div class="mt-6 grid gap-6 md:grid-cols-2">
-                    <article id="facility" class="card scroll-mt-28 reveal">
-                        <div class="icon-tile"><svg data-icon="dumbbell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.4 14.4 9.6 9.6" /><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" /><path d="m21.5 21.5-1.4-1.4" /><path d="M3.9 3.9 2.5 2.5" /><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" /></svg></div>
-                        <h3 class="text-2xl">Facility use</h3>
-                        <p class="mt-3 text-gray-700">Independent use of our equipment for existing patients, under supervision.</p>
-                    </article>
-                    <article id="home-programmes" class="card scroll-mt-28 reveal">
-                        <div class="icon-tile"><svg data-icon="file-text" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></div>
-                        <h3 class="text-2xl">Home exercise programmes</h3>
-                        <p class="mt-3 text-gray-700">A written programme to follow at home. <a class="text-petros-moss underline" href="/pricing.html#home-programmes">See fees</a>.</p>
-                    </article>
+                <div class="grid gap-5">
+                        <article id="heart-lung" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="heart-pulse" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" /><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Heart and lung health</h3>
+                                    <p class="mt-2 text-gray-700">Supervised exercise to build endurance and breathing capacity.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Recovery after cardiac events</li><li>Respiratory conditions</li><li>Low stamina</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article id="lifestyle" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="apple" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" /><path d="M10 2c1 .5 2 2 2 5" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Lifestyle conditions</h3>
+                                    <p class="mt-2 text-gray-700">Medically informed exercise programmes.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Type 2 diabetes</li><li>High blood pressure</li><li>Weight management</li><li>Metabolic health</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article id="fatigue-fibromyalgia" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="battery-medium" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="16" height="10" x="2" y="7" rx="2" ry="2" /><line x1="22" x2="22" y1="11" y2="13" /><line x1="6" x2="6" y1="11" y2="13" /><line x1="10" x2="10" y1="11" y2="13" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Chronic fatigue and fibromyalgia</h3>
+                                    <p class="mt-2 text-gray-700">Paced programmes that respect your energy levels.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>CFS/ME</li><li>Fibromyalgia</li><li>Chronic pain</li></ul>
+                                </div>
+                            </div>
+                        </article>
                 </div>
             </div>
         </section>
 
-        <section class="pb-20 md:pb-28">
-            <div class="wrap">
-                <div class="on-dark flex flex-col items-start gap-6 rounded-[2rem] bg-petros-deep p-8 text-white md:flex-row md:items-center md:justify-between md:p-12 reveal">
+        <section id="specialised" class="scroll-mt-40 py-16 md:py-24 ">
+            <div class="wrap grid items-start gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-14">
+                <div class="lg:sticky lg:top-40  reveal">
+                    <span class="eyebrow">Specialised care</span>
+                    <h2 class="h-section">Care for <em>specific needs</em></h2>
+                    <p class="lead mt-4">Long-term support for neurological conditions, pregnancy and exercise in water.</p>
+                    <div class="mt-8 hidden overflow-hidden rounded-[2rem] shadow-lift sm:block"><img src="https://res.cloudinary.com/karlifunk/image/upload/f_auto,q_auto,w_900/v1767434626/pexels-cottonbro-7222572_f3iang.jpg" alt="Exercise in a swimming pool" loading="lazy" class="aspect-[4/5] w-full object-cover lg:aspect-[3/4]"></div>
+                </div>
+                <div class="grid gap-5">
+                        <article id="neurological" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="brain" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /><path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /><path d="M3.477 10.896a4 4 0 0 1 .585-.396" /><path d="M19.938 10.5a4 4 0 0 1 .585.396" /><path d="M6 18a4 4 0 0 1-1.967-.516" /><path d="M19.967 17.484A4 4 0 0 1 18 18" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Neurological conditions</h3>
+                                    <p class="mt-2 text-gray-700">Long-term programmes to support balance, strength and independence.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Stroke</li><li>Parkinson's disease</li><li>Multiple sclerosis</li><li>Balance disorders</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article id="womens-health" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="baby" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 12h.01" /><path d="M15 12h.01" /><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5" /><path d="M19 6.3a9 9 0 0 1 1.8 3.9 2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Women's health</h3>
+                                    <p class="mt-2 text-gray-700">Exercise before and after pregnancy for strength, core stability and a safe return to activity.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Pregnancy fitness</li><li>Postnatal recovery</li><li>Pelvic floor strength</li></ul>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- TODO [CONFIRM]: hydrotherapy (aquatherapy) is currently offered, and where. -->
+                        <article id="aquatherapy" class="card spotlight scroll-mt-40 p-6 md:p-7 reveal" data-spotlight>
+                            <div class="flex items-start gap-4">
+                                <div class="icon-tile mb-0 shrink-0"><svg data-icon="waves" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" /></svg></div>
+                                <div>
+                                    <h3 class="text-2xl">Hydrotherapy</h3>
+                                    <p class="mt-2 text-gray-700">Also called aquatherapy: exercise in warm water, which supports your body and reduces the load on your joints.</p>
+                                    <p class="mt-4 font-condensed text-sm font-semibold uppercase tracking-[0.14em] text-petros-moss">Helps with</p>
+                                    <ul class="helps mt-2"><li>Arthritis</li><li>Joint pain</li><li>Early recovery after injury</li></ul>
+                                    <a href="/hydrotherapy.html" class="link-arrow mt-4">About hydrotherapy <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+                                </div>
+                            </div>
+                        </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Also available -->
+        <section class="pb-16 md:pb-24">
+            <div class="wrap grid gap-5 md:grid-cols-2">
+                <article id="facility" class="card scroll-mt-40 flex items-start gap-4 p-6 md:p-7 reveal" data-tilt>
+                    <div class="icon-tile mb-0 shrink-0"><svg data-icon="dumbbell" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.4 14.4 9.6 9.6" /><path d="M18.657 21.485a2 2 0 1 1-2.829-2.828l-1.767 1.768a2 2 0 1 1-2.829-2.829l6.364-6.364a2 2 0 1 1 2.829 2.829l-1.768 1.767a2 2 0 1 1 2.828 2.829z" /><path d="m21.5 21.5-1.4-1.4" /><path d="M3.9 3.9 2.5 2.5" /><path d="M6.404 12.768a2 2 0 1 1-2.829-2.829l1.768-1.767a2 2 0 1 1-2.828-2.829l2.828-2.828a2 2 0 1 1 2.829 2.828l1.767-1.768a2 2 0 1 1 2.829 2.829z" /></svg></div>
                     <div>
-                        <h2 class="font-serif text-3xl">Don't see your condition?</h2>
-                        <p class="mt-2 max-w-xl text-white/85">Contact us. We'll tell you honestly whether biokinetics is likely to help.</p>
+                        <h3 class="text-2xl">Facility use</h3>
+                        <p class="mt-2 text-gray-700">Independent use of our equipment for existing patients, under supervision.</p>
+                        <a class="link-arrow mt-4" href="/pricing.html#facility">See fees <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
-                    <div class="flex flex-col gap-3 sm:flex-row">
-                        <a href="/contact.html" class="btn-light">Contact us</a>
-                        <a href="/book-now.html" class="btn-ghost">Book an assessment</a>
+                </article>
+                <article id="home-programmes" class="card scroll-mt-40 flex items-start gap-4 p-6 md:p-7 reveal" data-tilt>
+                    <div class="icon-tile mb-0 shrink-0"><svg data-icon="house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></div>
+                    <div>
+                        <h3 class="text-2xl">Home exercise programmes</h3>
+                        <p class="mt-2 text-gray-700">A written programme to follow at home, alongside your sessions or on its own.</p>
+                        <a class="link-arrow mt-4" href="/pricing.html#home-programmes">See fees <svg data-icon="arrow-right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
                     </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Not sure? -->
+        <section class="on-dark relative isolate overflow-hidden bg-petros-deep py-20 text-white md:py-24">
+            <div class="pointer-events-none absolute -left-40 -bottom-40 -z-10 h-[30rem] w-[30rem] rounded-full bg-petros-blue/20 blur-3xl" aria-hidden="true"></div>
+            <div class="wrap-narrow text-center reveal">
+                <h2 class="h-section">Don't see your <em class="!text-petros-mist">condition?</em></h2>
+                <p class="mx-auto mt-5 max-w-xl text-lg text-white/85">Contact us. We'll tell you honestly whether biokinetics is likely to help, and if not, who could.</p>
+                <div class="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
+                    <a href="/contact.html" class="btn-light">Contact us</a>
+                    <a href="/book-now.html" class="btn-ghost">Book an assessment</a>
                 </div>
+                <p class="mt-8 text-sm text-white/70"><svg data-icon="compass" class="mr-1 inline h-4 w-4 align-[-3px] text-petros-mist" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /><circle cx="12" cy="12" r="10" /></svg>Back or neck problem? <a href="/the-method.html" class="font-semibold text-white underline underline-offset-4">Explore the spine in 3D</a></p>
             </div>
         </section>
     </main>

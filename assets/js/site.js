@@ -101,6 +101,20 @@
       });
     }
 
+    // Scrollspy: highlight the tab of the section in view (Services group tabs)
+    document.querySelectorAll('[data-scrollspy]').forEach(function (nav) {
+      var links = Array.prototype.slice.call(nav.querySelectorAll('a[href^="#"]'));
+      var sections = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); }).filter(Boolean);
+      if (!sections.length || !('IntersectionObserver' in window)) return;
+      var setActive = function (id) {
+        links.forEach(function (a) { a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + id)); });
+      };
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) setActive(en.target.id); });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      sections.forEach(function (sec) { spy.observe(sec); });
+    });
+
     document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
     // Forms post to Formspree (emails petrosbiokinetics@gmail.com). Without JS they still submit normally.
