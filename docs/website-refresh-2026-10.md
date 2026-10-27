@@ -142,3 +142,13 @@ After comparing the branch with the live site and the brief:
   three.js already on the page (no download), starts only when scrolled near, falls back to the area buttons without
   WebGL. Tapping an area shows plain-language text and links to `/book-now.html?area=Left%20knee`, which ticks that
   area on the booking body map. Nothing tapped is saved or sent. JP must approve the area wording.
+
+### Practice details and photos (27 October 2026)
+- HPCNA registration number BIO00113 (from the HPCNA practising card and the NAMAF practice record) added to the
+  About credentials and the Medical Aid "For doctors" box. Official name: Health Professions Council of Namibia.
+- Fees: bank, branch code and account number match the NAMAF record; account name now "Pétros Biokinetics CC".
+  Publishing the banking details still needs the practice's OK.
+- New photos from the practice, saved as compressed WebP without camera data: `practice-pool-*`,
+  `practice-reception-*`, `practice-entrance-*`. Used on About (hero and gallery), Hydrotherapy (new pool photo,
+  "Indoor, at the practice") and Services (hydrotherapy image).
+- Never publish the HPCNA application form, receipts or the NAMAF sheet: they hold his ID number and bank details.
