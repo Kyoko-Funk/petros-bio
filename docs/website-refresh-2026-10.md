@@ -152,3 +152,10 @@ After comparing the branch with the live site and the brief:
   `practice-reception-*`, `practice-entrance-*`. Used on About (hero and gallery), Hydrotherapy (new pool photo,
   "Indoor, at the practice") and Services (hydrotherapy image).
 - Never publish the HPCNA application form, receipts or the NAMAF sheet: they hold his ID number and bank details.
+
+### Fee sheet check (28 October 2026)
+- Every price on the Fees page matches the practice's printed 2026 fee sheet (assessments, re-evaluations, group and
+  one-on-one sessions for both rates, facility use, home programmes). Virtual consultation prices come from the brief
+  and are not on the sheet: confirm they are current.
+- The 2026 NAMAF tariff sheet (codes 901–931; an exercise session is codes 926 + 931 = N$379.80) is not shown on the
+  site, as decided. It is useful for the Phase 2 benefit tracker.
